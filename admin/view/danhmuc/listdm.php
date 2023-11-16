@@ -11,30 +11,38 @@
                             <tr>
                                 <th class="border-top-0">Mã</th>
                                 <th class="border-top-0">Tên loại</th>
-                                <th class="border-top-0">Xóa &#160; || &#160; Sửa</th>
+                                <th class="border-top-0">Sửa</th>
+                                <th class="border-top-0">Xóa</th>
                                 <th class="border-top-0">
                                     <a href="index.php?act=adddm">Thêm</a>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Deshmukh</td>
-                                <td>
-                                    <i class="fas fa-trash-alt">&#160; &#160; &#160; &#160;||&#160; &#160; &#160;
-                                        &#160;<i class="fas fa-edit">
-                                </td>
-                            </tr>
+                            <?php
+                            foreach ($listdm as $list) {
+                                extract($list);
+                                $editdm = "index.php?act=editdm&id=" . $id;
+                                $deldm = "index.php?act=deldm&id=" . $id;
+                                echo '
+                                    <tr>
+                                        <td>' . $id . '</td>
+                                        <td>' . $name . '</td>
+                                        <td>
+                                            <a href="'.$editdm.'" class="fas fa-edit"></a>
+                                        </td>
+                                        <td>
+                                            <a href="'.$deldm.'" class="fas fa-trash-alt"></a>
+                                        </td>
+                                    </tr>
+                                    ';
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End PAge Content -->
-    <!-- Right sidebar -->
-    <!-- .right-sidebar -->
-    <!-- End Right sidebar -->
 </div>
 <!-- End Container fluid  -->
