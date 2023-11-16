@@ -79,7 +79,7 @@
                         <div class="col-lg-12">
                             <div class="header-middle_nav">
                                 <div class="header-logo_area">
-                                    <a href="index.html">
+                                    <a href="index.php">
                                         <img src="view/assets/images/menu/logo/1.png" alt="Header Logo" class="hd-logo">
                                     </a>
                                 </div>
@@ -188,13 +188,13 @@
                                                     <ul>
                                                         <li><a href="index.php?act=myacc">My Account</a></li>
                                                         <li>
-                                                            <a href="index.php?act=wlist">Yêu thích</a>
-                                                        </li>
-                                                        <li>
                                                             <a href="index.php?act=signin">Đăng nhập</a>
                                                         </li>
                                                         <li>
                                                             <a href="index.php?act=register">Đăng kí</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="index.php?act=wlist">Yêu thích</a>
                                                         </li>
                                                         <li><a href="index.php?act=cart">Giỏ hàng</a></li>
                                                         <li><a href="index.php?act=faq">FAQ</a></li>

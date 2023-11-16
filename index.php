@@ -1,5 +1,4 @@
 <?php
-$act = null;
 include("view/header.php");
 
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
