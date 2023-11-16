@@ -184,6 +184,15 @@
                                                         </li>
                                                     </ul>
                                                 </li>
+                                                <li><span class="megamenu-title">Danh mục</span>
+                                                    <ul>
+                                                        <li><a href="shop-fullwidth.html">Sản phẩm 1</a></li>
+                                                        <li><a href="shop-fullwidth.html">Sản phẩm 2</a></li>
+                                                        <li><a href="shop-fullwidth.html">Sản phẩm 3</a></li>
+                                                        <li><a href="shop-fullwidth.html">Sản phẩm 4</a></li>
+                                                        <li><a href="shop-fullwidth.html">Sản phẩm 5</a></li>
+                                                    </ul>
+                                                </li>
                                                 <li><span class="megamenu-title">Trang liên quan</span>
                                                     <ul>
                                                         <li><a href="index.php?act=myacc">My Account</a></li>
