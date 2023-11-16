@@ -7,8 +7,14 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/taikhoan/myadmin.php');
             break;
 
+        // DANH MỤC SẢN PHẨM ===============
+        
         case 'listdm':
             include('view/danhmuc/listdm.php');
+            break;
+
+        case 'adddm':
+            include('view/danhmuc/adddm.php');
             break;
 
         case 'listsp':

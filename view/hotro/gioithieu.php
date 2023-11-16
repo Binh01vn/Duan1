@@ -31,7 +31,7 @@
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, nulla veniam? Magni aliquid
                         asperiores magnam. Veniam ex tenetur.</p>
                     <div class="kenne-about-us_btn-area">
-                        <a class="about-us_btn" href="index.php?act=sanpham">Shop Now</a>
+                        <a class="about-us_btn" href="index.php?act=sanpham">Mua sắm ngay</a>
                     </div>
                 </div>
             </div>

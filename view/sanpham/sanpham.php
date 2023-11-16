@@ -4,7 +4,7 @@
         <div class="breadcrumb-content">
             <h2>ALL SẢN PHẨM</h2>
             <ul>
-                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="index.php">Trang chủ</a></li>
                 <li class="active">Tất cả sản phẩm</li>
             </ul>
         </div>

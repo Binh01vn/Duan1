@@ -124,8 +124,8 @@
                                 <a href="index.php?act=sanphamct">
                                     <img class="primary-img" src="view/assets/images/product/1-1.jpg"
                                         alt="Kenne's Product Image">
-                                    <img class="secondary-img" src="view/assets/images/product/1-2.jpg"
-                                        alt="Kenne's Product Image">
+                                    <!-- <img class="secondary-img" src="view/assets/images/product/1-2.jpg"
+                                        alt="Kenne's Product Image"> -->
                                 </a>
                                 <span class="sticker-2">Hot</span>
                                 <div class="add-actions">
@@ -150,15 +150,6 @@
                                     <div class="price-box">
                                         <span class="new-price">$46.91</span>
                                         <span class="old-price">$50.99</span>
-                                    </div>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

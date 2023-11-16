@@ -19,65 +19,8 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="sp-img_area">
-                        <div class="sp-img_slider slick-img-slider kenne-element-carousel" data-slick-options='{
-                                "slidesToShow": 1,
-                                "arrows": false,
-                                "fade": true,
-                                "draggable": false,
-                                "swipe": false,
-                                "asNavFor": ".sp-img_slider-nav"
-                                }'>
-                            <div class="single-slide red zoom">
-                                <img src="view/assets/images/product/1-1.jpg" alt="Kenne's Product Image">
-                            </div>
-                            <div class="single-slide orange zoom">
-                                <img src="view/assets/images/product/1-2.jpg" alt="Kenne's Product Image">
-                            </div>
-                            <div class="single-slide brown zoom">
-                                <img src="view/assets/images/product/2-1.jpg" alt="Kenne's Product Image">
-                            </div>
-                            <div class="single-slide umber zoom">
-                                <img src="view/assets/images/product/2-2.jpg" alt="Kenne's Product Image">
-                            </div>
-                            <div class="single-slide black zoom">
-                                <img src="view/assets/images/product/3-1.jpg" alt="Kenne's Product Image">
-                            </div>
-                            <div class="single-slide green zoom">
-                                <img src="view/assets/images/product/3-2.jpg" alt="Kenne's Product Image">
-                            </div>
-                        </div>
-                        <div class="sp-img_slider-nav slick-slider-nav kenne-element-carousel arrow-style-2 arrow-style-3"
-                            data-slick-options='{
-                                "slidesToShow": 3,
-                                "asNavFor": ".sp-img_slider",
-                                "focusOnSelect": true,
-                                "arrows" : true,
-                                "spaceBetween": 30
-                                }' data-slick-responsive='[
-                                        {"breakpoint":1501, "settings": {"slidesToShow": 3}},
-                                        {"breakpoint":1200, "settings": {"slidesToShow": 2}},
-                                        {"breakpoint":992, "settings": {"slidesToShow": 4}},
-                                        {"breakpoint":768, "settings": {"slidesToShow": 3}},
-                                        {"breakpoint":575, "settings": {"slidesToShow": 2}}
-                                    ]'>
-                            <div class="single-slide red">
-                                <img src="view/assets/images/product/1-1.jpg" alt="Kenne's Product Thumnail">
-                            </div>
-                            <div class="single-slide orange">
-                                <img src="view/assets/images/product/1-2.jpg" alt="Kenne's Product Thumnail">
-                            </div>
-                            <div class="single-slide brown">
-                                <img src="view/assets/images/product/2-1.jpg" alt="Kenne's Product Thumnail">
-                            </div>
-                            <div class="single-slide umber">
-                                <img src="view/assets/images/product/2-2.jpg" alt="Kenne's Product Thumnail">
-                            </div>
-                            <div class="single-slide red">
-                                <img src="view/assets/images/product/3-1.jpg" alt="Kenne's Product Thumnail">
-                            </div>
-                            <div class="single-slide orange">
-                                <img src="view/assets/images/product/3-2.jpg" alt="Kenne's Product Thumnail">
-                            </div>
+                        <div class="single-slide red zoom">
+                            <img src="view/assets/images/product/1-1.jpg" alt="Kenne's Product Image">
                         </div>
                     </div>
                 </div>
@@ -85,15 +28,6 @@
                     <div class="sp-content">
                         <div class="sp-heading">
                             <h5><a href="#">Thông tin sản phẩm</a></h5>
-                        </div>
-                        <div class="rating-box">
-                            <ul>
-                                <li><i class="ion-android-star"></i></li>
-                                <li><i class="ion-android-star"></i></li>
-                                <li><i class="ion-android-star"></i></li>
-                                <li class="silver-color"><i class="ion-android-star"></i></li>
-                                <li class="silver-color"><i class="ion-android-star"></i></li>
-                            </ul>
                         </div>
                         <div class="sp-essential_stuff">
                             <ul>
@@ -133,7 +67,7 @@
                             </ul>
                         </div>
                         <div class="kenne-tag-line">
-                            <h6>Tags:</h6>
+                            <h6>Danh mục:</h6>
                             <a href="#">scarf</a>,
                             <a href="#">jacket</a>,
                             <a href="#">shirt</a>
@@ -250,7 +184,7 @@
                                 </ul>
                             </div>
                         </div>
-                        
+
                         <div id="reviews" class="tab-pane" role="tabpanel">
                             <div class="tab-pane active" id="tab-review">
                                 <form class="form-horizontal" id="form-review">
@@ -264,15 +198,6 @@
                                                 <tr>
                                                     <td colspan="2">
                                                         <p>Good product! Thank you very much</p>
-                                                        <div class="rating-box">
-                                                            <ul>
-                                                                <li><i class="ion-android-star"></i></li>
-                                                                <li><i class="ion-android-star"></i></li>
-                                                                <li><i class="ion-android-star"></i></li>
-                                                                <li><i class="ion-android-star"></i></li>
-                                                                <li><i class="ion-android-star"></i></li>
-                                                            </ul>
-                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -287,20 +212,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group last-child required">
-                                        <div class="col-sm-12 p-0">
-                                            <div class="your-opinion">
-                                                <label>Đánh giá sao</label>
-                                                <span>
-                                                    <select class="star-rating">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                    </select>
-                                                </span>
-                                            </div>
-                                        </div>
                                         <div class="kenne-btn-ps_right">
                                             <button class="kenne-btn" type="submit" name="guibl">Gửi bình luận</button>
                                         </div>
@@ -378,7 +289,8 @@
                             </div>
                             <div class="product-content">
                                 <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Quibusdam ratione</a></h3>
+                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Quibusdam ratione</a>
+                                    </h3>
                                     <div class="price-box">
                                         <span class="new-price">$46.91</span>
                                         <span class="old-price">$50.99</span>
@@ -476,7 +388,8 @@
                             </div>
                             <div class="product-content">
                                 <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Adipisci voluptas</a></h3>
+                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Adipisci voluptas</a>
+                                    </h3>
                                     <div class="price-box">
                                         <span class="new-price">$75.91</span>
                                         <span class="old-price">$80.99</span>
@@ -624,7 +537,8 @@
                             </div>
                             <div class="product-content">
                                 <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Eligendi voluptate</a></h3>
+                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Eligendi voluptate</a>
+                                    </h3>
                                     <div class="price-box">
                                         <span class="new-price">$60.00</span>
                                         <span class="old-price">$65.00</span>
@@ -673,7 +587,8 @@
                             </div>
                             <div class="product-content">
                                 <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Excepturi perspiciatis</a>
+                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Excepturi
+                                            perspiciatis</a>
                                     </h3>
                                     <div class="price-box">
                                         <span class="new-price">$50.00</span>

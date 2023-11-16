@@ -38,11 +38,17 @@
                             <label for="example-email" class="col-md-12 p-0">Email</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <input type="email" placeholder="johnathan@admin.com" class="form-control p-0 border-0"
-                                    name="example-email" id="example-email">
+                                    name="" id="example-email">
                             </div>
                         </div>
                         <div class="form-group mb-4">
-                            <label class="col-md-12 p-0">Mật khẩu (để chống hoặc không thay đổi)</label>
+                            <label class="col-md-12 p-0">Username (để nguyên hoặc không thay đổi)</label>
+                            <div class="col-md-12 border-bottom p-0">
+                                <input type="text" class="form-control p-0 border-0" placeholder="admin123">
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="col-md-12 p-0">Mật khẩu (để nguyên hoặc không thay đổi)</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <input type="password" value="password" class="form-control p-0 border-0">
                             </div>

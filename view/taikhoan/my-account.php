@@ -4,7 +4,7 @@
         <div class="breadcrumb-content">
             <h2>Shop Related</h2>
             <ul>
-                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="index.php">Trang chủ</a></li>
                 <li class="active">My Account</li>
             </ul>
         </div>

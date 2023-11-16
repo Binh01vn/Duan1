@@ -12,7 +12,9 @@
                                 <th class="border-top-0">Mã</th>
                                 <th class="border-top-0">Tên loại</th>
                                 <th class="border-top-0">Xóa &#160; || &#160; Sửa</th>
-                                <th class="border-top-0">Thêm</th>
+                                <th class="border-top-0">
+                                    <a href="index.php?act=adddm">Thêm</a>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -20,7 +22,8 @@
                                 <td>1</td>
                                 <td>Deshmukh</td>
                                 <td>
-                                    <i class="fas fa-trash-alt">&#160; &#160; &#160; &#160;||&#160; &#160; &#160; &#160;<i class="fas fa-edit">
+                                    <i class="fas fa-trash-alt">&#160; &#160; &#160; &#160;||&#160; &#160; &#160;
+                                        &#160;<i class="fas fa-edit">
                                 </td>
                             </tr>
                         </tbody>
