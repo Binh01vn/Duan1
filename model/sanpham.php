@@ -1,7 +1,7 @@
 <?php
-function truyvan_sanpham($masp, $name_sp, $gia, $mota, $soluong, $img_sp, $id_size, $id_dm){
-    $spl = "INSERT INTO sanpham(masp, name_sp, gia, mota, soluong, id_size, id_dm)
-    VALUES ('$masp', '$name_sp', '$gia', '$mota', '$soluong', '$id_size', '$id_dm')";
+function truyvan_sanpham($masp, $name_sp, $gia, $imgsp, $mota, $soluong, $id_size, $id_dm){
+    $spl = "insert into sanpham(masp, name_sp, gia, imgsp, mota, soluong, id_size, id_dm)
+    values('$masp', '$name_sp', '$gia', '$imgsp', '$mota', '$soluong', '$id_size', '$id_dm')";
     pdo_execute($spl);
 }
 ?>

@@ -86,7 +86,7 @@ if ((isset($_GET['act']))) {
             break;
         // CONTROLLER SẢN PHẨM ===================================
         case 'addsp':
-            if ((isset($_POST['themsp'])) && ($_POST['themsp'])) {
+            if ((isset($_POST['addnew'])) && ($_POST['addnew'])) {
                 $chuoikytu = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@_-';
                 $masp = '';
                 for ($i = 0; $i < 10; $i++) {
@@ -99,16 +99,20 @@ if ((isset($_GET['act']))) {
                 $gia = $_POST['gia'];
                 $soluong = $_POST['soluong'];
 
-                $img_sp = $_FILES['img_sp']['name'];
+                $imgsp = $_FILES['imgsp']['name'];
                 $target_dir = "../view/assets/images/product/";
-                $target_file = $target_dir . basename($_FILES['img_sp']['name']);
-                if (move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file)) {
+                $target_file = $target_dir . basename($_FILES['imgsp']['name']);
+                if (move_uploaded_file($_FILES['imgsp']['tmp_name'], $target_file)) {
 
                 } else {
 
                 }
 
                 $mota = $_POST['mota'];
+
+                truyvan_sanpham($masp, $name_sp, $gia, $imgsp, $mota, $soluong, $id_size, $id_dm);
+            }else{
+                $tb = "lỗi rồi";
             }
             $listdm = list_danhmuc();
             $listsize = list_size();

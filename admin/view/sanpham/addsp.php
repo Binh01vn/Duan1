@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="box-title">Thêm sản phẩm</h3>
-                    <form class="form-horizontal form-material" method="POST" action="index.php?act=addsp"
+                    <form class="form-horizontal form-material" action="index.php?act=addsp" method="POST"
                         enctype="multipart/form-data">
 
                         <div class="form-group mb-4">
@@ -60,7 +60,7 @@
                         <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Hình ảnh</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="file" required name="img_sp">
+                                <input type="file" required name="imgsp">
                             </div>
                         </div>
                         <div class="form-group mb-4">
@@ -72,7 +72,7 @@
 
                         <div class="form-group mb-4">
                             <div class="col-sm-12">
-                                <button class="btn btn-success" name="themsp">Thêm sản phẩm</button>
+                                <input class="btn btn-success" name="addnew" type="submit" value="Thêm sản phẩm">
                             </div>
                         </div>
                     </form>
