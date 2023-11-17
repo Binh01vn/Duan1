@@ -24,6 +24,19 @@
                             </div>
                         </div>
                         <div class="form-group mb-4">
+                            <label class="col-sm-12">Size sản phẩm</label>
+
+                            <div class="col-sm-12 border-bottom">
+                                <select class="form-select shadow-none p-0 border-0 form-control-line">
+                                    <option>DM1</option>
+                                    <option>DM2</option>
+                                    <option>DM3</option>
+                                    <option>DM4</option>
+                                    <option>DM5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
                             <label for="example-email" class="col-md-12 p-0">Giá</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <input type="number" class="form-control p-0 border-0" name="example-email"

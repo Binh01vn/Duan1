@@ -1,14 +1,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-8 col-xlg-9 col-md-12">
-            <h3 class="box-title">Thêm danh mục</h3>
+            <h3 class="box-title">Thêm size sản phẩm</h3>
             <div class="card">
                 <div class="card-body">
-                    <form class="form-horizontal form-material" action="index.php?act=adddm" method="POST">
+                    <form class="form-horizontal form-material" action="index.php?act=addsize" method="POST">
                         <div class="form-group mb-4">
-                            <label class="col-md-12 p-0">Tên danh mục</label>
+                            <label class="col-md-12 p-0">Nhập số size</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="text" class="form-control p-0 border-0" name="tendm">
+                                <input type="number" class="form-control p-0 border-0" name="sosize">
                             </div>
                             <?php
                             if (isset($thongbao) && ($thongbao != "")){
@@ -19,14 +19,13 @@
 
                         <div class="form-group mb-4">
                             <div class="col-sm-12">
-                                <input class="btn btn-success" type="submit" name="addnew" value="Thêm danh mục">
+                                <input class="btn btn-success" type="submit" name="addsize" value="Thêm size">
                             </div>
                         </div>
                     </form>
                     <div class="form-group mb-4">
                         <div class="col-sm-12">
-                            <a href="index.php?act=listdm" class="btn btn-success">Danh sách</a>&nbsp;&nbsp;HOẶC&nbsp;&nbsp;
-                            <a href="index.php?act=addsize" class="btn btn-success">Thêm size sản phẩm</a> 
+                            <a href="index.php?act=listsize" class="btn btn-success">Danh sách</a>
                         </div>
                     </div>
                 </div>

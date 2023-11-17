@@ -13,14 +13,41 @@ if ((isset($_GET['act']))) {
         case 'adddm':
             if (isset($_POST['addnew']) && ($_POST['addnew'])) {
                 $tendm = $_POST['tendm'];
-                truyvan_danhmuc($tendm);
+                if ($tendm == '') {
+                    $thongbao = "Tên danh mục trống! Vui lòng nhập tên danh mục.";
+                } else {
+                    truyvan_danhmuc($tendm);
+                    $listdm = list_danhmuc();
+                    include('view/danhmuc/listdm.php');
+                    break;
+                }
             }
             include('view/danhmuc/adddm.php');
+            break;
+            // thêm size sản phẩm 
+        case 'addsize':
+            if (isset($_POST['addsize']) && ($_POST['addsize'])) {
+                $sosize = $_POST['sosize'];
+                if ($sosize == '') {
+                    $thongbao = "Size trống! Vui lòng nhập size.";
+                } else {
+                    truyvan_size($sosize);
+                    $listsize = list_size();
+                    include('view/danhmuc/listsize.php');
+                    break;
+                }
+            }
+            include('view/danhmuc/addsize.php');
             break;
         // LOAD DANH SÁCH DANH MỤC
         case 'listdm':
             $listdm = list_danhmuc();
             include('view/danhmuc/listdm.php');
+            break;
+            // load danh sách size sản phẩm
+        case 'listsize':
+            $listsize = list_size();
+            include('view/danhmuc/listsize.php');
             break;
         // SỬA DANH MỤC
         case 'editdm':
@@ -34,8 +61,7 @@ if ((isset($_GET['act']))) {
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $tendm = $_POST['tendm'];
                 $id = $_POST['id'];
-                update_danhmuc($id, $tendm);
-                $thongbao = "Cập nhật thành công";
+                if ($tendm != '') update_danhmuc($id, $tendm);
             }
             $listdm = list_danhmuc();
             include "view/danhmuc/listdm.php";
@@ -48,7 +74,15 @@ if ((isset($_GET['act']))) {
             $listdm = list_danhmuc();
             include "view/danhmuc/listdm.php";
             break;
-
+            // xóa size sản phẩm
+        case 'delsize':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deldm_size($_GET['id']);
+            }
+            $listsize = list_size();
+            include('view/danhmuc/listsize.php');
+            break;
+        // DANH MỤC SẢN PHẨM ===================================
         case 'listsp':
             include('view/sanpham/listsp.php');
             break;
