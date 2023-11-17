@@ -6,14 +6,13 @@
                     <h3 class="box-title">Thêm sản phẩm</h3>
                     <form class="form-horizontal form-material" method="POST" action="index.php?act=addsp"
                         enctype="multipart/form-data">
-                        <input type="hidden" name="masp">
+
                         <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Tên sản phẩm</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <input type="text" class="form-control p-0 border-0" required name="name_sp">
                             </div>
                         </div>
-
                         <div class="form-group mb-4">
                             <label for="example-email" class="col-md-12 p-0">Giá</label>
                             <div class="col-md-12 border-bottom p-0">

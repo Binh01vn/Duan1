@@ -9,7 +9,7 @@
                     <table class="table text-nowrap">
                         <thead>
                             <tr>
-                                <th class="border-top-0">Mã</th>
+                                <th class="border-top-0">Mã sản phẩm</th>
                                 <th class="border-top-0">Tên sản phẩm</th>
                                 <th class="border-top-0">Ảnh sản phẩm</th>
                                 <th class="border-top-0">Giá</th>

@@ -25,7 +25,7 @@ if ((isset($_GET['act']))) {
             }
             include('view/danhmuc/adddm.php');
             break;
-            // thêm size sản phẩm 
+        // thêm size sản phẩm 
         case 'addsize':
             if (isset($_POST['addsize']) && ($_POST['addsize'])) {
                 $sosize = $_POST['sosize'];
@@ -45,7 +45,7 @@ if ((isset($_GET['act']))) {
             $listdm = list_danhmuc();
             include('view/danhmuc/listdm.php');
             break;
-            // load danh sách size sản phẩm
+        // load danh sách size sản phẩm
         case 'listsize':
             $listsize = list_size();
             include('view/danhmuc/listsize.php');
@@ -62,7 +62,8 @@ if ((isset($_GET['act']))) {
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $tendm = $_POST['tendm'];
                 $id = $_POST['id'];
-                if ($tendm != '') update_danhmuc($id, $tendm);
+                if ($tendm != '')
+                    update_danhmuc($id, $tendm);
             }
             $listdm = list_danhmuc();
             include "view/danhmuc/listdm.php";
@@ -75,7 +76,7 @@ if ((isset($_GET['act']))) {
             $listdm = list_danhmuc();
             include "view/danhmuc/listdm.php";
             break;
-            // xóa size sản phẩm
+        // xóa size sản phẩm
         case 'delsize':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deldm_size($_GET['id']);
@@ -85,12 +86,13 @@ if ((isset($_GET['act']))) {
             break;
         // CONTROLLER SẢN PHẨM ===================================
         case 'addsp':
-            if ((isset($_POST['themsp'])) && ($_POST['themsp'])){
-                $masp = $_POST['masp'];
-                if ($masp == "") {
-                    $i = 1;
-                    $masp = "MSP-".$i;
+            if ((isset($_POST['themsp'])) && ($_POST['themsp'])) {
+                $chuoikytu = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@_-';
+                $masp = '';
+                for ($i = 0; $i < 10; $i++) {
+                    $masp .= $chuoikytu[mt_rand(0, strlen($chuoikytu) - 1)];
                 }
+
                 $name_sp = $_POST['name_sp'];
                 $id_dm = $_POST['id_dm'];
                 $id_size = $_POST['id_size'];
@@ -102,8 +104,8 @@ if ((isset($_GET['act']))) {
                 $target_file = $target_dir . basename($_FILES['img_sp']['name']);
                 if (move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file)) {
 
-                }else{
-                    
+                } else {
+
                 }
 
                 $mota = $_POST['mota'];
