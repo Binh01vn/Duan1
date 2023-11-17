@@ -1,6 +1,7 @@
 <?php
 include("../model/pdo.php");
 include("../model/danhmuc.php");
+include("../model/sanpham.php");
 include("view/header.php");
 if ((isset($_GET['act']))) {
     $act = $_GET['act'];
@@ -82,7 +83,36 @@ if ((isset($_GET['act']))) {
             $listsize = list_size();
             include('view/danhmuc/listsize.php');
             break;
-        // DANH MỤC SẢN PHẨM ===================================
+        // CONTROLLER SẢN PHẨM ===================================
+        case 'addsp':
+            if ((isset($_POST['themsp'])) && ($_POST['themsp'])){
+                $masp = $_POST['masp'];
+                if ($masp == "") {
+                    $i = 1;
+                    $masp = "MSP-".$i;
+                }
+                $name_sp = $_POST['name_sp'];
+                $id_dm = $_POST['id_dm'];
+                $id_size = $_POST['id_size'];
+                $gia = $_POST['gia'];
+                $soluong = $_POST['soluong'];
+
+                $img_sp = $_FILES['img_sp']['name'];
+                $target_dir = "../view/assets/images/product/";
+                $target_file = $target_dir . basename($_FILES['img_sp']['name']);
+                if (move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file)) {
+
+                }else{
+                    
+                }
+
+                $mota = $_POST['mota'];
+            }
+            $listdm = list_danhmuc();
+            $listsize = list_size();
+            include('view/sanpham/addsp.php');
+            break;
+
         case 'listsp':
             include('view/sanpham/listsp.php');
             break;

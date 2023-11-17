@@ -15,7 +15,9 @@
                                 <th class="border-top-0">Giá</th>
                                 <th class="border-top-0">Số lượng</th>
                                 <th class="border-top-0">Xóa &#160; || &#160; Sửa</th>
-                                <th class="border-top-0">Thêm</th>
+                                <th class="border-top-0">
+                                    <a href="index.php?act=addsp">Thêm</a>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>

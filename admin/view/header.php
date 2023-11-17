@@ -101,7 +101,7 @@
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=listdm"
                                 aria-expanded="false">
                                 <i class="fas fa-archive" aria-hidden="true"></i>
-                                <span class="hide-menu">QL Danh mục</span>
+                                <span class="hide-menu">QL Danh mục - Size</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

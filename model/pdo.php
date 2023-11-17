@@ -1,4 +1,5 @@
 <?php
+// hàm kết nối =========================================================
 function pdo_get_connection()
 {
     $dburl = "mysql:host=localhost;dbname=duan1;charset=utf8";
@@ -9,7 +10,7 @@ function pdo_get_connection()
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;
 }
-
+// hàm thực hiện =========================================================
 function pdo_execute($sql)
 {
     $sql_args = array_slice(func_get_args(), 1);
@@ -23,7 +24,7 @@ function pdo_execute($sql)
         unset($conn);
     }
 }
-
+// hàm truy vấn =========================================================
 function pdo_query($sql)
 {
     $sql_args = array_slice(func_get_args(), 1);
@@ -55,7 +56,7 @@ function pdo_query_one($sql)
         unset($conn);
     }
 }
-
+// hàm truy vấn giá trị ====================================
 function pdo_query_value($sql)
 {
     $sql_args = array_slice(func_get_args(), 1);
