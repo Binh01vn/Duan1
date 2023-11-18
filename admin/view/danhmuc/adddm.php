@@ -25,8 +25,7 @@
                     </form>
                     <div class="form-group mb-4">
                         <div class="col-sm-12">
-                            <a href="index.php?act=listdm" class="btn btn-success">Danh sách</a>&nbsp;&nbsp;HOẶC&nbsp;&nbsp;
-                            <a href="index.php?act=addsize" class="btn btn-success">Thêm size sản phẩm</a> 
+                            <a href="index.php?act=listdm" class="btn btn-success">Danh sách</a>
                         </div>
                     </div>
                 </div>

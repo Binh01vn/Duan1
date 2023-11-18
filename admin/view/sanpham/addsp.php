@@ -45,22 +45,14 @@
                             <label class="col-sm-12">Size sản phẩm</label>
 
                             <div class="col-sm-12 border-bottom">
-                                <select class="form-select shadow-none p-0 border-0 form-control-line" name="id_size"
-                                    required>
-                                    <option selected>------ Chọn size</option>
-                                    <?php
-                                    foreach ($listsize as $list) {
-                                        extract($list);
-                                        echo '<option value="' . $id . '">' . $size_sp . '</option>';
-                                    }
-                                    ?>
-                                </select>
+                                <div id="themmoi" class="bosung2"></div>
                             </div>
+                            <button type="button" onclick="addSize()" class="btn btn-success">Thêm size</button>
                         </div>
                         <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Hình ảnh</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="file" required name="imgsp">
+                                <input type="file" name="imgsp">
                             </div>
                         </div>
                         <div class="form-group mb-4">
@@ -76,6 +68,17 @@
                             </div>
                         </div>
                     </form>
+                    <script>
+                        function addSize() {
+                            var themmoi = document.getElementById("themmoi");
+                            var input = document.createElement("input");
+                            input.className = 'class="form-control p-0 border-0"';
+                            input.type = "number";
+                            input.name = "size_sp[]";
+                            input.required = true;
+                            themmoi.appendChild(input);
+                        }
+                    </script>
                     <div class="form-group mb-4">
                         <div class="col-sm-12">
                             <a href="index.php?act=listsp" class="btn btn-success">Danh sách</a>

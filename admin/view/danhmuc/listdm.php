@@ -41,7 +41,6 @@
                         </tbody>
                     </table>
                 </div>
-                <a href="index.php?act=listsize"><h3 class="box-title">Danh sách size sản phẩm</h3></a>
             </div>
         </div>
     </div>

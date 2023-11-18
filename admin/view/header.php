@@ -22,13 +22,6 @@
 </head>
 
 <body>
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div> -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
@@ -101,7 +94,7 @@
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=listdm"
                                 aria-expanded="false">
                                 <i class="fas fa-archive" aria-hidden="true"></i>
-                                <span class="hide-menu">QL Danh mục - Size</span>
+                                <span class="hide-menu">QL Danh mục</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

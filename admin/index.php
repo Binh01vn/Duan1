@@ -25,30 +25,10 @@ if ((isset($_GET['act']))) {
             }
             include('view/danhmuc/adddm.php');
             break;
-        // thêm size sản phẩm 
-        case 'addsize':
-            if (isset($_POST['addsize']) && ($_POST['addsize'])) {
-                $sosize = $_POST['sosize'];
-                if ($sosize == '') {
-                    $thongbao = "Size trống! Vui lòng nhập size.";
-                } else {
-                    truyvan_size($sosize);
-                    $listsize = list_size();
-                    include('view/danhmuc/listsize.php');
-                    break;
-                }
-            }
-            include('view/danhmuc/addsize.php');
-            break;
         // LOAD DANH SÁCH DANH MỤC
         case 'listdm':
             $listdm = list_danhmuc();
             include('view/danhmuc/listdm.php');
-            break;
-        // load danh sách size sản phẩm
-        case 'listsize':
-            $listsize = list_size();
-            include('view/danhmuc/listsize.php');
             break;
         // SỬA DANH MỤC
         case 'editdm':
@@ -76,14 +56,6 @@ if ((isset($_GET['act']))) {
             $listdm = list_danhmuc();
             include "view/danhmuc/listdm.php";
             break;
-        // xóa size sản phẩm
-        case 'delsize':
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                deldm_size($_GET['id']);
-            }
-            $listsize = list_size();
-            include('view/danhmuc/listsize.php');
-            break;
         // CONTROLLER SẢN PHẨM ===================================
         case 'addsp':
             if ((isset($_POST['addnew'])) && ($_POST['addnew'])) {
@@ -95,7 +67,7 @@ if ((isset($_GET['act']))) {
 
                 $name_sp = $_POST['name_sp'];
                 $id_dm = $_POST['id_dm'];
-                $id_size = $_POST['id_size'];
+                $size_sp = $_POST['size_sp'];
                 $gia = $_POST['gia'];
                 $soluong = $_POST['soluong'];
 
@@ -110,12 +82,15 @@ if ((isset($_GET['act']))) {
 
                 $mota = $_POST['mota'];
 
-                truyvan_sanpham($masp, $name_sp, $gia, $imgsp, $mota, $soluong, $id_size, $id_dm);
-            }else{
+                truyvan_sanpham($masp, $name_sp, $gia, $imgsp, $mota, $soluong, $id_dm);
+                foreach ($size_sp as $size) {
+                    sizesp ($size, $masp);
+                }
+                
+            } else {
                 $tb = "lỗi rồi";
             }
             $listdm = list_danhmuc();
-            $listsize = list_size();
             include('view/sanpham/addsp.php');
             break;
 
