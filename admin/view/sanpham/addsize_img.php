@@ -17,13 +17,21 @@
                         <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Hình ảnh</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="file" name="imgsp">
+                                <input type="file" name="img_sp">
                             </div>
                         </div>
+                        <?php
+                        $layidsp = preview_sp();
+                        foreach ($layidsp as $list) {
+                            extract($list);
+                            echo '<input type="hidden" name="idsp" value="' . $id . '">';
+                        }
+                        ?>
 
                         <div class="form-group mb-4">
                             <div class="col-sm-12">
-                                <input class="btn btn-success" type="reset" value="Xóa tất cả thông tin đã nhập">&#160;-- HOẶC --&#160;
+                                <input class="btn btn-success" type="reset"
+                                    value="Xóa tất cả thông tin đã nhập">&#160;-- HOẶC --&#160;
                                 <input class="btn btn-success" name="hoanthanh" type="submit" value="Hoàn thành">
                             </div>
                         </div>

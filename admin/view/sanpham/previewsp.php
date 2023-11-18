@@ -9,6 +9,7 @@
                     <table class="table text-nowrap">
                         <thead>
                             <tr>
+                                <th class="border-top-0">#</th>
                                 <th class="border-top-0">Mã sản phẩm</th>
                                 <th class="border-top-0">Tên sản phẩm</th>
                                 <th class="border-top-0">Mô tả</th>
@@ -25,6 +26,7 @@
                                 $addimg_size = "index.php?act=addsize_img&id=" . $id;
                                 echo '
                                 <tr>
+                                    <td>'.$id.'</td>
                                     <td>'.$masp.'</td>
                                     <td>'.$name_sp.'</td>
                                     <td>'.$mota.'</td>

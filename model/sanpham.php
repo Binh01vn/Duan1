@@ -9,8 +9,27 @@ function preview_sp(){
     $listsp = pdo_query($sql);
     return $listsp;    
 }
-function sizesp ($size, $masp){
-    $spl = "insert into size(size_sp, ma_sp) values('$size', '$masp')";
+function anhsp($img_sp, $idsp){
+    $spl = "insert into image(img_sp, id_sp) values('$img_sp', '$idsp')";
     pdo_execute($spl);
+}
+function sizesp ($size, $idsp){
+    $spl = "insert into size(size_sp, id_sp) values('$size', '$idsp')";
+    pdo_execute($spl);
+}
+function list_sp($kyw, $iddm=0){
+    $spl = "select * from sanpham order by id desc";
+    $listsp = pdo_query($spl);
+    return $listsp;
+    // $sql="select * from sanpham where 1";
+    // if ($kyw !="") {
+    //     $sql.=" and name like '%".$kyw."%'";
+    // }
+    // if ($iddm>0) {
+    //     $sql.=" and iddm = '".$iddm."'";
+    // }
+    // $sql.=" order by id desc";
+    // $listsanpham = pdo_query($sql);
+    // return $listsanpham;
 }
 ?>
