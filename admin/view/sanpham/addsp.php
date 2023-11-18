@@ -4,8 +4,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="box-title">Thêm sản phẩm</h3>
-                    <form class="form-horizontal form-material" action="index.php?act=addsp" method="POST"
-                        enctype="multipart/form-data">
+                    <form class="form-horizontal form-material" action="index.php?act=addsp" method="POST">
 
                         <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Tên sản phẩm</label>
@@ -42,43 +41,19 @@
                             </div>
                         </div>
                         <div class="form-group mb-4">
-                            <label class="col-sm-12">Size sản phẩm</label>
-
-                            <div class="col-sm-12 border-bottom">
-                                <div id="themmoi" class="bosung2"></div>
-                            </div>
-                            <button type="button" onclick="addSize()" class="btn btn-success">Thêm size</button>
-                        </div>
-                        <div class="form-group mb-4">
-                            <label class="col-md-12 p-0">Hình ảnh</label>
-                            <div class="col-md-12 border-bottom p-0">
-                                <input type="file" name="imgsp">
-                            </div>
-                        </div>
-                        <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Mô tả</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <textarea rows="5" class="form-control p-0 border-0" name="mota"></textarea>
+                                <textarea rows="5" class="form-control p-0 border-0" name="mota" required></textarea>
                             </div>
                         </div>
 
                         <div class="form-group mb-4">
                             <div class="col-sm-12">
-                                <input class="btn btn-success" name="addnew" type="submit" value="Thêm sản phẩm">
+                                <input class="btn btn-success" type="reset" value="Xóa tất cả thông tin đã nhập">&#160;-- HOẶC --&#160;
+                                <input class="btn btn-success" name="addnew" type="submit" value="Bước tiếp theo">
                             </div>
                         </div>
                     </form>
-                    <script>
-                        function addSize() {
-                            var themmoi = document.getElementById("themmoi");
-                            var input = document.createElement("input");
-                            input.className = 'class="form-control p-0 border-0"';
-                            input.type = "number";
-                            input.name = "size_sp[]";
-                            input.required = true;
-                            themmoi.appendChild(input);
-                        }
-                    </script>
                     <div class="form-group mb-4">
                         <div class="col-sm-12">
                             <a href="index.php?act=listsp" class="btn btn-success">Danh sách</a>

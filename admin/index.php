@@ -67,31 +67,37 @@ if ((isset($_GET['act']))) {
 
                 $name_sp = $_POST['name_sp'];
                 $id_dm = $_POST['id_dm'];
-                $size_sp = $_POST['size_sp'];
+                // $size_sp = $_POST['size_sp'];
                 $gia = $_POST['gia'];
                 $soluong = $_POST['soluong'];
 
-                $imgsp = $_FILES['imgsp']['name'];
-                $target_dir = "../view/assets/images/product/";
-                $target_file = $target_dir . basename($_FILES['imgsp']['name']);
-                if (move_uploaded_file($_FILES['imgsp']['tmp_name'], $target_file)) {
+                // $imgsp = $_FILES['imgsp']['name'];
+                // $target_dir = "../view/assets/images/product/";
+                // $target_file = $target_dir . basename($_FILES['imgsp']['name']);
+                // if (move_uploaded_file($_FILES['imgsp']['tmp_name'], $target_file)) {
 
-                } else {
+                // } else {
 
-                }
+                // }
 
                 $mota = $_POST['mota'];
 
-                truyvan_sanpham($masp, $name_sp, $gia, $imgsp, $mota, $soluong, $id_dm);
-                foreach ($size_sp as $size) {
-                    sizesp ($size, $masp);
-                }
-                
+                truyvan_sanpham($masp, $name_sp, $gia, $mota, $soluong, $id_dm);
+                include("view/sanpham/previewsp.php");
+                break;
+                // foreach ($size_sp as $size) {
+                //     sizesp ($size, $masp);
+                // }
+
             } else {
                 $tb = "lỗi rồi";
             }
             $listdm = list_danhmuc();
             include('view/sanpham/addsp.php');
+            break;
+
+        case 'addsize_img':
+            include('view/sanpham/addsize_img.php');
             break;
 
         case 'listsp':
