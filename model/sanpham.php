@@ -23,4 +23,40 @@ function list_sp(){
     $listsp = pdo_query($spl);
     return $listsp;
 }
+function loadone_sp($id){
+    $sql = "select * from sanpham where id=". $id;
+    $sp = pdo_query_one($sql);
+    return $sp;
+}
+function loadone_imgsp($id){
+    $sql = "select * from image where id_sp=". $id;
+    $sp = pdo_query_one($sql);
+    return $sp;
+}
+// function loadall_sizesp(){
+//     $sql = "select * from size";
+//     $sp = pdo_query($sql);
+//     return $sp;
+// }
+// function loadone_sizesp($id){
+//     $sql = "select * from size where id_sp=". $id;
+//     $sp = pdo_query_one($sql);
+//     return $sp;
+// }
+function capnhat_sp($id, $name_sp, $gia, $mota, $soluong, $id_dm, $img_sp){
+    // $sql = "update danhmuc set name='".$tendm."' where id=".$id;
+    $sql = "update sanpham
+            set name_sp='".$name_sp."', gia='".$gia."', mota='".$mota."', soluong='".$soluong."', id_dm='".$id_dm."'
+            where id=".$id;
+    if($img_sp != ""){
+        $sql = "update image set img_sp='".$img_sp."' where id_sp=".$id;
+    }
+    pdo_execute($sql);
+}
+function xoa_sp($id){
+    // $sql = "delete from image where id_sp=". $id;
+    // $sql = "delete from size where id_sp=". $id;
+    $sql = "delete from sanpham where id=". $id;
+    pdo_query($sql);
+}
 ?>

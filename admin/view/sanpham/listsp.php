@@ -56,6 +56,8 @@
                                         <?php
                                         if ($soluong > 0) {
                                             echo "Còn hàng";
+                                        }else{
+                                            echo "Hết hàng";
                                         }
                                         ?>
                                     </td>
@@ -74,9 +76,5 @@
             </div>
         </div>
     </div>
-    <!-- End PAge Content -->
-    <!-- Right sidebar -->
-    <!-- .right-sidebar -->
-    <!-- End Right sidebar -->
 </div>
 <!-- End Container fluid  -->
