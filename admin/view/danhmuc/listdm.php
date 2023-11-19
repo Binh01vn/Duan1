@@ -9,12 +9,12 @@
                     <table class="table text-nowrap">
                         <thead>
                             <tr>
-                                <th class="border-top-0">Mã</th>
-                                <th class="border-top-0">Tên loại</th>
-                                <th class="border-top-0">Sửa</th>
-                                <th class="border-top-0">Xóa</th>
+                                <th class="border-top-0">IDDM</th>
+                                <th class="border-top-0">Tên DANH MỤC</th>
+                                <th class="border-top-0">SỬA</th>
+                                <th class="border-top-0">XÓA</th>
                                 <th class="border-top-0">
-                                    <a href="index.php?act=adddm">Thêm</a>
+                                    <a href="index.php?act=adddm">THÊM</a>
                                 </th>
                             </tr>
                         </thead>
@@ -27,7 +27,7 @@
                                 echo '
                                     <tr>
                                         <td>' . $id . '</td>
-                                        <td>' . $name . '</td>
+                                        <td>' . $tendm . '</td>
                                         <td>
                                             <a href="'.$editdm.'" class="fas fa-edit"></a>
                                         </td>

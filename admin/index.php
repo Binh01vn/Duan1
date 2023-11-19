@@ -12,17 +12,18 @@ if ((isset($_GET['act']))) {
             break;
         // DANH MỤC SẢN PHẨM ===================================
         case 'adddm':
-            if (isset($_POST['addnew']) && ($_POST['addnew'])) {
+            if (isset($_POST['themdm']) && ($_POST['themdm'])) {
                 $tendm = $_POST['tendm'];
                 if ($tendm == '') {
-                    $thongbao = "Tên danh mục trống! Vui lòng nhập tên danh mục.";
+                    $thongbao = "Tên danh mục trống!";
                 } else {
-                    truyvan_danhmuc($tendm);
+                    insert_danhmuc($tendm);
                     $listdm = list_danhmuc();
                     include('view/danhmuc/listdm.php');
                     break;
                 }
             }
+            $listdm = list_danhmuc();
             include('view/danhmuc/adddm.php');
             break;
         // LOAD DANH SÁCH DANH MỤC
@@ -42,8 +43,9 @@ if ((isset($_GET['act']))) {
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $tendm = $_POST['tendm'];
                 $id = $_POST['id'];
-                if ($tendm != '')
+                if ($tendm != '') {
                     update_danhmuc($id, $tendm);
+                }
             }
             $listdm = list_danhmuc();
             include "view/danhmuc/listdm.php";
@@ -51,7 +53,7 @@ if ((isset($_GET['act']))) {
         // XÓA DANH MỤC
         case 'deldm':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                deldm_danhmuc($_GET['id']);
+                del_danhmuc($_GET['id']);
             }
             $listdm = list_danhmuc();
             include "view/danhmuc/listdm.php";
@@ -59,25 +61,22 @@ if ((isset($_GET['act']))) {
         // CONTROLLER SẢN PHẨM ===================================
         // thêm sản phẩm
         case 'addsp':
-            if ((isset($_POST['addnew'])) && ($_POST['addnew'])) {
+            if ((isset($_POST['adddl'])) && ($_POST['adddl'])) {
                 $chuoikytu = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@_-';
                 $masp = '';
                 for ($i = 0; $i < 10; $i++) {
                     $masp .= $chuoikytu[mt_rand(0, strlen($chuoikytu) - 1)];
                 }
 
-                $name_sp = $_POST['name_sp'];
-                $id_dm = $_POST['id_dm'];
-                $gia = $_POST['gia'];
-                $soluong = $_POST['soluong'];
-                $mota = $_POST['mota'];
+                $tensp = $_POST['tensp'];
+                $iddm = $_POST['iddm'];
+                $giasp = $_POST['giasp'];
+                $soluongsp = $_POST['soluongsp'];
+                $motasp = $_POST['motasp'];
 
-                truyvan_sanpham($masp, $name_sp, $gia, $mota, $soluong, $id_dm);
-                include("view/sanpham/previewsp.php");
+                insert_sanpham($masp, $tensp, $giasp, $motasp, $soluongsp, $iddm);
+                include("view/sanpham/prvsanpham.php");
                 break;
-
-            } else {
-                $tb = "lỗi rồi";
             }
             $listdm = list_danhmuc();
             include('view/sanpham/addsp.php');
@@ -86,22 +85,22 @@ if ((isset($_GET['act']))) {
         case 'addsize_img':
             if ((isset($_POST['hoanthanh'])) && ($_POST['hoanthanh'])) {
                 $idsp = $_POST['idsp'];
-                $size_sp = $_POST['size_sp'];
+                $sizesp = $_POST['sizesp'];
 
-                $img_sp = $_FILES['img_sp']['name'];
+                $imgsp = $_FILES['imgsp']['name'];
                 $target_dir = "../view/assets/images/product/";
-                $target_file = $target_dir . basename($_FILES['img_sp']['name']);
-                if (move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file)) {
+                $target_file = $target_dir . basename($_FILES['imgsp']['name']);
+                if (move_uploaded_file($_FILES['imgsp']['tmp_name'], $target_file)) {
 
                 } else {
 
                 }
-                anhsp($img_sp, $idsp);
-                foreach ($size_sp as $size) {
+                addanhsp($imgsp, $idsp);
+                foreach ($sizesp as $size) {
                     sizesp($size, $idsp);
                 }
                 $listdm = list_danhmuc();
-                $listsp = list_sp();
+                $listsp = listall_sp();
                 include('view/sanpham/listsp.php');
                 break;
             }
@@ -110,41 +109,44 @@ if ((isset($_GET['act']))) {
         // danh sách sản phẩm
         case 'listsp':
             $listdm = list_danhmuc();
-            $listsp = list_sp();
+            $listsp = listall_sp();
             include('view/sanpham/listsp.php');
             break;
         // sửa sản phẩm
         case 'editsp':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $listsp = loadone_sp($_GET['id']);
-                $imgsp = loadone_imgsp($_GET['id']);
-                // $sizesp = loadone_sizesp($_GET['id']);
+                $img_sp = loadone_imgsp($_GET['id']);
+                // $size_sp = loadone_sizesp($_GET['id']);
             }
             $listdm = list_danhmuc();
             // $listsize = loadall_sizesp();
             include('view/sanpham/updatesp.php');
             break;
         case 'updatesp':
-            if (isset($_POST['hoanthanh']) && ($_POST['hoanthanh'])) {
+            if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $id = $_POST['id'];
-                $name_sp = $_POST['name_sp'];
-                $gia = $_POST['gia'];
-                $soluong = $_POST['soluong'];
-                $id_dm = $_POST['id_dm'];
-                $mota = $_POST['mota'];
 
-                $img_sp = $_FILES['img_sp']['name'];
+                $tensp = $_POST['tensp'];
+                $giasp = $_POST['giasp'];
+                $soluongsp = $_POST['soluongsp'];
+
+                $iddm = $_POST['iddm'];
+
+                $motasp = $_POST['motasp'];
+
+                $imgsp = $_FILES['imgsp']['name'];
                 $target_dir = "../view/assets/images/product/";
-                $target_file = $target_dir . basename($_FILES['img_sp']['name']);
-                if (move_uploaded_file($_FILES['img_sp']['tmp_name'], $target_file)) {
+                $target_file = $target_dir . basename($_FILES['imgsp']['name']);
+                if (move_uploaded_file($_FILES['imgsp']['tmp_name'], $target_file)) {
 
                 } else {
 
                 }
 
-                capnhat_sp($id, $name_sp, $gia, $mota, $soluong, $id_dm, $img_sp);
+                capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp);
                 $listdm = list_danhmuc();
-                $listsp = list_sp();
+                $listsp = listall_sp();
                 include('view/sanpham/listsp.php');
                 break;
             }
@@ -154,9 +156,11 @@ if ((isset($_GET['act']))) {
         case 'delsp':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 xoa_sp($_GET['id']);
+                xoa_img($_GET['id']);
+                xoa_size($_GET['id']);
             }
             $listdm = list_danhmuc();
-            $listsp = list_sp();
+            $listsp = listall_sp();
             include('view/sanpham/listsp.php');
             break;
 

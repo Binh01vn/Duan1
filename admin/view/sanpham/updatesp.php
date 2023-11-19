@@ -15,17 +15,17 @@ if (is_array($listsp)) {
                         <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Tên sản phẩm</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="text" class="form-control p-0 border-0" name="name_sp"
-                                    value="<?= $name_sp ?>">
+                                <input type="text" class="form-control p-0 border-0" name="tensp"
+                                    value="<?= $tensp ?>">
                             </div>
                         </div>
                         <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Ảnh sản phẩm</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <?php
-                                if (is_array($imgsp)) {
-                                    extract($imgsp);
-                                    $imgpath = "../view/assets/images/product/" . $img_sp;
+                                if (is_array($img_sp)) {
+                                    extract($img_sp);
+                                    $imgpath = "../view/assets/images/product/" . $imgsp;
                                     if (is_file($imgpath)) {
                                         $img = "<img src='" . $imgpath . "' width='250px'>";
                                     } else {
@@ -38,35 +38,52 @@ if (is_array($listsp)) {
                                 ?>
                             </div>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="file" name="img_sp">
+                                <input type="file" name="imgsp">
                             </div>
                         </div>
+                        <!-- <div class="form-group mb-4">
+                            <label class="col-md-12 p-0">Size sản phẩm</label>
+                            <div class="col-md-12 border-bottom p-0">
+                                <?php
+                                // foreach ($listsize as $ls) {
+                                //     extract($ls);
+                                //     if ($idsp == $id) {
+                                //         echo $sizesp;
+                                //     }
+                                // }
+                                // if (is_array($size_sp)) {
+                                //     extract($size_sp);
+                                //     echo $sizesp;
+                                // }
+                                ?>
+                            </div>
+                        </div> -->
                         <div class="form-group mb-4">
                             <label for="example-email" class="col-md-12 p-0">Giá</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="number" class="form-control p-0 border-0" name="gia" value="<?= $gia ?>">
+                                <input type="number" class="form-control p-0 border-0" name="giasp" value="<?= $giasp ?>">
                             </div>
                         </div>
                         <div class="form-group mb-4">
                             <label for="example-email" class="col-md-12 p-0">Số lượng sản phẩm</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="number" class="form-control p-0 border-0" name="soluong"
-                                    value="<?= $soluong ?>">
+                                <input type="number" class="form-control p-0 border-0" name="soluongsp"
+                                    value="<?= $soluongsp ?>">
                             </div>
                         </div>
                         <div class="form-group mb-4">
                             <label class="col-sm-12">Danh mục</label>
                             <div class="col-sm-12 border-bottom">
-                                <select class="form-select shadow-none p-0 border-0 form-control-line" name="id_dm">
+                                <select class="form-select shadow-none p-0 border-0 form-control-line" name="iddm">
                                     <?php
                                     foreach ($listdm as $dm) {
                                         extract($dm);
-                                        if ($id_dm == $id) {
+                                        if ($iddm == $id) {
                                             $slt = "selected";
                                         } else {
                                             $slt = "";
                                         }
-                                        echo '<option value="' . $id . '" ' . $slt . '>' . $name . '</option>';
+                                        echo '<option value="' . $id . '" ' . $slt . '>' . $tendm . '</option>';
                                     }
                                     ?>
                                 </select>
@@ -76,13 +93,13 @@ if (is_array($listsp)) {
                             <label class="col-md-12 p-0">Mô tả</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <?php extract($listsp) ?>
-                                <textarea rows="5" class="form-control p-0 border-0" name="mota"><?= $mota ?></textarea>
+                                <textarea rows="5" class="form-control p-0 border-0" name="motasp"><?= $motasp ?></textarea>
                             </div>
                         </div>
 
                         <div class="form-group mb-4">
                             <div class="col-sm-12">
-                                <input class="btn btn-success" name="hoanthanh" type="submit" value="Cập nhật">
+                                <input class="btn btn-success" name="capnhat" type="submit" value="Cập nhật">
                             </div>
                         </div>
                     </form>

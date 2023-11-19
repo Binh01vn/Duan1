@@ -11,17 +11,19 @@
 
                             <div class="col-sm-12 border-bottom">
                                 <div id="themmoi" class="bosung2"></div>
+                                <?php if(isset($tbs) && $tbs !="") echo '<label class="col-sm-12">'.$tbs.'</label>'; ?>
                             </div>
                             <button type="button" onclick="addSize()" class="btn btn-success">Thêm size</button>
                         </div>
                         <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Hình ảnh</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="file" name="img_sp">
+                                <input type="file" name="imgsp">
                             </div>
+                            <?php if(isset($tbi) && $tbi !="") echo '<label class="col-sm-12">'.$tbi.'</label>'; ?>
                         </div>
                         <?php
-                        $layidsp = preview_sp();
+                        $layidsp = list_spmn();
                         foreach ($layidsp as $list) {
                             extract($list);
                             echo '<input type="hidden" name="idsp" value="' . $id . '">';
@@ -30,8 +32,7 @@
 
                         <div class="form-group mb-4">
                             <div class="col-sm-12">
-                                <input class="btn btn-success" type="reset"
-                                    value="Xóa tất cả thông tin đã nhập">&#160;-- HOẶC --&#160;
+                                <input class="btn btn-success" type="reset" value="Nhập lại">&#160;-- HOẶC --&#160;
                                 <input class="btn btn-success" name="hoanthanh" type="submit" value="Hoàn thành">
                             </div>
                         </div>
@@ -42,7 +43,7 @@
                             var input = document.createElement("input");
                             input.className = 'class="form-control p-0 border-0"';
                             input.type = "number";
-                            input.name = "size_sp[]";
+                            input.name = "sizesp[]";
                             input.required = true;
                             themmoi.appendChild(input);
                         }

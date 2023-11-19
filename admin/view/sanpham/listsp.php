@@ -10,16 +10,17 @@
                     <table class="table text-nowrap">
                         <thead>
                             <tr>
-                                <th class="border-top-0">Mã</th>
-                                <th class="border-top-0">Tên sản phẩm</th>
-                                <th class="border-top-0">Ảnh sản phẩm</th>
-                                <th class="border-top-0">Số lượng</th>
-                                <th class="border-top-0">Giá</th>
-                                <th class="border-top-0">Tình trang</th>
-                                <th class="border-top-0">Sửa</th>
-                                <th class="border-top-0">Xóa</th>
+                                <th class="border-top-0">MÃ</th>
+                                <th class="border-top-0">TÊN SẢN PHẨM</th>
+                                <th class="border-top-0">ẢNH SẢN PHẨM</th>
+                                <th class="border-top-0">SIZE</th>
+                                <th class="border-top-0">SỐ LƯỢNG</th>
+                                <th class="border-top-0">GIÁ</th>
+                                <th class="border-top-0">TÌNH TRẠNG</th>
+                                <th class="border-top-0">SỬA</th>
+                                <th class="border-top-0">XÓA</th>
                                 <th class="border-top-0">
-                                    <a href="index.php?act=addsp">Thêm</a>
+                                    <a href="index.php?act=addsp">THÊM</a>
                                 </th>
                             </tr>
                         </thead>
@@ -29,32 +30,31 @@
                                 extract($list);
                                 $editsp = "index.php?act=editsp&id=" . $id;
                                 $delsp = "index.php?act=delsp&id=" . $id;
-                                $imgpath = "../view/assets/images/product/" . $img_sp;
-                                if (is_file($imgpath)) {
-                                    $img = "<img src='" . $imgpath . "' width='200px'>";
-                                } else {
-                                    $img = "Không có hình upload";
-                                }
+                                // $imgpath = "../view/assets/images/product/" . $img_sp;
+                                // if (is_file($imgpath)) {
+                                //     $img = "<img src='" . $imgpath . "' width='200px'>";
+                                // } else {
+                                //     $img = "Không có hình upload";
+                                // }
                                 ?>
                                 <tr>
                                     <td>
                                         <?= $masp ?>
                                     </td>
                                     <td>
-                                        <?= $name_sp ?>
+                                        <?= $tensp ?>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <?= $soluongsp ?>
                                     </td>
                                     <td>
-                                        <?= $img ?>
-                                    </td>
-                                    <td>
-                                        <?= $soluong ?>
-                                    </td>
-                                    <td>
-                                        <?= $gia ?>
+                                        <?= $giasp ?>
                                     </td>
                                     <td>
                                         <?php
-                                        if ($soluong > 0) {
+                                        if ($soluongsp > 0) {
                                             echo "Còn hàng";
                                         }else{
                                             echo "Hết hàng";
