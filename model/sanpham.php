@@ -17,19 +17,10 @@ function sizesp ($size, $idsp){
     $spl = "insert into size(size_sp, id_sp) values('$size', '$idsp')";
     pdo_execute($spl);
 }
-function list_sp($kyw, $iddm=0){
-    $spl = "select * from sanpham order by id desc";
+function list_sp(){
+    $spl = "select s.id, s.masp, s.name_sp, i.img_sp, s.soluong, .s.gia from sanpham s
+            inner join image i on i.id_sp = s.id";
     $listsp = pdo_query($spl);
     return $listsp;
-    // $sql="select * from sanpham where 1";
-    // if ($kyw !="") {
-    //     $sql.=" and name like '%".$kyw."%'";
-    // }
-    // if ($iddm>0) {
-    //     $sql.=" and iddm = '".$iddm."'";
-    // }
-    // $sql.=" order by id desc";
-    // $listsanpham = pdo_query($sql);
-    // return $listsanpham;
 }
 ?>

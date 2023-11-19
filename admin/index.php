@@ -57,6 +57,7 @@ if ((isset($_GET['act']))) {
             include "view/danhmuc/listdm.php";
             break;
         // CONTROLLER SẢN PHẨM ===================================
+        // thêm sản phẩm
         case 'addsp':
             if ((isset($_POST['addnew'])) && ($_POST['addnew'])) {
                 $chuoikytu = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@_-';
@@ -81,7 +82,7 @@ if ((isset($_GET['act']))) {
             $listdm = list_danhmuc();
             include('view/sanpham/addsp.php');
             break;
-
+        // thêm bổ sung ảnh và size cho sản phẩm
         case 'addsize_img':
                 if ((isset($_POST['hoanthanh'])) && ($_POST['hoanthanh'])) {
                     $idsp = $_POST['idsp'];
@@ -99,21 +100,27 @@ if ((isset($_GET['act']))) {
                     foreach ($size_sp as $size) {
                         sizesp($size, $idsp);
                     }
+                    include('view/sanpham/listsp.php');
+                    break;
                 }
             include('view/sanpham/addsize_img.php');
             break;
-
+        // danh sách sản phẩm
         case 'listsp':
-            if (isset($_POST['listok']) && ($_POST['listok'])) {
-                $kyw = $_POST['kyw'];
-                $iddm = $_POST['iddm'];
-            } else {
-                $kyw = '';
-                $iddm = 0;
-            }
-            
             $listdm = list_danhmuc();
-            $listsp = list_sp($kyw, $iddm=0);
+            $listsp = list_sp();
+            include('view/sanpham/listsp.php');
+            break;
+        // sửa sản phẩm
+        case 'editsp':
+            $listdm = list_danhmuc();
+            $listsp = list_sp();
+            include('view/sanpham/updatesp.php');
+            break;
+        // xóa sản phẩm
+        case 'delsp':
+            $listdm = list_danhmuc();
+            $listsp = list_sp();
             include('view/sanpham/listsp.php');
             break;
 
