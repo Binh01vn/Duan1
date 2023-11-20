@@ -28,11 +28,11 @@
                             <?php
                             foreach ($listsp as $list) {
                                 extract($list);
-                                $editsp = "index.php?act=editsp&id=" . $id;
-                                $delsp = "index.php?act=delsp&id=" . $id;
-                                // $imgpath = "../view/assets/images/product/" . $img_sp;
+                                $editsp = "index.php?act=editsp&id=" . $idsp;
+                                $delsp = "index.php?act=delsp&id=" . $idsp;
+                                $imgpath = "../view/assets/images/product/" . $imgsp;
                                 // if (is_file($imgpath)) {
-                                //     $img = "<img src='" . $imgpath . "' width='200px'>";
+                                $img = "<img src='" . $imgpath . "' width='170px'>";
                                 // } else {
                                 //     $img = "Không có hình upload";
                                 // }
@@ -42,10 +42,23 @@
                                         <?= $masp ?>
                                     </td>
                                     <td>
-                                        <?= $tensp ?>
+                                        <b class="bosungtable">
+                                            <?= $tensp ?>
+                                        </b>
                                     </td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>
+                                        <?= $img ?> 
+                                    </td>
+                                    <td>
+                                        <?php
+                                        foreach ($listsize as $ls) {
+                                            extract($ls);
+                                            if ($id_sp == $idsp) {
+                                                echo "| " . $sizesp . " | <br>";
+                                            }
+                                        }
+                                        ?>
+                                    </td>
                                     <td>
                                         <?= $soluongsp ?>
                                     </td>
@@ -56,7 +69,7 @@
                                         <?php
                                         if ($soluongsp > 0) {
                                             echo "Còn hàng";
-                                        }else{
+                                        } else {
                                             echo "Hết hàng";
                                         }
                                         ?>

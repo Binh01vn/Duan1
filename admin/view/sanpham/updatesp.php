@@ -41,23 +41,19 @@ if (is_array($listsp)) {
                                 <input type="file" name="imgsp">
                             </div>
                         </div>
-                        <!-- <div class="form-group mb-4">
+                        <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Size sản phẩm</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <?php
-                                // foreach ($listsize as $ls) {
-                                //     extract($ls);
-                                //     if ($idsp == $id) {
-                                //         echo $sizesp;
-                                //     }
-                                // }
-                                // if (is_array($size_sp)) {
-                                //     extract($size_sp);
-                                //     echo $sizesp;
-                                // }
+                                foreach ($listsize as $lsz) {
+                                    extract($lsz);
+                                    if ($idsp == $id_sp) {
+                                        echo '<input type="number" name="sizesp" value="'.$sizesp.'">';
+                                    }
+                                }
                                 ?>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="form-group mb-4">
                             <label for="example-email" class="col-md-12 p-0">Giá</label>
                             <div class="col-md-12 border-bottom p-0">

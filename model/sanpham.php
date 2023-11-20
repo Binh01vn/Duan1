@@ -9,15 +9,30 @@ function list_spmn(){
     $listsp = pdo_query($sql);
     return $listsp;    
 }
+// function listall_sp($kyw, $iddm=0){  
+//     $sql="select * from sanpham where 1";
+//     if ($kyw !="") {
+//         $sql.=" and tensp like '%".$kyw."%'";
+//     }
+//     if ($iddm>0) {
+//         $sql.=" and iddm = '".$iddm."'";
+//     }
+//     $sql.=" order by id desc";
+//     $listsanpham = pdo_query($sql);
+//     return $listsanpham;
+// }
 function listall_sp($kyw, $iddm=0){  
-    $sql="select * from sanpham where 1";
+    $sql="select sp.masp, sp.tensp, sp.giasp, sp.soluongsp, sp.iddm, i.imgsp, i.idsp
+    from sanpham sp
+    inner join image i on i.idsp = sp.id
+    where 1";
     if ($kyw !="") {
-        $sql.=" and tensp like '%".$kyw."%'";
+        $sql.=" and sp.tensp like '%".$kyw."%'";
     }
     if ($iddm>0) {
-        $sql.=" and iddm = '".$iddm."'";
+        $sql.=" and sp.iddm = '".$iddm."'";
     }
-    $sql.=" order by id desc";
+    $sql.=" order by sp.id desc";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
@@ -34,8 +49,7 @@ function load_ten_dm($iddm){
 function list_spnew_home(){
     $sql="select sp.tensp, sp.giasp, i.imgsp , sp.motasp
     from sanpham sp
-    inner join image i
-    on i.idsp = sp.id
+    inner join image i on i.idsp = sp.id
     where 1 order by sp.id desc limit 0,7";
     $listsanpham = pdo_query($sql);
     return $listsanpham;    
@@ -50,17 +64,17 @@ function list_spnew_home(){
 //     $listimg = pdo_query($sql);
 //     return $listimg;    
 // }
-// function listall_size(){
-//     $sql="select * from size order by id desc";
-//     $listsize = pdo_query($sql);
-//     return $listsize;    
-// }
+function listall_size(){
+    $sql="select * from size order by id desc";
+    $listsize = pdo_query($sql);
+    return $listsize;    
+}
 function addanhsp($imgsp, $idsp){
     $spl = "insert into image(imgsp, idsp) values('$imgsp', '$idsp')";
     pdo_execute($spl);
 }
 function sizesp ($size, $idsp){
-    $spl = "insert into size(sizesp, idsp) values('$size', '$idsp')";
+    $spl = "insert into size(sizesp, id_sp) values('$size', '$idsp')";
     pdo_execute($spl);
 }
 function loadone_sp($id){
@@ -83,11 +97,14 @@ function loadone_imgsp($id){
 //     $sp = pdo_query_one($sql);
 //     return $sp;
 // }
-function capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp){
+function capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp, $sizesp){
     // $sql = "update danhmuc set name='".$tendm."' where id=".$id;
     $sql = "update sanpham
             set tensp='".$tensp."', giasp='".$giasp."', motasp='".$motasp."', soluongsp='".$soluongsp."', iddm='".$iddm."'
             where id=".$id;
+    if($sizesp != []){
+        $sql = "update size set sizesp='".$sizesp."' where id_sp=".$id;
+    }
     if($imgsp != ""){
         $sql = "update image set imgsp='".$imgsp."' where idsp=".$id;
     }
@@ -98,7 +115,7 @@ function xoa_img($id){
     pdo_query($sql);
 }
 function xoa_size($id){
-    $sql = "delete from size where idsp=". $id;
+    $sql = "delete from size where id_sp=". $id;
     pdo_query($sql);
 }
 function xoa_sp($id){

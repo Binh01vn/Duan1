@@ -14288,9 +14288,11 @@ label {
 }
 
 .table tbody tr {
+    width: 200px;
     color: #3e5569;
     font-weight: 400;
-    font-size: 16px
+    font-size: 16px;
+    nav-down: current;
 }
 
 .table td,
@@ -15883,4 +15885,8 @@ html body .waves-notransition {
     .user-btm-box h1 {
         font-size: 36px
     }
+}
+
+.bosungtable{
+    font-size: 13px;
 }

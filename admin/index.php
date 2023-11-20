@@ -100,6 +100,7 @@ if ((isset($_GET['act']))) {
                     sizesp($size, $idsp);
                 }
                 $listdm = list_danhmuc();
+                $listsize = listall_size();
                 $listsp = listall_sp("", 0);
                 include('view/sanpham/listsp.php');
                 break;
@@ -109,6 +110,7 @@ if ((isset($_GET['act']))) {
         // danh sách sản phẩm
         case 'listsp':
             $listdm = list_danhmuc();
+            $listsize = listall_size();
             $listsp = listall_sp("", 0);
             include('view/sanpham/listsp.php');
             break;
@@ -120,7 +122,7 @@ if ((isset($_GET['act']))) {
                 // $size_sp = loadone_sizesp($_GET['id']);
             }
             $listdm = list_danhmuc();
-            // $listsize = loadall_sizesp();
+            $listsize = listall_size();
             include('view/sanpham/updatesp.php');
             break;
         case 'updatesp':
@@ -130,10 +132,11 @@ if ((isset($_GET['act']))) {
                 $tensp = $_POST['tensp'];
                 $giasp = $_POST['giasp'];
                 $soluongsp = $_POST['soluongsp'];
+                $motasp = $_POST['motasp'];
+                $sizesp = $_POST['sizesp'];
 
                 $iddm = $_POST['iddm'];
 
-                $motasp = $_POST['motasp'];
 
                 $imgsp = $_FILES['imgsp']['name'];
                 $target_dir = "../view/assets/images/product/";
@@ -144,8 +147,9 @@ if ((isset($_GET['act']))) {
 
                 }
 
-                capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp);
+                capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp, $sizesp);
                 $listdm = list_danhmuc();
+                $listsize = listall_size();
                 $listsp = listall_sp("", 0);
                 include('view/sanpham/listsp.php');
                 break;
@@ -160,6 +164,7 @@ if ((isset($_GET['act']))) {
                 xoa_sp($_GET['id']);
             }
             $listdm = list_danhmuc();
+            $listsize = listall_size();
             $listsp = listall_sp("", 0);
             include('view/sanpham/listsp.php');
             break;
