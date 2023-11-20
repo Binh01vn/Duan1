@@ -152,48 +152,36 @@
                                                 Sản phẩm <i class="ion-chevron-down"></i>
                                             </a>
                                             <ul class="kenne-megamenu">
-                                                <li><span class="megamenu-title">Mới</span>
+                                                <li>
+                                                    <span class="megamenu-title">Mới</span>
                                                     <ul>
-                                                        <li><a href="shop-fullwidth.html">Grid Fullwidth</a></li>
-                                                        <li><a href="../Duan1/index.php">Left Sidebar</a></li>
-                                                        <li><a href="shop-right-sidebar.html">Right Sidebar</a></li>
-                                                        <li><a href="shop-list-fullwidth.html">List Fullwidth</a></li>
-                                                        <li><a href="shop-list-left-sidebar.html">List Left Sidebar</a>
-                                                        </li>
-                                                        <li><a href="shop-list-right-sidebar.html">List Right
-                                                                Sidebar</a>
-                                                        </li>
+                                                        <?php
+                                                        $spnew = list_spnew_home();
+                                                        foreach ($spnew as $sp) {
+                                                            extract($sp);
+                                                            echo '<li><a href="shop-fullwidth.html">'.$tensp.'</a></li>';
+                                                        }
+                                                        ?>
                                                     </ul>
                                                 </li>
-                                                <li><span class="megamenu-title">Nổi bật</span>
+
+                                                <li>
+                                                    <span class="megamenu-title">Danh mục</span>
                                                     <ul>
-                                                        <li><a href="single-product-gallery-left.html">Gallery Left</a>
-                                                        </li>
-                                                        <li><a href="single-product-gallery-right.html">Gallery
-                                                                Right</a>
-                                                        </li>
-                                                        <li><a href="single-product-tab-style-left.html">Tab Style
-                                                                Left</a>
-                                                        </li>
-                                                        <li><a href="single-product-tab-style-right.html">Tab Style
-                                                                Right</a>
-                                                        </li>
-                                                        <li><a href="single-product-sticky-left.html">Sticky Left</a>
-                                                        </li>
-                                                        <li><a href="single-product-sticky-right.html">Sticky Right</a>
-                                                        </li>
+                                                        <?php
+                                                        $dsdm = list_danhmuc();
+                                                        foreach ($dsdm as $ds) {
+                                                            extract($ds);
+                                                            $linkdm = "index.php?act=sanpham&iddm=" . $id;
+                                                            echo '
+                                                            <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
+                                                        ';
+                                                        }
+                                                        ?>
                                                     </ul>
                                                 </li>
-                                                <li><span class="megamenu-title">Danh mục</span>
-                                                    <ul>
-                                                        <li><a href="shop-fullwidth.html">Sản phẩm 1</a></li>
-                                                        <li><a href="shop-fullwidth.html">Sản phẩm 2</a></li>
-                                                        <li><a href="shop-fullwidth.html">Sản phẩm 3</a></li>
-                                                        <li><a href="shop-fullwidth.html">Sản phẩm 4</a></li>
-                                                        <li><a href="shop-fullwidth.html">Sản phẩm 5</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><span class="megamenu-title">Trang liên quan</span>
+                                                <li>
+                                                    <span class="megamenu-title">Trang liên quan</span>
                                                     <ul>
                                                         <li><a href="index.php?act=myacc">My Account</a></li>
                                                         <li>

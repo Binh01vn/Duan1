@@ -1,6 +1,11 @@
 <?php
+include("./model/pdo.php");
+include("./model/danhmuc.php");
+include("./model/sanpham.php");
 include("view/header.php");
 
+$spnew = list_spnew_home();
+$dsdm = list_danhmuc();
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
@@ -28,7 +33,36 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/cart/viewcart.php');
             break;
 
+        case 'danhmuc':
+            if ((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
+            }
+            if ((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
+                $iddm = $_GET['iddm'];
+
+            } else {
+                $iddm = 0;
+            }
+            $dssp = listall_sp($kyw, $iddm);
+            $tendm = load_ten_dm($iddm);
+            include('view/sanpham/sanpham.php');
+            break;
+
         case 'sanpham':
+            if ((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
+            }
+            if ((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
+                $iddm = $_GET['iddm'];
+
+            } else {
+                $iddm = 0;
+            }
+            $dssp = listall_sp($kyw, $iddm);
             include('view/sanpham/sanpham.php');
             break;
 

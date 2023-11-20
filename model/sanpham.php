@@ -9,11 +9,42 @@ function list_spmn(){
     $listsp = pdo_query($sql);
     return $listsp;    
 }
-function listall_sp(){
-    $sql="select * from sanpham order by id desc";
-    $listsp = pdo_query($sql);
-    return $listsp;    
+function listall_sp($kyw, $iddm=0){  
+    $sql="select * from sanpham where 1";
+    if ($kyw !="") {
+        $sql.=" and tensp like '%".$kyw."%'";
+    }
+    if ($iddm>0) {
+        $sql.=" and iddm = '".$iddm."'";
+    }
+    $sql.=" order by id desc";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
 }
+function load_ten_dm($iddm){
+    if ($iddm > 0) {
+        $sql = "select * from danhmuc where id=". $iddm;
+        $dm = pdo_query_one($sql);
+        extract($dm);
+        return $name;
+    }else{
+        return "";
+    }
+}
+function list_spnew_home(){
+    $sql="select sp.tensp, sp.giasp, i.imgsp , sp.motasp
+    from sanpham sp
+    inner join image i
+    on i.idsp = sp.id
+    where 1 order by sp.id desc limit 0,7";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;    
+}
+// function list_spnew_home(){
+//     $sql="select * from sanpham where 1 order by id desc limit 0,8";
+//     $listsanpham = pdo_query($sql);
+//     return $listsanpham;    
+// }
 // function listall_img(){
 //     $sql="select * from image order by id desc";
 //     $listimg = pdo_query($sql);
@@ -62,22 +93,16 @@ function capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp){
     }
     pdo_execute($sql);
 }
-function xoa_sp($id){
-    $sql = "delete from image where idsp=". $id;
-    $sql = "delete from size where idsp=". $id;
-    $sql = "delete from sanpham where id=". $id;
-    pdo_query($sql);
-}
 function xoa_img($id){
     $sql = "delete from image where idsp=". $id;
-    // $sql = "delete from size where idsp=". $id;
-    // $sql = "delete from sanpham where id=". $id;
     pdo_query($sql);
 }
 function xoa_size($id){
-    // $sql = "delete from image where idsp=". $id;
     $sql = "delete from size where idsp=". $id;
-    // $sql = "delete from sanpham where id=". $id;
+    pdo_query($sql);
+}
+function xoa_sp($id){
+    $sql = "delete from sanpham where id=". $id;
     pdo_query($sql);
 }
 ?>

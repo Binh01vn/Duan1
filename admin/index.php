@@ -100,7 +100,7 @@ if ((isset($_GET['act']))) {
                     sizesp($size, $idsp);
                 }
                 $listdm = list_danhmuc();
-                $listsp = listall_sp();
+                $listsp = listall_sp("", 0);
                 include('view/sanpham/listsp.php');
                 break;
             }
@@ -108,10 +108,8 @@ if ((isset($_GET['act']))) {
             break;
         // danh sách sản phẩm
         case 'listsp':
-            // $listimg = listall_img();
-            // $listsize = listall_size();
             $listdm = list_danhmuc();
-            $listsp = listall_sp();
+            $listsp = listall_sp("", 0);
             include('view/sanpham/listsp.php');
             break;
         // sửa sản phẩm
@@ -148,7 +146,7 @@ if ((isset($_GET['act']))) {
 
                 capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp);
                 $listdm = list_danhmuc();
-                $listsp = listall_sp();
+                $listsp = listall_sp("", 0);
                 include('view/sanpham/listsp.php');
                 break;
             }
@@ -157,12 +155,12 @@ if ((isset($_GET['act']))) {
         // xóa sản phẩm
         case 'delsp':
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                xoa_sp($_GET['id']);
                 xoa_img($_GET['id']);
                 xoa_size($_GET['id']);
+                xoa_sp($_GET['id']);
             }
             $listdm = list_danhmuc();
-            $listsp = listall_sp();
+            $listsp = listall_sp("", 0);
             include('view/sanpham/listsp.php');
             break;
 
