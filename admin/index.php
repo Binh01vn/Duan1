@@ -108,6 +108,8 @@ if ((isset($_GET['act']))) {
             break;
         // danh sách sản phẩm
         case 'listsp':
+            // $listimg = listall_img();
+            // $listsize = listall_size();
             $listdm = list_danhmuc();
             $listsp = listall_sp();
             include('view/sanpham/listsp.php');

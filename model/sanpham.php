@@ -14,6 +14,16 @@ function listall_sp(){
     $listsp = pdo_query($sql);
     return $listsp;    
 }
+// function listall_img(){
+//     $sql="select * from image order by id desc";
+//     $listimg = pdo_query($sql);
+//     return $listimg;    
+// }
+// function listall_size(){
+//     $sql="select * from size order by id desc";
+//     $listsize = pdo_query($sql);
+//     return $listsize;    
+// }
 function addanhsp($imgsp, $idsp){
     $spl = "insert into image(imgsp, idsp) values('$imgsp', '$idsp')";
     pdo_execute($spl);
