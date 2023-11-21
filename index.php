@@ -58,10 +58,10 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             }
             if ((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
                 $iddm = $_GET['iddm'];
-
             } else {
                 $iddm = 0;
             }
+            $ten_dm = load_ten_dm($iddm = 0);
             $dssp = listall_sp($kyw, $iddm);
             include('view/sanpham/sanpham.php');
             break;
@@ -83,10 +83,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         default:
+    $dssp = listall_sp("", 0);
             include('view/home.php');
             break;
     }
 } else {
+    $dssp = listall_sp("", 0);
     include('view/home.php');
 }
 include('view/footer.php');

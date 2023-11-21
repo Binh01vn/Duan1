@@ -85,9 +85,11 @@
                                 </div>
 
                                 <div class="header-search_area d-none d-lg-block">
-                                    <form class="search-form" action="#">
-                                        <input type="text" placeholder="Tìm kiếm">
-                                        <button class="search-button"><i class="ion-ios-search"></i></button>
+                                    <form class="search-form" action="index.php?act=sanpham" method="POST">
+                                        <input type="text" name="kyw" placeholder="Tìm kiếm">
+                                        <button class="search-button" name="timkiem" type="submit">
+                                            <i class="ion-ios-search"></i>
+                                        </button>
                                     </form>
                                 </div>
 
@@ -159,7 +161,7 @@
                                                         $spnew = list_spnew_home();
                                                         foreach ($spnew as $sp) {
                                                             extract($sp);
-                                                            echo '<li><a href="shop-fullwidth.html">'.$tensp.'</a></li>';
+                                                            echo '<li><a href="shop-fullwidth.html">' . $tensp . '</a></li>';
                                                         }
                                                         ?>
                                                     </ul>

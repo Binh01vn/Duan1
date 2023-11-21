@@ -9,18 +9,6 @@ function list_spmn(){
     $listsp = pdo_query($sql);
     return $listsp;    
 }
-// function listall_sp($kyw, $iddm=0){  
-//     $sql="select * from sanpham where 1";
-//     if ($kyw !="") {
-//         $sql.=" and tensp like '%".$kyw."%'";
-//     }
-//     if ($iddm>0) {
-//         $sql.=" and iddm = '".$iddm."'";
-//     }
-//     $sql.=" order by id desc";
-//     $listsanpham = pdo_query($sql);
-//     return $listsanpham;
-// }
 function listall_sp($kyw, $iddm=0){  
     $sql="select sp.masp, sp.tensp, sp.giasp, sp.soluongsp, sp.iddm, i.imgsp, i.idsp
     from sanpham sp
@@ -41,7 +29,7 @@ function load_ten_dm($iddm){
         $sql = "select * from danhmuc where id=". $iddm;
         $dm = pdo_query_one($sql);
         extract($dm);
-        return $name;
+        return $tendm;
     }else{
         return "";
     }
@@ -54,11 +42,6 @@ function list_spnew_home(){
     $listsanpham = pdo_query($sql);
     return $listsanpham;    
 }
-// function list_spnew_home(){
-//     $sql="select * from sanpham where 1 order by id desc limit 0,8";
-//     $listsanpham = pdo_query($sql);
-//     return $listsanpham;    
-// }
 // function listall_img(){
 //     $sql="select * from image order by id desc";
 //     $listimg = pdo_query($sql);
@@ -102,9 +85,9 @@ function capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp, $si
     $sql = "update sanpham
             set tensp='".$tensp."', giasp='".$giasp."', motasp='".$motasp."', soluongsp='".$soluongsp."', iddm='".$iddm."'
             where id=".$id;
-    if($sizesp != []){
-        $sql = "update size set sizesp='".$sizesp."' where id_sp=".$id;
-    }
+    // if($sizesp != []){
+    //     $sql = "update size set sizesp='".$sizesp."' where id_sp=".$id;
+    // }
     if($imgsp != ""){
         $sql = "update image set imgsp='".$imgsp."' where idsp=".$id;
     }

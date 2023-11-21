@@ -2,7 +2,7 @@
 <div class="breadcrumb-area">
     <div class="container">
         <div class="breadcrumb-content">
-            <h2>Single Product Type</h2>
+            <h2>BAK NIKE</h2>
             <ul>
                 <li><a href="index.html">Trang chủ</a></li>
                 <li class="active">Chi tiết sản phẩm</li>

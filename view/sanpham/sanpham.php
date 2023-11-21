@@ -23,12 +23,13 @@
                     </div>
                     <div class="price-filter">
                         <!-- <div id="slider-range"></div> -->
-                        <div class="price-slider-amount">
+                        <form class="price-slider-amount" method="POST" action="index.php?act=sanpham">
                             <div class="label-input">
                                 <input type="text" name="kyw" placeholder="Tìm kiếm" />
-                                <button class="filter-btn"><i class="ion-ios-search"></i></button>
+                                <button class="filter-btn" name="timkiem" type="submit"><i
+                                        class="ion-ios-search"></i></button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div class="kenne-sidebar-catagories_area">
@@ -41,8 +42,8 @@
                                 <li><a href="index.php?act=sanpham">Tất cả sản phẩm</a></li>
                                 <?php
                                 $dsdm = list_danhmuc();
-                                foreach ($dsdm as $ds) {
-                                    extract($ds);
+                                foreach ($dsdm as $ds1) {
+                                    extract($ds1);
                                     $linkdm = "index.php?act=sanpham&iddm=" . $id;
                                     echo '
                                         <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
@@ -75,8 +76,8 @@
                                 }}
                             ]'>
                             <?php
-                            foreach ($spnew as $sp) {
-                                extract($sp);
+                            foreach ($dssp as $ds2) {
+                                extract($ds2);
                                 $linksp = "index.php?act=sanphamct&idsp=" . $id;
                                 $imgpath = "./view/assets/images/product/" . $imgsp;
                                 $img = '<img class="primary-img" src="' . $imgpath . '" alt="Lỗi server ảnh">';
@@ -112,12 +113,28 @@
                         <a class="list" data-target="listview" data-toggle="tooltip" data-placement="top"
                             title="List View"><i class="fa fa-th-list"></i></a>
                     </div>
+                    <div class="product-page_count">
+                        <b>
+                            <?php
+                            $dsdm = list_danhmuc();
+                            foreach ($dsdm as $ds1) {
+                                extract($ds1);
+                                if(isset($_GET['iddm'])){
+                                    if($id == ($_GET['iddm'])){
+                                        echo $tendm;
+                                    }
+                                }
+                                
+                            }
+                            ?>
+                        </b>
+                    </div>
                 </div>
 
                 <div class="shop-product-wrap grid gridview-3 row">
                     <?php
-                    foreach ($spnew as $sp) {
-                        extract($sp);
+                    foreach ($dssp as $ds2) {
+                        extract($ds2);
                         $linksp = "index.php?act=sanphamct&idsp=" . $id;
                         $imgpath = "./view/assets/images/product/" . $imgsp;
                         $img = '<img class="primary-img" src="' . $imgpath . '" alt="Lỗi server ảnh">';
@@ -126,7 +143,7 @@
                                 <div class="product-item">
                                     <div class="single-product">
                                         <div class="product-img">
-                                            <a href="index.php?act=sanphamct">'.$img.'</a>
+                                            <a href="index.php?act=sanphamct">' . $img . '</a>
                                             <span class="sticker">-15%</span>
                                             <div class="add-actions">
                                             <ul>
@@ -158,7 +175,7 @@
                                 <div class="list-product_item">
                                     <div class="single-product">
                                         <div class="product-img">
-                                            <a href="index.php?act=sanphamct">'.$img.'</a>
+                                            <a href="index.php?act=sanphamct">' . $img . '</a>
                                         </div>
                                         <div class="product-content">
                                             <div class="product-desc_info">
