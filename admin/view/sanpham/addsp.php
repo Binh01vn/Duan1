@@ -27,12 +27,12 @@
                         <div class="form-group mb-4">
                             <label class="col-sm-12">Danh mục</label>
                             <div class="col-sm-12 border-bottom">
-                                <select class="form-select shadow-none p-0 border-0 form-control-line" name="iddm">
+                                <select class="form-select shadow-none p-0 border-0 form-control-line" name="id_dm">
                                     <option selected>Chọn danh mục</option>
                                     <?php
                                     foreach ($listdm as $list) {
                                         extract($list);
-                                        echo '<option value="' . $id . '">' . $tendm . '</option>';
+                                        echo '<option value="' . $id_dm . '">' . $tendm . '</option>';
                                     }
                                     ?>
                                 </select>

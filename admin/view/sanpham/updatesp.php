@@ -70,16 +70,16 @@ if (is_array($listsp)) {
                         <div class="form-group mb-4">
                             <label class="col-sm-12">Danh mục</label>
                             <div class="col-sm-12 border-bottom">
-                                <select class="form-select shadow-none p-0 border-0 form-control-line" name="iddm">
+                                <select class="form-select shadow-none p-0 border-0 form-control-line" name="id_dm">
                                     <?php
                                     foreach ($listdm as $dm) {
                                         extract($dm);
-                                        if ($iddm == $id) {
+                                        if ($iddm == $id_dm) {
                                             $slt = "selected";
                                         } else {
                                             $slt = "";
                                         }
-                                        echo '<option value="' . $id . '" ' . $slt . '>' . $tendm . '</option>';
+                                        echo '<option value="' . $id_dm . '" ' . $slt . '>' . $tendm . '</option>';
                                     }
                                     ?>
                                 </select>

@@ -22,11 +22,11 @@
                             <?php
                             foreach ($listdm as $list) {
                                 extract($list);
-                                $editdm = "index.php?act=editdm&id=" . $id;
-                                $deldm = "index.php?act=deldm&id=" . $id;
+                                $editdm = "index.php?act=editdm&id=" . $id_dm;
+                                $deldm = "index.php?act=deldm&id=" . $id_dm;
                                 echo '
                                     <tr>
-                                        <td>' . $id . '</td>
+                                        <td>' . $id_dm . '</td>
                                         <td>' . $tendm . '</td>
                                         <td>
                                             <a href="'.$editdm.'" class="fas fa-edit"></a>

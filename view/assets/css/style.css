@@ -10975,3 +10975,14 @@ i, .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-plus-minus >
 .hd-logo{
   width: 170px;
 }
+
+.qty-btn_area > ul li > button.qty-cart_btn {
+  padding: 10px 15px;
+  background-color: #a8741a;
+  color: #ffffff;
+}
+
+.qty-btn_area > ul li > button.qty-cart_btn:hover {
+  background-color: #242424;
+  border-color: #242424;
+}

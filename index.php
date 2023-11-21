@@ -61,12 +61,24 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             } else {
                 $iddm = 0;
             }
-            $ten_dm = load_ten_dm($iddm = 0);
+            $ten_dm = load_ten_dm($iddm);
             $dssp = listall_sp($kyw, $iddm);
             include('view/sanpham/sanpham.php');
             break;
 
         case 'sanphamct':
+            if ((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
+                $kyw = $_POST['kyw'];
+            } else {
+                $kyw = "";
+            }
+            if ((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
+                $iddm = $_GET['iddm'];
+            } else {
+                $iddm = 0;
+            }
+            $listsizesp = listall_size();
+            $dssp = listall_sp($kyw, $iddm);
             include('view/sanpham/sanphamct.php');
             break;
 

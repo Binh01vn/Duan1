@@ -174,7 +174,7 @@
                                                         $dsdm = list_danhmuc();
                                                         foreach ($dsdm as $ds) {
                                                             extract($ds);
-                                                            $linkdm = "index.php?act=sanpham&iddm=" . $id;
+                                                            $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
                                                             echo '
                                                             <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
                                                         ';

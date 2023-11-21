@@ -24,9 +24,14 @@ function listall_sp($kyw, $iddm=0){
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
+function load_sanpham_cungloai($id, $iddm){
+    $sql = "select * from sanpham where iddm= ".$iddm." AND id <> ". $id;
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;  
+}
 function load_ten_dm($iddm){
     if ($iddm > 0) {
-        $sql = "select * from danhmuc where id=". $iddm;
+        $sql = "select * from danhmuc where id_dm=". $iddm;
         $dm = pdo_query_one($sql);
         extract($dm);
         return $tendm;
@@ -35,7 +40,7 @@ function load_ten_dm($iddm){
     }
 }
 function list_spnew_home(){
-    $sql="select sp.tensp, sp.giasp, i.imgsp , sp.motasp
+    $sql="select sp.tensp, sp.giasp, i.imgsp , sp.motasp, sp.id
     from sanpham sp
     inner join image i on i.idsp = sp.id
     where 1 order by sp.id desc limit 0,7";
@@ -48,7 +53,7 @@ function list_spnew_home(){
 //     return $listimg;    
 // }
 function listall_size(){
-    $sql="select * from size order by id desc";
+    $sql="select * from size order by idsize desc";
     $listsize = pdo_query($sql);
     return $listsize;    
 }

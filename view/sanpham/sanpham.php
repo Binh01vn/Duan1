@@ -44,7 +44,7 @@
                                 $dsdm = list_danhmuc();
                                 foreach ($dsdm as $ds1) {
                                     extract($ds1);
-                                    $linkdm = "index.php?act=sanpham&iddm=" . $id;
+                                    $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
                                     echo '
                                         <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
                                     ';
@@ -78,7 +78,7 @@
                             <?php
                             foreach ($dssp as $ds2) {
                                 extract($ds2);
-                                $linksp = "index.php?act=sanphamct&idsp=" . $id;
+                                $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
                                 $imgpath = "./view/assets/images/product/" . $imgsp;
                                 $img = '<img class="primary-img" src="' . $imgpath . '" alt="Lỗi server ảnh">';
                                 echo '
@@ -120,7 +120,7 @@
                             foreach ($dsdm as $ds1) {
                                 extract($ds1);
                                 if(isset($_GET['iddm'])){
-                                    if($id == ($_GET['iddm'])){
+                                    if($id_dm == ($_GET['iddm'])){
                                         echo $tendm;
                                     }
                                 }
@@ -135,7 +135,7 @@
                     <?php
                     foreach ($dssp as $ds2) {
                         extract($ds2);
-                        $linksp = "index.php?act=sanphamct&idsp=" . $id;
+                        $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
                         $imgpath = "./view/assets/images/product/" . $imgsp;
                         $img = '<img class="primary-img" src="' . $imgpath . '" alt="Lỗi server ảnh">';
                         echo '
@@ -143,12 +143,12 @@
                                 <div class="product-item">
                                     <div class="single-product">
                                         <div class="product-img">
-                                            <a href="index.php?act=sanphamct">' . $img . '</a>
+                                            <a href="'.$linksp.'">' . $img . '</a>
                                             <span class="sticker">-15%</span>
                                             <div class="add-actions">
                                             <ul>
                                                 <li class="quick-view-btn" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
+                                                    data-bs-target="#exampleModalCenter"><a href="'.$linksp.'" data-bs-toggle="tooltip"
                                                         data-placement="right" title="Xem chi tiết"><i
                                                             class="ion-ios-search"></i></a>
                                                 </li>
@@ -164,7 +164,7 @@
                                     </div>
                                         <div class="product-content">
                                             <div class="product-desc_info">
-                                                <h3 class="product-name"><a href="index.php?act=sanphamct">' . $tensp . '</a></h3>
+                                                <h3 class="product-name"><a href="'.$linksp.'">' . $tensp . '</a></h3>
                                                 <div class="price-box">
                                                     <span class="new-price">Giá: ' . $giasp . '</span>
                                                 </div>
@@ -175,14 +175,14 @@
                                 <div class="list-product_item">
                                     <div class="single-product">
                                         <div class="product-img">
-                                            <a href="index.php?act=sanphamct">' . $img . '</a>
+                                            <a href="'.$linksp.'">' . $img . '</a>
                                         </div>
                                         <div class="product-content">
                                             <div class="product-desc_info">
                                                 <div class="price-box">
                                                     <span class="new-price">Giá: ' . $giasp . '</span>
                                                 </div>
-                                                <h6 class="product-name"><a href="index.php?act=sanphamct">' . $tensp . '</a></h6>
+                                                <h6 class="product-name"><a href="'.$linksp.'">' . $tensp . '</a></h6>
                                                 <div class="product-short_desc">
                                                     <p>' . $motasp . '</p>
                                                 </div>
@@ -190,7 +190,7 @@
                                             <div class="add-actions">
                                                 <ul>
                                                     <li class="quick-view-btn" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
+                                                    data-bs-target="#exampleModalCenter"><a href="'.$linksp.'" data-bs-toggle="tooltip"
                                                         data-placement="right" title="Xem chi tiết"><i
                                                             class="ion-ios-search"></i></a>
                                                     </li>

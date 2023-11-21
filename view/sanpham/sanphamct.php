@@ -16,61 +16,158 @@
 <div class="sp-area">
     <div class="container">
         <div class="sp-nav">
-            <div class="row">
+            <form class="row" action="index.php?act=cart" method="POST">
                 <div class="col-lg-4">
-                    <div class="sp-img_area">
-                        <div class="single-slide red zoom">
-                            <img src="view/assets/images/product/1-1.jpg" alt="Kenne's Product Image">
-                        </div>
-                    </div>
+                    <?php
+                    foreach ($dssp as $ds1) {
+                        extract($ds1);
+                        $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
+                        $imgpath = "./view/assets/images/product/" . $imgsp;
+                        $img = '<img src="' . $imgpath . '" alt="Lỗi server ảnh">';
+                        if ($idsp == $_GET['idsp']) {
+                            ?>
+                            <div class="sp-img_area">
+                                <div class="sp-img_slider slick-img-slider kenne-element-carousel" data-slick-options='{
+                                "slidesToShow": 1,
+                                "arrows": false,
+                                "fade": true,
+                                "draggable": false,
+                                "swipe": false,
+                                "asNavFor": ".sp-img_slider-nav"
+                                }'>
+                                    <div class="single-slide red zoom">
+                                        <?= $img ?>
+                                    </div>
+                                    <div class="single-slide red zoom">
+                                        <img src="view/assets/images/product/1-1.jpg" alt="Kenne's Product Image">
+                                    </div>
+                                    <div class="single-slide orange zoom">
+                                        <img src="view/assets/images/product/1-2.jpg" alt="Kenne's Product Image">
+                                    </div>
+                                    <div class="single-slide brown zoom">
+                                        <img src="view/assets/images/product/2-1.jpg" alt="Kenne's Product Image">
+                                    </div>
+                                    <div class="single-slide umber zoom">
+                                        <img src="view/assets/images/product/2-2.jpg" alt="Kenne's Product Image">
+                                    </div>
+                                    <div class="single-slide black zoom">
+                                        <img src="view/assets/images/product/3-1.jpg" alt="Kenne's Product Image">
+                                    </div>
+                                    <div class="single-slide green zoom">
+                                        <img src="view/assets/images/product/3-2.jpg" alt="Kenne's Product Image">
+                                    </div>
+                                </div>
+                                <div class="sp-img_slider-nav slick-slider-nav kenne-element-carousel arrow-style-2 arrow-style-3"
+                                    data-slick-options='{
+                                "slidesToShow": 3,
+                                "asNavFor": ".sp-img_slider",
+                                "focusOnSelect": true,
+                                "arrows" : true,
+                                "spaceBetween": 30
+                                }' data-slick-responsive='[
+                                        {"breakpoint":1501, "settings": {"slidesToShow": 3}},
+                                        {"breakpoint":1200, "settings": {"slidesToShow": 2}},
+                                        {"breakpoint":992, "settings": {"slidesToShow": 4}},
+                                        {"breakpoint":768, "settings": {"slidesToShow": 3}},
+                                        {"breakpoint":575, "settings": {"slidesToShow": 2}}
+                                    ]'>
+                                    <div class="single-slide red">
+                                        <?= $img ?>
+                                    </div>
+                                    <div class="single-slide red">
+                                        <img src="view/assets/images/product/1-1.jpg" alt="Kenne's Product Thumnail">
+                                    </div>
+                                    <div class="single-slide orange">
+                                        <img src="view/assets/images/product/1-2.jpg" alt="Kenne's Product Thumnail">
+                                    </div>
+                                    <div class="single-slide brown">
+                                        <img src="view/assets/images/product/2-1.jpg" alt="Kenne's Product Thumnail">
+                                    </div>
+                                    <div class="single-slide umber">
+                                        <img src="view/assets/images/product/2-2.jpg" alt="Kenne's Product Thumnail">
+                                    </div>
+                                    <div class="single-slide red">
+                                        <img src="view/assets/images/product/3-1.jpg" alt="Kenne's Product Thumnail">
+                                    </div>
+                                    <div class="single-slide orange">
+                                        <img src="view/assets/images/product/3-2.jpg" alt="Kenne's Product Thumnail">
+                                    </div>
+                                </div>
+                            </div>
+                        <?php }
+                    } ?>
                 </div>
                 <div class="col-lg-8">
                     <div class="sp-content">
                         <div class="sp-heading">
                             <h5><a href="#">Thông tin sản phẩm</a></h5>
                         </div>
+
+
                         <div class="sp-essential_stuff">
                             <ul>
-                                <li>Tên sản phẩm: <a href="#">Buxton</a></li>
-                                <li>Mã sản phẩm: <a href="#">PRD 0001</a></li>
-                                <li>Giá: <a href="#">99.9 $</a></li>
-                                <li>Tình trạng: <a href="#">Còn hàng</a></li>
+                                <?php
+                                foreach ($dssp as $ds1) {
+                                    extract($ds1);
+                                    if ($idsp == $_GET['idsp']) { ?>
+                                        <li>Tên sản phẩm:
+                                            <b>
+                                                <?= $tensp ?>
+                                            </b>
+                                        </li>
+                                        <li>Mã sản phẩm:
+                                            <?= $masp ?>
+                                        </li>
+                                        <li>Giá:
+                                            <?= $giasp ?>
+                                        </li>
+                                        <li>Tình trạng:
+                                            <?php
+                                            if ($soluongsp > 0) {
+                                                echo 'còn ' . $soluongsp . ' sản phẩm';
+                                            } else {
+                                                echo "Hết hàng!";
+                                            }
+                                            ?>
+                                        </li>
+                                    <?php }
+                                }
+                                ?>
                             </ul>
                         </div>
                         <div class="product-size_box">
                             <span>Size</span>
-                            <select class="myniceselect nice-select">
-                                <option value="1">35</option>
-                                <option value="2">36</option>
-                                <option value="3">37</option>
-                                <option value="4">38</option>
-                                <option value="5">39</option>
-                                <option value="6">40</option>
-                                <option value="7">41</option>
-                                <option value="8">42</option>
+                            <select class="myniceselect nice-select" name="sizesp">
+                                <?php
+                                foreach ($listsizesp as $l2) {
+                                    extract($l2);
+                                    if ($id_sp == $_GET['idsp']) {
+                                        echo '<option value="' . $id . '">' . $sizesp . '</option>';
+                                    }
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="quantity">
                             <label>Số lượng</label>
                             <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box" value="1" type="text">
+                                <input class="cart-plus-minus-box" value="1" type="text" name="soluongsp">
                                 <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
                                 <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                             </div>
                         </div>
                         <div class="qty-btn_area">
                             <ul>
-                                <li><a class="qty-cart_btn" href="cart.html">Thêm vào giỏ hành</a></li>
-                                <li><a class="qty-wishlist_btn" href="wishlist.html" data-bs-toggle="tooltip"
-                                        title="Thêm vào yêu thích"><i class="ion-android-favorite-outline"></i></a>
+                                <li>
+                                    <button class="qty-cart_btn" type="submit" name="addgio">Thêm vào giỏ hàng</button>
+                                </li>
+                                <li>
+                                    <a class="qty-wishlist_btn" href="wishlist.html" data-bs-toggle="tooltip"
+                                        title="Thêm vào yêu thích">
+                                        <i class="ion-android-favorite-outline"></i>
+                                    </a>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="kenne-tag-line">
-                            <h6>Danh mục:</h6>
-                            <a href="#">scarf</a>,
-                            <a href="#">jacket</a>,
-                            <a href="#">shirt</a>
                         </div>
                         <div class="kenne-social_link">
                             <ul>
@@ -108,7 +205,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -132,55 +229,19 @@
                             <div class="product-description">
                                 <ul>
                                     <li>
-                                        <span class="title">Loại nào cũng được</span>
-                                        <span>Niềm vui, ít hơn? Việc lựa chọn nỗi đau và niềm vui bị từ chối bởi ít lao
-                                            động nhất, và không ai sinh ra và làm công việc này thường đảm nhận nhiệm vụ
-                                            của kiến ​​​​trúc sư. Theo sau mọi lao động sẽ là những khoản nợ mà họ không
-                                            biết đó là thú vui ít hơn theo một cách nào đó! Anh ta đẩy lùi sự thật về
-                                            những rắc rối của cơ thể và nỗi đau mà những người lớn tuổi, những người đã
-                                            bị mù quáng bởi lý trí khôn ngoan, đã bị mù quáng! Anh ấy không bao giờ được
-                                            chọn ngoại trừ quyền và nỗi đau.</span>
+                                        <?php
+                                        foreach ($dssp as $ds1) {
+                                            extract($ds1);
+                                            if ($idsp == $_GET['idsp']) { ?>
+                                                <span class="title">
+                                                    <?= $tensp ?>
+                                                </span>
+                                                <span>
+                                                    <?= $motasp ?>
+                                                </span>
+                                            <?php }
+                                        } ?>
                                     </li>
-                                    <li>
-                                        <span class="title">Enim tempore</span>
-                                        <span>Molestias amet quibusdam eligendi exercitationem alias labore tenetur
-                                            quaerat veniam similique aspernatur eveniet, suscipit corrupti itaque
-                                            dolore deleniti nobis, rerum reprehenderit recusandae. Eligendi beatae
-                                            asperiores nisi distinctio doloribus voluptatibus voluptas repellendus
-                                            tempore unde velit temporibus atque maiores aliquid deserunt aspernatur
-                                            amet, soluta fugit magni saepe fugiat vel sunt voluptate vitae</span>
-                                    </li>
-                                    <li>
-                                        <span class="title">Laudantium suscipit</span>
-                                        <span>Odit repudiandae maxime, ducimus necessitatibus error fugiat nihil eum
-                                            dolorem animi voluptates sunt, rem quod reprehenderit expedita, nostrum
-                                            sit accusantium ut delectus. Voluptates at ipsam, eligendi labore
-                                            dignissimos consectetur reprehenderit id error excepturi illo velit
-                                            ratione nisi nam saepe quod! Reiciendis eos, velit fugiat voluptates
-                                            accusamus nesciunt dicta ratione mollitia, asperiores error aliquam!
-                                            Reprehenderit provident, omnis blanditiis fugit, accusamus deserunt
-                                            illum unde, voluptatum consequuntur illo officiis labore doloremque
-                                            quidem aperiam! Fuga, expedita? Laboriosam eum, tempore vitae libero
-                                            voluptate omnis ducimus doloremque hic quibusdam reiciendis ab itaque
-                                            aperiam maiores laudantium esse, consequuntur quos labore modi quasi
-                                            recusandae distinctio iusto optio officia tempora.</span>
-                                    </li>
-                                    <li>
-                                        <span class="title">Molestiae veritatis officia</span>
-                                        <span>Illum fuga esse tenetur inventore, in voluptatibus saepe iste quia
-                                            cupiditate, explicabo blanditiis accusantium ut. Eaque nostrum, quisquam
-                                            doloribus asperiores tempore autem. Ea perspiciatis vitae reiciendis
-                                            maxime similique vel, id ratione blanditiis ullam officiis odio sunt nam
-                                            quos atque accusantium ad! Repellendus, magni aliquid. Iure asperiores
-                                            veniam eum unde dignissimos reprehenderit ut atque velit, harum labore
-                                            nam expedita, pariatur excepturi consectetur animi optio mollitia ad a
-                                            natus eaque aut assumenda inventore dolor obcaecati! Enim ab tempore
-                                            nulla iusto consequuntur quod sit voluptatibus adipisci earum fuga,
-                                            explicabo amet, provident, molestiae optio. Ducimus ex necessitatibus
-                                            assumenda, nisi excepturi ut aspernatur est eius dignissimos pariatur
-                                            unde ipsum sunt quaerat.</span>
-                                    </li>
-
                                 </ul>
                             </div>
                         </div>
@@ -233,7 +294,13 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h3>Sản phẩm cùng loại</h3>
+                    <h3>Sản phẩm cùng loại
+                        <?php
+                        if (isset($iddm)) {
+                            echo $iddm;
+                        }
+                        ?>
+                    </h3>
                     <div class="product-arrow"></div>
                 </div>
             </div>

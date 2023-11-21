@@ -42,9 +42,9 @@ if ((isset($_GET['act']))) {
         case 'updatedm':
             if (isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $tendm = $_POST['tendm'];
-                $id = $_POST['id'];
+                $id_dm = $_POST['id_dm'];
                 if ($tendm != '') {
-                    update_danhmuc($id, $tendm);
+                    update_danhmuc($id_dm, $tendm);
                 }
             }
             $listdm = list_danhmuc();
@@ -69,12 +69,12 @@ if ((isset($_GET['act']))) {
                 }
 
                 $tensp = $_POST['tensp'];
-                $iddm = $_POST['iddm'];
+                $id_dm = $_POST['id_dm'];
                 $giasp = $_POST['giasp'];
                 $soluongsp = $_POST['soluongsp'];
                 $motasp = $_POST['motasp'];
 
-                insert_sanpham($masp, $tensp, $giasp, $motasp, $soluongsp, $iddm);
+                insert_sanpham($masp, $tensp, $giasp, $motasp, $soluongsp, $id_dm);
                 include("view/sanpham/prvsanpham.php");
                 break;
             }
@@ -135,7 +135,7 @@ if ((isset($_GET['act']))) {
                 $motasp = $_POST['motasp'];
                 $sizesp = $_POST['sizesp'];
 
-                $iddm = $_POST['iddm'];
+                $id_dm = $_POST['id_dm'];
 
 
                 $imgsp = $_FILES['imgsp']['name'];
@@ -147,7 +147,7 @@ if ((isset($_GET['act']))) {
 
                 }
 
-                capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp, $sizesp);
+                capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $id_dm, $imgsp, $sizesp);
                 $listdm = list_danhmuc();
                 $listsize = listall_size();
                 $listsp = listall_sp("", 0);

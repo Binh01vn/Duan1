@@ -20,7 +20,7 @@ if (is_array($dm)) {
 
                         <div class="form-group mb-4">
                             <div class="col-sm-12">
-                                <input type="hidden" value="<?php if (isset($id) && ($id > 0)) echo $id; ?>" name="id">
+                                <input type="hidden" value="<?php if (isset($id_dm) && ($id_dm > 0)) echo $id_dm; ?>" name="id_dm">
                                 <input class="btn btn-success" type="submit" name="capnhat" value="Cập nhật">
                             </div>
                         </div>
