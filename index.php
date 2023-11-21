@@ -1,7 +1,9 @@
 <?php
+session_start();
 include("./model/pdo.php");
 include("./model/danhmuc.php");
 include("./model/sanpham.php");
+include("./model/taikhoan.php");
 include("view/header.php");
 
 $spnew = list_spnew_home();
@@ -9,20 +11,70 @@ $dsdm = list_danhmuc();
 if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch ($act) {
+        case 'sigorreg':
+            if (isset($_POST['register']) && ($_POST['register'])) {
+                $tensohuu = $_POST['tensohuu'];
+                $username = $_POST['username'];
+                $pass = $_POST['pass'];
+                $xnpass = $_POST['xnpass'];
+                $email = $_POST['email'];
+                $phone = $_POST['phone'];
+                $diachi = $_POST['diachi'];
+                $vaitro = $_POST['vaitro'];
+
+                if ($pass == $xnpass) {
+                    insert_taikhoan($tensohuu, $username, $pass, $email, $phone, $diachi);
+                } else {
+                    $tb = "Mật khẩu không trùng khớp!";
+                }
+            } else if (isset($_POST['signin']) && ($_POST['signin'])) {
+                $username = $_POST['username'];
+                $pass = $_POST['pass'];
+
+                $checkuser = check_user($username, $pass);
+                if (is_array($checkuser)) {
+                    $_SESSION['username'] = $checkuser;
+                    include('view/home.php');
+                    break;
+                    // header('location: index.php');
+                } else {
+                    echo "sai tài khoản";
+                }
+            }
+            include('view/taikhoan/sigorreg.php');
+            break;
+
         case 'myacc':
             include('view/taikhoan/my-account.php');
             break;
 
-        case 'signin':
-            include('view/taikhoan/signin.php');
+        case 'logout':
+            session_unset();
+            include('view/taikhoan/sigorreg.php');
+            // header('location: index.phpact=home');
             break;
 
-        case 'register':
-            include('view/taikhoan/register.php');
-            break;
+        case 'capnhattt':
+            if (isset($_POST['updateacc']) && ($_POST['updateacc'])) {
+                $tennew = $_POST['tennew'];
+                $usernew = $_POST['usernew'];
+                $emailnew = $_POST['emailnew'];
+                $telnew = $_POST['telnew'];
+                $diachinew = $_POST['diachinew'];
+                $passnew = $_POST['passnew'];
+                $xnpassnew = $_POST['xnpassnew'];
+                $idtk = $_POST['idtk'];
 
-        case 'updateacc':
-            include('view/taikhoan/updateacc.php');
+                if ($passnew == $xnpassnew && $tennew != "" && $usernew != "" && $emailnew != "" && $telnew != "" && $diachinew != "" && $passnew != "") {
+                    update_taikhoan($tennew, $usernew, $passnew, $emailnew, $telnew, $diachinew, $idtk);
+                    session_unset();
+                    include('view/taikhoan/sigorreg.php');
+                    break;
+                } else {
+                    $tb = "Mật khẩu không trùng khớp hoặc thông tin trống!";
+                }
+            }
+            include('view/taikhoan/my-account.php');
             break;
 
         case 'wlist':
@@ -95,7 +147,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         default:
-    $dssp = listall_sp("", 0);
+            $dssp = listall_sp("", 0);
             include('view/home.php');
             break;
     }

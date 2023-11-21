@@ -17,29 +17,25 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
-                <form action="#">
+                <form action="index.php?act=capnhattt">
                     <div class="login-form">
                         <h4 class="login-title">Cập nhật thông tin tài khoản</h4>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <label>Họ và tên:</label>
-                                <input type="email">
+                                <input type="email" placeholder="<?= $tensohuu ?>" name="tennew">
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <label>Username:</label>
-                                <input type="text">
+                                <input type="text" placeholder="<?= $username ?>" name="usernew">
                             </div>
                             <div class="col-md-6">
                                 <label>Email:</label>
-                                <input type="email">
+                                <input type="email" placeholder="<?= $email ?>" name="emailnew">
                             </div>
                             <div class="col-md-6">
                                 <label>Số điện thoại</label>
-                                <input type="tel">
-                            </div>
-                            <div class="col-md-12">
-                                <label>Địa chỉ:</label>
-                                <input type="text">
+                                <input type="tel" placeholder="<?= $phone ?>" name="telnew">
                             </div>
                             <div class="single-input">
                                 <label for="account-details-oldpass">Mật khẩu hiện tại (Để chống hoặc không thay
@@ -55,7 +51,7 @@
                                 <input type="password" id="account-details-confpass">
                             </div>
                             <div class="col-12">
-                                <button class="kenne-register_btn">Cập nhật</button>
+                                <button class="kenne-register_btn" type="submit" name="editacc" value="capnhat">Cập nhật</button>
                             </div>
                         </div>
                     </div>

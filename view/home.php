@@ -257,7 +257,7 @@
                             $dsdm = list_danhmuc();
                             foreach ($dsdm as $ds) {
                                 extract($ds);
-                                $linkdm = "index.php?act=sanpham&iddm=" . $id;
+                                $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
                                 echo '
                                         <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
                                     ';
@@ -289,13 +289,13 @@
                         "slidesToShow": 1
                         }}
                     ]'>
-                    <?php
-                    foreach ($dssp as $sp1) {
-                        extract($sp1);
-                        $linksp = "index.php?act=sanphamct&idsp=" . $id;
-                        $imgpath = "./view/assets/images/product/" . $imgsp;
-                        $img = '<img class="primary-img" src="' . $imgpath . '" alt="Lỗi server ảnh">';
-                        echo '
+                            <?php
+                            foreach ($dssp as $sp1) {
+                                extract($sp1);
+                                $linksp = "index.php?act=sanphamct&idsp=" . $id;
+                                $imgpath = "./view/assets/images/product/" . $imgsp;
+                                $img = '<img class="primary-img" src="' . $imgpath . '" alt="Lỗi server ảnh">';
+                                echo '
                         <div class="product-item">
                         <div class="single-product">
                             <div class="product-img">
@@ -329,8 +329,8 @@
                         </div>
                     </div>
                         ';
-                    }
-                    ?>
+                            }
+                            ?>
                             <div class="product-item">
                                 <div class="single-product">
                                     <div class="product-img">

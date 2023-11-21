@@ -109,9 +109,16 @@
                             </div>
                             <div class="footer-widgets">
                                 <ul>
-                                    <li><a href="index.php?act=sanpham">Sản phẩm</a></li>
-                                    <li><a href="index.php?act=cart">Giỏ hàng của tôi</a></li>
-                                    <li><a href="index.php?act=wlist">Yêu thích</a></li>
+                                    <?php
+                                    $dsdm = list_danhmuc();
+                                    foreach ($dsdm as $ds) {
+                                        extract($ds);
+                                        $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
+                                        echo '
+                                                            <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
+                                                        ';
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
@@ -121,9 +128,29 @@
                             </div>
                             <div class="footer-widgets">
                                 <ul>
-                                    <li><a href="index.php?act=myacc">My account</a></li>
-                                    <li><a href="index.php?act=signin">Đăng nhập</a></li>
-                                    <li><a href="index.php?act=register">Đăng ký</a></li>
+                                    <?php
+                                    if (isset($_SESSION['username'])) {
+                                        extract($_SESSION['username']);
+                                        ?>
+                                        <li>
+                                            <a href="index.php?act=myacc">
+                                                <?= $username ?>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="index.php?act=wlist">Yêu thích</a>
+                                        </li>
+                                        <li>
+                                            <a href="index.php?act=cart">Giỏ hàng</a>
+                                        </li>
+                                    <?php } else { ?>
+                                        <li>
+                                            <a href="index.php?act=sigorreg">Đăng nhập</a>
+                                        </li>
+                                        <li>
+                                            <a href="index.php?act=sigorreg">Đăng ký</a>
+                                        </li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>

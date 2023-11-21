@@ -1,14 +1,13 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GIÀY NIKE BAK</title>
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description"
-        content="Kenne is a stunning html template for an expansion eCommerce site that suitable for any kind of fashion store. It will make your online store look more impressive and attractive to viewers. ">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <meta name="robots" content="noindex, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="view/assets/images/favicon.png">
 
@@ -53,18 +52,24 @@
                             <!-- <div class="col-lg-6"> -->
                             <div class="header-top_right">
                                 <ul>
-                                    <li>
-                                        <a href="index.php?act=myacc">My Account</a>
-                                    </li>
-                                    <li>
-                                        <a href="index.php?act=wlist">Yêu thích</a>
-                                    </li>
-                                    <li>
-                                        <a href="index.php?act=signin">Đăng nhập</a>
-                                    </li>
-                                    <li>
-                                        <a href="index.php?act=register">Đăng kí</a>
-                                    </li>
+                                    <?php
+                                    if (isset($_SESSION['username'])) {
+                                        extract($_SESSION['username']);
+                                        ?>
+                                        <li>
+
+                                            <a href="index.php?act=myacc">Xin chào: <b>
+                                                    <?= $username ?>
+                                                </b></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.php?act=wlist">Yêu thích</a>
+                                        </li>
+                                    <?php } else { ?>
+                                        <li>
+                                            <a href="index.php?act=sigorreg">Đăng nhập - Đăng ký</a>
+                                        </li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                             <!-- </div> -->
@@ -183,19 +188,45 @@
                                                     </ul>
                                                 </li>
                                                 <li>
+                                                    <span class="megamenu-title">SALE</span>
+                                                    <ul>
+                                                        <?php
+                                                        $dsdm = list_danhmuc();
+                                                        foreach ($dsdm as $ds) {
+                                                            extract($ds);
+                                                            $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
+                                                            echo '
+                                                            <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
+                                                        ';
+                                                        }
+                                                        ?>
+                                                    </ul>
+                                                </li>
+                                                <li>
                                                     <span class="megamenu-title">Trang liên quan</span>
                                                     <ul>
-                                                        <li><a href="index.php?act=myacc">My Account</a></li>
-                                                        <li>
-                                                            <a href="index.php?act=signin">Đăng nhập</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index.php?act=register">Đăng kí</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index.php?act=wlist">Yêu thích</a>
-                                                        </li>
-                                                        <li><a href="index.php?act=cart">Giỏ hàng</a></li>
+                                                        <?php
+                                                        if (isset($_SESSION['username'])) {
+                                                            extract($_SESSION['username']);
+                                                            ?>
+                                                            <li>
+
+                                                                <a href="index.php?act=myacc"><b>
+                                                                        <?= $username ?>
+                                                                    </b></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="index.php?act=wlist">Yêu thích</a>
+                                                            </li>
+                                                            <li><a href="index.php?act=cart">Giỏ hàng</a></li>
+                                                        <?php } else { ?>
+                                                            <li>
+                                                                <a href="index.php?act=sigorreg">Đăng nhập</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="index.php?act=sigorreg">Đăng ký</a>
+                                                            </li>
+                                                        <?php } ?>
                                                         <li><a href="index.php?act=faq">FAQ</a></li>
                                                     </ul>
                                                 </li>
@@ -278,39 +309,45 @@
                                     </a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="index.php?act=sanpham">
+                                    <a href="">
                                         <span class="mm-text">Sản phẩm</span>
                                     </a>
                                     <ul class="sub-menu">
                                         <li class="menu-item-has-children">
-                                            <a href="#">
-                                                <span class="mm-text">Sản phẩm mới</span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="mm-text">Sản phẩm nổi bật</span>
-                                            </a>
-                                            <a href="#">
-                                                <span class="mm-text">Sản phẩm bán chạy</span>
-                                            </a>
+                                            <?php
+                                            $dsdm = list_danhmuc();
+                                            foreach ($dsdm as $ds) {
+                                                extract($ds);
+                                                $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
+                                                echo '
+                                                            <a href="' . $linkdm . '">' . $tendm . '</a>
+                                                        ';
+                                            }
+                                            ?>
                                         </li>
                                     </ul>
                                 </li>
 
                                 <li class="menu-item-has-children">
-                                    <a href="javascript:void(0)">
+                                    <a href="">
                                         <span class="mm-text">Khác</span>
                                     </a>
                                     <ul class="sub-menu">
-                                        <li>
-                                            <a href="index.php?act=wlist">
-                                                <span class="mm-text">Yêu thích</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="index.php?act=cart">
-                                                <span class="mm-text">Giỏ hàng</span>
-                                            </a>
-                                        </li>
+                                        <?php
+                                        if (isset($_SESSION['username'])) {
+                                            extract($_SESSION['username']);
+                                            ?>
+                                            <li>
+                                                <a href="index.php?act=wlist">Yêu thích</a>
+                                            </li>
+                                        <?php } else { ?>
+                                            <li>
+                                                <a href="index.php?act=sigorreg">Đăng nhập</a>
+                                            </li>
+                                            <li>
+                                                <a href="index.php?act=sigorreg">Đăng ký</a>
+                                            </li>
+                                        <?php } ?>
                                         <li>
                                             <a href="index.php?act=wlist">
                                                 <span class="mm-text">Giới thiệu</span>
@@ -333,27 +370,36 @@
                         <nav class="offcanvas-navigation user-setting_area">
                             <ul class="mobile-menu">
                                 <li class="menu-item-has-children active">
-                                    <a href="index.php?act=myacc">
+                                    <a href="">
                                         <span class="mm-text">
                                             Cài đặt tài khoản
                                         </span>
                                     </a>
                                     <ul class="sub-menu">
-                                        <li>
-                                            <a href="index.php?act=myacc">
-                                                <span class="mm-text">My Account</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="index.php?act=signin">
-                                                <span class="mm-text">Đăng nhập</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="index.php?act=register">
-                                                <span class="mm-text">Đăng ký</span>
-                                            </a>
-                                        </li>
+                                        <?php
+                                        if (isset($_SESSION['username'])) {
+                                            extract($_SESSION['username']);
+                                            ?>
+                                            <li>
+
+                                                <a href="index.php?act=myacc">Xin chào: <b>
+                                                        <?= $username ?>
+                                                    </b></a>
+                                            </li>
+                                            <li>
+                                                <a href="index.php?act=wlist">Yêu thích</a>
+                                            </li>
+                                            <li>
+                                                <a href="index.php?act=cart">Giỏ hàng</a>
+                                            </li>
+                                        <?php } else { ?>
+                                            <li>
+                                                <a href="index.php?act=sigorreg">Đăng nhập</a>
+                                            </li>
+                                            <li>
+                                                <a href="index.php?act=sigorreg">Đăng ký</a>
+                                            </li>
+                                        <?php } ?>
                                     </ul>
                                 </li>
                             </ul>
@@ -364,12 +410,13 @@
             <div class="offcanvas-search_wrapper" id="searchBar">
                 <div class="offcanvas-menu-inner">
                     <div class="container">
-                        <a href="#" class="btn-close"><i class="ion-android-close"></i></a>
+                        <a href="" class="btn-close"><i class="ion-android-close"></i></a>
                         <!-- Begin Offcanvas Search Area -->
                         <div class="offcanvas-search">
-                            <form action="#" class="hm-searchbox">
-                                <input type="text" placeholder="Search for item...">
-                                <button class="search_btn" type="submit"><i class="ion-ios-search-strong"></i></button>
+                            <form class="hm-searchbox" action="index.php?act=sanpham" method="POST">
+                                <input type="text" name="kyw" placeholder="Tìm kiếm">
+                                <button class="search_btn" type="submit" name="timkiem"><i
+                                        class="ion-ios-search-strong"></i></button>
                             </form>
                         </div>
                         <!-- Offcanvas Search Area End Here -->
