@@ -16,18 +16,10 @@
 <div class="sp-area">
     <div class="container">
         <div class="sp-nav">
-            <form class="row" action="index.php?act=cart" method="POST">
+            <div class="row">
                 <div class="col-lg-4">
-                    <?php
-                    foreach ($dssp as $ds1) {
-                        extract($ds1);
-                        $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
-                        $imgpath = "./view/assets/images/product/" . $imgsp;
-                        $img = '<img src="' . $imgpath . '" alt="Lỗi server ảnh">';
-                        if ($idsp == $_GET['idsp']) {
-                            ?>
-                            <div class="sp-img_area">
-                                <div class="sp-img_slider slick-img-slider kenne-element-carousel" data-slick-options='{
+                    <div class="sp-img_area">
+                        <div class="sp-img_slider slick-img-slider kenne-element-carousel" data-slick-options='{
                                 "slidesToShow": 1,
                                 "arrows": false,
                                 "fade": true,
@@ -35,11 +27,16 @@
                                 "swipe": false,
                                 "asNavFor": ".sp-img_slider-nav"
                                 }'>
+                            <?php
+                            foreach ($dssp as $ds1) {
+                                extract($ds1);
+                                // $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
+                                $imgpath = "./view/assets/images/product/" . $imgsp;
+                                $img = '<img src="' . $imgpath . '" alt="Lỗi server ảnh">';
+                                if ($idsp == $_GET['idsp']) {
+                                    ?>
                                     <div class="single-slide red zoom">
                                         <?= $img ?>
-                                    </div>
-                                    <div class="single-slide red zoom">
-                                        <img src="view/assets/images/product/1-1.jpg" alt="Kenne's Product Image">
                                     </div>
                                     <div class="single-slide orange zoom">
                                         <img src="view/assets/images/product/1-2.jpg" alt="Kenne's Product Image">
@@ -56,9 +53,11 @@
                                     <div class="single-slide green zoom">
                                         <img src="view/assets/images/product/3-2.jpg" alt="Kenne's Product Image">
                                     </div>
-                                </div>
-                                <div class="sp-img_slider-nav slick-slider-nav kenne-element-carousel arrow-style-2 arrow-style-3"
-                                    data-slick-options='{
+                                <?php }
+                            } ?>
+                        </div>
+                        <div class="sp-img_slider-nav slick-slider-nav kenne-element-carousel arrow-style-2 arrow-style-3"
+                            data-slick-options='{
                                 "slidesToShow": 3,
                                 "asNavFor": ".sp-img_slider",
                                 "focusOnSelect": true,
@@ -71,11 +70,16 @@
                                         {"breakpoint":768, "settings": {"slidesToShow": 3}},
                                         {"breakpoint":575, "settings": {"slidesToShow": 2}}
                                     ]'>
+                            <?php
+                            foreach ($dssp as $ds1) {
+                                extract($ds1);
+                                // $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
+                                $imgpath = "./view/assets/images/product/" . $imgsp;
+                                $img = '<img src="' . $imgpath . '" alt="Lỗi server ảnh">';
+                                if ($idsp == $_GET['idsp']) {
+                                    ?>
                                     <div class="single-slide red">
                                         <?= $img ?>
-                                    </div>
-                                    <div class="single-slide red">
-                                        <img src="view/assets/images/product/1-1.jpg" alt="Kenne's Product Thumnail">
                                     </div>
                                     <div class="single-slide orange">
                                         <img src="view/assets/images/product/1-2.jpg" alt="Kenne's Product Thumnail">
@@ -92,18 +96,17 @@
                                     <div class="single-slide orange">
                                         <img src="view/assets/images/product/3-2.jpg" alt="Kenne's Product Thumnail">
                                     </div>
-                                </div>
-                            </div>
-                        <?php }
-                    } ?>
+                                <?php }
+                            } ?>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="col-lg-8">
-                    <div class="sp-content">
+                    <form class="sp-content" action="index.php?act=cart" method="POST">
                         <div class="sp-heading">
                             <h5><a href="#">Thông tin sản phẩm</a></h5>
                         </div>
-
-
                         <div class="sp-essential_stuff">
                             <ul>
                                 <?php
@@ -203,107 +206,134 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-</div>
-<!-- Kenne's Single Product Area End Here -->
+    <!-- Kenne's Single Product Area End Here -->
 
-<!-- Begin Product Tab Area Two -->
-<div class="product-tab_area-2">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="sp-product-tab_nav">
-                    <div class="product-tab">
-                        <ul class="nav product-menu">
-                            <li>
-                                <a class="active" data-bs-toggle="tab" href="#description">
-                                    <span>Mô tả</span>
-                                </a>
-                            </li>
-                            <li><a data-bs-toggle="tab" href="#reviews"><span>Bình luận và đánh giá</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="tab-content uren-tab_content">
-                        <?php
-                        foreach ($dssp as $ds1) {
-                            extract($ds1);
-                            if ($idsp == $_GET['idsp']) { ?>
-                                <div id="description" class="tab-pane active show" role="tabpanel">
-                                    <div class="product-description">
-                                        <ul>
-                                            <li>
+    <!-- Begin Product Tab Area Two -->
+    <div class="product-tab_area-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sp-product-tab_nav">
+                        <div class="product-tab">
+                            <ul class="nav product-menu">
+                                <li>
+                                    <a class="active" data-bs-toggle="tab" href="#description">
+                                        <span>Mô tả</span>
+                                    </a>
+                                </li>
+                                <li><a data-bs-toggle="tab" href="#reviews"><span>Bình luận và đánh giá</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content uren-tab_content">
+                            <?php
+                            foreach ($dssp as $ds1) {
+                                extract($ds1);
+                                if ($idsp == $_GET['idsp']) { ?>
+                                    <div id="description" class="tab-pane active show" role="tabpanel">
+                                        <div class="product-description">
+                                            <ul>
+                                                <li>
 
-                                                <span class="title">
-                                                    <?= $tensp ?>
-                                                </span>
-                                                <span>
-                                                    <?= $motasp ?>
-                                                </span>
+                                                    <span class="title">
+                                                        <?= $tensp ?>
+                                                    </span>
+                                                    <span>
+                                                        <?= $motasp ?>
+                                                    </span>
 
-                                            </li>
-                                        </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
+                                <?php }
+                            } ?>
+
+                            <div id="reviews" class="tab-pane" role="tabpanel">
+                                <div class="tab-pane active" id="tab-review">
+                                    <form class="form-horizontal" id="form-review" action="index.php?act=binhluan"
+                                        method="POST">
+                                        <div id="review">
+                                            <table class="table table-striped table-bordered">
+                                                <tbody>
+                                                    <?php
+                                                    foreach ($listbl as $lb) {
+                                                        extract($lb); ?>
+                                                        <tr>
+                                                            <td>Ussername</td>
+                                                            <td>Nội dung bình luận</td>
+                                                            <td>Ngày bình luận</td>
+                                                            <td>Đánh giá sản phẩm</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <strong>
+                                                                    <?= $username ?>
+                                                                </strong>
+                                                            </td>
+                                                            <td style="width: 50%;">
+                                                                <?= $noidungbl ?>
+                                                            </td>
+                                                            <td class="text-right">
+                                                                <?= $ngaybl ?>
+                                                            </td>
+                                                            <td>
+                                                                <div class="rating-box">
+                                                                    <ul>
+                                                                        <li><i class="ion-android-star"></i></li>
+                                                                        <li><i class="ion-android-star"></i></li>
+                                                                        <li><i class="ion-android-star"></i></li>
+                                                                        <li><i class="ion-android-star"></i></li>
+                                                                        <li><i class="ion-android-star"></i></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?php } ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <?php
+                                        if (isset($_SESSION['username'])) {
+                                            extract($_SESSION['username']); ?>
+                                            <h2>Bình luận tại đây</h2>
+                                            <div class="form-group required second-child">
+                                                <input type="hidden" name="idsp" value="<?= $_GET['idsp'] ?>">
+                                                <div class="col-sm-12 p-0">
+                                                    <label class="control-label">Hãy nêu cảm nhận của bạn về sản phẩm</label>
+                                                    <textarea class="review-textarea" name="noidungbl"
+                                                        id="con_message"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group last-child required">
+                                                <div class="col-sm-12 p-0">
+                                                    <div class="your-opinion">
+                                                        <label>Đánh giá của bạn</label>
+                                                        <span>
+                                                            <select class="star-rating" name="votestar">
+                                                                <option value="1"></option>
+                                                                <option value="2"></option>
+                                                                <option value="3"></option>
+                                                                <option value="4"></option>
+                                                                <option value="5"></option>
+                                                            </select>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="kenne-btn-ps_right">
+                                                    <button class="kenne-btn" name="guibl" type="submit"
+                                                        value="blandvote">Gửi bình luận và đánh giá</button>
+                                                </div>
+                                            </div>
+                                        <?php }else{ ?>
+                                            <h2>Đăng nhập để bình luận!</h2>
+                                        <?php } ?>
+                                    </form>
                                 </div>
-                            <?php }
-                        } ?>
-
-                        <div id="reviews" class="tab-pane" role="tabpanel">
-                            <div class="tab-pane active" id="tab-review">
-                                <form class="form-horizontal" id="form-review" action="index.php?act=binhluan"
-                                    method="POST">
-                                    <div id="review">
-                                        <table class="table table-striped table-bordered">
-                                            <tbody>
-                                                <?php
-                                                foreach ($listbl as $lb){
-                                                    extract($lb);
-                                                    echo '<tr>
-                                                                <td style="width: 50%;"><strong>'.$username.'</strong></td>
-                                                                <td class="text-right">'.$ngaybl.'</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td colspan="2">
-                                                                    <p>'.$noidungbl.'</p>
-                                                                </td>
-                                                            </tr>';
-                                                }
-                                                ?>
-                                                <!-- <tr>
-                                                    <td style="width: 50%;"><strong>Tên khách hàng</strong></td>
-                                                    <td class="text-right">26/10/19</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <p>Good product! Thank you very much</p>
-                                                    </td>
-                                                </tr> -->
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <?php
-                                    if (isset($_SESSION['username'])) {
-                                        extract($_SESSION['username']); ?>
-                                        <h2>Bình luận tại đây</h2>
-                                        <div class="form-group required second-child">
-                                            <input type="hidden" name="idsp" value="<?= $_GET['idsp'] ?>">
-                                            <div class="col-sm-12 p-0">
-                                                <label class="control-label">Share your opinion</label>
-                                                <textarea class="review-textarea" name="noidungbl"
-                                                    id="con_message"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group last-child required">
-                                            <div class="kenne-btn-ps_right">
-                                                <button class="kenne-btn" type="submit" name="guibl" value="bl">Gửi bình
-                                                    luận</button>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -311,27 +341,26 @@
             </div>
         </div>
     </div>
-</div>
-<!-- Product Tab Area Two End Here -->
+    <!-- Product Tab Area Two End Here -->
 
-<!-- Begin Product Area -->
-<div class="product-area pb-90">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h3>Sản phẩm cùng loại
-                        <?php
-                        if (isset($iddm)) {
-                            echo $iddm;
-                        }
-                        ?>
-                    </h3>
-                    <div class="product-arrow"></div>
+    <!-- Begin Product Area -->
+    <div class="product-area pb-90">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h3>Sản phẩm khác
+                            <?php
+                            if (isset($iddm)) {
+                                echo $iddm;
+                            }
+                            ?>
+                        </h3>
+                        <div class="product-arrow"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="kenne-element-carousel product-slider slider-nav" data-slick-options='{
+                <div class="col-lg-12">
+                    <div class="kenne-element-carousel product-slider slider-nav" data-slick-options='{
                         "slidesToShow": 4,
                         "slidesToScroll": 1,
                         "infinite": false,
@@ -350,409 +379,413 @@
                         "slidesToShow": 1
                         }}
                     ]'>
+                        
+                        <div class="product-item">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="index.php?act=sanphamct">
+                                        <img class="primary-img" src="view/assets/images/product/1-1.jpg"
+                                            alt="Kenne's Product Image">
+                                        <img class="secondary-img" src="view/assets/images/product/1-2.jpg"
+                                            alt="Kenne's Product Image">
+                                    </a>
+                                    <span class="sticker-2">Hot</span>
+                                    <div class="add-actions">
+                                        <ul>
+                                            <li class="quick-view-btn" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter"><a href="#"
+                                                    data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Quick View"><i class="ion-ios-search"></i></a>
+                                            </li>
+                                            <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                            </li>
+                                            <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Compare"><i class="ion-ios-reload"></i></a>
+                                            </li>
+                                            <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To cart"><i class="ion-bag"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-desc_info">
+                                        <h3 class="product-name"><a href="index.php?act=sanphamct">Quibusdam ratione</a>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="new-price">$46.91</span>
+                                            <span class="old-price">$50.99</span>
+                                        </div>
+                                        <div class="rating-box">
+                                            <ul>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-half"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="index.php?act=sanphamct">
+                                        <img class="primary-img" src="view/assets/images/product/2-1.jpg"
+                                            alt="Kenne's Product Image">
+                                        <img class="secondary-img" src="view/assets/images/product/2-2.jpg"
+                                            alt="Kenne's Product Image">
+                                    </a>
+                                    <span class="sticker">Bestseller</span>
+                                    <div class="add-actions">
+                                        <ul>
+                                            <li class="quick-view-btn" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter"><a href="#"
+                                                    data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Quick View"><i class="ion-ios-search"></i></a>
+                                            </li>
+                                            <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                            </li>
+                                            <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Compare"><i class="ion-ios-reload"></i></a>
+                                            </li>
+                                            <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To cart"><i class="ion-bag"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-desc_info">
+                                        <h3 class="product-name"><a href="index.php?act=sanphamct">Nulla laboriosam</a>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="new-price">$80.00</span>
+                                            <span class="old-price">$85,00</span>
+                                        </div>
+                                        <div class="rating-box">
+                                            <ul>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="index.php?act=sanphamct">
+                                        <img class="primary-img" src="view/assets/images/product/3-1.jpg"
+                                            alt="Kenne's Product Image">
+                                        <img class="secondary-img" src="view/assets/images/product/3-2.jpg"
+                                            alt="Kenne's Product Image">
+                                    </a>
+                                    <span class="sticker-2">Hot</span>
+                                    <div class="add-actions">
+                                        <ul>
+                                            <li class="quick-view-btn" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter"><a href="#"
+                                                    data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Quick View"><i class="ion-ios-search"></i></a>
+                                            </li>
+                                            <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                            </li>
+                                            <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Compare"><i class="ion-ios-reload"></i></a>
+                                            </li>
+                                            <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To cart"><i class="ion-bag"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-desc_info">
+                                        <h3 class="product-name"><a href="index.php?act=sanphamct">Adipisci voluptas</a>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="new-price">$75.91</span>
+                                            <span class="old-price">$80.99</span>
+                                        </div>
+                                        <div class="rating-box">
+                                            <ul>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="index.php?act=sanphamct">
+                                        <img class="primary-img" src="view/assets/images/product/4-1.jpg"
+                                            alt="Kenne's Product Image">
+                                        <img class="secondary-img" src="view/assets/images/product/4-2.jpg"
+                                            alt="Kenne's Product Image">
+                                    </a>
+                                    <span class="sticker">Bestseller</span>
+                                    <div class="add-actions">
+                                        <ul>
+                                            <li class="quick-view-btn" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter"><a href="#"
+                                                    data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Quick View"><i class="ion-ios-search"></i></a>
+                                            </li>
+                                            <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                            </li>
+                                            <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Compare"><i class="ion-ios-reload"></i></a>
+                                            </li>
+                                            <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To cart"><i class="ion-bag"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-desc_info">
+                                        <h3 class="product-name"><a href="index.php?act=sanphamct">Possimus beatae</a>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="new-price">$65.00</span>
+                                            <span class="old-price">$70.00</span>
+                                        </div>
+                                        <div class="rating-box">
+                                            <ul>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-half"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="index.php?act=sanphamct">
+                                        <img class="primary-img" src="view/assets/images/product/5-1.jpg"
+                                            alt="Kenne's Product Image">
+                                        <img class="secondary-img" src="view/assets/images/product/5-2.jpg"
+                                            alt="Kenne's Product Image">
+                                    </a>
+                                    <span class="sticker-2">Hot</span>
+                                    <div class="add-actions">
+                                        <ul>
+                                            <li class="quick-view-btn" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter"><a href="#"
+                                                    data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Quick View"><i class="ion-ios-search"></i></a>
+                                            </li>
+                                            <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                            </li>
+                                            <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Compare"><i class="ion-ios-reload"></i></a>
+                                            </li>
+                                            <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To cart"><i class="ion-bag"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-desc_info">
+                                        <h3 class="product-name"><a href="index.php?act=sanphamct">Voluptates
+                                                laudantium</a>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="new-price">$95.00</span>
+                                            <span class="old-price">$100.00</span>
+                                        </div>
+                                        <div class="rating-box">
+                                            <ul>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-half"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="index.php?act=sanphamct">
+                                        <img class="primary-img" src="view/assets/images/product/6-1.jpg"
+                                            alt="Kenne's Product Image">
+                                        <img class="secondary-img" src="view/assets/images/product/6-2.jpg"
+                                            alt="Kenne's Product Image">
+                                    </a>
+                                    <span class="sticker">Bestseller</span>
+                                    <div class="add-actions">
+                                        <ul>
+                                            <li class="quick-view-btn" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter"><a href="#"
+                                                    data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Quick View"><i class="ion-ios-search"></i></a>
+                                            </li>
+                                            <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                            </li>
+                                            <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Compare"><i class="ion-ios-reload"></i></a>
+                                            </li>
+                                            <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To cart"><i class="ion-bag"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-desc_info">
+                                        <h3 class="product-name"><a href="index.php?act=sanphamct">Eligendi
+                                                voluptate</a>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="new-price">$60.00</span>
+                                            <span class="old-price">$65.00</span>
+                                        </div>
+                                        <div class="rating-box">
+                                            <ul>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-half"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="index.php?act=sanphamct">
+                                        <img class="primary-img" src="view/assets/images/product/7-1.jpg"
+                                            alt="Kenne's Product Image">
+                                        <img class="secondary-img" src="view/assets/images/product/7-2.jpg"
+                                            alt="Kenne's Product Image">
+                                    </a>
+                                    <span class="sticker-2">Hot</span>
+                                    <div class="add-actions">
+                                        <ul>
+                                            <li class="quick-view-btn" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter"><a href="#"
+                                                    data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Quick View"><i class="ion-ios-search"></i></a>
+                                            </li>
+                                            <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                            </li>
+                                            <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Compare"><i class="ion-ios-reload"></i></a>
+                                            </li>
+                                            <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To cart"><i class="ion-bag"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-desc_info">
+                                        <h3 class="product-name"><a href="index.php?act=sanphamct">Excepturi
+                                                perspiciatis</a>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="new-price">$50.00</span>
+                                            <span class="old-price">$60.00</span>
+                                        </div>
+                                        <div class="rating-box">
+                                            <ul>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="index.php?act=sanphamct">
+                                        <img class="primary-img" src="view/assets/images/product/8-1.jpg"
+                                            alt="Kenne's Product Image">
+                                        <img class="secondary-img" src="view/assets/images/product/8-2.jpg"
+                                            alt="Kenne's Product Image">
+                                    </a>
+                                    <span class="sticker">Bestseller</span>
+                                    <div class="add-actions">
+                                        <ul>
+                                            <li class="quick-view-btn" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter"><a href="#"
+                                                    data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Quick View"><i class="ion-ios-search"></i></a>
+                                            </li>
+                                            <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
+                                            </li>
+                                            <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To Compare"><i class="ion-ios-reload"></i></a>
+                                            </li>
+                                            <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Add To cart"><i class="ion-bag"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-desc_info">
+                                        <h3 class="product-name"><a href="index.php?act=sanphamct">Esse eveniet</a></h3>
+                                        <div class="price-box">
+                                            <span class="new-price">$70.00</span>
+                                            <span class="old-price">$75.00</span>
+                                        </div>
+                                        <div class="rating-box">
+                                            <ul>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-half"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="product-item">
-                        <div class="single-product">
-                            <div class="product-img">
-                                <a href="index.php?act=sanphamct">
-                                    <img class="primary-img" src="view/assets/images/product/1-1.jpg"
-                                        alt="Kenne's Product Image">
-                                    <img class="secondary-img" src="view/assets/images/product/1-2.jpg"
-                                        alt="Kenne's Product Image">
-                                </a>
-                                <span class="sticker-2">Hot</span>
-                                <div class="add-actions">
-                                    <ul>
-                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
-                                                data-placement="right" title="Quick View"><i
-                                                    class="ion-ios-search"></i></a>
-                                        </li>
-                                        <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                        </li>
-                                        <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                        </li>
-                                        <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To cart"><i class="ion-bag"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Quibusdam ratione</a>
-                                    </h3>
-                                    <div class="price-box">
-                                        <span class="new-price">$46.91</span>
-                                        <span class="old-price">$50.99</span>
-                                    </div>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <div class="product-item">
-                        <div class="single-product">
-                            <div class="product-img">
-                                <a href="index.php?act=sanphamct">
-                                    <img class="primary-img" src="view/assets/images/product/2-1.jpg"
-                                        alt="Kenne's Product Image">
-                                    <img class="secondary-img" src="view/assets/images/product/2-2.jpg"
-                                        alt="Kenne's Product Image">
-                                </a>
-                                <span class="sticker">Bestseller</span>
-                                <div class="add-actions">
-                                    <ul>
-                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
-                                                data-placement="right" title="Quick View"><i
-                                                    class="ion-ios-search"></i></a>
-                                        </li>
-                                        <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                        </li>
-                                        <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                        </li>
-                                        <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To cart"><i class="ion-bag"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Nulla laboriosam</a></h3>
-                                    <div class="price-box">
-                                        <span class="new-price">$80.00</span>
-                                        <span class="old-price">$85,00</span>
-                                    </div>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="single-product">
-                            <div class="product-img">
-                                <a href="index.php?act=sanphamct">
-                                    <img class="primary-img" src="view/assets/images/product/3-1.jpg"
-                                        alt="Kenne's Product Image">
-                                    <img class="secondary-img" src="view/assets/images/product/3-2.jpg"
-                                        alt="Kenne's Product Image">
-                                </a>
-                                <span class="sticker-2">Hot</span>
-                                <div class="add-actions">
-                                    <ul>
-                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
-                                                data-placement="right" title="Quick View"><i
-                                                    class="ion-ios-search"></i></a>
-                                        </li>
-                                        <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                        </li>
-                                        <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                        </li>
-                                        <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To cart"><i class="ion-bag"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Adipisci voluptas</a>
-                                    </h3>
-                                    <div class="price-box">
-                                        <span class="new-price">$75.91</span>
-                                        <span class="old-price">$80.99</span>
-                                    </div>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="single-product">
-                            <div class="product-img">
-                                <a href="index.php?act=sanphamct">
-                                    <img class="primary-img" src="view/assets/images/product/4-1.jpg"
-                                        alt="Kenne's Product Image">
-                                    <img class="secondary-img" src="view/assets/images/product/4-2.jpg"
-                                        alt="Kenne's Product Image">
-                                </a>
-                                <span class="sticker">Bestseller</span>
-                                <div class="add-actions">
-                                    <ul>
-                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
-                                                data-placement="right" title="Quick View"><i
-                                                    class="ion-ios-search"></i></a>
-                                        </li>
-                                        <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                        </li>
-                                        <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                        </li>
-                                        <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To cart"><i class="ion-bag"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Possimus beatae</a></h3>
-                                    <div class="price-box">
-                                        <span class="new-price">$65.00</span>
-                                        <span class="old-price">$70.00</span>
-                                    </div>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="single-product">
-                            <div class="product-img">
-                                <a href="index.php?act=sanphamct">
-                                    <img class="primary-img" src="view/assets/images/product/5-1.jpg"
-                                        alt="Kenne's Product Image">
-                                    <img class="secondary-img" src="view/assets/images/product/5-2.jpg"
-                                        alt="Kenne's Product Image">
-                                </a>
-                                <span class="sticker-2">Hot</span>
-                                <div class="add-actions">
-                                    <ul>
-                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
-                                                data-placement="right" title="Quick View"><i
-                                                    class="ion-ios-search"></i></a>
-                                        </li>
-                                        <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                        </li>
-                                        <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                        </li>
-                                        <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To cart"><i class="ion-bag"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Voluptates laudantium</a>
-                                    </h3>
-                                    <div class="price-box">
-                                        <span class="new-price">$95.00</span>
-                                        <span class="old-price">$100.00</span>
-                                    </div>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="single-product">
-                            <div class="product-img">
-                                <a href="index.php?act=sanphamct">
-                                    <img class="primary-img" src="view/assets/images/product/6-1.jpg"
-                                        alt="Kenne's Product Image">
-                                    <img class="secondary-img" src="view/assets/images/product/6-2.jpg"
-                                        alt="Kenne's Product Image">
-                                </a>
-                                <span class="sticker">Bestseller</span>
-                                <div class="add-actions">
-                                    <ul>
-                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
-                                                data-placement="right" title="Quick View"><i
-                                                    class="ion-ios-search"></i></a>
-                                        </li>
-                                        <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                        </li>
-                                        <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                        </li>
-                                        <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To cart"><i class="ion-bag"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Eligendi voluptate</a>
-                                    </h3>
-                                    <div class="price-box">
-                                        <span class="new-price">$60.00</span>
-                                        <span class="old-price">$65.00</span>
-                                    </div>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="single-product">
-                            <div class="product-img">
-                                <a href="index.php?act=sanphamct">
-                                    <img class="primary-img" src="view/assets/images/product/7-1.jpg"
-                                        alt="Kenne's Product Image">
-                                    <img class="secondary-img" src="view/assets/images/product/7-2.jpg"
-                                        alt="Kenne's Product Image">
-                                </a>
-                                <span class="sticker-2">Hot</span>
-                                <div class="add-actions">
-                                    <ul>
-                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
-                                                data-placement="right" title="Quick View"><i
-                                                    class="ion-ios-search"></i></a>
-                                        </li>
-                                        <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                        </li>
-                                        <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                        </li>
-                                        <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To cart"><i class="ion-bag"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Excepturi
-                                            perspiciatis</a>
-                                    </h3>
-                                    <div class="price-box">
-                                        <span class="new-price">$50.00</span>
-                                        <span class="old-price">$60.00</span>
-                                    </div>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item">
-                        <div class="single-product">
-                            <div class="product-img">
-                                <a href="index.php?act=sanphamct">
-                                    <img class="primary-img" src="view/assets/images/product/8-1.jpg"
-                                        alt="Kenne's Product Image">
-                                    <img class="secondary-img" src="view/assets/images/product/8-2.jpg"
-                                        alt="Kenne's Product Image">
-                                </a>
-                                <span class="sticker">Bestseller</span>
-                                <div class="add-actions">
-                                    <ul>
-                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
-                                                data-placement="right" title="Quick View"><i
-                                                    class="ion-ios-search"></i></a>
-                                        </li>
-                                        <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                        </li>
-                                        <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                        </li>
-                                        <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To cart"><i class="ion-bag"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Esse eveniet</a></h3>
-                                    <div class="price-box">
-                                        <span class="new-price">$70.00</span>
-                                        <span class="old-price">$75.00</span>
-                                    </div>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Product Area End Here -->
+    <!-- Product Area End Here -->

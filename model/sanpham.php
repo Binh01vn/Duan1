@@ -9,8 +9,8 @@ function list_spmn(){
     $listsp = pdo_query($sql);
     return $listsp;    
 }
-function listall_sp($kyw, $iddm=0){  
-    $sql="select sp.masp, sp.tensp, sp.giasp, sp.soluongsp, sp.iddm, i.imgsp, i.idsp
+function listall_sp($kyw, $iddm){  
+    $sql="select sp.masp, sp.tensp, sp.giasp, sp.soluongsp, sp.motasp, sp.iddm, i.imgsp, i.idsp
     from sanpham sp
     inner join image i on i.idsp = sp.id
     where 1";
@@ -23,11 +23,6 @@ function listall_sp($kyw, $iddm=0){
     $sql.=" order by sp.id desc";
     $listsanpham = pdo_query($sql);
     return $listsanpham;
-}
-function load_sanpham_cungloai($id, $iddm){
-    $sql = "select * from sanpham where iddm= ".$iddm." AND id <> ". $id;
-    $listsanpham = pdo_query($sql);
-    return $listsanpham;  
 }
 function load_ten_dm($iddm){
     if ($iddm > 0) {

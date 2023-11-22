@@ -36,7 +36,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $checkuser = check_user($username, $pass);
                 if (is_array($checkuser)) {
                     $_SESSION['username'] = $checkuser;
-                    header('Location: index.php'); 
+                    header('Location: index.php');
                     // exit;
                 } else {
                     echo "sai tài khoản";
@@ -51,7 +51,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         case 'logout':
             session_unset();
-            header('Location: index.php'); 
+            header('Location: index.php');
             break;
 
         case 'capnhattt':
@@ -132,10 +132,16 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $iduser = $_SESSION['username']['idacc'];
                 $ngaybl = date('d/m/Y');
 
-                insert_binhluan($noidungbl, $ngaybl, $idsp, $iduser);
+                $votestar = $_POST['votestar'];
+                if ($votestar != null && $noidungbl != null) {
+                    insert_votestar($votestar, $idsp);
+                    insert_binhluan($noidungbl, $ngaybl, $idsp, $iduser);
+                }
+
             }
             $listsizesp = listall_size();
             $dssp = listall_sp(null, null);
+            $listbl = loadall_binhluan($_GET['idsp']);
             include('view/sanpham/sanphamct.php');
             break;
         case 'faq':

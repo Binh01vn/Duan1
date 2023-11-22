@@ -27,4 +27,10 @@ function del_binhluan($id_bl, $iduser){
     }
     pdo_query($sql);
 }
+function insert_votestar($votestar, $idsp)
+{
+    $sql = "insert into votesp(rate, idsp) 
+            values('$votestar', '$idsp')";
+    pdo_execute($sql);
+}
 ?>
