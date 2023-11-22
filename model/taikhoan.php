@@ -1,7 +1,7 @@
 <?php
 function loadall_taikhoan()
 {
-    $sql = "select * from taikhoan order by id desc";
+    $sql = "select * from taikhoan order by idacc desc";
     $listtaikhoan = pdo_query($sql);
     return $listtaikhoan;
 }
@@ -22,5 +22,9 @@ function update_taikhoan($tennew, $usernew, $passnew, $emailnew, $telnew, $diach
     $sql = "update taikhoan 
     set username='" . $usernew . "', tensohuu='" . $tennew . "', pass='" . $passnew . "', email='" . $emailnew . "', diachi='" . $diachinew . "', phone='" . $telnew . "' where idacc=" . $idtk;
     pdo_execute($sql);
+}
+function del_taikhoan($idacc){
+    $sql = "delete from taikhoan where idacc=". $idacc;
+    pdo_query($sql);
 }
 ?>

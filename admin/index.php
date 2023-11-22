@@ -2,12 +2,15 @@
 include("../model/pdo.php");
 include("../model/danhmuc.php");
 include("../model/sanpham.php");
+include("../model/binhluan.php");
+include("../model/taikhoan.php");
 include("view/header.php");
 if ((isset($_GET['act']))) {
     $act = $_GET['act'];
 
     switch ($_GET['act']) {
         case 'myadmin':
+
             include('view/taikhoan/myadmin.php');
             break;
         // DANH MỤC SẢN PHẨM ===================================
@@ -170,6 +173,15 @@ if ((isset($_GET['act']))) {
             break;
 
         case 'listbl':
+            $listbl = loadall_binhluan(null);
+            include('view/binhluan/listbl.php');
+            break;
+
+        case 'delbl':
+            if (isset($_GET['id_bl']) && $_GET['id_bl'] > 0) {
+                del_binhluan($_GET['id_bl'], null);
+            }
+            $listbl = loadall_binhluan(null);
             include('view/binhluan/listbl.php');
             break;
 
@@ -178,6 +190,19 @@ if ((isset($_GET['act']))) {
             break;
 
         case 'listuser':
+            $listusers = loadall_taikhoan();
+            include('view/taikhoan/listuser.php');
+            break;
+
+        case 'delacc':
+            if (isset($_GET['idacc']) && $_GET['idacc'] > 0) {
+                // extract($listbl);
+                // if($iduser == $_GET['idacc']){
+                //     del_binhluan(null , $_GET['idacc']);
+                // }
+                del_taikhoan($_GET['idacc']);
+            }
+            $listusers = loadall_taikhoan();
             include('view/taikhoan/listuser.php');
             break;
 

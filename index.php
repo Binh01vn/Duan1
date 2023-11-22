@@ -3,6 +3,7 @@ session_start();
 include("./model/pdo.php");
 include("./model/danhmuc.php");
 include("./model/sanpham.php");
+include("./model/binhluan.php");
 include("./model/taikhoan.php");
 include("view/header.php");
 
@@ -119,21 +120,34 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'sanphamct':
-            if ((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
-                $kyw = $_POST['kyw'];
-            } else {
-                $kyw = "";
-            }
-            if ((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
-                $iddm = $_GET['iddm'];
-            } else {
-                $iddm = 0;
-            }
+            // if ((isset($_GET['idsp'])) && ($_GET['idsp'] > 0)) {
+            //     $id = $_GET['idsp'];
+            //     $onesp = loadone_sanpham($id);
+            //     extract($onesp);
+            //     $sp_cungloai = load_sanpham_cungloai($id, $iddm);
+            //     include "view/sanphamct.php";
+            // } else {
+            //     include "view/home.php";
+            // }
             $listsizesp = listall_size();
-            $dssp = listall_sp($kyw, $iddm);
+            $dssp = listall_sp(null, null);
+            $listbl = loadall_binhluan($_GET['idsp']);
             include('view/sanpham/sanphamct.php');
             break;
 
+        case 'binhluan':
+            if ((isset($_POST['guibl'])) && ($_POST['guibl'])) {
+                $noidungbl = $_POST['noidungbl'];
+                $idsp = $_POST['idsp'];
+                $iduser = $_SESSION['username']['idacc'];
+                $ngaybl = date('d/m/Y');
+
+                insert_binhluan($noidungbl, $ngaybl, $idsp, $iduser);
+            }
+            $listsizesp = listall_size();
+            $dssp = listall_sp(null, null);
+            include('view/sanpham/sanphamct.php');
+            break;
         case 'faq':
             include('view/hotro/faq.php');
             break;

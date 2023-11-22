@@ -85,11 +85,11 @@
                                     <div class="product-item">
                                         <div class="single-product">
                                             <div class="product-img">
-                                                <a href="index.php?act=sanphamct">' . $img . '</a>
+                                                <a href="'.$linksp.'">' . $img . '</a>
                                             </div>
                                             <div class="product-content">
                                                 <div class="product-desc_info">
-                                                    <h3 class="product-name"><a href="index.php?act=sanphamct">' . $tensp . '</a>
+                                                    <h3 class="product-name"><a href="'.$linksp.'">' . $tensp . '</a>
                                                     </h3>
                                                     <div class="price-box">
                                                         <span class="new-price">' . $giasp . ' VND</span>

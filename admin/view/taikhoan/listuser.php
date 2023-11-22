@@ -9,58 +9,43 @@
                     <table class="table text-nowrap">
                         <thead>
                             <tr>
-                                <th class="border-top-0">#</th>
                                 <th class="border-top-0">Họ và tên</th>
                                 <th class="border-top-0">Username</th>
+                                <th class="border-top-0">Email</th>
+                                <th class="border-top-0">Số điện thoại</th>
+                                <th class="border-top-0">Địa chỉ</th>
                                 <th class="border-top-0">Vai trò</th>
                                 <th class="border-top-0">Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                            foreach($listusers as $lus){
+                                extract($lus); 
+                                $delacc = "index.php?act=delacc&idacc=" . $idacc;
+                                ?>
                             <tr>
-                                <td>1</td>
-                                <td>Deshmukh</td>
-                                <td>@Genelia</td>
-                                <td>admin</td>
-                                <td><i class="fas fa-trash-alt"></td>
+                                <td><?= $tensohuu ?></td>
+                                <td><?= $username ?></td>
+                                <td><?= $email ?></td>
+                                <td><?= $phone ?></td>
+                                <td><?= $diachi ?></td>
+                                <td>
+                                    <?php
+                                    if($vaitro == 1){
+                                        echo "admin";
+                                    }else if($vaitro == 2){
+                                        echo "Nhân viên";
+                                    }else if($vaitro != 1 && $vaitro != 2){
+                                        echo "Người dùng";
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <a href="<?= $delacc ?>" class="fas fa-trash-alt"></a>
+                                    </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Deshmukh</td>
-                                <td>@Ritesh</td>
-                                <td>member</td>
-                                <td><i class="fas fa-trash-alt"></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Sanghani</td>
-                                <td>@Govinda</td>
-                                <td>developer</td>
-                                <td><i class="fas fa-trash-alt"></td>
-                                
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Roshan</td>
-                                <td>@Hritik</td>
-                                <td>supporter</td>
-                                <td><i class="fas fa-trash-alt"></td>
-
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Joshi</td>
-                                <td>@Maruti</td>
-                                <td>member</td>
-                                <td><i class="fas fa-trash-alt"></td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Nigam</td>
-                                <td>@Sonu</td>
-                                <td>supporter</td>
-                                <td><i class="fas fa-trash-alt"></td>
-                            </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

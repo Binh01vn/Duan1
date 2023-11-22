@@ -219,40 +219,60 @@
                 <div class="sp-product-tab_nav">
                     <div class="product-tab">
                         <ul class="nav product-menu">
-                            <li><a class="active" data-bs-toggle="tab" href="#description"><span>Mô tả</span></a>
+                            <li>
+                                <a class="active" data-bs-toggle="tab" href="#description">
+                                    <span>Mô tả</span>
+                                </a>
                             </li>
                             <li><a data-bs-toggle="tab" href="#reviews"><span>Bình luận và đánh giá</span></a></li>
                         </ul>
                     </div>
                     <div class="tab-content uren-tab_content">
-                        <div id="description" class="tab-pane active show" role="tabpanel">
-                            <div class="product-description">
-                                <ul>
-                                    <li>
-                                        <?php
-                                        foreach ($dssp as $ds1) {
-                                            extract($ds1);
-                                            if ($idsp == $_GET['idsp']) { ?>
+                        <?php
+                        foreach ($dssp as $ds1) {
+                            extract($ds1);
+                            if ($idsp == $_GET['idsp']) { ?>
+                                <div id="description" class="tab-pane active show" role="tabpanel">
+                                    <div class="product-description">
+                                        <ul>
+                                            <li>
+
                                                 <span class="title">
                                                     <?= $tensp ?>
                                                 </span>
                                                 <span>
                                                     <?= $motasp ?>
                                                 </span>
-                                            <?php }
-                                        } ?>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            <?php }
+                        } ?>
 
                         <div id="reviews" class="tab-pane" role="tabpanel">
                             <div class="tab-pane active" id="tab-review">
-                                <form class="form-horizontal" id="form-review">
+                                <form class="form-horizontal" id="form-review" action="index.php?act=binhluan"
+                                    method="POST">
                                     <div id="review">
                                         <table class="table table-striped table-bordered">
                                             <tbody>
-                                                <tr>
+                                                <?php
+                                                foreach ($listbl as $lb){
+                                                    extract($lb);
+                                                    echo '<tr>
+                                                                <td style="width: 50%;"><strong>'.$username.'</strong></td>
+                                                                <td class="text-right">'.$ngaybl.'</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <p>'.$noidungbl.'</p>
+                                                                </td>
+                                                            </tr>';
+                                                }
+                                                ?>
+                                                <!-- <tr>
                                                     <td style="width: 50%;"><strong>Tên khách hàng</strong></td>
                                                     <td class="text-right">26/10/19</td>
                                                 </tr>
@@ -260,23 +280,29 @@
                                                     <td colspan="2">
                                                         <p>Good product! Thank you very much</p>
                                                     </td>
-                                                </tr>
+                                                </tr> -->
                                             </tbody>
                                         </table>
                                     </div>
-                                    <h2>Bình luận tại đây</h2>
-                                    <div class="form-group required second-child">
-                                        <div class="col-sm-12 p-0">
-                                            <label class="control-label">Share your opinion</label>
-                                            <textarea class="review-textarea" name="con_message"
-                                                id="con_message"></textarea>
+                                    <?php
+                                    if (isset($_SESSION['username'])) {
+                                        extract($_SESSION['username']); ?>
+                                        <h2>Bình luận tại đây</h2>
+                                        <div class="form-group required second-child">
+                                            <input type="hidden" name="idsp" value="<?= $_GET['idsp'] ?>">
+                                            <div class="col-sm-12 p-0">
+                                                <label class="control-label">Share your opinion</label>
+                                                <textarea class="review-textarea" name="noidungbl"
+                                                    id="con_message"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group last-child required">
-                                        <div class="kenne-btn-ps_right">
-                                            <button class="kenne-btn" type="submit" name="guibl">Gửi bình luận</button>
+                                        <div class="form-group last-child required">
+                                            <div class="kenne-btn-ps_right">
+                                                <button class="kenne-btn" type="submit" name="guibl" value="bl">Gửi bình
+                                                    luận</button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    <?php } ?>
                                 </form>
                             </div>
                         </div>

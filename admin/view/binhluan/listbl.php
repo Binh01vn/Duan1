@@ -11,25 +11,39 @@
                             <tr>
                                 <th class="border-top-0">Mã</th>
                                 <th class="border-top-0">Username</th>
-                                <th class="border-top-0">Sản phẩm</th>
+                                <th class="border-top-0">Mã sản phẩm</th>
                                 <th class="border-top-0">Nội dung bình luận</th>
                                 <th class="border-top-0">Ngày bình luận</th>
-                                <th class="border-top-0">Xóa &#160; || &#160; Sửa</th>
-                                <th class="border-top-0">Thêm</th>
+                                <th class="border-top-0">Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Deshmukh</td>
-                                <td>@Genelia</td>
-                                <td>Đẹp lắm, đánh giá 5s</td>
-                                <td>Ngày 12, tháng 09, năm 2023</td>
-                                <td>
-                                    <i class="fas fa-trash-alt">&#160; &#160; &#160; &#160;||&#160; &#160; &#160;
-                                        &#160;<i class="fas fa-edit">
-                                </td>
-                            </tr>
+                            <?php
+                            foreach ($listbl as $lbl) {
+                                extract($lbl);
+                                $delbl = "index.php?act=delbl&id_bl=" . $id_bl;
+                                ?>
+                                <tr>
+                                    <td>
+                                        <?= $id_bl ?>
+                                    </td>
+                                    <td>
+                                        <?= $username ?>
+                                    </td>
+                                    <td>
+                                        <?= $masp ?>
+                                    </td>
+                                    <td>
+                                        <?= $noidungbl ?>
+                                    </td>
+                                    <td>
+                                        <?= $ngaybl ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= $delbl ?>" class="fas fa-trash-alt"></a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
