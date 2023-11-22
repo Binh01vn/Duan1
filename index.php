@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include("./model/pdo.php");
 include("./model/danhmuc.php");
@@ -35,9 +36,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $checkuser = check_user($username, $pass);
                 if (is_array($checkuser)) {
                     $_SESSION['username'] = $checkuser;
-                    include('view/home.php');
-                    break;
-                    // header('location: index.php');
+                    header('Location: index.php'); 
+                    // exit;
                 } else {
                     echo "sai tài khoản";
                 }
@@ -51,8 +51,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         case 'logout':
             session_unset();
-            include('view/taikhoan/sigorreg.php');
-            // header('location: index.phpact=home');
+            header('Location: index.php'); 
             break;
 
         case 'capnhattt':
@@ -120,15 +119,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'sanphamct':
-            // if ((isset($_GET['idsp'])) && ($_GET['idsp'] > 0)) {
-            //     $id = $_GET['idsp'];
-            //     $onesp = loadone_sanpham($id);
-            //     extract($onesp);
-            //     $sp_cungloai = load_sanpham_cungloai($id, $iddm);
-            //     include "view/sanphamct.php";
-            // } else {
-            //     include "view/home.php";
-            // }
             $listsizesp = listall_size();
             $dssp = listall_sp(null, null);
             $listbl = loadall_binhluan($_GET['idsp']);
@@ -170,3 +160,5 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     include('view/home.php');
 }
 include('view/footer.php');
+ob_end_flush();
+?>
