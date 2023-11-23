@@ -119,13 +119,6 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'sanphamct':
-            $listsizesp = listall_size();
-            $dssp = listall_sp(null, null);
-            $listbl = loadall_binhluan($_GET['idsp']);
-            include('view/sanpham/sanphamct.php');
-            break;
-
-        case 'binhluan':
             if ((isset($_POST['guibl'])) && ($_POST['guibl'])) {
                 $noidungbl = $_POST['noidungbl'];
                 $idsp = $_POST['idsp'];
@@ -137,13 +130,15 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     insert_votestar($votestar, $idsp);
                     insert_binhluan($noidungbl, $ngaybl, $idsp, $iduser);
                 }
-
+                include('view/sanpham/sanphamct.php');
+                break;
             }
             $listsizesp = listall_size();
             $dssp = listall_sp(null, null);
             $listbl = loadall_binhluan($_GET['idsp']);
             include('view/sanpham/sanphamct.php');
             break;
+
         case 'faq':
             include('view/hotro/faq.php');
             break;

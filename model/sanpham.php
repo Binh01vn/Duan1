@@ -10,7 +10,7 @@ function list_spmn(){
     return $listsp;    
 }
 function listall_sp($kyw, $iddm){  
-    $sql="select sp.masp, sp.tensp, sp.giasp, sp.soluongsp, sp.motasp, sp.iddm, i.imgsp, i.idsp
+    $sql="select sp.id, sp.masp, sp.tensp, sp.giasp, sp.soluongsp, sp.motasp, sp.iddm, i.imgsp, i.idsp
     from sanpham sp
     inner join image i on i.idsp = sp.id
     where 1";

@@ -10986,3 +10986,15 @@ i, .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-plus-minus >
   background-color: #242424;
   border-color: #242424;
 }
+.sp-area .sp-nav .sp-content .qty-btn_area > ul li > button.qty-wishlist_btn {
+  border: 1px solid #e5e5e5;
+  display: block;
+  padding: 10px 15px;
+  color: #242424;
+  text-transform: uppercase;
+}
+.sp-area .sp-nav .sp-content .qty-btn_area > ul li > button.qty-wishlist_btn:hover {
+  background-color: #a8741a;
+  border-color: #a8741a;
+  color: #ffffff !important;
+}
