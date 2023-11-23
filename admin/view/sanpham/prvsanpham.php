@@ -27,7 +27,7 @@
                                 <tr>
                                     <td>'.$masp.'</td>
                                     <td>'.$tensp.'</td>
-                                    <td>'.$motasp.'</td>
+                                    <td><div class="bsadmin">'.$motasp.'</div></td>
                                     <td>'.$giasp.'</td>
                                     <td>'.$soluongsp.'</td>
                                     <td>

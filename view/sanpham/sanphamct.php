@@ -252,7 +252,6 @@
                                     </div>
                                 <?php }
                             } ?>
-
                             <div id="reviews" class="tab-pane" role="tabpanel">
                                 <div class="tab-pane active" id="tab-review">
                                     <form class="form-horizontal" id="form-review" action="index.php?act=sanphamct"
@@ -332,11 +331,6 @@
                                             </div>
                                         <?php } else { ?>
                                             <h2>Đăng nhập để bình luận!</h2>
-                                            <div class="form-group last-child required">
-                                                <div class="kenne-btn-ps_right">
-                                                    <a class="kenne-btn" href="index.php?act=sigorreg">Đăng nhập</a>
-                                                </div>
-                                            </div>
                                         <?php } ?>
                                     </form>
                                 </div>

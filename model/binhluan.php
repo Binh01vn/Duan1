@@ -19,11 +19,13 @@ function loadall_binhluan($idsp)
     $listbl = pdo_query($sql);
     return $listbl;
 }
-function del_binhluan($id_bl, $iduser){
+function del_binhluan($id_bl, $idsp, $iduser){
     if ($id_bl > 0) {
         $sql = "delete from binhluan where id_bl=". $id_bl;
     }else if ($iduser > 0) {
         $sql = "delete from binhluan where iduser=". $iduser;
+    }else if ($idsp > 0) {
+        $sql = "delete from binhluan where idsp=". $idsp;
     }
     pdo_query($sql);
 }

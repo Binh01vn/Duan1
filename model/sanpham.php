@@ -70,24 +70,10 @@ function loadone_imgsp($id){
     $sp = pdo_query_one($sql);
     return $sp;
 }
-// function loadall_sizesp(){
-//     $sql = "select * from size";
-//     $sp = pdo_query($sql);
-//     return $sp;
-// }
-// function loadone_sizesp($id){
-//     $sql = "select * from size where idsp=". $id;
-//     $sp = pdo_query_one($sql);
-//     return $sp;
-// }
 function capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp, $sizesp){
-    // $sql = "update danhmuc set name='".$tendm."' where id=".$id;
     $sql = "update sanpham
             set tensp='".$tensp."', giasp='".$giasp."', motasp='".$motasp."', soluongsp='".$soluongsp."', iddm='".$iddm."'
             where id=".$id;
-    // if($sizesp != []){
-    //     $sql = "update size set sizesp='".$sizesp."' where id_sp=".$id;
-    // }
     if($imgsp != ""){
         $sql = "update image set imgsp='".$imgsp."' where idsp=".$id;
     }

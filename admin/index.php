@@ -165,6 +165,7 @@ if ((isset($_GET['act']))) {
                 xoa_img($_GET['id']);
                 xoa_size($_GET['id']);
                 xoa_sp($_GET['id']);
+                del_binhluan(null, $_GET['id'], null);
             }
             $listdm = list_danhmuc();
             $listsize = listall_size();
@@ -179,7 +180,7 @@ if ((isset($_GET['act']))) {
 
         case 'delbl':
             if (isset($_GET['id_bl']) && $_GET['id_bl'] > 0) {
-                del_binhluan($_GET['id_bl'], null);
+                del_binhluan($_GET['id_bl'], null, null);
             }
             $listbl = loadall_binhluan(null);
             include('view/binhluan/listbl.php');
@@ -196,11 +197,8 @@ if ((isset($_GET['act']))) {
 
         case 'delacc':
             if (isset($_GET['idacc']) && $_GET['idacc'] > 0) {
-                // extract($listbl);
-                // if($iduser == $_GET['idacc']){
-                //     del_binhluan(null , $_GET['idacc']);
-                // }
                 del_taikhoan($_GET['idacc']);
+                del_binhluan(null, null, $_GET['idacc']);
             }
             $listusers = loadall_taikhoan();
             include('view/taikhoan/listuser.php');
@@ -208,9 +206,6 @@ if ((isset($_GET['act']))) {
 
         case 'listtk':
             include('view/thongke/listtk.php');
-            break;
-
-        case '3':
             break;
 
         default:
