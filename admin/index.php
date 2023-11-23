@@ -164,8 +164,8 @@ if ((isset($_GET['act']))) {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 xoa_img($_GET['id']);
                 xoa_size($_GET['id']);
-                xoa_sp($_GET['id']);
                 del_binhluan(null, $_GET['id'], null);
+                xoa_sp($_GET['id']);
             }
             $listdm = list_danhmuc();
             $listsize = listall_size();

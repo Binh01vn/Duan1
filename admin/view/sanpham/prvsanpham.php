@@ -6,10 +6,9 @@
             <div class="white-box">
                 <h3 class="box-title">Thông tin cơ bản</h3>
                 <div class="table-responsive">
-                    <table class="table text-nowrap">
+                    <table class="table">
                         <thead>
                             <tr>
-                                <th class="border-top-0">Mã sản phẩm</th>
                                 <th class="border-top-0">Tên sản phẩm</th>
                                 <th class="border-top-0">Mô tả</th>
                                 <th class="border-top-0">Giá</th>
@@ -17,7 +16,7 @@
                                 <th class="border-top-0"></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="bstbody">
                             <?php
                             $prvsp = list_spmn();
                             foreach ($prvsp as $prv) {
@@ -25,9 +24,8 @@
                                 $addimg_size = "index.php?act=addsize_img&id=" . $id;
                                 echo '
                                 <tr>
-                                    <td>'.$masp.'</td>
-                                    <td>'.$tensp.'</td>
-                                    <td><div class="bsadmin">'.$motasp.'</div></td>
+                                    <td class="bsttensp">'.$tensp.'</td>
+                                    <td class="bstmota">'.$motasp.'</td>
                                     <td>'.$giasp.'</td>
                                     <td>'.$soluongsp.'</td>
                                     <td>

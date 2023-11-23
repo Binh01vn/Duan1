@@ -6,7 +6,7 @@
             <div class="white-box">
                 <h3 class="box-title">Danh sách bình luận</h3>
                 <div class="table-responsive">
-                    <table class="table text-nowrap">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th class="border-top-0">Mã</th>
@@ -28,12 +28,12 @@
                                         <?= $id_bl ?>
                                     </td>
                                     <td>
-                                        <?= $username ?>
+                                        <b><?= $username ?></b>
                                     </td>
                                     <td>
                                         <?= $masp ?>
                                     </td>
-                                    <td>
+                                    <td class="bstmota">
                                         <?= $noidungbl ?>
                                     </td>
                                     <td>

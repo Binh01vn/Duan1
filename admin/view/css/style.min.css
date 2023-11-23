@@ -15890,7 +15890,9 @@ html body .waves-notransition {
 .bosungtable{
     font-size: 13px;
 }
-.bsadmin{
-    width: 300px;
-    display: flex;
+.bstbody > tr > td.bstmota{
+    max-width: 600px;
+}
+.bstbody > tr > td.bsttensp{
+    max-width: 260px;
 }

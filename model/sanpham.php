@@ -42,11 +42,6 @@ function list_spnew_home(){
     $listsanpham = pdo_query($sql);
     return $listsanpham;    
 }
-// function listall_img(){
-//     $sql="select * from image order by id desc";
-//     $listimg = pdo_query($sql);
-//     return $listimg;    
-// }
 function listall_size(){
     $sql="select * from size order by idsize desc";
     $listsize = pdo_query($sql);

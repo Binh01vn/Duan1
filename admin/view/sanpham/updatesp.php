@@ -15,8 +15,7 @@ if (is_array($listsp)) {
                         <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Tên sản phẩm</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="text" class="form-control p-0 border-0" name="tensp"
-                                    value="<?= $tensp ?>">
+                                <input type="text" class="form-control p-0 border-0" name="tensp" value="<?= $tensp ?>">
                             </div>
                         </div>
                         <div class="form-group mb-4">
@@ -48,7 +47,7 @@ if (is_array($listsp)) {
                                 foreach ($listsize as $lsz) {
                                     extract($lsz);
                                     if ($idsp == $id_sp) {
-                                        echo '<input type="number" name="sizesp" value="'.$sizesp.'">';
+                                        echo '<input type="number" name="sizesp" value="' . $sizesp . '">';
                                     }
                                 }
                                 ?>
@@ -57,7 +56,8 @@ if (is_array($listsp)) {
                         <div class="form-group mb-4">
                             <label for="example-email" class="col-md-12 p-0">Giá</label>
                             <div class="col-md-12 border-bottom p-0">
-                                <input type="number" class="form-control p-0 border-0" name="giasp" value="<?= $giasp ?>">
+                                <input type="number" class="form-control p-0 border-0" name="giasp"
+                                    value="<?= $giasp ?>">
                             </div>
                         </div>
                         <div class="form-group mb-4">
@@ -89,12 +89,14 @@ if (is_array($listsp)) {
                             <label class="col-md-12 p-0">Mô tả</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <?php extract($listsp) ?>
-                                <textarea rows="5" class="form-control p-0 border-0" name="motasp"><?= $motasp ?></textarea>
+                                <textarea rows="5" class="form-control p-0 border-0"
+                                    name="motasp"><?= $motasp ?></textarea>
                             </div>
                         </div>
 
                         <div class="form-group mb-4">
                             <div class="col-sm-12">
+                                <a class="btn btn-success" href="index.php?act=listsp">Danh sách sản phảm</a>
                                 <input class="btn btn-success" name="capnhat" type="submit" value="Cập nhật">
                             </div>
                         </div>
