@@ -23,6 +23,12 @@ function update_taikhoan($tennew, $usernew, $passnew, $emailnew, $telnew, $diach
     set username='" . $usernew . "', tensohuu='" . $tennew . "', pass='" . $passnew . "', email='" . $emailnew . "', diachi='" . $diachinew . "', phone='" . $telnew . "' where idacc=" . $idtk;
     pdo_execute($sql);
 }
+function update_vaitro($idact, $vaitroact)
+{
+    $sql = "update taikhoan 
+    set vaitro='" . $vaitroact . "' where idacc=" . $idact;
+    pdo_execute($sql);
+}
 function del_taikhoan($idacc){
     $sql = "delete from taikhoan where idacc=". $idacc;
     pdo_query($sql);

@@ -4,6 +4,26 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="white-box">
+                <form action="index.php?act=listsp" method="post" class="form-group mb-4">
+                    <h3 class="box-title">Lọc sản phẩm theo</h3>
+                    <div class="col-sm-12 border-bottom">
+                        <select class="form-select shadow-none p-0 border-0" name="id_dm">
+                            <option selected value="0">Tất cả</option>
+                            <?php
+                            foreach($listdm as $list) {
+                                extract($list);
+                                echo '<option value="'.$id_dm.'">'.$tendm.'</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="col-md-12 border-bottom p-0">
+                        <input type="text" class="form-control p-0 border-0" name="kyw">
+                    </div>
+                    <div class="col-sm-12">
+                        <input class="btn btn-success" name="timkiem" type="submit" value="Tìm kiếm">
+                    </div>
+                </form>
                 <h3 class="box-title">Danh sách sản phẩm</h3>
 
                 <div class="table-responsive">
@@ -26,13 +46,13 @@
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($listsp as $list) {
+                            foreach($listsp as $list) {
                                 extract($list);
-                                $editsp = "index.php?act=editsp&id=" . $idsp;
-                                $delsp = "index.php?act=delsp&id=" . $idsp;
-                                $imgpath = "../view/assets/images/product/" . $imgsp;
+                                $editsp = "index.php?act=editsp&id=".$idsp;
+                                $delsp = "index.php?act=delsp&id=".$idsp;
+                                $imgpath = "../view/assets/images/product/".$imgsp;
                                 // if (is_file($imgpath)) {
-                                $img = "<img src='" . $imgpath . "' width='170px'>";
+                                $img = "<img src='".$imgpath."' width='170px'>";
                                 // } else {
                                 //     $img = "Không có hình upload";
                                 // }
@@ -47,14 +67,14 @@
                                         </b>
                                     </td>
                                     <td>
-                                        <?= $img ?> 
+                                        <?= $img ?>
                                     </td>
                                     <td>
                                         <?php
-                                        foreach ($listsize as $ls) {
+                                        foreach($listsize as $ls) {
                                             extract($ls);
-                                            if ($id_sp == $idsp) {
-                                                echo "| " . $sizesp . " | <br>";
+                                            if($id_sp == $idsp) {
+                                                echo "| ".$sizesp." | <br>";
                                             }
                                         }
                                         ?>
@@ -67,7 +87,7 @@
                                     </td>
                                     <td>
                                         <?php
-                                        if ($soluongsp > 0) {
+                                        if($soluongsp > 0) {
                                             echo "Còn hàng";
                                         } else {
                                             echo "Hết hàng";

@@ -72,15 +72,8 @@
                         <li class="sidebar-item pt-2">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php"
                                 aria-expanded="false">
-                                <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="hide-menu">Bảng điều khiên</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=myadmin"
-                                aria-expanded="false">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hide-menu">Thông tin admin</span>
+                                <i class="fas fa-dolly-flatbed" aria-hidden="true"></i>
+                                <span class="hide-menu">Quản lý hóa đơn</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -117,6 +110,13 @@
                                 aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Danh sách user</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=pq"
+                                aria-expanded="false">
+                                <i class="far fa-id-badge" aria-hidden="true"></i>
+                                <span class="hide-menu">Phân quyền</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

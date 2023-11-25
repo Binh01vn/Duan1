@@ -10,7 +10,7 @@
                         <thead>
                             <tr>
                                 <th class="border-top-0">IDDM</th>
-                                <th class="border-top-0">Tên DANH MỤC</th>
+                                <th class="border-top-0">TÊN DANH MỤC</th>
                                 <th class="border-top-0">SỬA</th>
                                 <th class="border-top-0">XÓA</th>
                                 <th class="border-top-0">

@@ -28,12 +28,12 @@
                                 "asNavFor": ".sp-img_slider-nav"
                                 }'>
                             <?php
-                            foreach ($dssp as $ds1) {
+                            foreach($dssp as $ds1) {
                                 extract($ds1);
                                 // $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
-                                $imgpath = "./view/assets/images/product/" . $imgsp;
-                                $img = '<img src="' . $imgpath . '" alt="Lỗi server ảnh">';
-                                if ($idsp == $_GET['idsp']) {
+                                $imgpath = "./view/assets/images/product/".$imgsp;
+                                $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh">';
+                                if($idsp == $_GET['idsp']) {
                                     ?>
                                     <div class="single-slide red zoom">
                                         <?= $img ?>
@@ -71,12 +71,12 @@
                                         {"breakpoint":575, "settings": {"slidesToShow": 2}}
                                     ]'>
                             <?php
-                            foreach ($dssp as $ds1) {
+                            foreach($dssp as $ds1) {
                                 extract($ds1);
                                 // $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
-                                $imgpath = "./view/assets/images/product/" . $imgsp;
-                                $img = '<img src="' . $imgpath . '" alt="Lỗi server ảnh">';
-                                if ($idsp == $_GET['idsp']) {
+                                $imgpath = "./view/assets/images/product/".$imgsp;
+                                $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh">';
+                                if($idsp == $_GET['idsp']) {
                                     ?>
                                     <div class="single-slide red">
                                         <?= $img ?>
@@ -110,9 +110,9 @@
                         <div class="sp-essential_stuff">
                             <ul>
                                 <?php
-                                foreach ($dssp as $ds1) {
+                                foreach($dssp as $ds1) {
                                     extract($ds1);
-                                    if ($idsp == $_GET['idsp']) { ?>
+                                    if($idsp == $_GET['idsp']) { ?>
                                         <li>Tên sản phẩm:
                                             <b>
                                                 <?= $tensp ?>
@@ -126,8 +126,8 @@
                                         </li>
                                         <li>Tình trạng:
                                             <?php
-                                            if ($soluongsp > 0) {
-                                                echo 'còn ' . $soluongsp . ' sản phẩm';
+                                            if($soluongsp > 0) {
+                                                echo 'còn '.$soluongsp.' sản phẩm';
                                             } else {
                                                 echo "Hết hàng!";
                                             }
@@ -142,10 +142,10 @@
                             <span>Size</span>
                             <select class="myniceselect nice-select" name="sizesp">
                                 <?php
-                                foreach ($listsizesp as $l2) {
+                                foreach($listsizesp as $l2) {
                                     extract($l2);
-                                    if ($id_sp == $_GET['idsp']) {
-                                        echo '<option value="' . $id . '">' . $sizesp . '</option>';
+                                    if($id_sp == $_GET['idsp']) {
+                                        echo '<option value="'.$id.'">'.$sizesp.'</option>';
                                     }
                                 }
                                 ?>
@@ -231,9 +231,9 @@
                         </div>
                         <div class="tab-content uren-tab_content">
                             <?php
-                            foreach ($dssp as $ds1) {
+                            foreach($dssp as $ds1) {
                                 extract($ds1);
-                                if ($idsp == $_GET['idsp']) { ?>
+                                if($idsp == $_GET['idsp']) { ?>
                                     <div id="description" class="tab-pane active show" role="tabpanel">
                                         <div class="product-description">
                                             <ul>
@@ -252,7 +252,11 @@
                                     </div>
                                 <?php }
                             } ?>
-                            <div id="reviews" class="tab-pane" role="tabpanel">
+                            <iframe id="reviews" class="tab-pane" role="tabpanel" id="tab-review"
+                                src="view/binhluan/formbl.php?idsp=<?= $_GET['idsp'] ?>" frameborder="0" width="100%"
+                                height="100%"></iframe>
+                            <!-- <div id="reviews" class="tab-pane" role="tabpanel">
+
                                 <div class="tab-pane active" id="tab-review">
                                     <form class="form-horizontal" id="form-review" action="index.php?act=sanphamct"
                                         method="POST">
@@ -266,7 +270,7 @@
                                                         <td>Đánh giá sản phẩm</td>
                                                     </tr>
                                                     <?php
-                                                    foreach ($listbl as $lb) {
+                                                    foreach($listbl as $lb) {
                                                         extract($lb); ?>
                                                         <tr>
                                                             <td>
@@ -297,7 +301,7 @@
                                             </table>
                                         </div>
                                         <?php
-                                        if (isset($_SESSION['username'])) {
+                                        if(isset($_SESSION['username'])) {
                                             extract($_SESSION['username']); ?>
                                             <h2>Bình luận tại đây</h2>
                                             <div class="form-group required second-child">
@@ -334,7 +338,8 @@
                                         <?php } ?>
                                     </form>
                                 </div>
-                            </div>
+                                
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -374,15 +379,15 @@
                         }}
                     ]'>
                         <?php
-                        foreach ($dssp as $ds1) {
+                        foreach($dssp as $ds1) {
                             extract($ds1);
-                            if ($idsp == $_GET['idsp']) {
+                            if($idsp == $_GET['idsp']) {
                                 $listcl = listall_sp(null, $iddm);
-                                foreach ($listcl as $cl) {
+                                foreach($listcl as $cl) {
                                     extract($cl);
-                                    $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
-                                    $imgpath = "./view/assets/images/product/" . $imgsp;
-                                    $img = '<img src="' . $imgpath . '" alt="Lỗi server ảnh">'; ?>
+                                    $linksp = "index.php?act=sanphamct&idsp=".$idsp;
+                                    $imgpath = "./view/assets/images/product/".$imgsp;
+                                    $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
 
                                     <div class="product-item">
                                         <div class="single-product">
