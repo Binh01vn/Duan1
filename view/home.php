@@ -119,6 +119,10 @@
             }}
         ]'>
                     <?php
+                    if(isset($_SESSION['username'])){
+                        extract($_SESSION['username']);
+                        $idact = $_SESSION['username']['idacc'];
+                    }
                     foreach ($spnew as $sp) {
                         extract($sp);
                         $linksp = "index.php?act=sanphamct&idsp=" . $id;
@@ -136,7 +140,7 @@
                                                 data-placement="right" title="Xem chi tiết"><i
                                                     class="ion-ios-search"></i></a>
                                         </li>
-                                        <li><a href="index.php?act=wlist" data-bs-toggle="tooltip"
+                                        <li><a href="index.php?act=wlist&idsp='.$id.'&idact='.$idact.'" data-bs-toggle="tooltip"
                                                 data-placement="right" title="Thêm vào yêu thích"><i
                                                     class="ion-ios-heart-outline"></i></a>
                                         </li>
@@ -307,7 +311,7 @@
                                                 data-placement="right" title="Xem chi tiết"><i
                                                     class="ion-ios-search"></i></a>
                                         </li>
-                                        <li><a href="index.php?act=wlist" data-bs-toggle="tooltip"
+                                        <li><a href="index.php?act=wlist&idsp='.$idsp.'&idact='.$idact.'" data-bs-toggle="tooltip"
                                                 data-placement="right" title="Thêm vào yêu thích"><i
                                                     class="ion-ios-heart-outline"></i></a>
                                         </li>

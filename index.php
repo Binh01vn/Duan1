@@ -5,6 +5,7 @@ include("./model/pdo.php");
 include("./model/danhmuc.php");
 include("./model/sanpham.php");
 include("./model/binhluan.php");
+include("./model/wlandcart.php");
 include("./model/taikhoan.php");
 include("view/header.php");
 
@@ -78,6 +79,23 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'wlist':
+            if (isset($_GET['idsp']) && isset($_GET['idact'])){
+                $idsp = $_GET['idsp'];
+                $idact = $_GET['idact'];
+                insert_wlist($idsp, $idact);
+            }
+            $dssp = listall_sp(null, null);
+            $listwl = list_yeutich();
+            include('view/cart/wishlist.php');
+            break;
+
+        case 'delyt':
+            if(isset($_GET['idyt'])) {
+                $idyt = $_GET['idyt'];
+                del_yeuthich($idyt);
+            }
+            $dssp = listall_sp(null, null);
+            $listwl = list_yeutich();
             include('view/cart/wishlist.php');
             break;
 
@@ -119,23 +137,8 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'sanphamct':
-            if ((isset($_POST['guibl'])) && ($_POST['guibl'])) {
-                $noidungbl = $_POST['noidungbl'];
-                $idsp = $_POST['idsp'];
-                $iduser = $_SESSION['username']['idacc'];
-                $ngaybl = date('d/m/Y');
-
-                $votestar = $_POST['votestar'];
-                if ($votestar != null && $noidungbl != null) {
-                    insert_votestar($votestar, $idsp);
-                    insert_binhluan($noidungbl, $ngaybl, $idsp, $iduser);
-                }
-                include('view/sanpham/sanphamct.php');
-                break;
-            }
             $listsizesp = listall_size();
             $dssp = listall_sp(null, null);
-            $listbl = loadall_binhluan($_GET['idsp']);
             include('view/sanpham/sanphamct.php');
             break;
 

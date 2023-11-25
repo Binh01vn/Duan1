@@ -1,3 +1,9 @@
+<?php
+if(isset($_SESSION['username'])) {
+    extract($_SESSION['username']);
+    $idact = $_SESSION['username']['idacc'];
+}
+?>
 <!-- Begin Kenne's Breadcrumb Area -->
 <div class="breadcrumb-area">
     <div class="container">
@@ -161,15 +167,21 @@
                         </div>
                         <div class="qty-btn_area">
                             <ul>
-                                <li>
-                                    <button class="qty-cart_btn" type="submit" name="addgio">Thêm vào giỏ hàng</button>
-                                </li>
-                                <li>
-                                    <button class="qty-wishlist_btn" title="Thêm vào yêu thích" name="addwlist"
-                                        value="yeuthich" data-bs-toggle="tooltip">
-                                        <i class="ion-android-favorite-outline"></i>
-                                    </button>
-                                </li>
+                                <?php
+                                if(!isset($_SESSION['username'])) {
+                                    echo '<li><h6>Đăng nhập để sử dụng đủ chức năng của website!</h6></li>';
+                                } else { ?>
+                                    <li>
+                                        <button class="qty-cart_btn" type="submit" name="addgio" value="themgio">Thêm vào
+                                            giỏ hàng</button>
+                                    </li>
+
+                                    <li>
+                                        <a class="qty-wishlist_btn" title="Thêm vào yêu thích" data-bs-toggle="tooltip"
+                                            href="index.php?act=wlist&idsp=<?= $_GET['idsp'] ?>&idact=<?= $idact ?>"><i
+                                                class="ion-android-favorite-outline"></i></a>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
                         <div class="kenne-social_link">
@@ -255,91 +267,6 @@
                             <iframe id="reviews" class="tab-pane" role="tabpanel" id="tab-review"
                                 src="view/binhluan/formbl.php?idsp=<?= $_GET['idsp'] ?>" frameborder="0" width="100%"
                                 height="100%"></iframe>
-                            <!-- <div id="reviews" class="tab-pane" role="tabpanel">
-
-                                <div class="tab-pane active" id="tab-review">
-                                    <form class="form-horizontal" id="form-review" action="index.php?act=sanphamct"
-                                        method="POST">
-                                        <div id="review">
-                                            <table class="table table-striped table-bordered">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Ussername</td>
-                                                        <td>Nội dung bình luận</td>
-                                                        <td>Ngày bình luận</td>
-                                                        <td>Đánh giá sản phẩm</td>
-                                                    </tr>
-                                                    <?php
-                                                    foreach($listbl as $lb) {
-                                                        extract($lb); ?>
-                                                        <tr>
-                                                            <td>
-                                                                <strong>
-                                                                    <?= $username ?>
-                                                                </strong>
-                                                            </td>
-                                                            <td style="width: 50%;">
-                                                                <?= $noidungbl ?>
-                                                            </td>
-                                                            <td class="text-right">
-                                                                <?= $ngaybl ?>
-                                                            </td>
-                                                            <td>
-                                                                <div class="rating-box">
-                                                                    <ul>
-                                                                        <li><i class="ion-android-star"></i></li>
-                                                                        <li><i class="ion-android-star"></i></li>
-                                                                        <li><i class="ion-android-star"></i></li>
-                                                                        <li><i class="ion-android-star"></i></li>
-                                                                        <li><i class="ion-android-star"></i></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    <?php } ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <?php
-                                        if(isset($_SESSION['username'])) {
-                                            extract($_SESSION['username']); ?>
-                                            <h2>Bình luận tại đây</h2>
-                                            <div class="form-group required second-child">
-                                                <input type="hidden" name="idsp" value="<?= $_GET['idsp'] ?>">
-                                                <div class="col-sm-12 p-0">
-                                                    <label class="control-label">Hãy nêu cảm nhận của bạn về sản
-                                                        phẩm</label>
-                                                    <textarea class="review-textarea" name="noidungbl"
-                                                        id="con_message"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group last-child required">
-                                                <div class="col-sm-12 p-0">
-                                                    <div class="your-opinion">
-                                                        <label>Đánh giá của bạn</label>
-                                                        <span>
-                                                            <select class="star-rating" name="votestar">
-                                                                <option value="1"></option>
-                                                                <option value="2"></option>
-                                                                <option value="3"></option>
-                                                                <option value="4"></option>
-                                                                <option value="5"></option>
-                                                            </select>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="kenne-btn-ps_right">
-                                                    <button class="kenne-btn" name="guibl" type="submit"
-                                                        value="blandvote">Gửi bình luận</button>
-                                                </div>
-                                            </div>
-                                        <?php } else { ?>
-                                            <h2>Đăng nhập để bình luận!</h2>
-                                        <?php } ?>
-                                    </form>
-                                </div>
-                                
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -403,7 +330,7 @@
                                                                 data-bs-toggle="tooltip" data-placement="right"
                                                                 title="Quick View"><i class="ion-ios-search"></i></a>
                                                         </li>
-                                                        <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
+                                                        <li><a href="index.php?act=wlist&idsp=<?= $_GET['idsp'] ?>&idact=<?= $idact ?>" data-bs-toggle="tooltip" data-placement="right"
                                                                 title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
                                                         </li>
                                                         <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"

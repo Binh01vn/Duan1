@@ -465,7 +465,7 @@ i, .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-plus-minus >
 
 .tab-content .tab-pane {
   display: block;
-  height: 600px;
+  height: auto;
   max-width: 100%;
   visibility: hidden;
   overflow: hidden;
@@ -473,7 +473,7 @@ i, .tab-content .tab-pane.active, .scroll-to-top i, .quantity .cart-plus-minus >
 }
 
 .tab-content .tab-pane.active {
-  height: auto;
+  height: 300px;
   visibility: visible;
   opacity: 1;
   overflow: visible;

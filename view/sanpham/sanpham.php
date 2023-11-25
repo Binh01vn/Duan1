@@ -133,6 +133,10 @@
 
                 <div class="shop-product-wrap grid gridview-3 row">
                     <?php
+                    if(isset($_SESSION['username'])){
+                        extract($_SESSION['username']);
+                        $idact = $_SESSION['username']['idacc'];
+                    }
                     foreach ($dssp as $ds2) {
                         extract($ds2);
                         $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
@@ -152,7 +156,7 @@
                                                         data-placement="right" title="Xem chi tiết"><i
                                                             class="ion-ios-search"></i></a>
                                                 </li>
-                                                <li><a href="index.php?act=wlist" data-bs-toggle="tooltip"
+                                                <li><a href="index.php?act=wlist&idsp='.$idsp.'&idact='.$idact.'" data-bs-toggle="tooltip"
                                                         data-placement="right" title="Thêm vào yêu thích"><i
                                                             class="ion-ios-heart-outline"></i></a>
                                                 </li>

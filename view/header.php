@@ -53,7 +53,7 @@
                             <div class="header-top_right">
                                 <ul>
                                     <?php
-                                    if (isset($_SESSION['username'])) {
+                                    if(isset($_SESSION['username'])) {
                                         extract($_SESSION['username']);
                                         ?>
                                         <li>
@@ -100,21 +100,25 @@
 
                                 <div class="header-right_area d-none d-lg-block">
                                     <ul>
-                                        <li class="minicart-wrap">
-                                            <a href="#miniCart" class="minicart-btn toolbar-btn">
-                                                <div class="minicart-count_area">
-                                                    <span class="item-count">03</span>
-                                                    <i class="ion-bag"></i>
-                                                </div>
-                                                <div class="minicart-front_text">
-                                                    <span>Tổng:</span>
-                                                    <span class="total-price">462.4</span>
-                                                </div>
-                                            </a>
-                                        </li>
+                                        <?php
+                                        if(isset($_SESSION['username'])) {
+                                            echo '
+                                                <li class="minicart-wrap">
+                                                    <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                                        <div class="minicart-count_area">
+                                                            <span class="item-count">03</span>
+                                                            <i class="ion-bag"></i>
+                                                        </div>
+                                                        <div class="minicart-front_text">
+                                                            <span>Tổng:</span>
+                                                            <span class="total-price">462.4</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            ';
+                                        } ?>
                                     </ul>
                                 </div>
-
                                 <div class="header-right_area header-right_area-2 d-block d-lg-none">
                                     <ul>
                                         <li class="mobile-menu_wrap d-inline-block d-lg-none">
@@ -122,14 +126,20 @@
                                                 <i class="ion-android-menu"></i>
                                             </a>
                                         </li>
-                                        <li class="minicart-wrap">
-                                            <a href="#miniCart" class="minicart-btn toolbar-btn">
-                                                <div class="minicart-count_area">
-                                                    <span class="item-count">03</span>
-                                                    <i class="ion-bag"></i>
-                                                </div>
-                                            </a>
-                                        </li>
+                                        <?php
+                                        if(isset($_SESSION['username'])) {
+                                            extract($_SESSION['username']);
+                                            echo '
+                                                <li class="minicart-wrap">
+                                                    <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                                        <div class="minicart-count_area">
+                                                            <span class="item-count">03</span>
+                                                            <i class="ion-bag"></i>
+                                                        </div>
+                                                    </a>
+                                                </li> 
+                                            ';
+                                        } ?>
                                         <li>
                                             <a href="#searchBar" class="search-btn toolbar-btn">
                                                 <i class="ion-android-search"></i>
@@ -164,9 +174,9 @@
                                                     <ul>
                                                         <?php
                                                         $spnew = list_spnew_home();
-                                                        foreach ($spnew as $sp) {
+                                                        foreach($spnew as $sp) {
                                                             extract($sp);
-                                                            echo '<li><a href="shop-fullwidth.html">' . $tensp . '</a></li>';
+                                                            echo '<li><a href="shop-fullwidth.html">'.$tensp.'</a></li>';
                                                         }
                                                         ?>
                                                     </ul>
@@ -177,11 +187,11 @@
                                                     <ul>
                                                         <?php
                                                         $dsdm = list_danhmuc();
-                                                        foreach ($dsdm as $ds) {
+                                                        foreach($dsdm as $ds) {
                                                             extract($ds);
-                                                            $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
+                                                            $linkdm = "index.php?act=sanpham&iddm=".$id_dm;
                                                             echo '
-                                                            <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
+                                                            <li><a href="'.$linkdm.'">'.$tendm.'</a></li>
                                                         ';
                                                         }
                                                         ?>
@@ -192,11 +202,11 @@
                                                     <ul>
                                                         <?php
                                                         $dsdm = list_danhmuc();
-                                                        foreach ($dsdm as $ds) {
+                                                        foreach($dsdm as $ds) {
                                                             extract($ds);
-                                                            $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
+                                                            $linkdm = "index.php?act=sanpham&iddm=".$id_dm;
                                                             echo '
-                                                            <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
+                                                            <li><a href="'.$linkdm.'">'.$tendm.'</a></li>
                                                         ';
                                                         }
                                                         ?>
@@ -206,7 +216,7 @@
                                                     <span class="megamenu-title">Trang liên quan</span>
                                                     <ul>
                                                         <?php
-                                                        if (isset($_SESSION['username'])) {
+                                                        if(isset($_SESSION['username'])) {
                                                             extract($_SESSION['username']);
                                                             ?>
                                                             <li>
@@ -316,11 +326,11 @@
                                         <li class="menu-item-has-children">
                                             <?php
                                             $dsdm = list_danhmuc();
-                                            foreach ($dsdm as $ds) {
+                                            foreach($dsdm as $ds) {
                                                 extract($ds);
-                                                $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
+                                                $linkdm = "index.php?act=sanpham&iddm=".$id_dm;
                                                 echo '
-                                                            <a href="' . $linkdm . '">' . $tendm . '</a>
+                                                            <a href="'.$linkdm.'">'.$tendm.'</a>
                                                         ';
                                             }
                                             ?>
@@ -334,7 +344,7 @@
                                     </a>
                                     <ul class="sub-menu">
                                         <?php
-                                        if (isset($_SESSION['username'])) {
+                                        if(isset($_SESSION['username'])) {
                                             extract($_SESSION['username']);
                                             ?>
                                             <li>
@@ -349,7 +359,7 @@
                                             </li>
                                         <?php } ?>
                                         <li>
-                                            <a href="index.php?act=wlist">
+                                            <a href="index.php?act=gioithieu">
                                                 <span class="mm-text">Giới thiệu</span>
                                             </a>
                                         </li>
@@ -377,7 +387,7 @@
                                     </a>
                                     <ul class="sub-menu">
                                         <?php
-                                        if (isset($_SESSION['username'])) {
+                                        if(isset($_SESSION['username'])) {
                                             extract($_SESSION['username']);
                                             ?>
                                             <li>
