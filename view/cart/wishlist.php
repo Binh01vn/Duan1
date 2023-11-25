@@ -2,13 +2,6 @@
 if(isset($_SESSION['username'])) {
     extract($_SESSION['username']);
     $idactyt = $_SESSION['username']['idacc'];
-    // foreach($listwl as $lwl) {
-    //     extract($lwl);
-    //     if($iduser == $idactyt) {
-    //         $idyt = $id_yt;
-    //         $idsanpham = $id_sp;
-    //     }
-    // }
 }
 ?>
 <!-- Begin Kenne's Breadcrumb Area -->
