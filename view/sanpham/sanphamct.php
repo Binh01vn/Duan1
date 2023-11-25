@@ -330,9 +330,13 @@ if(isset($_SESSION['username'])) {
                                                                 data-bs-toggle="tooltip" data-placement="right"
                                                                 title="Quick View"><i class="ion-ios-search"></i></a>
                                                         </li>
-                                                        <li><a href="index.php?act=wlist&idsp=<?= $_GET['idsp'] ?>&idact=<?= $idact ?>" data-bs-toggle="tooltip" data-placement="right"
-                                                                title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                                        </li>
+                                                        <?php if(isset($_SESSION['username'])) { ?>
+                                                            <li><a href="index.php?act=wlist&idsp=<?= $id ?>&idact=<?php if(isset($idact) && $idact > 0)
+                                                                  echo $idact ?>" data-bs-toggle="tooltip"
+                                                                        data-placement="right" title="Thêm vào yêu thích"><i
+                                                                            class="ion-ios-heart-outline"></i></a>
+                                                                </li>
+                                                        <?php } ?>
                                                         <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
                                                                 title="Add To cart"><i class="ion-bag"></i></a>
                                                         </li>
