@@ -17,7 +17,11 @@ if (is_array($dm)) {
                                 placeholder="<?php if (isset($tendm) && $tendm != "") echo $tendm; ?>">
                             </div>
                         </div>
-
+                        <?php
+                        if (isset($thongbao) && $thongbao != "") {
+                            echo '<label class="col-md-12 p-0"><b>' . $thongbao . '</b></label>';
+                        }
+                        ?>
                         <div class="form-group mb-4">
                             <div class="col-sm-12">
                                 <input type="hidden" value="<?php if (isset($id_dm) && ($id_dm > 0)) echo $id_dm; ?>" name="id_dm">
@@ -32,10 +36,6 @@ if (is_array($dm)) {
                         </div>
                     </div>
                 </div>
-                <?php
-                if (isset($thongbao) && ($thongbao != ""))
-                    echo $thongbao;
-                ?>
             </div>
         </div>
     </div>

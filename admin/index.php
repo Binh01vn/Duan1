@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include("../model/pdo.php");
 include("../model/danhmuc.php");
 include("../model/sanpham.php");
@@ -13,8 +14,10 @@ if((isset($_GET['act']))) {
         case 'adddm':
             if(isset($_POST['themdm']) && ($_POST['themdm'])) {
                 $tendm = $_POST['tendm'];
-                if($tendm == '') {
+                if(empty($tendm)) {
                     $thongbao = "Tên danh mục trống!";
+                } else if(!preg_match("/^[a-zA-z]*$/", $tendm)) {
+                    $thongbao = "Tên danh mục không chứa số!";
                 } else {
                     insert_danhmuc($tendm);
                     $listdm = list_danhmuc();
@@ -33,7 +36,8 @@ if((isset($_GET['act']))) {
         // SỬA DANH MỤC
         case 'editdm':
             if(isset($_GET['id']) && $_GET['id'] > 0) {
-                $dm = loadone_danhmuc($_GET['id']);
+                $iddm = $_GET['id'];
+                $dm = loadone_danhmuc($iddm);
             }
             include "view/danhmuc/updatedm.php";
             break;
@@ -42,12 +46,20 @@ if((isset($_GET['act']))) {
             if(isset($_POST['capnhat']) && ($_POST['capnhat'])) {
                 $tendm = $_POST['tendm'];
                 $id_dm = $_POST['id_dm'];
-                if($tendm != '') {
+                if(empty($tendm)) {
+                    $thongbao = "Tên danh mục trống!";
+                } else if(!preg_match("/^[a-zA-z]*$/", $tendm)) {
+                    $thongbao = "Tên danh mục không chứa số!";
+                } else {
                     update_danhmuc($id_dm, $tendm);
+                    $listdm = list_danhmuc();
+                    include "view/danhmuc/listdm.php";
+                    break;
                 }
+                header('Location: index.php?act=editdm&id='.$id_dm.'');
             }
             $listdm = list_danhmuc();
-            include "view/danhmuc/listdm.php";
+            include "view/danhmuc/updatedm.php";
             break;
         // XÓA DANH MỤC
         case 'deldm':
@@ -73,9 +85,19 @@ if((isset($_GET['act']))) {
                 $soluongsp = $_POST['soluongsp'];
                 $motasp = $_POST['motasp'];
 
-                insert_sanpham($masp, $tensp, $giasp, $motasp, $soluongsp, $id_dm);
-                include("view/sanpham/prvsanpham.php");
-                break;
+                if(empty($tensp)) {
+                    if(empty($giasp)) {
+                        $thongbaog = "Giá sản phẩm không được để trống!";
+                    }
+                    if(empty($soluongsp)) {
+                        $thongbaos = "Số lượng sản phẩm không được để trống!";
+                    }
+                    $thongbao = "Tên sản phẩm trống!";
+                } else {
+                    insert_sanpham($masp, $tensp, $giasp, $motasp, $soluongsp, $id_dm);
+                    include("view/sanpham/prvsanpham.php");
+                    break;
+                }
             }
             $listdm = list_danhmuc();
             include('view/sanpham/addsp.php');
@@ -238,3 +260,5 @@ if((isset($_GET['act']))) {
 }
 
 include('view/footer.php');
+ob_end_flush();
+?>

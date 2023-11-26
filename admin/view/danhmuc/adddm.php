@@ -13,7 +13,7 @@
                         </div>
                         <?php
                         if (isset($thongbao) && $thongbao != "") {
-                            echo '<label class="col-md-12 p-0">' . $thongbao . '</label>';
+                            echo '<label class="col-md-12 p-0"><b>' . $thongbao . '</b></label>';
                         }
                         ?>
                         <div class="form-group mb-4">
