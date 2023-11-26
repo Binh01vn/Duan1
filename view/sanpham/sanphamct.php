@@ -36,9 +36,12 @@ if(isset($_SESSION['username'])) {
                             <?php
                             foreach($dssp as $ds1) {
                                 extract($ds1);
-                                // $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
                                 $imgpath = "./view/assets/images/product/".$imgsp;
-                                $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh">';
+                                if(isset($imgpath)) {
+                                    $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh">';
+                                } else {
+                                    $img = '';
+                                }
                                 if($idsp == $_GET['idsp']) {
                                     ?>
                                     <div class="single-slide red zoom">
@@ -139,6 +142,11 @@ if(isset($_SESSION['username'])) {
                                             }
                                             ?>
                                         </li>
+                                        <input type="hidden" name="idsp" value="<?= $id ?>">
+                                        <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
+                                        <input type="hidden" name="tensp" value="<?= $tensp ?>">
+                                        <input type="hidden" name="giasp" value="<?= $giasp ?>">
+                                        <input type="hidden" name="soluongsp" value="<?= $soluongsp ?>">
                                     <?php }
                                 }
                                 ?>

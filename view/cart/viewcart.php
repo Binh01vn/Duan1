@@ -19,6 +19,9 @@
             <div class="col-12">
                 <form action="#">
                     <div class="table-content table-responsive">
+                        <p><?php if (isset($_SESSION['cart'])) {
+                            echo var_dump($_SESSION['cart']);
+                        } ?></p>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -26,6 +29,7 @@
                                     <th class="kenne-product-thumbnail">ảnh sản phẩm</th>
                                     <th class="cart-product-name">tên sản phẩm</th>
                                     <th class="kenne-product-price">giá sản phẩm</th>
+                                    <th class="kenne-product-price">size sản phẩm</th>
                                     <th class="kenne-product-quantity">số lượng</th>
                                     <th class="kenne-product-subtotal">tổng giá</th>
                                 </tr>
@@ -39,13 +43,14 @@
                                                 alt="Uren's Cart Thumbnail"></a></td>
                                     <td class="kenne-product-name"><a href="#">Juma rema pola</a></td>
                                     <td class="kenne-product-price"><span class="amount">$46.80</span></td>
+                                    <td class="kenne-product-price"></td>
                                     <td class="quantity">
-                                        <label>Số lượng</label>
+                                        <!-- <label>Số lượng</label>
                                         <div class="cart-plus-minus">
                                             <input class="cart-plus-minus-box" value="1" type="text">
                                             <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
                                             <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                        </div>
+                                        </div> -->
                                     </td>
                                     <td class="product-subtotal"><span class="amount">$46.80</span></td>
                                 </tr>
@@ -58,21 +63,26 @@
                                     <td class="kenne-product-name"><a href="#">Bag Goodscol model</a>
                                     </td>
                                     <td class="kenne-product-price"><span class="amount">$71.80</span></td>
+                                    <td class="kenne-product-price"></td>
                                     <td class="quantity">
-                                        <label>Số lượng</label>
+                                        <!-- <label>Số lượng</label>
                                         <div class="cart-plus-minus">
                                             <input class="cart-plus-minus-box" value="1" type="text">
                                             <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
                                             <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                        </div>
+                                        </div> -->
                                     </td>
                                     <td class="product-subtotal"><span class="amount">$71.80</span></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-12">
+                            <div class="coupon-all">
+                                <b>Lưu ý:</b>
+                                <u>Bạn sẽ không thể hoàn lại mã khi đã Kiểm tra và áp dụng mã</u>
+                            </div>
                             <div class="coupon-all">
                                 <div class="coupon">
                                     <input id="coupon_code" class="input-text" name="coupon_code" value=""
@@ -85,13 +95,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row">
                         <div class="col-md-5 ml-auto">
                             <div class="cart-page-total">
                                 <h2>Tổng tiền giỏ hàng</h2>
                                 <ul>
-                                    <li>Tổng phụ <span>$118.60</span></li>
+                                    <!-- <li>Tổng phụ <span>$118.60</span></li> -->
                                     <li>Tổng thanh toán <span>$118.60</span></li>
                                 </ul>
                                 <a href="#">Đặt hàng</a>

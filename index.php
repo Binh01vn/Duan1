@@ -11,11 +11,11 @@ include("view/header.php");
 
 $spnew = list_spnew_home();
 $dsdm = list_danhmuc();
-if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
+if((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
-    switch ($act) {
+    switch($act) {
         case 'sigorreg':
-            if (isset($_POST['register']) && ($_POST['register'])) {
+            if(isset($_POST['register']) && ($_POST['register'])) {
                 $tensohuu = $_POST['tensohuu'];
                 $username = $_POST['username'];
                 $pass = $_POST['pass'];
@@ -25,17 +25,17 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $diachi = $_POST['diachi'];
                 $vaitro = $_POST['vaitro'];
 
-                if ($pass == $xnpass) {
+                if($pass == $xnpass) {
                     insert_taikhoan($tensohuu, $username, $pass, $email, $phone, $diachi);
                 } else {
                     $tb = "Mật khẩu không trùng khớp!";
                 }
-            } else if (isset($_POST['signin']) && ($_POST['signin'])) {
+            } else if(isset($_POST['signin']) && ($_POST['signin'])) {
                 $username = $_POST['username'];
                 $pass = $_POST['pass'];
 
                 $checkuser = check_user($username, $pass);
-                if (is_array($checkuser)) {
+                if(is_array($checkuser)) {
                     $_SESSION['username'] = $checkuser;
                     header('Location: index.php');
                     // exit;
@@ -56,7 +56,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'capnhattt':
-            if (isset($_POST['updateacc']) && ($_POST['updateacc'])) {
+            if(isset($_POST['updateacc']) && ($_POST['updateacc'])) {
                 $tennew = $_POST['tennew'];
                 $usernew = $_POST['usernew'];
                 $emailnew = $_POST['emailnew'];
@@ -66,10 +66,10 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $xnpassnew = $_POST['xnpassnew'];
                 $idtk = $_POST['idtk'];
 
-                if ($passnew == $xnpassnew && $tennew != "" && $usernew != "" && $emailnew != "" && $telnew != "" && $diachinew != "" && $passnew != "") {
+                if($passnew == $xnpassnew && $tennew != "" && $usernew != "" && $emailnew != "" && $telnew != "" && $diachinew != "" && $passnew != "") {
                     update_taikhoan($tennew, $usernew, $passnew, $emailnew, $telnew, $diachinew, $idtk);
                     session_unset();
-                    include('view/taikhoan/sigorreg.php');
+                    header('Location: ?act=sigorreg');
                     break;
                 } else {
                     $tb = "Mật khẩu không trùng khớp hoặc thông tin trống!";
@@ -79,7 +79,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'wlist':
-            if (isset($_GET['idsp']) && isset($_GET['idact'])){
+            if(isset($_GET['idsp']) && isset($_GET['idact'])) {
                 $idsp = $_GET['idsp'];
                 $idact = $_GET['idact'];
                 insert_wlist($idsp, $idact);
@@ -100,16 +100,30 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'cart':
+            if(isset($_POST['addgio']) && ($_POST['addgio'])) {
+                $IDSP = $_POST['idsp'];
+                $IMGSP = $_POST['imgsp'];
+                $TENSP = $_POST['tensp'];
+                $GIASP = $_POST['giasp'];
+                $SOLUONGSP = $_POST['soluongsp'];
+
+                $sp = array($IDSP, $IMGSP, $TENSP, $GIASP, $SOLUONGSP);
+                if(!isset($_SESSION['cart'])) {
+                    $_SESSION['cart'] = [];
+                }
+                array_push($_SESSION['cart'], $sp);
+                header('Location: ?act=cart');
+            }
             include('view/cart/viewcart.php');
             break;
 
         case 'danhmuc':
-            if ((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
+            if((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
                 $kyw = $_POST['kyw'];
             } else {
                 $kyw = "";
             }
-            if ((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
+            if((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
                 $iddm = $_GET['iddm'];
 
             } else {
@@ -121,12 +135,12 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'sanpham':
-            if ((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
+            if((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
                 $kyw = $_POST['kyw'];
             } else {
                 $kyw = "";
             }
-            if ((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
+            if((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
                 $iddm = $_GET['iddm'];
             } else {
                 $iddm = 0;
