@@ -146,7 +146,6 @@ if(isset($_SESSION['username'])) {
                                         <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
                                         <input type="hidden" name="tensp" value="<?= $tensp ?>">
                                         <input type="hidden" name="giasp" value="<?= $giasp ?>">
-                                        <input type="hidden" name="soluongsp" value="<?= $soluongsp ?>">
                                     <?php }
                                 }
                                 ?>
@@ -159,7 +158,7 @@ if(isset($_SESSION['username'])) {
                                 foreach($listsizesp as $l2) {
                                     extract($l2);
                                     if($id_sp == $_GET['idsp']) {
-                                        echo '<option value="'.$id.'">'.$sizesp.'</option>';
+                                        echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
                                     }
                                 }
                                 ?>
@@ -273,8 +272,7 @@ if(isset($_SESSION['username'])) {
                                 <?php }
                             } ?>
                             <iframe id="reviews" class="tab-pane" role="tabpanel" id="tab-review"
-                                src="view/binhluan/formbl.php?idsp=<?= $_GET['idsp'] ?>" frameborder="0" width="100%"
-                                height="100%"></iframe>
+                                src="view/binhluan/formbl.php?idsp=<?= $_GET['idsp'] ?>" frameborder="0" width="100%"></iframe>
                         </div>
                     </div>
                 </div>

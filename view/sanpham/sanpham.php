@@ -162,7 +162,7 @@
                                                                             class="ion-ios-heart-outline"></i></a>
                                                                 </li>
                                                         <?php } ?>
-                                                <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                <li><a href="<?= $linksp ?>" data-bs-toggle="tooltip" data-placement="right"
                                                         title="Thêm vào giỏ hàng"><i class="ion-bag"></i></a>
                                                 </li>
                                             </ul>
@@ -207,7 +207,7 @@
                                                                             class="ion-ios-heart-outline"></i></a>
                                                                 </li>
                                                         <?php } ?>
-                                                    <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    <li><a href="<?= $linksp ?>" data-bs-toggle="tooltip" data-placement="right"
                                                             title="Thêm vào giỏ hàng"><i class="ion-bag"></i></a>
                                                     </li>
                                                 </ul>

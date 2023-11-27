@@ -40,7 +40,6 @@ $listbl = loadall_binhluan($idsp);
 </head>
 
 <body>
-    <!-- <div id="reviews" class="tab-pane" role="tabpanel"> -->
 
     <div class="tab-pane active" id="tab-review">
         <form class="form-horizontal" id="form-review" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
@@ -137,7 +136,6 @@ $listbl = loadall_binhluan($idsp);
         ?>
     </div>
 
-    <!-- </div> -->
     <!-- JS ============================================ -->
 
     <!-- jQuery JS -->

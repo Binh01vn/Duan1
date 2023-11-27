@@ -100,19 +100,50 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'cart':
+            if(!isset($_SESSION['giohang'])) {
+                $_SESSION['giohang'] = [];
+            }
             if(isset($_POST['addgio']) && ($_POST['addgio'])) {
                 $IDSP = $_POST['idsp'];
                 $IMGSP = $_POST['imgsp'];
                 $TENSP = $_POST['tensp'];
                 $GIASP = $_POST['giasp'];
+                $SIZESP = $_POST['sizesp'];
                 $SOLUONGSP = $_POST['soluongsp'];
 
-                $sp = array($IDSP, $IMGSP, $TENSP, $GIASP, $SOLUONGSP);
-                if(!isset($_SESSION['cart'])) {
-                    $_SESSION['cart'] = [];
+                $fl = 0; // kiểm tra xem sản phẩm thêm mới đã tồn tại trong giỏ hàng chưa 0= chưa, 1 = đã có
+                // kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+                for($i = 0; $i < count($_SESSION['giohang']); $i++) {
+                    if($_SESSION['giohang'][$i][2] == $TENSP) {
+                        $fl = 1;
+                        $SOLUONGNEW = $SOLUONGSP + $_SESSION['giohang'][$i][5];
+                        $_SESSION['giohang'][$i][5] = $SOLUONGNEW;
+                        $_SESSION['giohang'][$i][4] = $SIZESP;
+                        break;
+                    }
                 }
-                array_push($_SESSION['cart'], $sp);
+
+                // nếu sản phẩm không trùng thì tiến hành thêm mới
+                if($fl == 0) {
+                    // thêm mới sản phẩm
+                    $sp = array($IDSP, $IMGSP, $TENSP, $GIASP, $SIZESP, $SOLUONGSP);
+                    array_push($_SESSION['giohang'], $sp);
+                }
                 header('Location: ?act=cart');
+            }
+            include('view/cart/viewcart.php');
+            break;
+
+        case 'linkdelspid':
+            if(isset($_GET['delsp']) && $_GET['delsp'] >= 0) {
+                array_splice($_SESSION['giohang'], $_GET['delsp'], 1);
+            }
+            include('view/cart/viewcart.php');
+            break;
+
+        case 'delcart':
+            if(isset($_GET['del']) && $_GET['del'] == 1) {
+                unset($_SESSION['giohang']);
             }
             include('view/cart/viewcart.php');
             break;
