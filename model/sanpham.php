@@ -16,7 +16,6 @@ function listall_sp($kyw, $iddm){
     where 1";
     if ($kyw !="") {
         $sql.=" and sp.tensp like '%".$kyw."%'";
-        $sql.=" and sp.masp like '%".$kyw."%'";
     }
     if ($iddm>0) {
         $sql.=" and sp.iddm = '".$iddm."'";

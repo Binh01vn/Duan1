@@ -147,7 +147,7 @@
                                                             title="Thêm vào yêu thích"><i class="ion-ios-heart-outline"></i></a>
                                                     </li>
                                             <?php } ?>
-                                            <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                            <li><a href="<?= $linksp ?>" data-bs-toggle="tooltip" data-placement="right"
                                                     title="Thêm vào giỏ hàng"><i class="ion-bag"></i></a>
                                             </li>
                                         </ul>
@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="product-content">
                                     <div class="product-desc_info">
-                                        <h3 class="product-name"><a href="' . $linksp . '">
+                                        <h3 class="product-name"><a href="<?= $linksp ?>">
                                                 <?= $tensp ?>
                                             </a>
                                         </h3>
@@ -323,7 +323,7 @@
                                                                         class="ion-ios-heart-outline"></i></a>
                                                             </li>
                                                     <?php } ?>
-                                                    <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
+                                                    <li><a href="<?= $linksp ?>" data-bs-toggle="tooltip" data-placement="right"
                                                             title="Thêm vào giỏ hàng"><i class="ion-bag"></i></a>
                                                     </li>
                                                 </ul>
@@ -331,7 +331,7 @@
                                         </div>
                                         <div class="product-content">
                                             <div class="product-desc_info">
-                                                <h3 class="product-name"><a href="'.$linksp.'"><?= $tensp ?></a>
+                                                <h3 class="product-name"><a href="<?= $linksp ?>"><?= $tensp ?></a>
                                                 </h3>
                                                 <div class="price-box">
                                                     <span class="new-price">Giá: <?= $giasp ?> VND</span>

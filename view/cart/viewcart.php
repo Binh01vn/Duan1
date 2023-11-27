@@ -35,13 +35,13 @@
                             <tbody>
                                 <?php
                                 if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])) {
+                                    // var_dump($_SESSION['giohang']);
                                     $tongdh = 0;
                                     for($i = 0; $i < count($_SESSION['giohang']); $i++) {
-                                        $tonggia = $_SESSION['giohang'][$i][3] * $_SESSION['giohang'][$i][5];
-                                        $tongdh += $tonggia;
-                                        $i = $i + 1;
-                                        $linkdelspid = "index.php?act=linkdelspid&delsp=".$i;
                                         if(isset($_SESSION['giohang'][$i][0])) {
+                                            $tonggia = $_SESSION['giohang'][$i][3] * $_SESSION['giohang'][$i][5];
+                                            $tongdh += $tonggia;
+                                            $linkdelspid = "index.php?act=linkdelspid&delsp=".$i;
                                             $linksp = "index.php?act=sanphamct&idsp=".$_SESSION['giohang'][$i][0];
                                             $imgpath = "./view/assets/images/product/".$_SESSION['giohang'][$i][1];
                                             $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh" width="200px">'; ?>
@@ -71,11 +71,11 @@
                                                 <td class="quantity">
                                                     <?= $_SESSION['giohang'][$i][5] ?>
                                                     <!-- <label>Số lượng</label>
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" value="1" type="text">
-                                            <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                            <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                        </div> -->
+                                                    <div class="cart-plus-minus">
+                                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                    </div> -->
                                                 </td>
                                                 <td class="product-subtotal">
                                                     <span class="amount">
