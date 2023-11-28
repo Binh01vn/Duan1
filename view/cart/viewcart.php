@@ -44,7 +44,7 @@
                                             $linkdelspid = "index.php?act=linkdelspid&delsp=".$i;
                                             $linksp = "index.php?act=sanphamct&idsp=".$_SESSION['giohang'][$i][0];
                                             $imgpath = "./view/assets/images/product/".$_SESSION['giohang'][$i][1];
-                                            $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh" width="200px">'; ?>
+                                            $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh" width="200px" height="200px">'; ?>
                                             <tr>
                                                 <td class="kenne-product-thumbnail">
                                                     <a href="<?= $linksp ?>">
@@ -126,7 +126,7 @@
                                         </span>
                                     </li>
                                 </ul>
-                                <a href="#">Đặt hàng</a>
+                                <a href="">Đặt hàng</a>
                             </div>
                         </div>
                     </div>

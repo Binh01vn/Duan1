@@ -1,9 +1,3 @@
-<?php
-if(isset($_SESSION['username'])) {
-    extract($_SESSION['username']);
-    $idactyt = $_SESSION['username']['idacc'];
-}
-?>
 <!-- Begin Kenne's Breadcrumb Area -->
 <div class="breadcrumb-area">
     <div class="container">

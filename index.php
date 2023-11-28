@@ -187,12 +187,14 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         default:
-            $dssp = listall_sp("", 0);
+            $listsizesp = listall_size();
+            $dssp = listall_sp(null, null);
             include('view/home.php');
             break;
     }
 } else {
-    $dssp = listall_sp("", 0);
+    $listsizesp = listall_size();
+    $dssp = listall_sp(null, null);
     include('view/home.php');
 }
 include('view/footer.php');

@@ -63,9 +63,12 @@
                                                 </b></a>
                                         </li>
                                         <li>
-                                            <a href="index.php?act=wlist">Yêu thích</a>
+                                            <a href="index.php?act=logout">Đăng xuất</a>
                                         </li>
                                     <?php } else { ?>
+                                        <li>
+                                            <a href="index.php?act=wlist">Yêu thích</a>
+                                        </li>
                                         <li>
                                             <a href="index.php?act=sigorreg">Đăng nhập - Đăng ký</a>
                                         </li>
@@ -100,23 +103,18 @@
 
                                 <div class="header-right_area d-none d-lg-block">
                                     <ul>
-                                        <?php
-                                        if(isset($_SESSION['username'])) {
-                                            echo '
-                                                <li class="minicart-wrap">
-                                                    <a href="#miniCart" class="minicart-btn toolbar-btn">
-                                                        <div class="minicart-count_area">
-                                                            <span class="item-count">03</span>
-                                                            <i class="ion-bag"></i>
-                                                        </div>
-                                                        <div class="minicart-front_text">
-                                                            <span>Tổng:</span>
-                                                            <span class="total-price">462.4</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                            ';
-                                        } ?>
+                                        <li class="minicart-wrap">
+                                            <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                                <div class="minicart-count_area">
+                                                    <span class="item-count">03</span>
+                                                    <i class="ion-bag"></i>
+                                                </div>
+                                                <div class="minicart-front_text">
+                                                    <span>Tổng:</span>
+                                                    <span class="total-price">462.4</span>
+                                                </div>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="header-right_area header-right_area-2 d-block d-lg-none">
@@ -126,20 +124,14 @@
                                                 <i class="ion-android-menu"></i>
                                             </a>
                                         </li>
-                                        <?php
-                                        if(isset($_SESSION['username'])) {
-                                            extract($_SESSION['username']);
-                                            echo '
-                                                <li class="minicart-wrap">
-                                                    <a href="#miniCart" class="minicart-btn toolbar-btn">
-                                                        <div class="minicart-count_area">
-                                                            <span class="item-count">03</span>
-                                                            <i class="ion-bag"></i>
-                                                        </div>
-                                                    </a>
-                                                </li> 
-                                            ';
-                                        } ?>
+                                        <li class="minicart-wrap">
+                                            <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                                <div class="minicart-count_area">
+                                                    <span class="item-count">03</span>
+                                                    <i class="ion-bag"></i>
+                                                </div>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="#searchBar" class="search-btn toolbar-btn">
                                                 <i class="ion-android-search"></i>
@@ -216,6 +208,10 @@
                                                             <li><a href="index.php?act=wlandac">Giỏ hàng</a></li>
                                                         <?php } else { ?>
                                                             <li>
+                                                                <a href="index.php?act=wlist">Yêu thích</a>
+                                                            </li>
+                                                            <li><a href="index.php?act=wlandac">Giỏ hàng</a></li>
+                                                            <li>
                                                                 <a href="index.php?act=sigorreg">Đăng nhập</a>
                                                             </li>
                                                             <li>
@@ -238,7 +234,7 @@
             </div>
             <div class="offcanvas-minicart_wrapper" id="miniCart">
                 <div class="offcanvas-menu-inner">
-                    <a href="#" class="btn-close"><i class="ion-android-close"></i></a>
+                    <a href="" class="btn-close"><i class="ion-android-close"></i></a>
                     <div class="minicart-content">
                         <div class="minicart-heading">
                             <h4>Giỏ hàng</h4>
@@ -254,28 +250,6 @@
                                     <span class="product-item_quantity">1 x $145.80</span>
                                 </div>
                             </li>
-                            <li class="minicart-product">
-                                <a class="product-item_remove" href="#"><i class="ion-android-close"></i></a>
-                                <div class="product-item_img">
-                                    <img src="view/assets/images/product/2-1.jpg" alt="Kenne's Product Image">
-                                </div>
-                                <div class="product-item_content">
-                                    <a class="product-item_title" href="../Duan1/index.php">Tenetur illum
-                                        amet</a>
-                                    <span class="product-item_quantity">1 x $150.80</span>
-                                </div>
-                            </li>
-                            <li class="minicart-product">
-                                <a class="product-item_remove" href="#"><i class="ion-android-close"></i></a>
-                                <div class="product-item_img">
-                                    <img src="view/assets/images/product/3-1.jpg" alt="Kenne's Product Image">
-                                </div>
-                                <div class="product-item_content">
-                                    <a class="product-item_title" href="../Duan1/index.php">Non doloremque
-                                        placeat</a>
-                                    <span class="product-item_quantity">1 x $165.80</span>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                     <div class="minicart-item_total">
@@ -283,14 +257,14 @@
                         <span class="ammount">$462.40</span>
                     </div>
                     <div class="minicart-btn_area">
-                        <a href="index.php?act=cart" class="kenne-btn kenne-btn_fullwidth">Giỏ hàng</a>
+                        <a href="index.php?act=wlandac" class="kenne-btn kenne-btn_fullwidth">Giỏ hàng</a>
                     </div>
                 </div>
             </div>
             <div class="mobile-menu_wrapper" id="mobileMenu">
                 <div class="offcanvas-menu-inner">
                     <div class="container">
-                        <a href="#" class="btn-close white-close_btn"><i class="ion-android-close"></i></a>
+                        <a href="" class="btn-close white-close_btn"><i class="ion-android-close"></i></a>
                         <div class="offcanvas-inner_logo">
                             <a href="index.html">
                                 <img src="view/assets/images/menu/logo/1.png" alt="Header Logo">
@@ -333,9 +307,18 @@
                                             extract($_SESSION['username']);
                                             ?>
                                             <li>
+                                                <a href="index.php?act=wlandac">Giỏ hàng</a>
+                                            </li>
+                                            <li>
                                                 <a href="index.php?act=wlist">Yêu thích</a>
                                             </li>
                                         <?php } else { ?>
+                                            <li>
+                                                <a href="index.php?act=wlandac">Giỏ hàng</a>
+                                            </li>
+                                            <li>
+                                                <a href="index.php?act=wlist">Yêu thích</a>
+                                            </li>
                                             <li>
                                                 <a href="index.php?act=sigorreg">Đăng nhập</a>
                                             </li>

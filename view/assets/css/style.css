@@ -10983,3 +10983,9 @@ header.main-header_area{
   background: #e75480;
   color: #ffffff !important;
 }
+.bshomeprd{
+  width: 232.4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

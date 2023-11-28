@@ -130,12 +130,17 @@
                         $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
                         <div class="product-item">
                             <div class="single-product">
-                                <div class="product-img">
+                                <form class="product-img" action="index.php?act=wlandac" method="POST">
                                     <a href="<?= $linksp ?>" class="linkbs">
                                         <?= $img ?>
                                     </a>
-                                    <span class="sticker-2">Hot</span>
-                                    <form class="add-actions" action="index.php?act=wlandac" method="POST">
+                                    <!-- <span class="sticker-2">Hot</span> -->
+                                    <div class="add-actions">
+                                        <input type="hidden" name="idsp" value="<?= $id ?>">
+                                        <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
+                                        <input type="hidden" name="tensp" value="<?= $tensp ?>">
+                                        <input type="hidden" name="giasp" value="<?= $giasp ?>">
+                                        <!-- <input type="hidden" name="soluongsp" value="1"> -->
                                         <ul>
                                             <li class="quick-view-btn" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
@@ -155,12 +160,32 @@
                                                 </button>
                                             </li>
                                         </ul>
-                                        <input type="hidden" name="idsp" value="<?= $id ?>">
-                                        <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
-                                        <input type="hidden" name="tensp" value="<?= $tensp ?>">
-                                        <input type="hidden" name="giasp" value="<?= $giasp ?>">
-                                    </form>
-                                </div>
+                                    </div>
+                                    <div class="bshomeprd">
+                                        <div class="product-size_box">
+                                            Size
+                                            <select class="myniceselect nice-select" name="sizesp">
+                                                <?php
+                                                foreach($listsizesp as $l2) {
+                                                    extract($l2);
+                                                    if($id_sp == $id) {
+                                                        echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
+                                                    }
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="quantity">
+                                            Số lượng
+                                            <div class="cart-plus-minus">
+                                                <input class="cart-plus-minus-box" value="1" type="text" name="soluongsp">
+                                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
                                 <div class="product-content">
                                     <div class="product-desc_info">
                                         <h3 class="product-name"><a href="<?= $linksp ?>">
@@ -176,46 +201,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="product-item">
-                            <div class="single-product">
-                                <div class="product-img">
-                                    <a href="<?= $linksp ?>" class="linkbs">
-                                        <?= $img ?>
-                                    </a>
-                                    <div class="add-actions">
-                                        <ul>
-                                            <li class="quick-view-btn" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
-                                                    data-bs-toggle="tooltip" data-placement="right" title="Xem chi tiết"><i
-                                                        class="ion-ios-search"></i></a>
-                                            </li>
-                                            <?php if(isset($_SESSION['username'])) { ?>
-                                                <li><a href="index.php?act=wlist&idsp=<?= $id ?>&idact=<?php if(isset($idact) && $idact > 0)
-                                                      echo $idact ?>" data-bs-toggle="tooltip" data-placement="right"
-                                                            title="Thêm vào yêu thích"><i class="ion-ios-heart-outline"></i></a>
-                                                    </li>
-                                            <?php } ?>
-                                            <li><a href="<?= $linksp ?>" data-bs-toggle="tooltip" data-placement="right"
-                                                    title="Thêm vào giỏ hàng"><i class="ion-bag"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <div class="product-desc_info">
-                                        <h3 class="product-name"><a href="<?= $linksp ?>">
-                                                <?= $tensp ?>
-                                            </a>
-                                        </h3>
-                                        <div class="price-box">
-                                            <span class="new-price">Giá:
-                                                <?= $giasp ?> VND
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     <?php }
                     ?>
                     <div class="product-item">
@@ -355,31 +340,62 @@
                                 $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
                                 <div class="product-item">
                                     <div class="single-product">
-                                        <div class="product-img">
+                                        <form class="product-img" action="index.php?act=wlandac" method="POST">
                                             <a href="<?= $linksp ?>" class="linkbs">
                                                 <?= $img ?>
                                             </a>
                                             <div class="add-actions">
+                                                <input type="hidden" name="idsp" value="<?= $idsp ?>">
+                                                <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
+                                                <input type="hidden" name="tensp" value="<?= $tensp ?>">
+                                                <input type="hidden" name="giasp" value="<?= $giasp ?>">
+                                                <input type="hidden" name="soluongsp" value="1">
                                                 <ul>
                                                     <li class="quick-view-btn" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
                                                             data-bs-toggle="tooltip" data-placement="right"
                                                             title="Xem chi tiết"><i class="ion-ios-search"></i></a>
                                                     </li>
-                                                    <?php if(isset($_SESSION['username'])) { ?>
-                                                        <li><a href="index.php?act=wlist&idsp=<?= $id ?>&idact=<?php if(isset($idact) && $idact > 0)
-                                                              echo $idact ?>" data-bs-toggle="tooltip"
-                                                                    data-placement="right" title="Thêm vào yêu thích"><i
-                                                                        class="ion-ios-heart-outline"></i></a>
-                                                            </li>
-                                                    <?php } ?>
-                                                    <li><a href="<?= $linksp ?>" data-bs-toggle="tooltip"
-                                                            data-placement="right" title="Thêm vào giỏ hàng"><i
-                                                                class="ion-bag"></i></a>
+                                                    <li>
+                                                        <button data-bs-toggle="tooltip" data-placement="right"
+                                                            title="Thêm vào yêu thích">
+                                                            <i class="ion-ios-heart-outline"></i>
+                                                        </button>
+                                                    </li>
+                                                    <li>
+                                                        <button data-bs-toggle="tooltip" data-placement="right"
+                                                            title="Thêm vào giỏ hàng" type="submit" name="addgio"
+                                                            value="themgio">
+                                                            <i class="ion-bag"></i>
+                                                        </button>
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                            <div class="bshomeprd">
+                                                <div class="product-size_box">
+                                                    Size
+                                                    <select class="myniceselect nice-select" name="sizesp">
+                                                        <?php
+                                                        foreach($listsizesp as $l2) {
+                                                            extract($l2);
+                                                            if($id_sp == $id) {
+                                                                echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                                <div class="quantity">
+                                                    Số lượng
+                                                    <div class="cart-plus-minus">
+                                                        <input class="cart-plus-minus-box" value="1" type="text"
+                                                            name="soluongsp">
+                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                         <div class="product-content">
                                             <div class="product-desc_info">
                                                 <h3 class="product-name"><a href="<?= $linksp ?>">
