@@ -91,7 +91,7 @@
 
                                 <div class="header-search_area d-none d-lg-block">
                                     <form class="search-form" action="index.php?act=sanpham" method="POST">
-                                        <input type="text" name="kyw" placeholder="Tìm kiếm">
+                                        <input type="text" name="kyw" placeholder="Tìm kiếm" class="ip-header">
                                         <button class="search-button" name="timkiem" type="submit">
                                             <i class="ion-ios-search"></i>
                                         </button>
@@ -184,21 +184,6 @@
 
                                                 <li>
                                                     <span class="megamenu-title">Danh mục</span>
-                                                    <ul>
-                                                        <?php
-                                                        $dsdm = list_danhmuc();
-                                                        foreach($dsdm as $ds) {
-                                                            extract($ds);
-                                                            $linkdm = "index.php?act=sanpham&iddm=".$id_dm;
-                                                            echo '
-                                                            <li><a href="'.$linkdm.'">'.$tendm.'</a></li>
-                                                        ';
-                                                        }
-                                                        ?>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <span class="megamenu-title">SALE</span>
                                                     <ul>
                                                         <?php
                                                         $dsdm = list_danhmuc();

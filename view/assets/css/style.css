@@ -10895,3 +10895,12 @@ div.form-group textarea {
   line-height: 50px;
   height: 200px;
 }
+.header-middle_area .header-middle_nav .header-search_area form.search-form input.ip-header {
+  width: 500px;
+  border: 1px solid #e5e5e5;
+  height: 46px;
+  padding: 0 46px 0 17px;
+}
+header.main-header_area{
+  background-color: #4b6f7c3d;
+}
