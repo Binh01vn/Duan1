@@ -111,11 +111,11 @@
                                 <ul>
                                     <?php
                                     $dsdm = list_danhmuc();
-                                    foreach ($dsdm as $ds) {
+                                    foreach($dsdm as $ds) {
                                         extract($ds);
-                                        $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
+                                        $linkdm = "index.php?act=sanpham&iddm=".$id_dm;
                                         echo '
-                                                            <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
+                                                            <li><a href="'.$linkdm.'">'.$tendm.'</a></li>
                                                         ';
                                     }
                                     ?>
@@ -129,7 +129,7 @@
                             <div class="footer-widgets">
                                 <ul>
                                     <?php
-                                    if (isset($_SESSION['username'])) {
+                                    if(isset($_SESSION['username'])) {
                                         extract($_SESSION['username']);
                                         ?>
                                         <li>
@@ -160,8 +160,13 @@
                             </div>
                             <div class="footer-widgets">
                                 <ul>
+                                    <li>
+                                        <a href="index.php?act=wlist">Yêu thích</a>
+                                    </li>
+                                    <li><a href="index.php?act=wlandac">Giỏ hàng</a></li>
                                     <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
-                                    <li><a href="index.php?act=lienhe">Liên hệ</a></li>
+                                    <!-- <li><a href="index.php?act=lienhe">Liên hệ</a></li> -->
+                                    <li><a href="index.php?act=faq">FAQ</a></li>
                                 </ul>
                             </div>
                         </div>

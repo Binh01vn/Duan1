@@ -349,7 +349,6 @@
                                                 <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
                                                 <input type="hidden" name="tensp" value="<?= $tensp ?>">
                                                 <input type="hidden" name="giasp" value="<?= $giasp ?>">
-                                                <input type="hidden" name="soluongsp" value="1">
                                                 <ul>
                                                     <li class="quick-view-btn" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"

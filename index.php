@@ -165,6 +165,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             }
             $ten_dm = load_ten_dm($iddm);
             $dssp = listall_sp($kyw, $iddm);
+            $listsizesp = listall_size();
             include('view/sanpham/sanpham.php');
             break;
 
@@ -182,9 +183,9 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/hotro/gioithieu.php');
             break;
 
-        case 'lienhe':
-            include('view/hotro/lienhe.php');
-            break;
+        // case 'lienhe':
+        //     include('view/hotro/lienhe.php');
+        //     break;
 
         default:
             $listsizesp = listall_size();

@@ -223,7 +223,7 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a href="index.php?act=lienhe">Liên hệ</a></li>
+                                        <!-- <li><a href="index.php?act=lienhe">Liên hệ</a></li> -->
                                         <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                                     </ul>
                                 </nav>
@@ -331,11 +331,11 @@
                                                 <span class="mm-text">Giới thiệu</span>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="index.php?act=lienhe">
                                                 <span class="mm-text">Liên hệ</span>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="index.php?act=faq">
                                                 <span class="mm-text">FAQ</span>

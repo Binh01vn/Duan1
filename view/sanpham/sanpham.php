@@ -42,11 +42,11 @@
                                 <li><a href="index.php?act=sanpham">Tất cả sản phẩm</a></li>
                                 <?php
                                 $dsdm = list_danhmuc();
-                                foreach ($dsdm as $ds1) {
+                                foreach($dsdm as $ds1) {
                                     extract($ds1);
-                                    $linkdm = "index.php?act=sanpham&iddm=" . $id_dm;
+                                    $linkdm = "index.php?act=sanpham&iddm=".$id_dm;
                                     echo '
-                                        <li><a href="' . $linkdm . '">' . $tendm . '</a></li>
+                                        <li><a href="'.$linkdm.'">'.$tendm.'</a></li>
                                     ';
                                 }
                                 ?>
@@ -76,23 +76,23 @@
                                 }}
                             ]'>
                             <?php
-                            foreach ($dssp as $ds2) {
+                            foreach($dssp as $ds2) {
                                 extract($ds2);
-                                $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
-                                $imgpath = "./view/assets/images/product/" . $imgsp;
-                                $img = '<img class="primary-img" src="' . $imgpath . '" alt="Lỗi server ảnh">';
+                                $linksp = "index.php?act=sanphamct&idsp=".$idsp;
+                                $imgpath = "./view/assets/images/product/".$imgsp;
+                                $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">';
                                 echo '
                                     <div class="product-item">
                                         <div class="single-product">
                                             <div class="product-img">
-                                                <a href="'.$linksp.'">' . $img . '</a>
+                                                <a href="'.$linksp.'">'.$img.'</a>
                                             </div>
                                             <div class="product-content">
                                                 <div class="product-desc_info">
-                                                    <h3 class="product-name"><a href="'.$linksp.'">' . $tensp . '</a>
+                                                    <h3 class="product-name"><a href="'.$linksp.'">'.$tensp.'</a>
                                                     </h3>
                                                     <div class="price-box">
-                                                        <span class="new-price">' . $giasp . ' VND</span>
+                                                        <span class="new-price">'.$giasp.' VND</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -117,14 +117,14 @@
                         <b>
                             <?php
                             $dsdm = list_danhmuc();
-                            foreach ($dsdm as $ds1) {
+                            foreach($dsdm as $ds1) {
                                 extract($ds1);
-                                if(isset($_GET['iddm'])){
-                                    if($id_dm == ($_GET['iddm'])){
+                                if(isset($_GET['iddm'])) {
+                                    if($id_dm == ($_GET['iddm'])) {
                                         echo $tendm;
                                     }
                                 }
-                                
+
                             }
                             ?>
                         </b>
@@ -133,90 +133,164 @@
 
                 <div class="shop-product-wrap grid gridview-3 row">
                     <?php
-                    if(isset($_SESSION['username'])){
+                    if(isset($_SESSION['username'])) {
                         extract($_SESSION['username']);
                         $idact = $_SESSION['username']['idacc'];
                     }
-                    foreach ($dssp as $ds2) {
+                    foreach($dssp as $ds2) {
                         extract($ds2);
-                        $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
-                        $imgpath = "./view/assets/images/product/" . $imgsp;
-                        $img = '<img class="primary-img" src="' . $imgpath . '" alt="Lỗi server ảnh">'; ?>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="<?= $linksp ?>"><?= $img ?></a>
-                                            <span class="sticker">-15%</span>
-                                            <div class="add-actions">
+                        $linksp = "index.php?act=sanphamct&idsp=".$idsp;
+                        $imgpath = "./view/assets/images/product/".$imgsp;
+                        $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <form class="product-item" action="index.php?act=wlandac" method="POST">
+                                <input type="hidden" name="idsp" value="<?= $idsp ?>">
+                                <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
+                                <input type="hidden" name="tensp" value="<?= $tensp ?>">
+                                <input type="hidden" name="giasp" value="<?= $giasp ?>">
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="<?= $linksp ?>" class="linkbs">
+                                            <?= $img ?>
+                                        </a>
+                                        <span class="sticker">-15%</span>
+                                        <div class="add-actions">
                                             <ul>
                                                 <li class="quick-view-btn" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>" data-bs-toggle="tooltip"
-                                                        data-placement="right" title="Xem chi tiết"><i
-                                                            class="ion-ios-search"></i></a>
+                                                    data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
+                                                        data-bs-toggle="tooltip" data-placement="right"
+                                                        title="Xem chi tiết"><i class="ion-ios-search"></i></a>
                                                 </li>
-                                                <?php if(isset($_SESSION['username'])) { ?>
-                                                            <li><a href="index.php?act=wlist&idsp=<?= $id ?>&idact=<?php if(isset($idact) && $idact > 0)
-                                                                  echo $idact ?>" data-bs-toggle="tooltip"
-                                                                        data-placement="right" title="Thêm vào yêu thích"><i
-                                                                            class="ion-ios-heart-outline"></i></a>
-                                                                </li>
-                                                        <?php } ?>
-                                                <li><a href="<?= $linksp ?>" data-bs-toggle="tooltip" data-placement="right"
-                                                        title="Thêm vào giỏ hàng"><i class="ion-bag"></i></a>
+                                                <li><button data-bs-toggle="tooltip" data-placement="right"
+                                                        title="Thêm vào yêu thích">
+                                                        <i class="ion-ios-heart-outline"></i>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button data-bs-toggle="tooltip" data-placement="right"
+                                                        title="Thêm vào giỏ hàng" type="submit" name="addgio"
+                                                        value="themgio">
+                                                        <i class="ion-bag"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="bshomeprd">
+                                            <div class="product-size_box">
+                                                <select class="myniceselect nice-select" name="sizesp">
+                                                    <?php
+                                                    foreach($listsizesp as $l2) {
+                                                        extract($l2);
+                                                        if($id_sp == $id) {
+                                                            echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <label>Size</label>
+                                            </div>
+                                            <div class="quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" value="1" type="text"
+                                                        name="soluongsp">
+                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                </div>
+                                                <label>Số lượng</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-desc_info">
+                                            <h3 class="product-name"><a href="'.$linksp.'">
+                                                    <?= $tensp ?>
+                                                </a></h3>
+                                            <div class="price-box">
+                                                <span class="new-price">Giá:
+                                                    <?= $giasp ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <form class="list-product_item" action="index.php?act=wlandac" method="POST">
+                                <input type="hidden" name="idsp" value="<?= $idsp ?>">
+                                <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
+                                <input type="hidden" name="tensp" value="<?= $tensp ?>">
+                                <input type="hidden" name="giasp" value="<?= $giasp ?>">
+                                <div class="single-product">
+                                    <div class="product-img">
+                                        <a href="<?= $linksp ?>">
+                                            <?= $img ?>
+                                        </a>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="bshomeprd">
+                                            <div class="product-size_box">
+                                                <select class="myniceselect nice-select" name="sizesp">
+                                                    <?php
+                                                    foreach($listsizesp as $l2) {
+                                                        extract($l2);
+                                                        if($id_sp == $id) {
+                                                            echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                                <label>Size</label>
+                                            </div>
+                                            <div class="quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" value="1" type="text"
+                                                        name="soluongsp">
+                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                </div>
+                                                <label>Số lượng</label>
+                                            </div>
+                                        </div>
+                                        <div class="product-desc_info">
+                                            <div class="price-box">
+                                                <span class="new-price">Giá:
+                                                    <?= $giasp ?>
+                                                </span>
+                                            </div>
+                                            <h6 class="product-name"><a href="<?= $linksp ?>">
+                                                    <?= $tensp ?>
+                                                </a></h6>
+                                            <div class="product-short_desc">
+                                                <p>
+                                                    <?= $motasp ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="add-actions">
+                                            <ul>
+                                                <li class="quick-view-btn" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
+                                                        data-bs-toggle="tooltip" data-placement="right"
+                                                        title="Xem chi tiết"><i class="ion-ios-search"></i></a>
+                                                </li>
+                                                <li><button data-bs-toggle="tooltip" data-placement="right"
+                                                        title="Thêm vào yêu thích">
+                                                        <i class="ion-ios-heart-outline"></i>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button data-bs-toggle="tooltip" data-placement="right"
+                                                        title="Thêm vào giỏ hàng" type="submit" name="addgio"
+                                                        value="themgio">
+                                                        <i class="ion-bag"></i>
+                                                    </button>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                        <div class="product-content">
-                                            <div class="product-desc_info">
-                                                <h3 class="product-name"><a href="'.$linksp.'"><?= $tensp ?></a></h3>
-                                                <div class="price-box">
-                                                    <span class="new-price">Giá: <?= $giasp ?></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="list-product_item">
-                                    <div class="single-product">
-                                        <div class="product-img">
-                                            <a href="<?= $linksp ?>"><?= $img ?></a>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-desc_info">
-                                                <div class="price-box">
-                                                    <span class="new-price">Giá: <?= $giasp ?></span>
-                                                </div>
-                                                <h6 class="product-name"><a href="<?= $linksp ?>"><?= $tensp ?></a></h6>
-                                                <div class="product-short_desc">
-                                                    <p><?= $motasp ?></p>
-                                                </div>
-                                            </div>
-                                            <div class="add-actions">
-                                                <ul>
-                                                    <li class="quick-view-btn" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModalCenter"><a href="'.$linksp.'" data-bs-toggle="tooltip"
-                                                        data-placement="right" title="Xem chi tiết"><i
-                                                            class="ion-ios-search"></i></a>
-                                                    </li>
-                                                    <?php if(isset($_SESSION['username'])) { ?>
-                                                            <li><a href="index.php?act=wlist&idsp=<?= $id ?>&idact=<?php if(isset($idact) && $idact > 0)
-                                                                  echo $idact ?>" data-bs-toggle="tooltip"
-                                                                        data-placement="right" title="Thêm vào yêu thích"><i
-                                                                            class="ion-ios-heart-outline"></i></a>
-                                                                </li>
-                                                        <?php } ?>
-                                                    <li><a href="<?= $linksp ?>" data-bs-toggle="tooltip" data-placement="right"
-                                                            title="Thêm vào giỏ hàng"><i class="ion-bag"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
+                            </form>
+                        </div>
+                    <?php } ?>
                 </div>
 
             </div>
