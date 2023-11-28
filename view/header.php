@@ -106,7 +106,9 @@
                                         <li class="minicart-wrap">
                                             <a href="#miniCart" class="minicart-btn toolbar-btn">
                                                 <div class="minicart-count_area">
-                                                    <span class="item-count">03</span>
+                                                    <span class="item-count">
+                                                        <?= !empty($_SESSION['giohang']) ? count($_SESSION['giohang']) : 0 ?>
+                                                    </span>
                                                     <i class="ion-bag"></i>
                                                 </div>
                                                 <div class="minicart-front_text">
@@ -127,7 +129,9 @@
                                         <li class="minicart-wrap">
                                             <a href="#miniCart" class="minicart-btn toolbar-btn">
                                                 <div class="minicart-count_area">
-                                                    <span class="item-count">03</span>
+                                                    <span class="item-count">
+                                                        <?= !empty($_SESSION['giohang']) ? count($_SESSION['giohang']) : 0 ?>
+                                                    </span>
                                                     <i class="ion-bag"></i>
                                                 </div>
                                             </a>

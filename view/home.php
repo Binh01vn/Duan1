@@ -125,7 +125,7 @@
                     }
                     foreach($spnew as $sp) {
                         extract($sp);
-                        $linksp = "index.php?act=sanphamct&idsp=".$id;
+                        $linksp = "index.php?act=sanphamct&idsp=".$idsp;
                         $imgpath = "./view/assets/images/product/".$imgsp;
                         $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
                         <div class="product-item">
@@ -133,13 +133,15 @@
                                 <form class="product-img" action="index.php?act=wlandac" method="POST">
                                     <a href="<?= $linksp ?>" class="linkbs">
                                         <?= $img ?>
+                                        <!-- <img class="secondary-img" src="view/assets/images/product/8-2.jpg"
+                                            alt="Kenne's Product Image"> -->
                                     </a>
                                     <!-- <span class="sticker-2">Hot</span> -->
                                     <div class="add-actions">
-                                        <input type="hidden" name="idsp" value="<?= $id ?>">
+                                        <!-- <input type="hidden" name="idsp" value="<?= $idsp ?>">
                                         <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
                                         <input type="hidden" name="tensp" value="<?= $tensp ?>">
-                                        <input type="hidden" name="giasp" value="<?= $giasp ?>">
+                                        <input type="hidden" name="giasp" value="<?= $giasp ?>"> -->
                                         <!-- <input type="hidden" name="soluongsp" value="1"> -->
                                         <ul>
                                             <li class="quick-view-btn" data-bs-toggle="modal"
@@ -196,6 +198,16 @@
                                             <span class="new-price">Giá:
                                                 <?= $giasp ?> VND
                                             </span>
+                                            <span class="old-price">$75.00</span>
+                                        </div>
+                                        <div class="rating-box">
+                                            <ul>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li><i class="ion-ios-star"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-half"></i></li>
+                                                <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -203,56 +215,6 @@
                         </div>
                     <?php }
                     ?>
-                    <div class="product-item">
-                        <div class="single-product">
-                            <div class="product-img">
-                                <a href="index.php?act=sanphamct">
-                                    <img class="primary-img" src="view/assets/images/product/8-1.jpg"
-                                        alt="Kenne's Product Image">
-                                    <img class="secondary-img" src="view/assets/images/product/8-2.jpg"
-                                        alt="Kenne's Product Image">
-                                </a>
-                                <span class="sticker">Bestseller</span>
-                                <div class="add-actions">
-                                    <ul>
-                                        <li class="quick-view-btn" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalCenter"><a href="#" data-bs-toggle="tooltip"
-                                                data-placement="right" title="Quick View"><i
-                                                    class="ion-ios-search"></i></a>
-                                        </li>
-                                        <li><a href="wishlist.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Wishlist"><i class="ion-ios-heart-outline"></i></a>
-                                        </li>
-                                        <li><a href="compare.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To Compare"><i class="ion-ios-reload"></i></a>
-                                        </li>
-                                        <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                title="Add To cart"><i class="ion-bag"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-content">
-                                <div class="product-desc_info">
-                                    <h3 class="product-name"><a href="index.php?act=sanphamct">Esse eveniet</a></h3>
-                                    <div class="price-box">
-                                        <span class="new-price">$70.00</span>
-                                        <span class="old-price">$75.00</span>
-                                    </div>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li><i class="ion-ios-star"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                            <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -340,15 +302,18 @@
                                 $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
                                 <div class="product-item">
                                     <div class="single-product">
-                                        <form class="product-img" action="index.php?act=wlandac" method="POST">
+                                        <div class="product-img">
                                             <a href="<?= $linksp ?>" class="linkbs">
                                                 <?= $img ?>
+                                                <!-- <img class="secondary-img" src="view/assets/images/product/5-2.jpg"
+                                                    alt="Kenne's Product Image"> -->
                                             </a>
+                                            <span class="sticker-2">Hot</span>
                                             <div class="add-actions">
-                                                <input type="hidden" name="idsp" value="<?= $idsp ?>">
+                                                <!-- <input type="hidden" name="idsp" value="<?= $idsp ?>">
                                                 <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
                                                 <input type="hidden" name="tensp" value="<?= $tensp ?>">
-                                                <input type="hidden" name="giasp" value="<?= $giasp ?>">
+                                                <input type="hidden" name="giasp" value="<?= $giasp ?>"> -->
                                                 <ul>
                                                     <li class="quick-view-btn" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
@@ -363,8 +328,8 @@
                                                     </li>
                                                     <li>
                                                         <button data-bs-toggle="tooltip" data-placement="right"
-                                                            title="Thêm vào giỏ hàng" type="submit" name="addgio"
-                                                            value="themgio">
+                                                            title="Thêm vào giỏ hàng" data-id="<?= $idsp ?>"
+                                                            onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $giasp ?>)">
                                                             <i class="ion-bag"></i>
                                                         </button>
                                                     </li>
@@ -394,7 +359,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                         <div class="product-content">
                                             <div class="product-desc_info">
                                                 <h3 class="product-name"><a href="<?= $linksp ?>">
@@ -403,67 +368,24 @@
                                                 </h3>
                                                 <div class="price-box">
                                                     <span class="new-price">Giá:
-                                                        <?= $giasp ?> VND
+                                                        <?php echo number_format($giasp) ?> VND
                                                     </span>
+                                                    <span class="old-price">$100.00</span>
+                                                </div>
+                                                <div class="rating-box">
+                                                    <ul>
+                                                        <li><i class="ion-ios-star"></i></li>
+                                                        <li><i class="ion-ios-star"></i></li>
+                                                        <li><i class="ion-ios-star"></i></li>
+                                                        <li><i class="ion-ios-star"></i></li>
+                                                        <li class="silver-color"><i class="ion-ios-star-half"></i></li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             <?php } ?>
-                            <div class="product-item">
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a href="index.php?act=sanphamct">
-                                            <img class="primary-img" src="view/assets/images/product/5-1.jpg"
-                                                alt="Kenne's Product Image">
-                                            <img class="secondary-img" src="view/assets/images/product/5-2.jpg"
-                                                alt="Kenne's Product Image">
-                                        </a>
-                                        <span class="sticker-2">Hot</span>
-                                        <div class="add-actions">
-                                            <ul>
-                                                <li class="quick-view-btn" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModalCenter"><a href="#"
-                                                        data-bs-toggle="tooltip" data-placement="right"
-                                                        title="Quick View"><i class="ion-ios-search"></i></a>
-                                                </li>
-                                                <li><a href="wishlist.html" data-bs-toggle="tooltip"
-                                                        data-placement="right" title="Add To Wishlist"><i
-                                                            class="ion-ios-heart-outline"></i></a>
-                                                </li>
-                                                <li><a href="compare.html" data-bs-toggle="tooltip"
-                                                        data-placement="right" title="Add To Compare"><i
-                                                            class="ion-ios-reload"></i></a>
-                                                </li>
-                                                <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                        title="Add To cart"><i class="ion-bag"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="product-desc_info">
-                                            <h3 class="product-name"><a href="index.php?act=sanphamct">Voluptates
-                                                    laudantium</a></h3>
-                                            <div class="price-box">
-                                                <span class="new-price">$95.00</span>
-                                                <span class="old-price">$100.00</span>
-                                            </div>
-                                            <div class="rating-box">
-                                                <ul>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li><i class="ion-ios-star"></i></li>
-                                                    <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -472,3 +394,29 @@
     </div>
 </div>
 <!-- Product Tab Area End Here -->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    let totalProduct = document.getElementById('totalProduct');
+    function addToCart(spID, spTEN, spGIA) {
+        // console.log(productId, productName, productPrice);
+        // Sử dụng jQuery
+        $.ajax({
+            type: 'POST',
+            // Đường dẫ tới tệp PHP xử lý dữ liệu
+            url: '../cart/xulycart',
+            data: {
+                idsp: spID,
+                tensp: spTEN,
+                giasp: spGIA
+            },
+            success: function (response) {
+                totalProduct.innerText = response;
+                alert('Thêm sản phẩm vào giỏ hàng thành công!')
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

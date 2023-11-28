@@ -35,7 +35,7 @@ function load_ten_dm($iddm){
     }
 }
 function list_spnew_home(){
-    $sql="select sp.tensp, sp.giasp, i.imgsp , sp.motasp, sp.id
+    $sql="select sp.tensp, sp.giasp, i.imgsp , sp.motasp, sp.id, i.idsp
     from sanpham sp
     inner join image i on i.idsp = sp.id
     where 1 order by sp.id desc limit 0,7";
