@@ -131,7 +131,55 @@
                         <div class="product-item">
                             <div class="single-product">
                                 <div class="product-img">
-                                    <a href="<?= $linksp ?>">
+                                    <a href="<?= $linksp ?>" class="linkbs">
+                                        <?= $img ?>
+                                    </a>
+                                    <span class="sticker-2">Hot</span>
+                                    <form class="add-actions" action="index.php?act=wlandac" method="POST">
+                                        <ul>
+                                            <li class="quick-view-btn" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
+                                                    data-bs-toggle="tooltip" data-placement="right" title="Xem chi tiết"><i
+                                                        class="ion-ios-search"></i></a>
+                                            </li>
+                                            <li>
+                                                <button data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Thêm vào yêu thích">
+                                                    <i class="ion-ios-heart-outline"></i>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button data-bs-toggle="tooltip" data-placement="right"
+                                                    title="Thêm vào giỏ hàng" type="submit" name="addgio" value="themgio">
+                                                    <i class="ion-bag"></i>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                        <input type="hidden" name="idsp" value="<?= $id ?>">
+                                        <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
+                                        <input type="hidden" name="tensp" value="<?= $tensp ?>">
+                                        <input type="hidden" name="giasp" value="<?= $giasp ?>">
+                                    </form>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-desc_info">
+                                        <h3 class="product-name"><a href="<?= $linksp ?>">
+                                                <?= $tensp ?>
+                                            </a>
+                                        </h3>
+                                        <div class="price-box">
+                                            <span class="new-price">Giá:
+                                                <?= $giasp ?> VND
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="product-item">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="<?= $linksp ?>" class="linkbs">
                                         <?= $img ?>
                                     </a>
                                     <div class="add-actions">
@@ -167,7 +215,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     <?php }
                     ?>
                     <div class="product-item">
@@ -308,7 +356,9 @@
                                 <div class="product-item">
                                     <div class="single-product">
                                         <div class="product-img">
-                                            <a href="<?= $linksp ?>"><?= $img ?></a>
+                                            <a href="<?= $linksp ?>" class="linkbs">
+                                                <?= $img ?>
+                                            </a>
                                             <div class="add-actions">
                                                 <ul>
                                                     <li class="quick-view-btn" data-bs-toggle="modal"
@@ -318,23 +368,28 @@
                                                     </li>
                                                     <?php if(isset($_SESSION['username'])) { ?>
                                                         <li><a href="index.php?act=wlist&idsp=<?= $id ?>&idact=<?php if(isset($idact) && $idact > 0)
-                                                              echo $idact ?>" data-bs-toggle="tooltip" data-placement="right"
-                                                                    title="Thêm vào yêu thích"><i
+                                                              echo $idact ?>" data-bs-toggle="tooltip"
+                                                                    data-placement="right" title="Thêm vào yêu thích"><i
                                                                         class="ion-ios-heart-outline"></i></a>
                                                             </li>
                                                     <?php } ?>
-                                                    <li><a href="<?= $linksp ?>" data-bs-toggle="tooltip" data-placement="right"
-                                                            title="Thêm vào giỏ hàng"><i class="ion-bag"></i></a>
+                                                    <li><a href="<?= $linksp ?>" data-bs-toggle="tooltip"
+                                                            data-placement="right" title="Thêm vào giỏ hàng"><i
+                                                                class="ion-bag"></i></a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="product-content">
                                             <div class="product-desc_info">
-                                                <h3 class="product-name"><a href="<?= $linksp ?>"><?= $tensp ?></a>
+                                                <h3 class="product-name"><a href="<?= $linksp ?>">
+                                                        <?= $tensp ?>
+                                                    </a>
                                                 </h3>
                                                 <div class="price-box">
-                                                    <span class="new-price">Giá: <?= $giasp ?> VND</span>
+                                                    <span class="new-price">Giá:
+                                                        <?= $giasp ?> VND
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>

@@ -213,7 +213,7 @@
                                                             <li>
                                                                 <a href="index.php?act=wlist">Yêu thích</a>
                                                             </li>
-                                                            <li><a href="index.php?act=cart">Giỏ hàng</a></li>
+                                                            <li><a href="index.php?act=wlandac">Giỏ hàng</a></li>
                                                         <?php } else { ?>
                                                             <li>
                                                                 <a href="index.php?act=sigorreg">Đăng nhập</a>
@@ -385,7 +385,7 @@
                                                 <a href="index.php?act=wlist">Yêu thích</a>
                                             </li>
                                             <li>
-                                                <a href="index.php?act=cart">Giỏ hàng</a>
+                                                <a href="index.php?act=wlandac">Giỏ hàng</a>
                                             </li>
                                         <?php } else { ?>
                                             <li>

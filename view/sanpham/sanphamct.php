@@ -112,7 +112,7 @@ if(isset($_SESSION['username'])) {
 
                 </div>
                 <div class="col-lg-8">
-                    <form class="sp-content" action="index.php?act=cart" method="POST">
+                    <form class="sp-content" action="index.php?act=wlandac" method="POST">
                         <div class="sp-heading">
                             <h5><a href="#">Thông tin sản phẩm</a></h5>
                         </div>

@@ -21,18 +21,18 @@
                     <div class="table-content table-responsive">
 
                         <table class="table">
-                            <thead>
+                            <thead class="theadtb">
                                 <tr>
-                                    <th class="kenne-product-remove">xóa</th>
                                     <th class="kenne-product-thumbnail">ảnh sản phẩm</th>
                                     <th class="cart-product-name">tên sản phẩm</th>
                                     <th class="kenne-product-price">giá (VND)</th>
                                     <th class="kenne-product-price">size</th>
                                     <th class="kenne-product-quantity">số lượng</th>
                                     <th class="kenne-product-subtotal">tổng giá (VND)</th>
+                                    <th class="kenne-product-remove">xóa</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="tbodytb">
                                 <?php
                                 if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])) {
                                     // var_dump($_SESSION['giohang']);
@@ -46,10 +46,6 @@
                                             $imgpath = "./view/assets/images/product/".$_SESSION['giohang'][$i][1];
                                             $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh" width="200px">'; ?>
                                             <tr>
-                                                <td class="kenne-product-remove">
-                                                    <a href="<?= $linkdelspid ?>">
-                                                        <i class="fa fa-trash" title="Remove"></i></a>
-                                                </td>
                                                 <td class="kenne-product-thumbnail">
                                                     <a href="<?= $linksp ?>">
                                                         <?= $img ?>
@@ -81,6 +77,10 @@
                                                     <span class="amount">
                                                         <?= $tonggia ?>
                                                     </span>
+                                                </td>
+                                                <td class="kenne-product-remove">
+                                                    <a href="<?= $linkdelspid ?>">
+                                                        <i class="fa fa-trash" title="Remove"></i></a>
                                                 </td>
                                             </tr>
                                         <?php }

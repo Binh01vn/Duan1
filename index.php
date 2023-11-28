@@ -79,27 +79,14 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'wlist':
-            if(isset($_GET['idsp']) && isset($_GET['idact'])) {
-                $idsp = $_GET['idsp'];
-                $idact = $_GET['idact'];
-                insert_wlist($idsp, $idact);
-            }
-            $dssp = listall_sp(null, null);
-            $listwl = list_yeutich();
             include('view/cart/wishlist.php');
             break;
 
         case 'delyt':
-            if(isset($_GET['idyt'])) {
-                $idyt = $_GET['idyt'];
-                del_yeuthich($idyt);
-            }
-            $dssp = listall_sp(null, null);
-            $listwl = list_yeutich();
             include('view/cart/wishlist.php');
             break;
 
-        case 'cart':
+        case 'wlandac':
             if(!isset($_SESSION['giohang'])) {
                 $_SESSION['giohang'] = [];
             }
@@ -129,7 +116,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $sp = array($IDSP, $IMGSP, $TENSP, $GIASP, $SIZESP, $SOLUONGSP);
                     array_push($_SESSION['giohang'], $sp);
                 }
-                header('Location: ?act=cart');
+                header('Location: ?act=wlandac');
             }
             include('view/cart/viewcart.php');
             break;
