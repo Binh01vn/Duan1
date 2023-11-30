@@ -38,7 +38,7 @@ if(isset($_SESSION['username'])) {
                                 extract($ds1);
                                 $imgpath = "./view/assets/images/product/".$imgsp;
                                 if(isset($imgpath)) {
-                                    $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh">';
+                                    $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh" height="373">';
                                 } else {
                                     $img = '';
                                 }
@@ -84,7 +84,7 @@ if(isset($_SESSION['username'])) {
                                 extract($ds1);
                                 // $linksp = "index.php?act=sanphamct&idsp=" . $idsp;
                                 $imgpath = "./view/assets/images/product/".$imgsp;
-                                $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh">';
+                                $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh" height="65px">';
                                 if($idsp == $_GET['idsp']) {
                                     ?>
                                     <div class="single-slide red">
@@ -114,7 +114,7 @@ if(isset($_SESSION['username'])) {
                 <div class="col-lg-8">
                     <form class="sp-content" action="index.php?act=wlandac" method="POST">
                         <div class="sp-heading">
-                            <h5><a href="#">Thông tin sản phẩm</a></h5>
+                            <h5><a href="">Thông tin sản phẩm</a></h5>
                         </div>
                         <div class="sp-essential_stuff">
                             <ul>
@@ -131,7 +131,7 @@ if(isset($_SESSION['username'])) {
                                             <?= $masp ?>
                                         </li>
                                         <li>Giá:
-                                            <?= $giasp ?>
+                                            <?= number_format((int)$giasp, 0, ",", ".") ?> (VND)
                                         </li>
                                         <li>Tình trạng:
                                             <?php
@@ -174,21 +174,17 @@ if(isset($_SESSION['username'])) {
                         </div>
                         <div class="qty-btn_area">
                             <ul>
-                                <?php
-                                if(!isset($_SESSION['username'])) {
-                                    echo '<li><h6>Đăng nhập để sử dụng đủ chức năng của website!</h6></li>';
-                                } else { ?>
-                                    <li>
-                                        <button class="qty-cart_btn" type="submit" name="addgio" value="themgio">Thêm vào
-                                            giỏ hàng</button>
-                                    </li>
+                                <li>
+                                    <button class="qty-cart_btn" type="submit" name="addgio" value="themgio">Thêm vào
+                                        giỏ hàng</button>
+                                </li>
 
-                                    <li>
-                                        <a class="qty-wishlist_btn" title="Thêm vào yêu thích" data-bs-toggle="tooltip"
-                                            href="index.php?act=wlist&idsp=<?= $_GET['idsp'] ?>&idact=<?= $idact ?>"><i
-                                                class="ion-android-favorite-outline"></i></a>
-                                    </li>
-                                <?php } ?>
+                                <li>
+                                    <button class="qty-wishlist_btn" title="Thêm vào yêu thích"
+                                        data-bs-toggle="tooltip" type="submit" name="addwl" value="themwl">
+                                        <i class="ion-android-favorite-outline"></i>
+                                    </button>
+                                </li>
                             </ul>
                         </div>
                         <div class="kenne-social_link">
@@ -272,7 +268,8 @@ if(isset($_SESSION['username'])) {
                                 <?php }
                             } ?>
                             <iframe id="reviews" class="tab-pane" role="tabpanel" id="tab-review"
-                                src="view/binhluan/formbl.php?idsp=<?= $_GET['idsp'] ?>" frameborder="0" width="100%"></iframe>
+                                src="view/binhluan/formbl.php?idsp=<?= $_GET['idsp'] ?>" frameborder="0"
+                                width="100%"></iframe>
                         </div>
                     </div>
                 </div>
@@ -320,15 +317,14 @@ if(isset($_SESSION['username'])) {
                                     extract($cl);
                                     $linksp = "index.php?act=sanphamct&idsp=".$idsp;
                                     $imgpath = "./view/assets/images/product/".$imgsp;
-                                    $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
+                                    $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh" height="233px">'; ?>
 
                                     <div class="product-item">
-                                        <div class="single-product">
+                                        <form class="single-product" action="index.php?act=wlandac" method="POST">
                                             <div class="product-img">
                                                 <a href="<?= $linksp ?>">
                                                     <?= $img ?>
                                                 </a>
-                                                <span class="sticker">Bestseller</span>
                                                 <div class="add-actions">
                                                     <ul>
                                                         <li class="quick-view-btn" data-bs-toggle="modal"
@@ -336,30 +332,32 @@ if(isset($_SESSION['username'])) {
                                                                 data-bs-toggle="tooltip" data-placement="right"
                                                                 title="Quick View"><i class="ion-ios-search"></i></a>
                                                         </li>
-                                                        <?php if(isset($_SESSION['username'])) { ?>
-                                                            <li><a href="index.php?act=wlist&idsp=<?= $id ?>&idact=<?php if(isset($idact) && $idact > 0)
-                                                                  echo $idact ?>" data-bs-toggle="tooltip"
-                                                                        data-placement="right" title="Thêm vào yêu thích"><i
-                                                                            class="ion-ios-heart-outline"></i></a>
-                                                                </li>
-                                                        <?php } ?>
-                                                        <li><a href="cart.html" data-bs-toggle="tooltip" data-placement="right"
-                                                                title="Add To cart"><i class="ion-bag"></i></a>
-                                                        </li>
-                                                    </ul>
+                                                        <li><a href="index.php?act=wlist&idsp=<?= $id ?>&idact=<?php if(isset($idact) && $idact > 0)
+                                                              echo $idact ?>" data-bs-toggle="tooltip"
+                                                                    data-placement="right" title="Thêm vào yêu thích"><i
+                                                                        class="ion-ios-heart-outline"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <button data-bs-toggle="tooltip" data-placement="right"
+                                                                    title="Thêm vào giỏ hàng" type="submit" name="addgio"
+                                                                    value="themgio">
+                                                                    <i class="ion-bag"></i>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-desc_info">
-                                                    <h3 class="product-name"><a href="<?= $linksp ?>">
+                                                <div class="product-content">
+                                                    <div class="product-desc_info">
+                                                        <h3 class="product-name">
+                                                            <a href="<?= $linksp ?>">
                                                             <?= $tensp ?>
                                                         </a>
                                                     </h3>
                                                     <div class="price-box">
-                                                        <span class="new-price">
-                                                            <?= $giasp ?>
+                                                        <span class="new-price">Giá:
+                                                            <?= number_format((int)$giasp, 0, ",", ".") ?> VND
                                                         </span>
-                                                        <span class="old-price">$85,00</span>
                                                     </div>
                                                     <div class="rating-box">
                                                         <ul>
@@ -372,7 +370,7 @@ if(isset($_SESSION['username'])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
                                 <?php }
                             }

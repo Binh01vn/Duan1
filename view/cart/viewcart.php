@@ -35,7 +35,6 @@
                             <tbody class="tbodytb">
                                 <?php
                                 if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])) {
-                                    // var_dump($_SESSION['giohang']);
                                     $tongdh = 0;
                                     for($i = 0; $i < count($_SESSION['giohang']); $i++) {
                                         if(isset($_SESSION['giohang'][$i][0])) {
@@ -44,7 +43,7 @@
                                             $linkdelspid = "index.php?act=linkdelspid&delsp=".$i;
                                             $linksp = "index.php?act=sanphamct&idsp=".$_SESSION['giohang'][$i][0];
                                             $imgpath = "./view/assets/images/product/".$_SESSION['giohang'][$i][1];
-                                            $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh" width="200px" height="200px">'; ?>
+                                            $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh" width="150px" height="150px">'; ?>
                                             <tr>
                                                 <td class="kenne-product-thumbnail">
                                                     <a href="<?= $linksp ?>">
@@ -58,24 +57,45 @@
                                                 </td>
                                                 <td class="kenne-product-price">
                                                     <span class="amount">
-                                                        <?= $_SESSION['giohang'][$i][3] ?>
+                                                        <?= number_format((int)$_SESSION['giohang'][$i][3], 0, ",", ".") ?>
                                                     </span>
                                                 </td>
                                                 <td class="kenne-product-price">
-                                                    <?= $_SESSION['giohang'][$i][4] ?>
+                                                    <div class="product-size_box">
+                                                        <select class="myniceselect nice-select" name="sizesp">
+                                                            <?php
+                                                            if($_SESSION['giohang'][$i][4] == 0) {
+                                                                echo '<option value="0" selected>Chưa chọn size</option>';
+                                                                foreach($listsizesp as $l2) {
+                                                                    extract($l2);
+                                                                    if($id_sp == $_SESSION['giohang'][$i][0]) {
+                                                                        echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
+                                                                    }
+                                                                }
+                                                            } else {
+                                                                echo '<option value="'.$_SESSION['giohang'][$i][4].'" selected>'.$_SESSION['giohang'][$i][4].'</option>';
+                                                                foreach($listsizesp as $l2) {
+                                                                    extract($l2);
+                                                                    if($id_sp == $_SESSION['giohang'][$i][0] && $sizesp != $_SESSION['giohang'][$i][4]) {
+                                                                        echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
+                                                                    }
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
                                                 </td>
                                                 <td class="quantity">
-                                                    <?= $_SESSION['giohang'][$i][5] ?>
-                                                    <!-- <label>Số lượng</label>
                                                     <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" value="1" type="text">
+                                                        <input class="cart-plus-minus-box"
+                                                            value="<?= $_SESSION['giohang'][$i][5] ?>" type="number">
                                                         <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
                                                         <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                    </div> -->
+                                                    </div>
                                                 </td>
                                                 <td class="product-subtotal">
                                                     <span class="amount">
-                                                        <?= $tonggia ?>
+                                                        <?= number_format((int)$tonggia, 0, ",", ".") ?>
                                                     </span>
                                                 </td>
                                                 <td class="kenne-product-remove">
@@ -85,25 +105,15 @@
                                             </tr>
                                         <?php }
                                     }
+                                    $_SESSION['tongdh'] = $tongdh;
                                 } ?>
                             </tbody>
                         </table>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <!-- <div class="coupon-all">
-                                <b>Lưu ý:</b>
-                                <u>Bạn sẽ không thể hoàn lại mã khi đã Kiểm tra và áp dụng mã</u>
-                            </div> -->
                             <div class="coupon-all">
-                                <!-- <div class="coupon">
-                                    <input id="coupon_code" class="input-text" name="coupon_code" value=""
-                                        placeholder="Mã giảm giá" type="text">
-                                    <input class="button" name="apply_coupon" value="Kiểm tra và áp dụng mã"
-                                        type="submit">
-                                </div> -->
                                 <div class="coupon2">
-                                    <!-- <input class="button" name="update_cart" value="Cập nhật giỏ hàng" type="submit"> -->
                                     <a class="button" href="index.php?act=delcart&del=1">Xóa tất cả khỏi giỏ hàng</a>
                                 </div>
                             </div>
@@ -118,8 +128,8 @@
                                     <li>Tổng thanh toán
                                         <span>
                                             <?php
-                                            if(isset($tongdh)) {
-                                                echo $tongdh;
+                                            if(isset($_SESSION['tongdh'])) {
+                                                echo number_format((int)$_SESSION['tongdh'], 0, ",", ".");
                                             } else {
                                                 echo '0';
                                             } ?> (VND)

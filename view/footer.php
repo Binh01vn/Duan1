@@ -81,23 +81,8 @@
                     <div class="newsletter-area">
                         <div class="newsletter-logo">
                             <a href="#">
-                                <img src="view/assets/images/footer/logo/1.png" alt="Logo" class="hd-logo">
+                                <img src="view/assets/images/footer/logo/1.png" alt="Logo" width="200px">
                             </a>
-                        </div>
-                        <p class="short-desc">Theo dõi và nhận thông báo từ chúng tôi bằng địa chỉ Email của bạn</p>
-                        <div class="newsletter-form_wrap">
-                            <form action="#" method="post" id="mc-embedded-subscribe-form"
-                                name="mc-embedded-subscribe-form" class="newsletters-form validate" target="_blank"
-                                novalidate>
-                                <div id="mc_embed_signup_scroll">
-                                    <div id="mc-form" class="mc-form subscribe-form">
-                                        <input id="mc-email" class="newsletter-input" type="email" autocomplete="off"
-                                            placeholder="Email của bạn" />
-                                        <button class="newsletter-btn" id="mc-submit"><i
-                                                class="ion-android-mail"></i></button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -165,7 +150,6 @@
                                     </li>
                                     <li><a href="index.php?act=wlandac">Giỏ hàng</a></li>
                                     <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
-                                    <!-- <li><a href="index.php?act=lienhe">Liên hệ</a></li> -->
                                     <li><a href="index.php?act=faq">FAQ</a></li>
                                 </ul>
                             </div>

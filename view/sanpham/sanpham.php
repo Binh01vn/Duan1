@@ -80,27 +80,31 @@
                                 extract($ds2);
                                 $linksp = "index.php?act=sanphamct&idsp=".$idsp;
                                 $imgpath = "./view/assets/images/product/".$imgsp;
-                                $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">';
-                                echo '
-                                    <div class="product-item">
-                                        <div class="single-product">
-                                            <div class="product-img">
-                                                <a href="'.$linksp.'">'.$img.'</a>
-                                            </div>
-                                            <div class="product-content">
-                                                <div class="product-desc_info">
-                                                    <h3 class="product-name"><a href="'.$linksp.'">'.$tensp.'</a>
-                                                    </h3>
-                                                    <div class="price-box">
-                                                        <span class="new-price">'.$giasp.' VND</span>
-                                                    </div>
+                                $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
+                                <div class="product-item">
+                                    <div class="single-product">
+                                        <div class="product-img">
+                                            <a href="<?= $linksp ?>">
+                                                <?= $img ?>
+                                            </a>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="product-desc_info">
+                                                <h3 class="product-name"><a href="<?= $linksp ?>">
+                                                        <?= $tensp ?>
+                                                    </a>
+                                                </h3>
+                                                <div class="price-box">
+                                                    <span class="new-price">
+                                                        Giá:
+                                                        <?= number_format((int)$giasp, 0, ",", ".") ?> (VND)
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                ';
-                            }
-                            ?>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -153,7 +157,6 @@
                                         <a href="<?= $linksp ?>" class="linkbs">
                                             <?= $img ?>
                                         </a>
-                                        <span class="sticker">-15%</span>
                                         <div class="add-actions">
                                             <ul>
                                                 <li class="quick-view-btn" data-bs-toggle="modal"
@@ -175,30 +178,6 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="bshomeprd">
-                                            <div class="product-size_box">
-                                                <select class="myniceselect nice-select" name="sizesp">
-                                                    <?php
-                                                    foreach($listsizesp as $l2) {
-                                                        extract($l2);
-                                                        if($id_sp == $id) {
-                                                            echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
-                                                        }
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <label>Size</label>
-                                            </div>
-                                            <div class="quantity">
-                                                <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" value="1" type="text"
-                                                        name="soluongsp">
-                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                </div>
-                                                <label>Số lượng</label>
-                                            </div>
-                                        </div>
                                     </div>
                                     <div class="product-content">
                                         <div class="product-desc_info">
@@ -207,7 +186,7 @@
                                                 </a></h3>
                                             <div class="price-box">
                                                 <span class="new-price">Giá:
-                                                    <?= $giasp ?>
+                                                        <?= number_format((int)$giasp, 0, ",", ".") ?> (VND)
                                                 </span>
                                             </div>
                                         </div>
@@ -253,7 +232,7 @@
                                         <div class="product-desc_info">
                                             <div class="price-box">
                                                 <span class="new-price">Giá:
-                                                    <?= $giasp ?>
+                                                        <?= number_format((int)$giasp, 0, ",", ".") ?> (VND)
                                                 </span>
                                             </div>
                                             <h6 class="product-name"><a href="<?= $linksp ?>">

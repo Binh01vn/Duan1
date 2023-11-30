@@ -138,11 +138,12 @@
                                     </a>
                                     <!-- <span class="sticker-2">Hot</span> -->
                                     <div class="add-actions">
-                                        <!-- <input type="hidden" name="idsp" value="<?= $idsp ?>">
+                                        <input type="hidden" name="idsp" value="<?= $idsp ?>">
                                         <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
                                         <input type="hidden" name="tensp" value="<?= $tensp ?>">
-                                        <input type="hidden" name="giasp" value="<?= $giasp ?>"> -->
-                                        <!-- <input type="hidden" name="soluongsp" value="1"> -->
+                                        <input type="hidden" name="giasp" value="<?= $giasp ?>">
+                                        <input type="hidden" name="sizesp">
+                                        <input type="hidden" name="soluongsp" value="1">
                                         <ul>
                                             <li class="quick-view-btn" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
@@ -163,30 +164,6 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="bshomeprd">
-                                        <div class="product-size_box">
-                                            Size
-                                            <select class="myniceselect nice-select" name="sizesp">
-                                                <?php
-                                                foreach($listsizesp as $l2) {
-                                                    extract($l2);
-                                                    if($id_sp == $id) {
-                                                        echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
-                                                    }
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
-                                        <div class="quantity">
-                                            Số lượng
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" value="1" type="text" name="soluongsp">
-                                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </form>
                                 <div class="product-content">
                                     <div class="product-desc_info">
@@ -196,9 +173,9 @@
                                         </h3>
                                         <div class="price-box">
                                             <span class="new-price">Giá:
-                                                <?= $giasp ?> VND
+                                                <?= number_format((int)$giasp, 0, ",", ".") ?> VND
                                             </span>
-                                            <span class="old-price">$75.00</span>
+                                            <!-- <span class="old-price">$75.00</span> -->
                                         </div>
                                         <div class="rating-box">
                                             <ul>
@@ -301,19 +278,21 @@
                                 $imgpath = "./view/assets/images/product/".$imgsp;
                                 $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
                                 <div class="product-item">
-                                    <div class="single-product">
+                                    <form class="single-product" action="index.php?act=wlandac" method="POST">
                                         <div class="product-img">
                                             <a href="<?= $linksp ?>" class="linkbs">
                                                 <?= $img ?>
                                                 <!-- <img class="secondary-img" src="view/assets/images/product/5-2.jpg"
                                                     alt="Kenne's Product Image"> -->
                                             </a>
-                                            <span class="sticker-2">Hot</span>
+                                            <!-- <span class="sticker-2">Hot</span> -->
                                             <div class="add-actions">
-                                                <!-- <input type="hidden" name="idsp" value="<?= $idsp ?>">
+                                                <input type="hidden" name="idsp" value="<?= $idsp ?>">
                                                 <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
                                                 <input type="hidden" name="tensp" value="<?= $tensp ?>">
-                                                <input type="hidden" name="giasp" value="<?= $giasp ?>"> -->
+                                                <input type="hidden" name="giasp" value="<?= $giasp ?>">
+                                                <input type="hidden" name="sizesp">
+                                                <input type="hidden" name="soluongsp" value="1">
                                                 <ul>
                                                     <li class="quick-view-btn" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
@@ -328,36 +307,12 @@
                                                     </li>
                                                     <li>
                                                         <button data-bs-toggle="tooltip" data-placement="right"
-                                                            title="Thêm vào giỏ hàng" data-id="<?= $idsp ?>"
-                                                            onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $giasp ?>)">
+                                                            title="Thêm vào giỏ hàng" type="submit" name="addgio"
+                                                            value="themgio">
                                                             <i class="ion-bag"></i>
                                                         </button>
                                                     </li>
                                                 </ul>
-                                            </div>
-                                            <div class="bshomeprd">
-                                                <div class="product-size_box">
-                                                    Size
-                                                    <select class="myniceselect nice-select" name="sizesp">
-                                                        <?php
-                                                        foreach($listsizesp as $l2) {
-                                                            extract($l2);
-                                                            if($id_sp == $id) {
-                                                                echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
-                                                            }
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <div class="quantity">
-                                                    Số lượng
-                                                    <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" value="1" type="text"
-                                                            name="soluongsp">
-                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="product-content">
@@ -368,9 +323,8 @@
                                                 </h3>
                                                 <div class="price-box">
                                                     <span class="new-price">Giá:
-                                                        <?php echo number_format($giasp) ?> VND
+                                                        <?= number_format((int)$giasp, 0, ",", ".") ?> VND
                                                     </span>
-                                                    <span class="old-price">$100.00</span>
                                                 </div>
                                                 <div class="rating-box">
                                                     <ul>
@@ -383,7 +337,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             <?php } ?>
                         </div>
