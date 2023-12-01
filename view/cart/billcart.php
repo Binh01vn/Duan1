@@ -57,6 +57,7 @@ if(isset($_SESSION['username'])) {
                                     <option value="2">Thanh toán VNPAY</option>
                                 </select>
                                 <input type="hidden" name="trangthai" value="0">
+                                <input type="hidden" name="trangthaitt" value="0">
                             </div>
                             <div class="col-12">
                                 <button class="kenne-register_btn" type="submit" name="xndh" value="xacnhan">Xác nhận

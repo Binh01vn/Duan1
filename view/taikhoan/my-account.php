@@ -35,10 +35,6 @@
                                 role="tab" aria-controls="account-orders" aria-selected="false">Hóa đơn</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="account-address-tab" data-bs-toggle="tab" href="#account-address"
-                                role="tab" aria-controls="account-address" aria-selected="false">Địa chỉ</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" id="account-details-tab" data-bs-toggle="tab" href="#account-details"
                                 role="tab" aria-controls="account-details" aria-selected="false">Chi tiết tài khoản</a>
                         </li>
@@ -77,10 +73,11 @@
                                     <table class="table table-bordered table-hover">
                                         <tbody>
                                             <tr>
-                                                <th>Mã hóa đơn</th>
+                                                <th>Mã</th>
                                                 <th>Ngày đặt hàng</th>
                                                 <th>Trạng thái</th>
-                                                <th>Tổng tiền</th>
+                                                <th>Trạng thái thanh toán</th>
+                                                <th>Tổng (VND)</th>
                                                 <th></th>
                                             </tr>
                                             <?php
@@ -88,8 +85,7 @@
                                             foreach($listhd as $lhd) {
                                                 extract($lhd);
                                                 if($iduser == $_SESSION['username']['idacc']) {
-                                                    $linkhd = "index.php?act=tdhd&idhd=".$id_hd; ?>
-
+                                                    $linkhd = "index.php?act=cthd&idhd=".$id_hd; ?>
 
                                                     <tr>
                                                         <td><a class="account-order-id" href="">#
@@ -103,13 +99,24 @@
                                                             if($trangthai == 0) {
                                                                 echo "Chờ xác nhận.";
                                                             } else if($trangthai == 1) {
-                                                                echo "Đã xác nhận và.";
+                                                                echo "Đã xác nhận.";
                                                             } else if($trangthai == 2) {
-                                                                echo "Đang giao hàng.";
+                                                                echo "Đang chuẩn bị hàng.";
                                                             } else if($trangthai == 3) {
-                                                                echo "Đã thanh toán.";
+                                                                echo "Đang giao hàng.";
                                                             } else if($trangthai == 4) {
                                                                 echo "Đã nhận hàng.";
+                                                            }else if($trangthai == 5) {
+                                                                echo "Đơn hàng bị hủy.";
+                                                            }
+                                                            ?>
+                                                        </td>
+                                                        <td>
+                                                            <?php
+                                                            if($trangthaitt == 0) {
+                                                                echo "Chưa thanh toán.";
+                                                            } else if($trangthaitt == 1) {
+                                                                echo "Đã thanh toán.";
                                                             }
                                                             ?>
                                                         </td>
@@ -126,26 +133,6 @@
                                             ?>
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="account-address" role="tabpanel"
-                            aria-labelledby="account-address-tab">
-                            <div class="myaccount-address">
-                                <p>Các địa chỉ sau sẽ là địa chỉ mặc định trong thông tin tài khoản của bạn.</p>
-                                <div class="row">
-                                    <div class="col">
-                                        <h4 class="small-title">Địa chỉ nhận hóa đơn</h4>
-                                        <address>
-                                            <?= $diachi ?>
-                                        </address>
-                                    </div>
-                                    <div class="col">
-                                        <h4 class="small-title">Địa chỉ giao hàng</h4>
-                                        <address>
-                                            <?= $diachi ?>
-                                        </address>
-                                    </div>
                                 </div>
                             </div>
                         </div>

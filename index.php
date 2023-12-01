@@ -148,19 +148,20 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                         capnhat_diachi($diachi, $iduser);
                     }
                     $pttt = $_POST['pttt'];
-                    date_default_timezone_set('Asia/Ho_Chi_Minh');
-                    $ngaydh = date('Y-m-d H:i:s');
+                    $ngaydh = date('Y-m-d');
                     $tonghd = $_SESSION['tongdh'];
                     $trangthai = $_POST['trangthai'];
+                    $trangthaitt = $_POST['trangthaitt'];
 
-                    $idBill=insert_hoadon($ngaydh, $pttt, $tonghd, $trangthai, $iduser);
+                    $idBill = insert_hoadon($ngaydh, $pttt, $tonghd, $trangthai, $trangthaitt, $iduser);
                     for($i = 0; $i < count($_SESSION['giohang']); $i++) {
-                        $idspcart = $_SESSION['giohang'][ $i ][0];
-                        $gspcart = $_SESSION['giohang'][ $i ][3];
-                        $sizespcart = $_SESSION['giohang'][ $i ][4];
-                        $slspcart = $_SESSION['giohang'][ $i ][5];
-                        $tongtien = $_SESSION['giohang'][ $i ][3] * $_SESSION['giohang'][ $i ][5];
-                        insert_billhoadon($idBill, $idspcart, $sizespcart, $gspcart, $slspcart, $tongtien);
+                        $idspcart = $_SESSION['giohang'][$i][0];
+                        $tspcart = $_SESSION['giohang'][$i][2];
+                        $gspcart = $_SESSION['giohang'][$i][3];
+                        $sizespcart = $_SESSION['giohang'][$i][4];
+                        $slspcart = $_SESSION['giohang'][$i][5];
+                        $tongtien = $_SESSION['giohang'][$i][3] * $_SESSION['giohang'][$i][5];
+                        insert_billhoadon($idBill, $idspcart, $tspcart, $sizespcart, $gspcart, $slspcart, $tongtien);
                     }
                     unset($_SESSION['giohang']);
                     header('Location: ?act=myacc');
@@ -170,6 +171,10 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 die();
             }
             include('view/cart/billcart.php');
+            break;
+
+        case 'cthd':
+            include('view/taikhoan/chitiethd.php');
             break;
 
         case 'danhmuc':

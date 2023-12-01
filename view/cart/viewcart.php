@@ -65,6 +65,7 @@
                                                     <div class="product-size_box">
                                                         <?php
                                                         if($_SESSION['giohang'][$i][4] == 0) {
+                                                            $dkdtn = 1;
                                                             echo 'Hãy cập size cho sản phẩm!';
                                                         } else {
                                                             echo $_SESSION['giohang'][$i][4];
@@ -128,11 +129,13 @@
                                 <?php
                                 if(empty($_SESSION['username'])) {
                                     echo '<a href="index.php?act=sigorreg">Đặt hàng</a>';
-                                } else if($_SESSION['giohang'] == 0) { ?>
-
-                                <?php } else {
+                                } else if(isset($dkdtn) == 1) { ?>
+                                        <a href="">Cập nhật size cho sản phẩm !</a>
+                                <?php } else if(isset($_SESSION['giohang']) && $_SESSION['giohang'] != null) {
                                     echo '<button>Đặt hàng</button>';
-                                } ?>
+                                } else { ?>
+                                            <a href="index.php?act=sanpham">Mua sắm tại đây</a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
