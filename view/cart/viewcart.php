@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="#">
+                <form action="index.php?act=billcart" method="POST">
                     <div class="table-content table-responsive">
 
                         <table class="table">
@@ -30,6 +30,7 @@
                                     <th class="kenne-product-quantity">số lượng</th>
                                     <th class="kenne-product-subtotal">tổng giá (VND)</th>
                                     <th class="kenne-product-remove">xóa</th>
+                                    <th class="kenne-product-remove">cập nhật</th>
                                 </tr>
                             </thead>
                             <tbody class="tbodytb">
@@ -62,35 +63,19 @@
                                                 </td>
                                                 <td class="kenne-product-price">
                                                     <div class="product-size_box">
-                                                        <select class="myniceselect nice-select" name="sizesp">
-                                                            <?php
-                                                            if($_SESSION['giohang'][$i][4] == 0) {
-                                                                echo '<option value="0" selected>Chưa chọn size</option>';
-                                                                foreach($listsizesp as $l2) {
-                                                                    extract($l2);
-                                                                    if($id_sp == $_SESSION['giohang'][$i][0]) {
-                                                                        echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
-                                                                    }
-                                                                }
-                                                            } else {
-                                                                echo '<option value="'.$_SESSION['giohang'][$i][4].'" selected>'.$_SESSION['giohang'][$i][4].'</option>';
-                                                                foreach($listsizesp as $l2) {
-                                                                    extract($l2);
-                                                                    if($id_sp == $_SESSION['giohang'][$i][0] && $sizesp != $_SESSION['giohang'][$i][4]) {
-                                                                        echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
-                                                                    }
-                                                                }
-                                                            }
-                                                            ?>
-                                                        </select>
+                                                        <?php
+                                                        if($_SESSION['giohang'][$i][4] == 0) {
+                                                            echo 'Hãy cập size cho sản phẩm!';
+                                                        } else {
+                                                            echo $_SESSION['giohang'][$i][4];
+                                                        }
+                                                        ?>
                                                     </div>
                                                 </td>
-                                                <td class="quantity">
-                                                    <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box"
-                                                            value="<?= $_SESSION['giohang'][$i][5] ?>" type="number">
-                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                <td>
+                                                    <div>
+                                                        <input class="tongsp" value="<?= $_SESSION['giohang'][$i][5] ?>"
+                                                            type="number" disabled>
                                                     </div>
                                                 </td>
                                                 <td class="product-subtotal">
@@ -101,6 +86,9 @@
                                                 <td class="kenne-product-remove">
                                                     <a href="<?= $linkdelspid ?>">
                                                         <i class="fa fa-trash" title="Remove"></i></a>
+                                                </td>
+                                                <td>
+                                                    <a class="fas fa-edit" href="<?= $linksp ?>"></a>
                                                 </td>
                                             </tr>
                                         <?php }
@@ -136,7 +124,15 @@
                                         </span>
                                     </li>
                                 </ul>
-                                <a href="">Đặt hàng</a>
+
+                                <?php
+                                if(empty($_SESSION['username'])) {
+                                    echo '<a href="index.php?act=sigorreg">Đặt hàng</a>';
+                                } else if($_SESSION['giohang'] == 0) { ?>
+
+                                <?php } else {
+                                    echo '<button>Đặt hàng</button>';
+                                } ?>
                             </div>
                         </div>
                     </div>

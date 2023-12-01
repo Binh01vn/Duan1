@@ -51,7 +51,8 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'logout':
-            session_unset();
+            unset($_SESSION['username']);
+            // session_unset();
             header('Location: index.php');
             break;
 
@@ -96,7 +97,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $TENSP = $_POST['tensp'];
                 $GIASP = $_POST['giasp'];
                 $SIZESP = $_POST['sizesp'];
-                if($SIZESP == null){
+                if($SIZESP == null) {
                     $SIZESP = 0;
                 }
                 $SOLUONGSP = $_POST['soluongsp'];
@@ -106,10 +107,10 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 for($i = 0; $i < count($_SESSION['giohang']); $i++) {
                     if($_SESSION['giohang'][$i][2] == $TENSP) {
                         $fl = 1;
-                        $SOLUONGNEW = $SOLUONGSP + $_SESSION['giohang'][$i][5];
+                        $SOLUONGNEW = $SOLUONGSP;
                         $_SESSION['giohang'][$i][5] = $SOLUONGNEW;
                         $_SESSION['giohang'][$i][4] = $SIZESP;
-                        break;
+                        // break;
                     }
                 }
 
@@ -140,6 +141,42 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 header('Location: ?act=wlandac');
             }
             include('view/cart/viewcart.php');
+            break;
+
+        case 'billcart':
+            include('view/cart/billcart.php');
+            break;
+
+        case 'thanhtoan':
+            if(isset($_SESSION['giohang'])) {
+                if(isset($_POST['xndh']) && ($_POST['xndh'])) {
+                    $iduser = $_POST['iduser'];
+                    $diachi = $_POST['diachi'];
+                    if($diachi != null) {
+                        capnhat_diachi($diachi, $iduser);
+                    }
+                    $pttt = $_POST['pttt'];
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+                    $ngaydh = date('Y-m-d H:i:s');
+                    $tonghd = $_SESSION['tongdh'];
+                    $trangthai = $_POST['trangthai'];
+
+                    $idBill=insert_hoadon($ngaydh, $pttt, $tonghd, $trangthai, $iduser);
+                    for($i = 0; $i < count($_SESSION['giohang']); $i++) {
+                        $idspcart = $_SESSION['giohang'][ $i ][0];
+                        $gspcart = $_SESSION['giohang'][ $i ][3];
+                        $sizespcart = $_SESSION['giohang'][ $i ][4];
+                        $slspcart = $_SESSION['giohang'][ $i ][5];
+                        $tongtien = $_SESSION['giohang'][ $i ][3] * $_SESSION['giohang'][ $i ][5];
+                        insert_billhoadon($idBill, $idspcart, $sizespcart, $gspcart, $slspcart, $tongtien);
+                    }
+                    header('Location: ?act=myacc');
+                }
+            } else {
+                header('Location: ?act=wlandac');
+                die();
+            }
+            include('view/cart/billcart.php');
             break;
 
         case 'danhmuc':
@@ -189,10 +226,6 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'gioithieu':
             include('view/hotro/gioithieu.php');
             break;
-
-        // case 'lienhe':
-        //     include('view/hotro/lienhe.php');
-        //     break;
 
         default:
             $listsizesp = listall_size();
