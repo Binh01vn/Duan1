@@ -70,7 +70,7 @@
                     <ul id="sidebarnav">
                         <!-- User Profile-->
                         <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=qlhoadon"
                                 aria-expanded="false">
                                 <i class="fas fa-dolly-flatbed" aria-hidden="true"></i>
                                 <span class="hide-menu">Quản lý hóa đơn</span>

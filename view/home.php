@@ -348,29 +348,3 @@
     </div>
 </div>
 <!-- Product Tab Area End Here -->
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script>
-    let totalProduct = document.getElementById('totalProduct');
-    function addToCart(spID, spTEN, spGIA) {
-        // console.log(productId, productName, productPrice);
-        // Sử dụng jQuery
-        $.ajax({
-            type: 'POST',
-            // Đường dẫ tới tệp PHP xử lý dữ liệu
-            url: '../cart/xulycart',
-            data: {
-                idsp: spID,
-                tensp: spTEN,
-                giasp: spGIA
-            },
-            success: function (response) {
-                totalProduct.innerText = response;
-                alert('Thêm sản phẩm vào giỏ hàng thành công!')
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    }
-</script>

@@ -170,6 +170,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                         $tongtien = $_SESSION['giohang'][ $i ][3] * $_SESSION['giohang'][ $i ][5];
                         insert_billhoadon($idBill, $idspcart, $sizespcart, $gspcart, $slspcart, $tongtien);
                     }
+                    unset($_SESSION['giohang']);
                     header('Location: ?act=myacc');
                 }
             } else {

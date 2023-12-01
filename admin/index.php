@@ -5,6 +5,7 @@ include("../model/danhmuc.php");
 include("../model/sanpham.php");
 include("../model/binhluan.php");
 include("../model/taikhoan.php");
+include("../model/wlandcart.php");
 include("view/header.php");
 if((isset($_GET['act']))) {
     $act = $_GET['act'];
@@ -16,7 +17,7 @@ if((isset($_GET['act']))) {
                 $tendm = $_POST['tendm'];
                 if(empty($tendm)) {
                     $thongbao = "Tên danh mục trống!";
-                } else if(!preg_match("/^[a-zA-z]*$/", $tendm)) {
+                } else if(preg_match("/^[a-zA-z]*$/", $tendm)) {
                     $thongbao = "Tên danh mục không chứa số!";
                 } else {
                     insert_danhmuc($tendm);
@@ -48,7 +49,7 @@ if((isset($_GET['act']))) {
                 $id_dm = $_POST['id_dm'];
                 if(empty($tendm)) {
                     $thongbao = "Tên danh mục trống!";
-                } else if(!preg_match("/^[a-zA-z]*$/", $tendm)) {
+                } else if(preg_match("/^[a-zA-z]*$/", $tendm)) {
                     $thongbao = "Tên danh mục không chứa số!";
                 } else {
                     update_danhmuc($id_dm, $tendm);
@@ -213,6 +214,25 @@ if((isset($_GET['act']))) {
 
         case 'icon':
             include('view/icon.php');
+            break;
+
+        case 'qlhoadon':
+            $listhd = select_hoadon();
+            $listusers = loadall_taikhoan();
+            include('view/hoadon/quanlyhd.php');
+            break;
+
+        case 'cnhd':
+            if(isset($_POST['updatevaitro']) && ($_POST['updatevaitro'])) {
+                $idHD = $_POST['idHD'];
+                $trangthain = $_POST['trangthain'];
+                capnhat_tthd($trangthain, $idHD);
+                $listhd = select_hoadon();
+                header('Location: ?act=qlhoadon');
+                die();
+            }
+            $listhd = select_hoadon();
+            include('view/hoadon/capnhathd.php');
             break;
 
         case 'listuser':
