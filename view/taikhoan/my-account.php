@@ -81,14 +81,14 @@
                                                 <th>Ngày đặt hàng</th>
                                                 <th>Trạng thái</th>
                                                 <th>Tổng tiền</th>
-                                                <th></th>
+                                                <!-- <th></th> -->
                                             </tr>
                                             <?php
                                             $listhd = select_hoadon();
                                             foreach($listhd as $lhd) {
                                                 extract($lhd);
-                                                if($iduser == $_SESSION['username']['idacc']) { 
-                                                    $linkhd = "index.php?act=tdhd&idhd=".$id_hd;?>
+                                                if($iduser == $_SESSION['username']['idacc']) {
+                                                    $linkhd = "index.php?act=tdhd&idhd=".$id_hd; ?>
 
 
                                                     <tr>
@@ -113,9 +113,13 @@
                                                             }
                                                             ?>
                                                         </td>
-                                                        <td><?= number_format((int)$tonghd, 0, ",", ".") ?></td>
-                                                        <td><a href="<?= $linkhd ?>" class="kenne-btn kenne-btn_sm"><span>Xem</span></a>
+                                                        <td>
+                                                            <?= number_format((int)$tonghd, 0, ",", ".") ?>
                                                         </td>
+                                                        <!-- <td>
+                                                            <a href="<?= $linkhd ?>" class="kenne-btn kenne-btn_sm">
+                                                                <span>Xem</span></a>
+                                                        </td> -->
                                                     </tr>
                                                 <?php }
                                             }

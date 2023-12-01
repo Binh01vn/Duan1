@@ -6,6 +6,7 @@ include("../model/sanpham.php");
 include("../model/binhluan.php");
 include("../model/taikhoan.php");
 include("../model/wlandcart.php");
+include("../model/thongke.php");
 include("view/header.php");
 if((isset($_GET['act']))) {
     $act = $_GET['act'];
@@ -268,6 +269,7 @@ if((isset($_GET['act']))) {
             break;
 
         case 'listtk':
+            $dsthongke = load_thongke_sanpham_danhmuc();
             include('view/thongke/listtk.php');
             break;
 
