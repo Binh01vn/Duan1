@@ -67,9 +67,6 @@
                                         </li>
                                     <?php } else { ?>
                                         <li>
-                                            <a href="index.php?act=wlist">Yêu thích</a>
-                                        </li>
-                                        <li>
                                             <a href="index.php?act=sigorreg">Đăng nhập - Đăng ký</a>
                                         </li>
                                     <?php } ?>
@@ -208,14 +205,8 @@
                                                                         <?= $username ?>
                                                                     </b></a>
                                                             </li>
-                                                            <li>
-                                                                <a href="index.php?act=wlist">Yêu thích</a>
-                                                            </li>
                                                             <li><a href="index.php?act=wlandac">Giỏ hàng</a></li>
                                                         <?php } else { ?>
-                                                            <li>
-                                                                <a href="index.php?act=wlist">Yêu thích</a>
-                                                            </li>
                                                             <li><a href="index.php?act=wlandac">Giỏ hàng</a></li>
                                                             <li>
                                                                 <a href="index.php?act=sigorreg">Đăng nhập</a>
@@ -345,15 +336,9 @@
                                             <li>
                                                 <a href="index.php?act=wlandac">Giỏ hàng</a>
                                             </li>
-                                            <li>
-                                                <a href="index.php?act=wlist">Yêu thích</a>
-                                            </li>
                                         <?php } else { ?>
                                             <li>
                                                 <a href="index.php?act=wlandac">Giỏ hàng</a>
-                                            </li>
-                                            <li>
-                                                <a href="index.php?act=wlist">Yêu thích</a>
                                             </li>
                                             <li>
                                                 <a href="index.php?act=sigorreg">Đăng nhập</a>
@@ -394,9 +379,6 @@
                                                 <a href="index.php?act=myacc">Xin chào: <b>
                                                         <?= $username ?>
                                                     </b></a>
-                                            </li>
-                                            <li>
-                                                <a href="index.php?act=wlist">Yêu thích</a>
                                             </li>
                                             <li>
                                                 <a href="index.php?act=wlandac">Giỏ hàng</a>

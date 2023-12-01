@@ -50,7 +50,6 @@ $listbl = loadall_binhluan($idsp);
                             <td>Ussername</td>
                             <td>Nội dung bình luận</td>
                             <td>Ngày bình luận</td>
-                            <td>Đánh giá sản phẩm</td>
                         </tr>
                         <?php
                         foreach($listbl as $lb) {
@@ -66,17 +65,6 @@ $listbl = loadall_binhluan($idsp);
                                 </td>
                                 <td class="text-right">
                                     <?= $ngaybl ?>
-                                </td>
-                                <td>
-                                    <div class="rating-box">
-                                        <ul>
-                                            <i class="ion-android-star"></i>
-                                            <i class="ion-android-star"></i>
-                                            <i class="ion-android-star"></i>
-                                            <i class="ion-android-star"></i>
-                                            <i class="ion-android-star"></i>
-                                        </ul>
-                                    </div>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -96,20 +84,6 @@ $listbl = loadall_binhluan($idsp);
                     </div>
                 </div>
                 <div class="form-group last-child required">
-                    <div class="col-sm-12 p-0">
-                        <div class="your-opinion">
-                            <label>Đánh giá của bạn</label>
-                            <span>
-                                <select class="star-rating" name="votestar">
-                                    <option value="1"></option>
-                                    <option value="2"></option>
-                                    <option value="3"></option>
-                                    <option value="4"></option>
-                                    <option value="5"></option>
-                                </select>
-                            </span>
-                        </div>
-                    </div>
                     <div class="kenne-btn-ps_right">
                         <button class="kenne-btn" name="guibl" type="submit" value="blandvote">Gửi bình luận</button>
                     </div>
@@ -125,9 +99,7 @@ $listbl = loadall_binhluan($idsp);
             $iduser = $_SESSION['username']['idacc'];
             $ngaybl = date('d/m/Y');
 
-            $votestar = $_POST['votestar'];
-            if($votestar != null && $noidungbl != null) {
-                insert_votestar($votestar, $idsp);
+            if($noidungbl != null) {
                 insert_binhluan($noidungbl, $ngaybl, $idsp, $iduser);
             }
             header("location: ".$_SERVER['HTTP_REFERER']);

@@ -165,11 +165,6 @@
                                                         data-bs-toggle="tooltip" data-placement="right"
                                                         title="Xem chi tiết"><i class="ion-ios-search"></i></a>
                                                 </li>
-                                                <li><button data-bs-toggle="tooltip" data-placement="right"
-                                                        title="Thêm vào yêu thích">
-                                                        <i class="ion-ios-heart-outline"></i>
-                                                    </button>
-                                                </li>
                                                 <li>
                                                     <button data-bs-toggle="tooltip" data-placement="right"
                                                         title="Thêm vào giỏ hàng" type="submit" name="addgio"
@@ -252,11 +247,6 @@
                                                     data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
                                                         data-bs-toggle="tooltip" data-placement="right"
                                                         title="Xem chi tiết"><i class="ion-ios-search"></i></a>
-                                                </li>
-                                                <li><button data-bs-toggle="tooltip" data-placement="right"
-                                                        title="Thêm vào yêu thích">
-                                                        <i class="ion-ios-heart-outline"></i>
-                                                    </button>
                                                 </li>
                                                 <li>
                                                     <button data-bs-toggle="tooltip" data-placement="right"

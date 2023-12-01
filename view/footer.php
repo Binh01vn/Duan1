@@ -123,9 +123,6 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="index.php?act=wlist">Yêu thích</a>
-                                        </li>
-                                        <li>
                                             <a href="index.php?act=cart">Giỏ hàng</a>
                                         </li>
                                     <?php } else { ?>
@@ -145,9 +142,6 @@
                             </div>
                             <div class="footer-widgets">
                                 <ul>
-                                    <li>
-                                        <a href="index.php?act=wlist">Yêu thích</a>
-                                    </li>
                                     <li><a href="index.php?act=wlandac">Giỏ hàng</a></li>
                                     <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                                     <li><a href="index.php?act=faq">FAQ</a></li>

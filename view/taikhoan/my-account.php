@@ -81,7 +81,7 @@
                                                 <th>Ngày đặt hàng</th>
                                                 <th>Trạng thái</th>
                                                 <th>Tổng tiền</th>
-                                                <!-- <th></th> -->
+                                                <th></th>
                                             </tr>
                                             <?php
                                             $listhd = select_hoadon();
@@ -116,10 +116,10 @@
                                                         <td>
                                                             <?= number_format((int)$tonghd, 0, ",", ".") ?>
                                                         </td>
-                                                        <!-- <td>
+                                                        <td>
                                                             <a href="<?= $linkhd ?>" class="kenne-btn kenne-btn_sm">
                                                                 <span>Xem</span></a>
-                                                        </td> -->
+                                                        </td>
                                                     </tr>
                                                 <?php }
                                             }

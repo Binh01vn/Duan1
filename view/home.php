@@ -152,12 +152,6 @@
                                             </li>
                                             <li>
                                                 <button data-bs-toggle="tooltip" data-placement="right"
-                                                    title="Thêm vào yêu thích">
-                                                    <i class="ion-ios-heart-outline"></i>
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button data-bs-toggle="tooltip" data-placement="right"
                                                     title="Thêm vào giỏ hàng" type="submit" name="addgio" value="themgio">
                                                     <i class="ion-bag"></i>
                                                 </button>
@@ -176,15 +170,6 @@
                                                 <?= number_format((int)$giasp, 0, ",", ".") ?> VND
                                             </span>
                                             <!-- <span class="old-price">$75.00</span> -->
-                                        </div>
-                                        <div class="rating-box">
-                                            <ul>
-                                                <li><i class="ion-ios-star"></i></li>
-                                                <li><i class="ion-ios-star"></i></li>
-                                                <li><i class="ion-ios-star"></i></li>
-                                                <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                                <li class="silver-color"><i class="ion-ios-star-outline"></i></li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -301,12 +286,6 @@
                                                     </li>
                                                     <li>
                                                         <button data-bs-toggle="tooltip" data-placement="right"
-                                                            title="Thêm vào yêu thích">
-                                                            <i class="ion-ios-heart-outline"></i>
-                                                        </button>
-                                                    </li>
-                                                    <li>
-                                                        <button data-bs-toggle="tooltip" data-placement="right"
                                                             title="Thêm vào giỏ hàng" type="submit" name="addgio"
                                                             value="themgio">
                                                             <i class="ion-bag"></i>
@@ -325,15 +304,6 @@
                                                     <span class="new-price">Giá:
                                                         <?= number_format((int)$giasp, 0, ",", ".") ?> VND
                                                     </span>
-                                                </div>
-                                                <div class="rating-box">
-                                                    <ul>
-                                                        <li><i class="ion-ios-star"></i></li>
-                                                        <li><i class="ion-ios-star"></i></li>
-                                                        <li><i class="ion-ios-star"></i></li>
-                                                        <li><i class="ion-ios-star"></i></li>
-                                                        <li class="silver-color"><i class="ion-ios-star-half"></i></li>
-                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>

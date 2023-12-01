@@ -79,14 +79,6 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/taikhoan/my-account.php');
             break;
 
-        case 'wlist':
-            include('view/cart/wishlist.php');
-            break;
-
-        case 'delyt':
-            include('view/cart/wishlist.php');
-            break;
-
         case 'wlandac':
             if(!isset($_SESSION['giohang'])) {
                 $_SESSION['giohang'] = [];

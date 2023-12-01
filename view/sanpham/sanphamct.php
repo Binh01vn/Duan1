@@ -178,13 +178,6 @@ if(isset($_SESSION['username'])) {
                                     <button class="qty-cart_btn" type="submit" name="addgio" value="themgio">Thêm vào
                                         giỏ hàng</button>
                                 </li>
-
-                                <li>
-                                    <button class="qty-wishlist_btn" title="Thêm vào yêu thích"
-                                        data-bs-toggle="tooltip" type="submit" name="addwl" value="themwl">
-                                        <i class="ion-android-favorite-outline"></i>
-                                    </button>
-                                </li>
                             </ul>
                         </div>
                         <div class="kenne-social_link">
@@ -332,11 +325,6 @@ if(isset($_SESSION['username'])) {
                                                                 data-bs-toggle="tooltip" data-placement="right"
                                                                 title="Quick View"><i class="ion-ios-search"></i></a>
                                                         </li>
-                                                        <li><a href="index.php?act=wlist&idsp=<?= $id ?>&idact=<?php if(isset($idact) && $idact > 0)
-                                                              echo $idact ?>" data-bs-toggle="tooltip"
-                                                                    data-placement="right" title="Thêm vào yêu thích"><i
-                                                                        class="ion-ios-heart-outline"></i></a>
-                                                            </li>
                                                             <li>
                                                                 <button data-bs-toggle="tooltip" data-placement="right"
                                                                     title="Thêm vào giỏ hàng" type="submit" name="addgio"
@@ -358,15 +346,6 @@ if(isset($_SESSION['username'])) {
                                                         <span class="new-price">Giá:
                                                             <?= number_format((int)$giasp, 0, ",", ".") ?> VND
                                                         </span>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <ul>
-                                                            <li><i class="ion-ios-star"></i></li>
-                                                            <li><i class="ion-ios-star"></i></li>
-                                                            <li><i class="ion-ios-star"></i></li>
-                                                            <li><i class="ion-ios-star"></i></li>
-                                                            <li><i class="ion-ios-star"></i></li>
-                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
