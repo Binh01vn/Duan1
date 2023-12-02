@@ -225,6 +225,10 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/hotro/gioithieu.php');
             break;
 
+        case 'quenmk':
+            include('view/taikhoan/quenmk.php');
+            break;
+
         default:
             $listsizesp = listall_size();
             $dssp = listall_sp(null, null);

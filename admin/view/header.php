@@ -51,9 +51,9 @@
 
                         <!-- User profile and search -->
                         <li>
-                            <a class="profile-pic" href="#">
+                            <a class="profile-pic" href="../index.php?act=myacc">
                                 <img src="view/plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium">Steave</span></a>
+                                    class="img-circle"><span class="text-white font-medium"><?= $username ?></span></a>
                         </li>
                         <!-- User profile and search -->
                     </ul>
@@ -123,7 +123,7 @@
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=listtk"
                                 aria-expanded="false">
                                 <i class="fas fa-chart-bar" aria-hidden="true"></i>
-                                <span class="hide-menu">Thống kê theo danh mục</span>
+                                <span class="hide-menu">Thống kê</span>
                             </a>
                         </li>
                         <li class="text-center p-20 upgrade-btn">

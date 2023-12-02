@@ -19,27 +19,6 @@ foreach($listusers as $sq) {
     <!-- Row -->
     <div class="row">
         <!-- Column -->
-        <div class="col-lg-4 col-xlg-3 col-md-12">
-            <div class="white-box">
-                <div class="user-bg">
-                    <!-- BACKGROUND -->
-                    <img width="100%" alt="user" src="view/plugins/images/large/img1.jpg">
-                    <div class="overlay-box">
-                        <div class="user-content">
-                            <img src="view/plugins/images/users/genu.jpg" class="thumb-lg img-circle" alt="img">
-                            <h4 class="text-white mt-2">
-                                <?= $useract ?>
-                            </h4>
-                            <h5 class="text-white mt-2">
-                                <?= $mailact ?>
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Column -->
-        <!-- Column -->
         <div class="col-lg-8 col-xlg-9 col-md-12">
             <div class="card">
                 <div class="card-body">

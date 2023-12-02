@@ -1,5 +1,11 @@
 <?php
 ob_start();
+session_start();
+if(empty($_SESSION['username'])) {
+    header('Location: ../index.php');
+}else{
+    extract($_SESSION['username']);
+}
 include("../model/pdo.php");
 include("../model/danhmuc.php");
 include("../model/sanpham.php");
@@ -8,6 +14,7 @@ include("../model/taikhoan.php");
 include("../model/wlandcart.php");
 include("../model/thongke.php");
 include("view/header.php");
+$listusers = loadall_taikhoan();
 if((isset($_GET['act']))) {
     $act = $_GET['act'];
 
@@ -227,7 +234,8 @@ if((isset($_GET['act']))) {
             if(isset($_POST['updatevaitro']) && ($_POST['updatevaitro'])) {
                 $idHD = $_POST['idHD'];
                 $trangthain = $_POST['trangthain'];
-                capnhat_tthd($trangthain, $idHD);
+                $trangthaitt = $_POST['trangthaitt'];
+                capnhat_tthd($trangthain, $trangthaitt, $idHD);
                 $listhd = select_hoadon();
                 header('Location: ?act=qlhoadon');
                 die();
@@ -274,10 +282,12 @@ if((isset($_GET['act']))) {
             break;
 
         default:
+            $dsthongke = load_thongke_sanpham_danhmuc();
             include('view/home.php');
             break;
     }
 } else {
+    $dsthongke = load_thongke_sanpham_danhmuc();
     include('view/home.php');
 }
 

@@ -14,8 +14,8 @@ function capnhat_diachi($diachi, $iduser) {
     $sql = "update taikhoan set diachi='".$diachi."' where idacc=".$iduser;
     pdo_execute($sql);
 }
-function capnhat_tthd($trangthain, $idHD) {
-    $sql = "update hoadon set trangthai='".$trangthain."' where id_hd=".$idHD;
+function capnhat_tthd($trangthain, $trangthaitt, $idHD) {
+    $sql = "update hoadon set trangthai='".$trangthain."', trangthaitt='".$trangthaitt."' where id_hd=".$idHD;
     pdo_execute($sql);
 }
 function select_hoadon() {

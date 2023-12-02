@@ -4,17 +4,17 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="white-box">
-                <h3 class="box-title">Phần quyền account</h3>
+                <h3 class="box-title">Phần quyền tài khoản</h3>
                 <div class="table-responsive">
                     <table class="table text-nowrap">
                         <thead>
                             <tr>
-                                <th class="border-top-0">Họ và tên</th>
+                                <!-- <th class="border-top-0">Họ và tên</th> -->
                                 <th class="border-top-0">Username</th>
                                 <th class="border-top-0">Email</th>
                                 <th class="border-top-0">Số điện thoại</th>
                                 <th class="border-top-0">Vai trò</th>
-                                <th class="border-top-0">Sửa</th>
+                                <!-- <th class="border-top-0">Sửa</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -24,9 +24,9 @@
                                 $suaquyen = "index.php?act=suaquyen&idacc=".$idacc;
                                 ?>
                                 <tr>
-                                    <td>
+                                    <!-- <td>
                                         <?= $tensohuu ?>
-                                    </td>
+                                    </td> -->
                                     <td>
                                         <?= $username ?>
                                     </td>
@@ -47,9 +47,9 @@
                                         }
                                         ?>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <a href="<?= $suaquyen ?>" class="fas fa-edit"></a>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             <?php } ?>
                         </tbody>

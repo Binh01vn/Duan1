@@ -11,11 +11,11 @@
                         <thead>
                             <tr>
                                 <th class="border-top-0">MÃ hóa đơn</th>
-                                <th class="border-top-0">Người đặt hàng</th>
                                 <th class="border-top-0">Số điện thoại</th>
-                                <th class="border-top-0">Địa chỉ</th>
-                                <th class="border-top-0">Ngày đặt hàng</th>
-                                <th class="border-top-0">Trạng thái</th>
+                                <th class="border-top-0">Ngày</th>
+                                <th class="border-top-0">Trạng thái đơn</th>
+                                <th class="border-top-0">Trạng thái thanh toán</th>
+                                <th class="border-top-0">Phương thức thanh toán</th>
                                 <th class="border-top-0">Tổng hóa đơn</th>
                                 <th class="border-top-0">Cập nhật</th>
                             </tr>
@@ -30,9 +30,7 @@
                                     if($idacc == $iduser){?>
                                 <tr>
                                     <td>#<?= $id_hd ?></td>
-                                    <td><?= $tensohuu ?></td>
                                     <td><?= $phone ?></td>
-                                    <td><?= $diachi ?></td>
                                     <td><?= $ngaydat ?></td>
                                     <td>
                                         <?php
@@ -41,11 +39,31 @@
                                         } else if($trangthai == 1) {
                                             echo "Đã xác nhận.";
                                         } else if($trangthai == 2) {
-                                            echo "Đang giao hàng.";
+                                            echo "Đang chuẩn bị hàng.";
                                         } else if($trangthai == 3) {
-                                            echo "Đã thanh toán.";
+                                            echo "Đang giao hàng.";
                                         } else if($trangthai == 4) {
                                             echo "Đã nhận hàng.";
+                                        } else if($trangthai == 5) {
+                                            echo "Đơn hàng bị hủy.";
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if($trangthaitt == 0) {
+                                            echo "Chưa thanh toán.";
+                                        } else if($trangthaitt == 1) {
+                                            echo "Đã thanh toán.";
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if($pttt == 1) {
+                                            echo "Thanh toán trực tiếp.";
+                                        } else if($pttt == 1) {
+                                            echo "Thanh toán VNPAY.";
                                         }
                                         ?>
                                     </td>

@@ -35,8 +35,9 @@
                     foreach($listhd as $lhd) {
                         extract($lhd);
                         $idfhd = $id_hd;
-                        $tthoadon = $tonghd;
-                        if($iduser == $_SESSION['username']['idacc'] && $idfhd == $_GET['idhd']) { ?>
+                        if($iduser == $_SESSION['username']['idacc'] && $idfhd == $_GET['idhd']) {
+                            $tthoadon = $tonghd;
+                            ?>
                             <tr>
                                 <td>#
                                     <?= $idfhd ?>

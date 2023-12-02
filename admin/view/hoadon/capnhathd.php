@@ -3,6 +3,14 @@ foreach($listhd as $lhd) {
     extract($lhd);
     if($id_hd == $_GET['idhd']) {
         $idHD = $id_hd;
+        $idact = $iduser;
+        foreach($listusers as $lus){
+            extract($lus);
+            if($idacc == $idact){
+                $dcdh = $diachi;
+                $tsh = $tensohuu;
+            }
+        }
     }
 }
 ?>
@@ -24,14 +32,36 @@ foreach($listhd as $lhd) {
                             </div>
                         </div>
                         <div class="form-group mb-4">
+                            <label class="col-md-12 p-0">Người đặt hàng</label>
+                            <div class="col-md-12 border-bottom p-0">
+                                <input type="text" value="<?= $tsh ?>" class="form-control p-0 border-0" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="col-md-12 p-0">Địa chỉ giao hàng</label>
+                            <div class="col-md-12 border-bottom p-0">
+                                <input type="text" value="<?= $dcdh ?>" class="form-control p-0 border-0" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Trang thái</label>
                             <div class="col-sm-12 border-bottom">
                                 <select class="form-select shadow-none p-0 border-0" name="trangthain">
                                     <option value="0" selected>Chờ xác nhận</option>
                                     <option value="1">Đã xác nhận</option>
-                                    <option value="2">Đang giao hàng</option>
-                                    <option value="3">Đã thanh toán</option>
+                                    <option value="2">Đang chuẩn bị hàng</option>
+                                    <option value="3">Đang giao hàng</option>
                                     <option value="4">Đã nhận hàng</option>
+                                    <option value="5">Đơn hàng bị hủy</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label class="col-md-12 p-0">Trang thái thanh toán</label>
+                            <div class="col-sm-12 border-bottom">
+                                <select class="form-select shadow-none p-0 border-0" name="trangthaitt">
+                                    <option value="0" selected>Chưa thanh toán</option>
+                                    <option value="1">Đã thanh toán</option>
                                 </select>
                             </div>
                         </div>

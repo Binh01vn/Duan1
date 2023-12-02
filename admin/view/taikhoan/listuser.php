@@ -14,7 +14,6 @@
                                 <th class="border-top-0">Email</th>
                                 <th class="border-top-0">Số điện thoại</th>
                                 <th class="border-top-0">Địa chỉ</th>
-                                <th class="border-top-0">Vai trò</th>
                                 <th class="border-top-0">Xóa</th>
                             </tr>
                         </thead>
@@ -30,17 +29,6 @@
                                 <td><?= $email ?></td>
                                 <td><?= $phone ?></td>
                                 <td><?= $diachi ?></td>
-                                <td>
-                                    <?php
-                                    if($vaitro == 1){
-                                        echo "admin";
-                                    }else if($vaitro == 2){
-                                        echo "Nhân viên";
-                                    }else if($vaitro != 1 && $vaitro != 2){
-                                        echo "Người dùng";
-                                    }
-                                    ?>
-                                </td>
                                 <td>
                                     <a href="<?= $delacc ?>" class="fas fa-trash-alt"></a>
                                     </td>
