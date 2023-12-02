@@ -225,8 +225,31 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/hotro/gioithieu.php');
             break;
 
-        case 'quenmk':
-            include('view/taikhoan/quenmk.php');
+        case 'nhanma':
+            if(isset($_POST['btnnm']) && ($_POST['btnnm'])){
+
+                include('view/taikhoan/quenmk/checkmxn.php');
+                break;
+            }
+            include('view/taikhoan/quenmk/nhanma.php');
+            break;
+
+        case 'checkm':
+            if(isset($_POST['btngmxt']) && ($_POST['btngmxt'])){
+                
+                include('view/taikhoan/quenmk/capnhatmk.php');
+                break;
+            }
+            include('view/taikhoan/quenmk/checkmxn.php');
+            break;
+
+        case 'capnhatmk':
+            if(isset($_POST['btncnpass']) && ($_POST['btncnpass'])){
+
+                header('Location: ?act=sigorreg');
+                break;
+            }
+            include('view/taikhoan/quenmk/capnhatmk.php');
             break;
 
         default:

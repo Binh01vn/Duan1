@@ -11200,3 +11200,11 @@ header.main-header_area {
 padding: 17px;
 text-align: center;
 }
+a.bssigorreg{
+  color: #000000;
+  padding: 20px;
+  font-size: 20px;
+}
+a.bssigorreg:hover{
+  color: #B03060;
+}

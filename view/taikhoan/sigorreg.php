@@ -1,3 +1,9 @@
+<?php
+if(isset($_SESSION['username'])) {
+    header('Location: index.php');
+    die();
+}
+?>
 <!-- Begin Kenne's Breadcrumb Area -->
 <div class="breadcrumb-area">
     <div class="container">
@@ -35,11 +41,11 @@
                                     <label for="remember_me">Ghi nhớ tôi</label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <!-- <div class="col-md-4">
                                 <div class="forgotton-password_info">
-                                    <a href="index.php?act=quenmk">Quên mật khẩu?</a>
+                                    <a href="index.php?act=nhanma">Quên mật khẩu?</a>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-12">
                                 <button class="kenne-login_btn" type="submit" name="signin" value="dangnhap">Đăng
                                     nhập</button>
@@ -86,7 +92,7 @@
                                     required>
                                 <label>
                                     <?php
-                                    if (isset($tb) && !empty($tb)) {
+                                    if(isset($tb) && !empty($tb)) {
                                         echo $tb;
                                     }
                                     ?>

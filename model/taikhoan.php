@@ -33,4 +33,13 @@ function del_taikhoan($idacc){
     $sql = "delete from taikhoan where idacc=". $idacc;
     pdo_query($sql);
 }
+function checkmail($mail){
+    $sql = "select * from taikhoan where email=".$mail;
+    $result = pdo_query($sql);
+    if($result){
+        return $result;
+    }else{
+        echo "Không tồn tại email trong máy chủ!";
+    }
+}
 ?>
