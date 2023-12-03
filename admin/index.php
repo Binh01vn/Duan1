@@ -3,8 +3,11 @@ ob_start();
 session_start();
 if(empty($_SESSION['username'])) {
     header('Location: ../index.php');
-}else{
+} else {
     extract($_SESSION['username']);
+    if($vaitro != 1) {
+        header('Location: ../index.php');
+    }
 }
 include("../model/pdo.php");
 include("../model/danhmuc.php");
