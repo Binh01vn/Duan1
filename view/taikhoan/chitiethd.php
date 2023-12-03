@@ -50,7 +50,7 @@
                                     if($pttt == 1) {
                                         echo "Thanh toán trực tiếp";
                                     } else if($pttt == 2) {
-                                        echo "Thanh toán VNPAY";
+                                        echo "Thanh toán trước và bị bùng hàng!";
                                     }
                                     ?>
                                 </td>
