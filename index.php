@@ -14,6 +14,7 @@ $dsdm = list_danhmuc();
 if((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
     switch($act) {
+        // CONTROLLER ĐĂNG NHẬP VÀ ĐĂNG KÝ ==================================================
         case 'sigorreg':
             if(isset($_POST['register']) && ($_POST['register'])) {
                 $tensohuu = $_POST['tensohuu'];
@@ -51,7 +52,6 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         case 'logout':
             unset($_SESSION['username']);
-            // session_unset();
             header('Location: index.php');
             break;
 
@@ -78,6 +78,34 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/taikhoan/my-account.php');
             break;
 
+        case 'nhanma':
+            if(isset($_POST['btnnm']) && ($_POST['btnnm'])) {
+
+                include('view/taikhoan/quenmk/checkmxn.php');
+                break;
+            }
+            include('view/taikhoan/quenmk/nhanma.php');
+            break;
+
+        case 'checkm':
+            if(isset($_POST['btngmxt']) && ($_POST['btngmxt'])) {
+
+                include('view/taikhoan/quenmk/capnhatmk.php');
+                break;
+            }
+            include('view/taikhoan/quenmk/checkmxn.php');
+            break;
+
+        case 'capnhatmk':
+            if(isset($_POST['btncnpass']) && ($_POST['btncnpass'])) {
+
+                header('Location: ?act=sigorreg');
+                break;
+            }
+            include('view/taikhoan/quenmk/capnhatmk.php');
+            break;
+
+        // CONTROLLER GIỎ HÀNG ==================================================
         case 'wlandac':
             if(!isset($_SESSION['giohang'])) {
                 $_SESSION['giohang'] = [];
@@ -176,6 +204,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/taikhoan/chitiethd.php');
             break;
 
+        // CONTROLLER DANH MỤC ===============================================
         case 'danhmuc':
             if((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
                 $kyw = $_POST['kyw'];
@@ -193,6 +222,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/sanpham/sanpham.php');
             break;
 
+        // CONTROLLER SẢN PHẨM ===================================================
         case 'sanpham':
             if((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
                 $kyw = $_POST['kyw'];
@@ -222,33 +252,6 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         case 'gioithieu':
             include('view/hotro/gioithieu.php');
-            break;
-
-        case 'nhanma':
-            if(isset($_POST['btnnm']) && ($_POST['btnnm'])){
-
-                include('view/taikhoan/quenmk/checkmxn.php');
-                break;
-            }
-            include('view/taikhoan/quenmk/nhanma.php');
-            break;
-
-        case 'checkm':
-            if(isset($_POST['btngmxt']) && ($_POST['btngmxt'])){
-                
-                include('view/taikhoan/quenmk/capnhatmk.php');
-                break;
-            }
-            include('view/taikhoan/quenmk/checkmxn.php');
-            break;
-
-        case 'capnhatmk':
-            if(isset($_POST['btncnpass']) && ($_POST['btncnpass'])){
-
-                header('Location: ?act=sigorreg');
-                break;
-            }
-            include('view/taikhoan/quenmk/capnhatmk.php');
             break;
 
         default:
