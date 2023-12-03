@@ -127,15 +127,20 @@
                                 </ul>
 
                                 <?php
-                                if(empty($_SESSION['username'])) {
-                                    echo '<a href="index.php?act=sigorreg">Đặt hàng</a>';
-                                } else if(isset($dkdtn) == 1) { ?>
-                                        <a href="">Cập nhật size cho sản phẩm !</a>
-                                <?php } else if(isset($_SESSION['giohang']) && $_SESSION['giohang'] != null) {
-                                    echo '<button>Đặt hàng</button>';
-                                } else { ?>
-                                            <a href="index.php?act=sanpham">Mua sắm tại đây</a>
-                                <?php } ?>
+                                if(isset($dkdtn)) {
+                                    echo '<a href="">Cập nhật size cho sản phẩm !</a>';
+                                } else {
+                                    if(isset($_SESSION['username']) && empty($_SESSION['giohang'])) {
+                                        echo '<a href="index.php?act=sanpham">Mua sắm tại đây</a>';
+                                    } else if(empty($_SESSION['username']) && !empty($_SESSION['giohang'])) {
+                                        echo '<a href="index.php?act=sigorreg">Đặt hàng</a>';
+                                    } else if(empty($_SESSION['giohang'])) {
+                                        echo '<a href="index.php?act=sanpham">Mua sắm tại đây</a>';
+                                    } else if(isset($_SESSION['giohang']) && isset($_SESSION['username'])) {
+                                        echo '<button>Đặt hàng</button>';
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

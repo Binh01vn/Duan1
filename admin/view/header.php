@@ -16,7 +16,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="view/plugins/images/favicon.png">
     <!-- Custom CSS -->
     <link href="view/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="view/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+    <link rel="stylesheet"
+        href="view/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
     <!-- Custom CSS -->
     <link href="view/css/style.min.css" rel="stylesheet">
 </head>
@@ -34,14 +35,14 @@
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!-- Dark Logo icon -->
-                            <img src="view/plugins/images/1.png" alt="homepage"/>
+                            <img src="view/plugins/images/1.png" alt="homepage" />
                         </b>
                         <!--End Logo icon -->
                     </a>
                     <!-- End Logo -->
                     <!-- toggle and nav items -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                        href="index.php"><i class="ti-menu ti-close"></i></a>
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="index.php"><i
+                            class="ti-menu ti-close"></i></a>
                 </div>
                 <!-- End Logo -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
@@ -53,7 +54,11 @@
                         <li>
                             <a class="profile-pic" href="../index.php?act=myacc">
                                 <img src="view/plugins/images/users/varun.jpg" alt="user-img" width="36"
-                                    class="img-circle"><span class="text-white font-medium"><?= $username ?></span></a>
+                                    class="img-circle">
+                                <span class="text-white font-medium">
+                                    <?= $username ?>
+                                </span>
+                            </a>
                         </li>
                         <!-- User profile and search -->
                     </ul>
@@ -69,18 +74,11 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <!-- User Profile-->
-                        <li class="sidebar-item pt-2">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=qlhoadon"
-                                aria-expanded="false">
-                                <i class="fas fa-dolly-flatbed" aria-hidden="true"></i>
-                                <span class="hide-menu">Quản lý hóa đơn</span>
-                            </a>
-                        </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=icon"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php"
                                 aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Icon</span>
+                                <span class="hide-menu">Bảng điều khiên</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -97,7 +95,7 @@
                                 <span class="hide-menu">QL Sản phẩm</span>
                             </a>
                         </li>
-                        
+
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=listbl"
                                 aria-expanded="false">
@@ -119,6 +117,13 @@
                                 <span class="hide-menu">Phân quyền</span>
                             </a>
                         </li>
+                        <li class="sidebar-item pt-2">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=qlhoadon"
+                                aria-expanded="false">
+                                <i class="fas fa-dolly-flatbed" aria-hidden="true"></i>
+                                <span class="hide-menu">Quản lý hóa đơn</span>
+                            </a>
+                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?act=listtk"
                                 aria-expanded="false">
@@ -127,8 +132,7 @@
                             </a>
                         </li>
                         <li class="text-center p-20 upgrade-btn">
-                            <a href="../index.php"
-                                class="btn d-grid btn-danger text-white">
+                            <a href="../index.php" class="btn d-grid btn-danger text-white">
                                 Quay lại trang người dùng</a>
                         </li>
                     </ul>

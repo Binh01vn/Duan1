@@ -159,7 +159,7 @@
                                         </div>
                                         <div class="single-input">
                                             <label for="account-details-email">Số điện thoại</label>
-                                            <input type="tel" value="<?= $phone ?>" name="telnew">
+                                            <input type="number" value="<?= $phone ?>" name="telnew">
                                         </div>
                                         <div class="single-input">
                                             <label for="account-details-email">Địa chỉ</label>

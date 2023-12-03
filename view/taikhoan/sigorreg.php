@@ -25,7 +25,14 @@ if(isset($_SESSION['username'])) {
                 <!-- Login Form -->
                 <form action="index.php?act=sigorreg" method="POST">
                     <div class="login-form">
-                        <h4 class="login-title">Đăng nhập tài khoản</h4>
+                        
+                        <?php
+                        if(isset($tbsacc) && $tbsacc != ''){
+                            echo '<h5 class="login-title">'.$tbsacc.'</h5>';
+                        }else{
+                            echo '<h4 class="login-title">Đăng nhập tài khoản</h4>';
+                        }
+                        ?>
                         <div class="row">
                             <div class="col-md-12 col-12">
                                 <label>Tên đăng nhập*</label>

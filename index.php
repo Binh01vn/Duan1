@@ -38,9 +38,8 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 if(is_array($checkuser)) {
                     $_SESSION['username'] = $checkuser;
                     header('Location: index.php');
-                    // exit;
                 } else {
-                    echo "sai tài khoản";
+                    $tbsacc = "Sai thông tin đăng nhập!";
                 }
             }
             include('view/taikhoan/sigorreg.php');
