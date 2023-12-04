@@ -37,6 +37,7 @@
                         $idfhd = $id_hd;
                         if($iduser == $_SESSION['username']['idacc'] && $idfhd == $_GET['idhd']) {
                             $tthoadon = $tonghd;
+                            $trangthaihd = $trangthai;
                             ?>
                             <tr>
                                 <td>#
@@ -56,17 +57,17 @@
                                 </td>
                                 <td>
                                     <?php
-                                    if($trangthai == 0) {
+                                    if($trangthaihd == 0) {
                                         echo "Chờ xác nhận.";
-                                    } else if($trangthai == 1) {
+                                    } else if($trangthaihd == 1) {
                                         echo "Đã xác nhận.";
-                                    } else if($trangthai == 2) {
+                                    } else if($trangthaihd == 2) {
                                         echo "Đang chuẩn bị hàng.";
-                                    } else if($trangthai == 3) {
+                                    } else if($trangthaihd == 3) {
                                         echo "Đang giao hàng.";
-                                    } else if($trangthai == 4) {
+                                    } else if($trangthaihd == 4) {
                                         echo "Đã nhận hàng.";
-                                    } else if($trangthai == 5) {
+                                    } else if($trangthaihd == 5) {
                                         echo "Đơn hàng bị hủy.";
                                     }
                                     ?>
@@ -102,6 +103,7 @@
                     foreach($listbhd as $lbhd) {
                         extract($lbhd);
                         if($_GET['idhd'] == $idhd) {
+                            $idfhd = $idhd;
                             $linksp = "index.php?act=sanphamct&idsp=".$idspcart;
                             ?>
                             <tr>
@@ -136,6 +138,36 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="coupon-all">
+                    <?php
+                    if($trangthaihd != 4) {
+                        echo '
+                        <div class="coupon">
+                            <a href="index.php?act=xacnhandh&trangthai=4&idhd=<?= $idfhd ?>" class="button">Đã nhận được
+                                hàng</a>
+                        </div>
+                        ';
+                    } else {
+                        echo
+                            '<div class="coupon">
+                                <a href="index.php?act=sanpham" class="button">Mua sắm thêm</a>
+                            </div>';
+                    }
+                    ?>
+                    <?php
+                    if($trangthaihd == 0 || $trangthaihd == 1) {
+                        echo
+                            '<div class="coupon2">
+                            <a href="index.php?act=xacnhandh&trangthai=5&idhd=<?= $idfhd ?>" class="button">Hủy đơn hàng</a>
+                        </div>';
+                    }
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
 </div>

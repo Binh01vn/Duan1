@@ -76,7 +76,7 @@ h6 {
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   margin: 0;
 }
 
@@ -11207,4 +11207,42 @@ a.bssigorreg{
 }
 a.bssigorreg:hover{
   color: #B03060;
+}
+.coupon-all .coupon a.button {
+  background-color: #242424;
+  border: 0 none;
+  border-radius: 2px;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  height: 42px;
+  letter-spacing: 1px;
+  line-height: 42px;
+  padding: 0 25px;
+  text-transform: uppercase;
+  width: inherit;
+}
+.coupon-all .coupon2 a.button {
+  background-color: #242424;
+  border: 0 none;
+  border-radius: 2px;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  height: 42px;
+  letter-spacing: 1px;
+  line-height: 42px;
+  padding: 0 25px;
+  text-transform: uppercase;
+  width: inherit;
+}
+.coupon-all .coupon a.button:hover {
+  background-color: #ff007f;
+}
+.coupon-all .coupon2 a.button:hover {
+  background-color: #ff007f;
 }

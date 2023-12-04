@@ -78,33 +78,6 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/taikhoan/my-account.php');
             break;
 
-        case 'nhanma':
-            if(isset($_POST['btnnm']) && ($_POST['btnnm'])) {
-
-                include('view/taikhoan/quenmk/checkmxn.php');
-                break;
-            }
-            include('view/taikhoan/quenmk/nhanma.php');
-            break;
-
-        case 'checkm':
-            if(isset($_POST['btngmxt']) && ($_POST['btngmxt'])) {
-
-                include('view/taikhoan/quenmk/capnhatmk.php');
-                break;
-            }
-            include('view/taikhoan/quenmk/checkmxn.php');
-            break;
-
-        case 'capnhatmk':
-            if(isset($_POST['btncnpass']) && ($_POST['btncnpass'])) {
-
-                header('Location: ?act=sigorreg');
-                break;
-            }
-            include('view/taikhoan/quenmk/capnhatmk.php');
-            break;
-
         // CONTROLLER GIỎ HÀNG ==================================================
         case 'wlandac':
             if(!isset($_SESSION['giohang'])) {
@@ -205,6 +178,21 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
 
         case 'cthd':
+            include('view/taikhoan/chitiethd.php');
+            break;
+
+        case 'xacnhandh':
+            if(isset($_GET['idhd']) && $_GET['idhd'] > 0) {
+                $idhd = $_GET['idhd'];
+                $trangthai = $_GET['trangthai'];
+                $trangthai = $_GET['trangthai'];
+                xacnhandh($idhd, $trangthai);
+                header('Location: ?act=cthd&idhd='.$idhd.'');
+            }
+            include('view/taikhoan/chitiethd.php');
+            break;
+
+        case 'huydh':
             include('view/taikhoan/chitiethd.php');
             break;
 
