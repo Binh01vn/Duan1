@@ -63,6 +63,13 @@
                                 <p>Từ bảng điều khiển bạn có thể xem thông tin tài khoản, đơn hàng gần đây, quản lý
                                     địa chỉ giao hàng hoặc cập nhật
                                     thông tin tài khoản của bạn tại phần chi tiết tài khoản.</p>
+                                <p style="color: red;">
+                                    <?php
+                                    if(isset($tbdh) && $tbdh != '') {
+                                        echo $tbdh;
+                                    }
+                                    ?>
+                                </p>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="account-orders" role="tabpanel"
@@ -106,7 +113,7 @@
                                                                 echo "Đang giao hàng.";
                                                             } else if($trangthai == 4) {
                                                                 echo "Đã nhận hàng.";
-                                                            }else if($trangthai == 5) {
+                                                            } else if($trangthai == 5) {
                                                                 echo "Đơn hàng bị hủy.";
                                                             }
                                                             ?>
