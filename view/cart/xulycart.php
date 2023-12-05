@@ -12,6 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $spcartID = $_POST['idsp'];
     $spcartTen = $_POST['tensp'];
     $spcartSize = $_POST['sizesp'];
+    $spcartSL = $_POST['tongspCart'];
     $spcartGia = $_POST['giasp'];
 
     // Kiểm tra sản phẩm đã có trong giỏ hàng chưa
@@ -29,8 +30,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             'idsp' => $spcartID,
             'tensp' => $spcartTen,
             'sizesp' => $spcartSize,
-            'giasp' => $spcartGia,
-            'tongspCart' => 1
+            'tongspCart' => $spcartSL,
+            'giasp' => $spcartGia
+            // 'tongspCart' => 1
         ];
         $_SESSION['giohang'][] = $sanpham;
         // var_dump($_SESSION['giohang']);die;

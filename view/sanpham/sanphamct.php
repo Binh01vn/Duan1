@@ -112,7 +112,7 @@ if(isset($_SESSION['username'])) {
 
                 </div>
                 <div class="col-lg-8">
-                    <form class="sp-content" action="index.php?act=wlandac" method="POST">
+                    <form class="sp-content" action="index.php?act=addCart" method="POST">
                         <div class="sp-heading">
                             <h5><a href="">Thông tin sản phẩm</a></h5>
                         </div>
@@ -143,7 +143,6 @@ if(isset($_SESSION['username'])) {
                                             ?>
                                         </li>
                                         <input type="hidden" name="idsp" value="<?= $id ?>">
-                                        <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
                                         <input type="hidden" name="tensp" value="<?= $tensp ?>">
                                         <input type="hidden" name="giasp" value="<?= $giasp ?>">
                                     <?php }
@@ -313,7 +312,7 @@ if(isset($_SESSION['username'])) {
                                     $img = '<img src="'.$imgpath.'" alt="Lỗi server ảnh" height="233px">'; ?>
 
                                     <div class="product-item">
-                                        <form class="single-product" action="index.php?act=wlandac" method="POST">
+                                        <div class="single-product">
                                             <div class="product-img">
                                                 <a href="<?= $linksp ?>">
                                                     <?= $img ?>
@@ -325,20 +324,20 @@ if(isset($_SESSION['username'])) {
                                                                 data-bs-toggle="tooltip" data-placement="right"
                                                                 title="Quick View"><i class="ion-ios-search"></i></a>
                                                         </li>
-                                                            <li>
-                                                                <button data-bs-toggle="tooltip" data-placement="right"
-                                                                    title="Thêm vào giỏ hàng" type="submit" name="addgio"
-                                                                    value="themgio">
-                                                                    <i class="ion-bag"></i>
-                                                                </button>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                        <li>
+                                                            <button data-bs-toggle="tooltip" data-placement="right"
+                                                                title="Thêm vào giỏ hàng" data-id="<?= $idsp ?>"
+                                                                onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $sizesp = 0; ?>, <?= $tongspCart = 1; ?>, <?= $giasp ?>)">
+                                                                <i class="ion-bag"></i>
+                                                            </button>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                                <div class="product-content">
-                                                    <div class="product-desc_info">
-                                                        <h3 class="product-name">
-                                                            <a href="<?= $linksp ?>">
+                                            </div>
+                                            <div class="product-content">
+                                                <div class="product-desc_info">
+                                                    <h3 class="product-name">
+                                                        <a href="<?= $linksp ?>">
                                                             <?= $tensp ?>
                                                         </a>
                                                     </h3>
@@ -349,7 +348,7 @@ if(isset($_SESSION['username'])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 <?php }
                             }
@@ -360,3 +359,29 @@ if(isset($_SESSION['username'])) {
         </div>
     </div>
     <!-- Product Area End Here -->
+    <script>
+        let totalProduct = document.getElementById('totalProduct');
+        function addToCart(spcartID, spcartTen, spcartSize, spcartSL, spcartGia) {
+            // console.log(spcartID, spcartTen, spcartSize, spcartSL, spcartGia);
+            // Sử dụng jQuery
+            $.ajax({
+                type: 'POST',
+                // Đường dẫ tới tệp PHP xử lý dữ liệu
+                url: './view/cart/xulycart.php',
+                data: {
+                    idsp: spcartID,
+                    tensp: spcartTen,
+                    sizesp: spcartSize,
+                    tongspCart: spcartSL,
+                    giasp: spcartGia
+                },
+                success: function (response) {
+                    totalProduct.innerText = response;
+                    alert('Bạn đã thêm sản phẩm vào giỏ hàng thành công!')
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>

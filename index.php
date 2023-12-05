@@ -50,11 +50,13 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/taikhoan/my-account.php');
             break;
 
+        // ĐĂNG XUẤT TÀI KHOẢN
         case 'logout':
             unset($_SESSION['username']);
             header('Location: index.php');
             break;
 
+        // CẬP NHẬT THÔNG TIN TÀI KHOẢN
         case 'capnhattt':
             if(isset($_POST['updateacc']) && ($_POST['updateacc'])) {
                 $tennew = $_POST['tennew'];
@@ -97,7 +99,46 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             $listsizesp = listall_size();
             include('view/cart/viewcart.php');
             break;
+        // THÊM GIỎ HÀNG CHI TIẾT
+        case 'addCart':
+            if(empty($_SESSION['giohang'])) {
+                $_SESSION['giohang'] = [];
+            }
+            if(isset($_POST['addgio']) && $_POST['addgio']) {
+                $idsp = $_POST['idsp'];
+                $tensp = $_POST['tensp'];
+                $sizesp = $_POST['sizesp'];
+                $tongspCart = $_POST['soluongsp'];
+                $giasp = $_POST['giasp'];
 
+                $index = false;
+                if(!empty($_SESSION['giohang'])) {
+                    $index = array_search($idsp, array_column($_SESSION['giohang'], 'idsp'));
+                }
+
+                // array_column() trích xuất một cột từ mảng giỏ hàng và trả về một mảng chứ giá trị của cột id
+                if($index !== false) {
+                    $_SESSION['giohang'][$index]['tongspCart'] += 1;
+                } else {
+                    // Nếu sản phẩm chưa tồn tại thì thêm mới vào giỏ hàng
+                    $sanpham = [
+                        'idsp' => $idsp,
+                        'tensp' => $tensp,
+                        'sizesp' => $sizesp,
+                        'tongspCart' => $tongspCart,
+                        'giasp' => $giasp
+                        // 'tongspCart' => 1
+                    ];
+                    $_SESSION['giohang'][] = $sanpham;
+                    // var_dump($_SESSION['giohang']);die;
+                }
+                header('Location: ?act=wlandac');
+            }
+            $listsizesp = listall_size();
+            include('view/cart/viewcart.php');
+            break;
+
+        // XÓA SẢN PHẨM TRONG GIỎ HÀNG THEO ID
         case 'linkdelspid':
             if(isset($_GET['delsp']) && $_GET['delsp'] >= 0) {
                 array_splice($_SESSION['giohang'], $_GET['delsp'], 1);
@@ -106,6 +147,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/cart/viewcart.php');
             break;
 
+        // XÓA TOÀN BỘ GIỎ HÀNG
         case 'delcart':
             if(isset($_GET['del']) && $_GET['del'] == 1) {
                 unset($_SESSION['giohang']);
@@ -119,6 +161,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/cart/billcart.php');
             break;
 
+        // THANH TOÁN, ĐẶT HÀNG
         case 'thanhtoan':
             if(isset($_SESSION['giohang'])) {
                 if(isset($_POST['xndh']) && ($_POST['xndh'])) {
@@ -134,7 +177,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $trangthaitt = $_POST['trangthaitt'];
 
                     $idBill = insert_hoadon($ngaydh, $pttt, $tonghd, $trangthai, $trangthaitt, $iduser);
-                    foreach ($_SESSION['giohang'] as $carttt){
+                    foreach($_SESSION['giohang'] as $carttt) {
                         insert_billhoadon($idBill, $carttt['idsp'], $carttt['tensp'], $carttt['sizesp'], $carttt['giasp'], $carttt['tongspCart'], ($tongtien = $carttt['giasp'] * $carttt['tongspCart']));
                     }
                     $tbdh = "Đặt hàng thành công!";
@@ -154,6 +197,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/taikhoan/chitiethd.php');
             break;
 
+        // XÁC NHẬN ĐÃ NHẬN ĐƯỢC ĐƠN HÀNG HOẶC HỦY ĐƠN HÀNG
         case 'xacnhandh':
             if(isset($_GET['idhd']) && $_GET['idhd'] > 0) {
                 $idhd = $_GET['idhd'];
@@ -204,6 +248,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             include('view/sanpham/sanpham.php');
             break;
 
+        // XEM CHI TIẾT 1 SẢN PHẨM
         case 'sanphamct':
             $listsizesp = listall_size();
             $dssp = listall_sp(null, null);

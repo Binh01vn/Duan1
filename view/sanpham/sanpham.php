@@ -163,7 +163,7 @@
                                                 <li>
                                                     <button data-bs-toggle="tooltip" data-placement="right"
                                                         title="Thêm vào giỏ hàng" data-id="<?= $idsp ?>"
-                                                        onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $sizesp = 0; ?>, <?= $giasp ?>)">
+                                                        onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $sizesp = 0; ?>, <?= $tongspCart = 1; ?>, <?= $giasp ?>)">
                                                         <i class="ion-bag"></i>
                                                     </button>
                                                 </li>
@@ -218,7 +218,7 @@
                                                 <li>
                                                     <button data-bs-toggle="tooltip" data-placement="right"
                                                         title="Thêm vào giỏ hàng" data-id="<?= $idsp ?>"
-                                                        onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $sizesp = 0; ?>, <?= $giasp ?>)">
+                                                        onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $sizesp = 0; ?>, <?= $tongspCart = 1; ?>, <?= $giasp ?>)">
                                                         <i class="ion-bag"></i>
                                                     </button>
                                                 </li>
@@ -238,8 +238,8 @@
 <!-- Kenne's Content Wrapper Area End Here -->
 <script>
     let totalProduct = document.getElementById('totalProduct');
-    function addToCart(spcartID, spcartTen, spcartSize, spcartGia) {
-        // console.log(spcartID, spcartTen, spcartSize, spcartGia);
+    function addToCart(spcartID, spcartTen, spcartSize, spcartSL, spcartGia) {
+        // console.log(spcartID, spcartTen, spcartSize, spcartSL, spcartGia);
         // Sử dụng jQuery
         $.ajax({
             type: 'POST',
@@ -249,6 +249,7 @@
                 idsp: spcartID,
                 tensp: spcartTen,
                 sizesp: spcartSize,
+                tongspCart: spcartSL,
                 giasp: spcartGia
             },
             success: function (response) {

@@ -71,7 +71,7 @@
                                             </td>
                                             <td class="kenne-product-price">
                                                 <div class="product-size_box">
-                                                    <select name="size_sp" id="sizeorder_<?= $product['id'] ?>"
+                                                    <select class="box-select" id="sizeorder_<?= $product['id'] ?>"
                                                         onchange="updateSize(<?= $product['id'] ?>, <?= $key ?>)">
                                                         <?php
                                                         if($s_sp != 0) {
@@ -95,7 +95,8 @@
                                             <td>
                                                 <input type="number" value="<?= $quantityInCart ?>" min="1"
                                                     id="quantity_<?= $product['id'] ?>"
-                                                    oninput="updateQuantity(<?= $product['id'] ?>, <?= $key ?>)">
+                                                    oninput="updateQuantity(<?= $product['id'] ?>, <?= $key ?>)"
+                                                    class="inp-sl">
                                             </td>
                                             <td class="product-subtotal">
                                                 <span class="amount">

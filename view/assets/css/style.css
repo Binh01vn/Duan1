@@ -11254,3 +11254,15 @@ a.bssigorreg:hover{
   border-color: #B03060;
   color: #ffffff !important;
 }
+.table .tbodytb tr td input.inp-sl{
+  width: 55px;
+  padding: 10px;
+  border: none;
+  box-shadow: 1px 1px 2px 2px #4b6f7c3d;
+}
+.table .tbodytb tr td select.box-select{
+  width: 65px;
+  padding: 10px;
+  border: none;
+  box-shadow: 1px 1px 2px 2px #4b6f7c3d;
+}
