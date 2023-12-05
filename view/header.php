@@ -212,7 +212,6 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <!-- <li><a href="index.php?act=lienhe">Liên hệ</a></li> -->
                                         <li><a href="index.php?act=gioithieu">Giới thiệu</a></li>
                                     </ul>
                                 </nav>
@@ -221,65 +220,17 @@
                     </div>
                 </div>
             </div>
-            <?php
-            if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])) { ?>
-                <div class="offcanvas-minicart_wrapper" id="miniCart">
-                    <div class="offcanvas-menu-inner">
-                        <a href="" class="btn-close"><i class="ion-android-close"></i></a>
-                        <div class="minicart-content">
-                            <div class="minicart-heading">
-                                <h4>Giỏ hàng</h4>
-                            </div>
-                            <?php
-                            for($i = 0; $i < count($_SESSION['giohang']); $i++) {
-                                if(isset($_SESSION['giohang'][$i][0])) {
-
-                                    $linkdelspid = "index.php?act=linkdelspid&delsp=".$i;
-                                    $linksp = "index.php?act=sanphamct&idsp=".$_SESSION['giohang'][$i][0];
-                                    $imgpath = "./view/assets/images/product/".$_SESSION['giohang'][$i][1];
-                                    $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh" height="82px">';
-                                    ?>
-                                    <ul class="minicart-list">
-                                        <li class="minicart-product">
-                                            <a class="product-item_remove" href="<?= $linkdelspid ?>"><i
-                                                    class="ion-android-close"></i></a>
-                                            <div class="product-item_img">
-                                                <?= $img ?>
-                                            </div>
-                                            <div class="product-item_content">
-                                                <a class="product-item_title" href="<?= $linksp ?>">
-                                                    <?= $_SESSION['giohang'][$i][2] ?>
-                                                </a>
-                                                <span class="product-item_quantity">1 x
-                                                    <?= number_format((int)$_SESSION['giohang'][$i][3], 0, ",", ".") ?>(VND)
-                                                </span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                <?php }
-                            } ?>
-                        </div>
-                        <div class="minicart-item_total">
-                            <span>Tổng tiền:</span>
-                            <span class="ammount">
-                                <?= !empty($_SESSION['tongdh']) ? number_format((int)$_SESSION['tongdh'], 0, ",", ".") : 0 ?>(VND)
-                            </span>
-                        </div>
-                        <div class="minicart-btn_area">
-                            <a href="index.php?act=wlandac" class="kenne-btn kenne-btn_fullwidth">Giỏ hàng</a>
-                        </div>
+            <div class="offcanvas-minicart_wrapper" id="miniCart">
+                <a href="" class="btn-close"><i class="ion-android-close"></i></a>
+                <div class="offcanvas-menu-inner">
+                    <div class="minicart-btn_area">
+                        <a href="index.php?act=wlandac" class="kenne-btn kenne-btn_fullwidth">Giỏ hàng của tôi</a>
+                    </div>
+                    <div class="minicart-btn_area">
+                        <a href="index.php?act=sanpham" class="kenne-btn kenne-btn_fullwidth">Mua sắm tại đây</a>
                     </div>
                 </div>
-            <?php } else { ?>
-                <div class="offcanvas-minicart_wrapper" id="miniCart">
-                    <a href="" class="btn-close"><i class="ion-android-close"></i></a>
-                    <div class="offcanvas-menu-inner">
-                        <div class="minicart-btn_area">
-                            <a href="index.php?act=sanpham" class="kenne-btn kenne-btn_fullwidth">Mua sắm ngay</a>
-                        </div>
-                    </div>
-                </div>
-            <?php } ?>
+            </div>
             <div class="mobile-menu_wrapper" id="mobileMenu">
                 <div class="offcanvas-menu-inner">
                     <div class="container">

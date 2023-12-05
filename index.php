@@ -80,39 +80,19 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         // CONTROLLER GIỎ HÀNG ==================================================
         case 'wlandac':
-            if(!isset($_SESSION['giohang'])) {
-                $_SESSION['giohang'] = [];
-            }
-            if(isset($_POST['addgio']) && ($_POST['addgio'])) {
-                $IDSP = $_POST['idsp'];
-                $IMGSP = $_POST['imgsp'];
-                $TENSP = $_POST['tensp'];
-                $GIASP = $_POST['giasp'];
-                $SIZESP = $_POST['sizesp'];
-                if($SIZESP == null) {
-                    $SIZESP = 0;
-                }
-                $SOLUONGSP = $_POST['soluongsp'];
+            // Kiểm tra xem giỏ hàng có dữ liệu hay không
+            if(!empty($_SESSION['giohang'])) {
+                $cart = $_SESSION['giohang'];
 
-                $fl = 0; // kiểm tra xem sản phẩm thêm mới đã tồn tại trong giỏ hàng chưa 0= chưa, 1 = đã có
-                // kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-                for($i = 0; $i < count($_SESSION['giohang']); $i++) {
-                    if($_SESSION['giohang'][$i][2] == $TENSP) {
-                        $fl = 1;
-                        $SOLUONGNEW = $SOLUONGSP;
-                        $_SESSION['giohang'][$i][5] = $SOLUONGNEW;
-                        $_SESSION['giohang'][$i][4] = $SIZESP;
-                        // break;
-                    }
-                }
+                // Tạo mảng chứa ID các sản phẩm trong giỏ hàng
+                $sanphamID = array_column($cart, 'idsp');
 
-                // nếu sản phẩm không trùng thì tiến hành thêm mới
-                if($fl == 0) {
-                    // thêm mới sản phẩm
-                    $sp = array($IDSP, $IMGSP, $TENSP, $GIASP, $SIZESP, $SOLUONGSP);
-                    array_push($_SESSION['giohang'], $sp);
-                }
-                header('Location: ?act=wlandac');
+                // Chuyển đôi mảng id thành một cuỗi để thực hiện truy vấn
+                $idList = implode(',', $sanphamID);
+
+                // Lấy sản phẩm trong bảng sản phẩm theo id
+                $dataDb = loadone_sanphamCart($idList);
+                // var_dump($dataDb);
             }
             $listsizesp = listall_size();
             include('view/cart/viewcart.php');
@@ -154,14 +134,8 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $trangthaitt = $_POST['trangthaitt'];
 
                     $idBill = insert_hoadon($ngaydh, $pttt, $tonghd, $trangthai, $trangthaitt, $iduser);
-                    for($i = 0; $i < count($_SESSION['giohang']); $i++) {
-                        $idspcart = $_SESSION['giohang'][$i][0];
-                        $tspcart = $_SESSION['giohang'][$i][2];
-                        $gspcart = $_SESSION['giohang'][$i][3];
-                        $sizespcart = $_SESSION['giohang'][$i][4];
-                        $slspcart = $_SESSION['giohang'][$i][5];
-                        $tongtien = $_SESSION['giohang'][$i][3] * $_SESSION['giohang'][$i][5];
-                        insert_billhoadon($idBill, $idspcart, $tspcart, $sizespcart, $gspcart, $slspcart, $tongtien);
+                    foreach ($_SESSION['giohang'] as $carttt){
+                        insert_billhoadon($idBill, $carttt['idsp'], $carttt['tensp'], $carttt['sizesp'], $carttt['giasp'], $carttt['tongspCart'], ($tongtien = $carttt['giasp'] * $carttt['tongspCart']));
                     }
                     $tbdh = "Đặt hàng thành công!";
                     unset($_SESSION['giohang']);

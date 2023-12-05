@@ -84,37 +84,37 @@ if(isset($_SESSION['username'])) {
                                 <tbody>
                                     <?php
                                     if(isset($_SESSION['giohang']) && is_array($_SESSION['giohang'])) {
-                                        for($i = 0; $i < count($_SESSION['giohang']); $i++) {
-                                            if(isset($_SESSION['giohang'][$i][0])) { ?>
-                                                <tr>
-                                                    <td>
-                                                        <?= $_SESSION['giohang'][$i][2] ?> <br>
-                                                        <u>Số lượng:</u>
-                                                        <?= $_SESSION['giohang'][$i][5] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $_SESSION['giohang'][$i][4] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= number_format((int)$_SESSION['giohang'][$i][3], 0, ",", ".") ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php $tongt = (int)$_SESSION['giohang'][$i][3] * (int)$_SESSION['giohang'][$i][5];
-                                                        echo number_format($tongt, 0, ",", ".") ?>
-                                                    </td>
-                                                </tr>
-                                            <?php }
+                                        foreach($_SESSION['giohang'] as $cart) {
+                                            ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $cart['tensp'] ?> <br>
+                                                    <u>Số lượng:</u>
+                                                    <?= $cart['tongspCart'] ?>
+                                                </td>
+                                                <td>
+                                                    <?= $cart['sizesp'] ?>
+                                                </td>
+                                                <td>
+                                                    <?= number_format((int)$cart['giasp'], 0, ",", ".") ?>
+                                                </td>
+                                                <td>
+                                                    <?php $tongt = (int)$cart['giasp'] * (int)$cart['tongspCart'];
+                                                    echo number_format($tongt, 0, ",", ".") ?>
+                                                </td>
+                                            </tr>
+                                            <?php
                                         } ?>
                                         <tr>
                                             <td colspan="3"><b>Tổng tiền (VND):</b></td>
                                             <td>
                                                 <b>
-                                                <?php
-                                                if(isset($_SESSION['tongdh'])) {
-                                                    echo number_format((int)$_SESSION['tongdh'], 0, ",", ".");
-                                                } else {
-                                                    echo '0';
-                                                } ?>
+                                                    <?php
+                                                    if(isset($_SESSION['tongdh'])) {
+                                                        echo number_format((int)$_SESSION['tongdh'], 0, ",", ".");
+                                                    } else {
+                                                        echo '0';
+                                                    } ?>
                                                 </b>
                                             </td>
                                         </tr>

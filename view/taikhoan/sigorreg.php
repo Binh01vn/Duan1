@@ -82,7 +82,7 @@ if(isset($_SESSION['username'])) {
                             </div>
                             <div class="col-md-6">
                                 <label>Số điện thoại*</label>
-                                <input type="number" placeholder="Phone number" name="phone" required>
+                                <input type="tel" placeholder="Phone number" name="phone" required>
                             </div>
                             <div class="col-md-12">
                                 <label>Địa chỉ*</label>

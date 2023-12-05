@@ -11208,45 +11208,6 @@ a.bssigorreg{
 a.bssigorreg:hover{
   color: #B03060;
 }
-/* .coupon-all .coupon a.button {
-  background-color: #242424;
-  border: 0 none;
-  border-radius: 2px;
-  color: #ffffff;
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  height: 42px;
-  letter-spacing: 1px;
-  line-height: 42px;
-  padding: 0 25px;
-  text-transform: uppercase;
-  width: inherit;
-}
-.coupon-all .coupon2 a.button {
-  background-color: #242424;
-  border: 0 none;
-  border-radius: 2px;
-  color: #ffffff;
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  height: 42px;
-  letter-spacing: 1px;
-  line-height: 42px;
-  padding: 0 25px;
-  text-transform: uppercase;
-  width: inherit;
-}
-.coupon-all .coupon a.button:hover {
-  background-color: #ff007f;
-}
-.coupon-all .coupon2 a.button:hover {
-  background-color: #ff007f;
-} */
-
 .coupon button {
   background-color: #242424;
   border: 1px solid #e5e5e5;
@@ -11274,6 +11235,21 @@ a.bssigorreg:hover{
 }
 
 .coupon a:hover {
+  background: #B03060;
+  border-color: #B03060;
+  color: #ffffff !important;
+}
+.coupon2 a {
+  background-color: #242424;
+  border: 1px solid #e5e5e5;
+  color: #ffffff;
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  text-transform: capitalize;
+}
+
+.coupon2 a:hover {
   background: #B03060;
   border-color: #B03060;
   color: #ffffff !important;
