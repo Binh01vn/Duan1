@@ -14,15 +14,17 @@
                                 <th class="border-top-0">Tên sản phẩm</th>
                                 <th class="border-top-0">Nội dung bình luận</th>
                                 <th class="border-top-0">Ngày bình luận</th>
-                                <th class="border-top-0">Ẩn bình luận</th>
+                                <th class="border-top-0">Hiện</th>
+                                <th class="border-top-0">Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             foreach($listbl as $lbl) {
                                 extract($lbl);
-                                $anbl = "index.php?act=anbl&id_bl=".$id_bl;
-                                if($ttbinhluan != 1){
+                                $delbl = "index.php?act=delbl&id_bl=".$id_bl;
+                                $hienbl = "index.php?act=hienbl&id_bl=".$id_bl;
+                                if($ttbinhluan == 1){
                                 ?>
                                 <tr>
                                     <td>
@@ -43,7 +45,10 @@
                                         <?= $ngaybl ?>
                                     </td>
                                     <td>
-                                        <a href="<?= $anbl ?>" class="fas fa-eye-slash"></a>
+                                        <a href="<?= $hienbl ?>" class="fas fa-eye"></a>
+                                    </td>
+                                    <td>
+                                        <a href="<?= $delbl ?>" class="fas fa-trash-alt"></a>
                                     </td>
                                 </tr>
                             <?php } } ?>
@@ -52,7 +57,7 @@
                 </div>
                 <div class="form-group mb-4">
                     <div class="col-sm-12">
-                        <a class="btn btn-success" href="index.php?act=dsblan">Danh sách bình luận ẩn</a>
+                        <a class="btn btn-success" href="index.php?act=listbl">Danh sách bình luận</a>
                     </div>
                 </div>
             </div>

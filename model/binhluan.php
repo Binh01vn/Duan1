@@ -7,7 +7,7 @@ function insert_binhluan($noidungbl, $ngaybl, $idsp, $iduser)
 }
 function loadall_binhluan($idsp)
 {
-    $sql = "select bl.id_bl, bl.noidungbl, bl.ngaybl, bl.idsp, bl.iduser, tk.username, sp.tensp, sp.masp, sp.id
+    $sql = "select bl.id_bl, bl.noidungbl, bl.ngaybl, bl.idsp, bl.ttbinhluan, bl.iduser, tk.username, sp.tensp, sp.masp, sp.id
     from binhluan bl
     inner join taikhoan tk on tk.idacc = bl.iduser
     inner join sanpham sp on sp.id = bl.idsp
@@ -28,5 +28,9 @@ function del_binhluan($id_bl, $idsp, $iduser){
         $sql = "delete from binhluan where idsp=". $idsp;
     }
     pdo_query($sql);
+}
+function an_binhluan ($id_bl, $ttbinhluan){
+    $sql = "update binhluan set ttbinhluan='".$ttbinhluan."' where id_bl=".$id_bl;
+    pdo_execute($sql);
 }
 ?>

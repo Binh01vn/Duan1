@@ -215,6 +215,21 @@ if((isset($_GET['act']))) {
             $listbl = loadall_binhluan(null);
             include('view/binhluan/listbl.php');
             break;
+        // DANH SÁCH BÌNH LUẬN BỊ ẨN
+        case 'dsblan':
+            $listbl = loadall_binhluan(null);
+            include('view/binhluan/listblan.php');
+            break;
+        // ẨN BÌNH LUẬN
+        case 'anbl':
+            if(isset($_GET['id_bl'])) {
+                $id_bl = $_GET['id_bl'];
+                $ttbinhluan = 1;
+                an_binhluan($id_bl, $ttbinhluan);
+            }
+            $listbl = loadall_binhluan(null);
+            include('view/binhluan/listbl.php');
+            break;
         // XÓA BÌNH LUẬN
         case 'delbl':
             if(isset($_GET['id_bl']) && $_GET['id_bl'] > 0) {
@@ -249,13 +264,13 @@ if((isset($_GET['act']))) {
             include('view/hoadon/capnhathd.php');
             break;
 
-            // QUẢN LÝ TÀI KHOẢN ==================================================
+        // QUẢN LÝ TÀI KHOẢN ==================================================
         case 'listuser':
             $listusers = loadall_taikhoan();
             include('view/taikhoan/listuser.php');
             break;
 
-            // XÓA TÀI KHOẢN ===================================
+        // XÓA TÀI KHOẢN ===================================
         case 'delacc':
             if(isset($_GET['idacc']) && $_GET['idacc'] > 0) {
                 del_taikhoan($_GET['idacc']);
@@ -265,7 +280,7 @@ if((isset($_GET['act']))) {
             include('view/taikhoan/listuser.php');
             break;
 
-            // LIST PHÂN QUYỀN TÀI KHOẢN ============================================
+        // LIST PHÂN QUYỀN TÀI KHOẢN ============================================
         case 'pq':
             $listusers = loadall_taikhoan();
             include('view/taikhoan/phanquyen.php');
