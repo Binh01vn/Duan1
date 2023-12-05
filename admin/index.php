@@ -230,6 +230,16 @@ if((isset($_GET['act']))) {
             $listbl = loadall_binhluan(null);
             include('view/binhluan/listbl.php');
             break;
+        // ẨN BÌNH LUẬN
+        case 'hienbl':
+            if(isset($_GET['id_bl'])) {
+                $id_bl = $_GET['id_bl'];
+                $ttbinhluan = 0;
+                an_binhluan($id_bl, $ttbinhluan);
+            }
+            $listbl = loadall_binhluan(null);
+            include('view/binhluan/listblan.php');
+            break;
         // XÓA BÌNH LUẬN
         case 'delbl':
             if(isset($_GET['id_bl']) && $_GET['id_bl'] > 0) {
