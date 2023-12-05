@@ -130,20 +130,11 @@
                         $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
                         <div class="product-item">
                             <div class="single-product">
-                                <form class="product-img" action="index.php?act=wlandac" method="POST">
+                                <div class="product-img">
                                     <a href="<?= $linksp ?>" class="linkbs">
                                         <?= $img ?>
-                                        <!-- <img class="secondary-img" src="view/assets/images/product/8-2.jpg"
-                                            alt="Kenne's Product Image"> -->
                                     </a>
-                                    <!-- <span class="sticker-2">Hot</span> -->
                                     <div class="add-actions">
-                                        <input type="hidden" name="idsp" value="<?= $idsp ?>">
-                                        <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
-                                        <input type="hidden" name="tensp" value="<?= $tensp ?>">
-                                        <input type="hidden" name="giasp" value="<?= $giasp ?>">
-                                        <input type="hidden" name="sizesp">
-                                        <input type="hidden" name="soluongsp" value="1">
                                         <ul>
                                             <li class="quick-view-btn" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
@@ -152,13 +143,14 @@
                                             </li>
                                             <li>
                                                 <button data-bs-toggle="tooltip" data-placement="right"
-                                                    title="Thêm vào giỏ hàng" type="submit" name="addgio" value="themgio">
+                                                    title="Thêm vào giỏ hàng" data-id="<?= $idsp ?>"
+                                                    onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $sizesp = 0; ?>, <?= $giasp ?>)">
                                                     <i class="ion-bag"></i>
                                                 </button>
                                             </li>
                                         </ul>
                                     </div>
-                                </form>
+                                </div>
                                 <div class="product-content">
                                     <div class="product-desc_info">
                                         <h3 class="product-name"><a href="<?= $linksp ?>">
@@ -169,7 +161,6 @@
                                             <span class="new-price">Giá:
                                                 <?= number_format((int)$giasp, 0, ",", ".") ?> VND
                                             </span>
-                                            <!-- <span class="old-price">$75.00</span> -->
                                         </div>
                                     </div>
                                 </div>
@@ -263,21 +254,12 @@
                                 $imgpath = "./view/assets/images/product/".$imgsp;
                                 $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
                                 <div class="product-item">
-                                    <form class="single-product" action="index.php?act=wlandac" method="POST">
+                                    <div class="single-product">
                                         <div class="product-img">
                                             <a href="<?= $linksp ?>" class="linkbs">
                                                 <?= $img ?>
-                                                <!-- <img class="secondary-img" src="view/assets/images/product/5-2.jpg"
-                                                    alt="Kenne's Product Image"> -->
                                             </a>
-                                            <!-- <span class="sticker-2">Hot</span> -->
                                             <div class="add-actions">
-                                                <input type="hidden" name="idsp" value="<?= $idsp ?>">
-                                                <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
-                                                <input type="hidden" name="tensp" value="<?= $tensp ?>">
-                                                <input type="hidden" name="giasp" value="<?= $giasp ?>">
-                                                <input type="hidden" name="sizesp">
-                                                <input type="hidden" name="soluongsp" value="1">
                                                 <ul>
                                                     <li class="quick-view-btn" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModalCenter"><a href="<?= $linksp ?>"
@@ -286,8 +268,8 @@
                                                     </li>
                                                     <li>
                                                         <button data-bs-toggle="tooltip" data-placement="right"
-                                                            title="Thêm vào giỏ hàng" type="submit" name="addgio"
-                                                            value="themgio">
+                                                            title="Thêm vào giỏ hàng" data-id="<?= $idsp ?>"
+                                                            onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $sizesp = 0; ?>, <?= $giasp ?>)">
                                                             <i class="ion-bag"></i>
                                                         </button>
                                                     </li>
@@ -307,7 +289,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                             <?php } ?>
                         </div>
@@ -318,3 +300,28 @@
     </div>
 </div>
 <!-- Product Tab Area End Here -->
+<script>
+    let totalProduct = document.getElementById('totalProduct');
+    function addToCart(spcartID, spcartTen, spcartSize, spcartGia) {
+        console.log(spcartID, spcartTen, spcartSize, spcartGia);
+        // Sử dụng jQuery
+        $.ajax({
+            type: 'POST',
+            // Đường dẫ tới tệp PHP xử lý dữ liệu
+            url: './view/cart/xulycart.php',
+            data: {
+                idsp: spcartID,
+                tensp: spcartTen,
+                sizesp: spcartSize,
+                giasp: spcartGia
+            },
+            success: function (response) {
+                totalProduct.innerText = response;
+                alert('Bạn đã thêm sản phẩm vào giỏ hàng thành công!')
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

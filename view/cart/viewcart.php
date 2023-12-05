@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="index.php?act=billcart" method="POST">
+                <div>
                     <div class="table-content table-responsive">
 
                         <table class="table">
@@ -102,49 +102,30 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="coupon-all">
+                                <form class="coupon" action="index.php?act=billcart" method="POST">
+                                    <?php
+                                    if(isset($dkdtn)) {
+                                        echo '<a href="">Cập nhật size cho sản phẩm !</a>';
+                                    } else {
+                                        if(isset($_SESSION['username']) && empty($_SESSION['giohang'])) {
+                                            echo '<a href="index.php?act=sanpham">Mua sắm tại đây</a>';
+                                        } else if(empty($_SESSION['username']) && !empty($_SESSION['giohang'])) {
+                                            echo '<a href="index.php?act=sigorreg">Đặt hàng</a>';
+                                        } else if(empty($_SESSION['giohang'])) {
+                                            echo '<a href="index.php?act=sanpham">Mua sắm tại đây</a>';
+                                        } else if(isset($_SESSION['giohang']) && isset($_SESSION['username'])) {
+                                            echo '<button>Đặt hàng</button>';
+                                        }
+                                    }
+                                    ?>
+                                </form>
                                 <div class="coupon2">
                                     <a class="button" href="index.php?act=delcart&del=1">Xóa tất cả khỏi giỏ hàng</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5 ml-auto">
-                            <div class="cart-page-total">
-                                <h2>Tổng tiền giỏ hàng</h2>
-                                <ul>
-                                    <!-- <li>Tổng phụ <span>$118.60</span></li> -->
-                                    <li>Tổng thanh toán
-                                        <span>
-                                            <?php
-                                            if(isset($_SESSION['tongdh'])) {
-                                                echo number_format((int)$_SESSION['tongdh'], 0, ",", ".");
-                                            } else {
-                                                echo '0';
-                                            } ?> (VND)
-                                        </span>
-                                    </li>
-                                </ul>
-
-                                <?php
-                                if(isset($dkdtn)) {
-                                    echo '<a href="">Cập nhật size cho sản phẩm !</a>';
-                                } else {
-                                    if(isset($_SESSION['username']) && empty($_SESSION['giohang'])) {
-                                        echo '<a href="index.php?act=sanpham">Mua sắm tại đây</a>';
-                                    } else if(empty($_SESSION['username']) && !empty($_SESSION['giohang'])) {
-                                        echo '<a href="index.php?act=sigorreg">Đặt hàng</a>';
-                                    } else if(empty($_SESSION['giohang'])) {
-                                        echo '<a href="index.php?act=sanpham">Mua sắm tại đây</a>';
-                                    } else if(isset($_SESSION['giohang']) && isset($_SESSION['username'])) {
-                                        echo '<button>Đặt hàng</button>';
-                                    }
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
