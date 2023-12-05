@@ -38,6 +38,7 @@
                         if($iduser == $_SESSION['username']['idacc'] && $idfhd == $_GET['idhd']) {
                             $tthoadon = $tonghd;
                             $trangthaihd = $trangthai;
+                            $trangthai_tt = $trangthaitt;
                             ?>
                             <tr>
                                 <td>#
@@ -51,7 +52,7 @@
                                     if($pttt == 1) {
                                         echo "Thanh toán trực tiếp";
                                     } else if($pttt == 2) {
-                                        echo "Thanh toán trước và bị bùng hàng!";
+                                        echo "Thanh toán MOMO";
                                     }
                                     ?>
                                 </td>
@@ -147,22 +148,29 @@
                     if($trangthaihd != 4) {
                         echo '
                         <div class="coupon">
-                            <a href="index.php?act=xacnhandh&trangthai=4&idhd=<?= $idfhd ?>" class="button">Đã nhận được
+                            <a href="index.php?act=xacnhandh&trangthai=4&idhd='.$idfhd.'" class="button">Đã nhận được
                                 hàng</a>
                         </div>
                         ';
                     } else {
-                        echo
-                            '<div class="coupon">
-                                <a href="index.php?act=sanpham" class="button">Mua sắm thêm</a>
-                            </div>';
+                        if($trangthai_tt == 0) {
+                            echo
+                                '<div class="coupon">
+                                    <a href="" class="button">Chờ xác nhận thanh toán</a>
+                                </div>';
+                        } else {
+                            echo
+                                '<div class="coupon">
+                                    <a href="index.php?act=sanpham" class="button">Mua sắm thêm</a>
+                                </div>';
+                        }
                     }
                     ?>
                     <?php
                     if($trangthaihd == 0 || $trangthaihd == 1) {
                         echo
                             '<div class="coupon2">
-                            <a href="index.php?act=xacnhandh&trangthai=5&idhd=<?= $idfhd ?>" class="button">Hủy đơn hàng</a>
+                            <a href="index.php?act=xacnhandh&trangthai=5&idhd='.$idfhd.'" class="button">Hủy đơn hàng</a>
                         </div>';
                     }
                     ?>

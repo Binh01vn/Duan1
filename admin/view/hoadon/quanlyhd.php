@@ -62,8 +62,8 @@
                                         <?php
                                         if($pttt == 1) {
                                             echo "Thanh toán trực tiếp.";
-                                        } else if($pttt == 1) {
-                                            echo "Thanh toán VNPAY.";
+                                        } else if($pttt == 2) {
+                                            echo "Thanh toán MOMO.";
                                         }
                                         ?>
                                     </td>

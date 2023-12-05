@@ -54,7 +54,7 @@ if(isset($_SESSION['username'])) {
                                 <label>Phương thức thanh toán*</label>
                                 <select name="pttt">
                                     <option value="1">Thanh toán trực tiếp</option>
-                                    <option value="2">Thanh toán VNPAY</option>
+                                    <option value="2">Thanh toán MOMO</option>
                                 </select>
                                 <input type="hidden" name="trangthai" value="0">
                                 <input type="hidden" name="trangthaitt" value="0">

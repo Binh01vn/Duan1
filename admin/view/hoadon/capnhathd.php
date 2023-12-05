@@ -4,9 +4,14 @@ foreach($listhd as $lhd) {
     if($id_hd == $_GET['idhd']) {
         $idHD = $id_hd;
         $idact = $iduser;
-        foreach($listusers as $lus){
+        if($trangthai == 4) {
+            $s = "selected";
+        } else {
+            $s = "";
+        }
+        foreach($listusers as $lus) {
             extract($lus);
-            if($idacc == $idact){
+            if($idacc == $idact) {
                 $dcdh = $diachi;
                 $tsh = $tensohuu;
             }
@@ -47,11 +52,12 @@ foreach($listhd as $lhd) {
                             <label class="col-md-12 p-0">Trang thái</label>
                             <div class="col-sm-12 border-bottom">
                                 <select class="form-select shadow-none p-0 border-0" name="trangthain">
-                                    <option value="0" selected>Chờ xác nhận</option>
+                                    <option value="0">Chờ xác nhận</option>
                                     <option value="1">Đã xác nhận</option>
                                     <option value="2">Đang chuẩn bị hàng</option>
                                     <option value="3">Đang giao hàng</option>
-                                    <option value="4">Đã nhận hàng</option>
+                                    <option value="4" <?php if(isset($s) && $s != "")
+                                        echo $s; ?>>Đã nhận hàng</option>
                                     <option value="5">Đơn hàng bị hủy</option>
                                 </select>
                             </div>
@@ -67,8 +73,13 @@ foreach($listhd as $lhd) {
                         </div>
                         <div class="form-group mb-4">
                             <div class="col-sm-12">
-                            <button class="btn btn-success" type="submit" name="updatevaitro" value="vaitro">Cập
+                                <button class="btn btn-success" type="submit" name="updatevaitro" value="vaitro">Cập
                                     nhật hóa đơn</button>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <div class="col-sm-12">
+                                <a class="btn btn-success" href="index.php?act=qlhoadon">Danh sách hóa đơn</a>
                             </div>
                         </div>
                     </form>

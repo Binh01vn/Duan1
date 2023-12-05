@@ -27,7 +27,7 @@
                                 <td><?= $tensohuu ?></td>
                                 <td><?= $username ?></td>
                                 <td><?= $email ?></td>
-                                <td><?= $phone ?></td>
+                                <td>+84 <?= $phone ?></td>
                                 <td><?= $diachi ?></td>
                                 <td>
                                     <a href="<?= $delacc ?>" class="fas fa-trash-alt"></a>

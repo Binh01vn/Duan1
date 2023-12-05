@@ -210,11 +210,12 @@ if((isset($_GET['act']))) {
             include('view/sanpham/listsp.php');
             break;
 
+            // QUẢN LÝ BÌNH LUẬN ===================================================================
         case 'listbl':
             $listbl = loadall_binhluan(null);
             include('view/binhluan/listbl.php');
             break;
-
+// XÓA BÌNH LUẬN
         case 'delbl':
             if(isset($_GET['id_bl']) && $_GET['id_bl'] > 0) {
                 del_binhluan($_GET['id_bl'], null, null);
@@ -227,6 +228,7 @@ if((isset($_GET['act']))) {
             include('view/icon.php');
             break;
 
+            // QUẢN LÝ HÓA ĐƠN ===========================
         case 'qlhoadon':
             $listhd = select_hoadon();
             $listusers = loadall_taikhoan();
