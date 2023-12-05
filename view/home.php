@@ -303,7 +303,7 @@
 <script>
     let totalProduct = document.getElementById('totalProduct');
     function addToCart(spcartID, spcartTen, spcartSize, spcartGia) {
-        console.log(spcartID, spcartTen, spcartSize, spcartGia);
+        // console.log(spcartID, spcartTen, spcartSize, spcartGia);
         // Sử dụng jQuery
         $.ajax({
             type: 'POST',

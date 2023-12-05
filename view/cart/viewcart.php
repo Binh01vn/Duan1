@@ -38,7 +38,7 @@
                                 </thead>
                                 <tbody class="tbodytb" id="order">
                                     <?php
-                                    var_dump($_SESSION['giohang']);
+                                    // var_dump($_SESSION['giohang']);
                                     $sum_total = 0;
                                     foreach($dataDb as $key => $product):
                                         // kiểm tra số lượng sản phẩm trong giỏ hàng
@@ -159,10 +159,11 @@
 </div>
 <!-- Uren's Cart Area End Here -->
 <script>
+    let totalProduct = document.getElementById('totalProduct');
     // hàm cập nhật size ===============================================================================
     function updateSize(id, index) {
         let newSize = $('#sizeorder_' + id).val();
-        console.log(newSize);
+        // console.log(newSize);
         // Gửi yêu cầu bằng ajax để cập nhật giỏ hàng
         $.ajax({
             type: 'POST',
@@ -189,7 +190,7 @@
         if (newQuantity <= 0) {
             newQuantity = 1
         }
-        console.log(newQuantity);
+        // console.log(newQuantity);
 
         // Gửi yêu cầu bằng ajax để cập nhật giỏ hàng
         $.ajax({
@@ -211,25 +212,27 @@
         })
     }
 
-    // function removeFormCart(id) {
-    //     if (confirm("Bạn có đồng ý xóa sản phẩm hay không?")) {
-    //         // Gửi yêu cầu bằng ajax để cập nhật giỏ hàng
-    //         $.ajax({
-    //             type: 'POST',
-    //             url: './view/removeFormCart.php',
-    //             data: {
-    //                 id: id
-    //             },
-    //             success: function (response) {
-    //                 // Sau khi cập nhật thành công
-    //                 $.post('view/tableCartOrder.php', function (data) {
-    //                     $('#order').html(data);
-    //                 })
-    //             },
-    //             error: function (error) {
-    //                 console.log(error);
-    //             },
-    //         })
-    //     }
-    // }
+    function removeFormCart(id) {
+        // alert(id);
+        if (confirm("Bạn có đồng ý xóa sản phẩm hay không?")) {
+            // Gửi yêu cầu bằng ajax để cập nhật giỏ hàng
+            $.ajax({
+                type: 'POST',
+                url: './view/cart/xoaCart.php',
+                data: {
+                    id: id
+                },
+                success: function (response) {
+                    totalProduct.innerText = response;
+                    // Sau khi cập nhật thành công
+                    $.post('./view/cart/bangcart.php', function (data) {
+                        $('#order').html(data);
+                    })
+                },
+                error: function (error) {
+                    console.log(error);
+                },
+            })
+        }
+    }
 </script>

@@ -179,7 +179,8 @@
 <!-- JS ============================================ -->
 
 <!-- jQuery JS -->
-<script src="view/assets/js/vendor/jquery-3.6.0.min.js"></script>
+<!-- <script src="view/assets/js/vendor/jquery-3.6.0.min.js"></script> -->
+<script src="view/assets/js/vendor/jquery-3.7.1.min.js"></script>
 <script src="view/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
 <!-- Modernizer JS -->
 <script src="view/assets/js/vendor/modernizr-3.11.2.min.js"></script>

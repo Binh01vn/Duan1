@@ -147,12 +147,7 @@
                         $imgpath = "./view/assets/images/product/".$imgsp;
                         $img = '<img class="primary-img" src="'.$imgpath.'" alt="Lỗi server ảnh">'; ?>
                         <div class="col-lg-4 col-md-4 col-sm-6">
-                            <form class="product-item" action="index.php?act=wlandac" method="POST">
-                                <input type="hidden" name="idsp" value="<?= $idsp ?>">
-                                <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
-                                <input type="hidden" name="tensp" value="<?= $tensp ?>">
-                                <input type="hidden" name="giasp" value="<?= $giasp ?>">
-                                <input type="hidden" name="soluongsp" value="1">
+                            <div class="product-item">
                                 <div class="single-product">
                                     <div class="product-img">
                                         <a href="<?= $linksp ?>" class="linkbs">
@@ -167,8 +162,8 @@
                                                 </li>
                                                 <li>
                                                     <button data-bs-toggle="tooltip" data-placement="right"
-                                                        title="Thêm vào giỏ hàng" type="submit" name="addgio"
-                                                        value="themgio">
+                                                        title="Thêm vào giỏ hàng" data-id="<?= $idsp ?>"
+                                                        onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $sizesp = 0; ?>, <?= $giasp ?>)">
                                                         <i class="ion-bag"></i>
                                                     </button>
                                                 </li>
@@ -177,24 +172,20 @@
                                     </div>
                                     <div class="product-content">
                                         <div class="product-desc_info">
-                                            <h3 class="product-name"><a href="'.$linksp.'">
+                                            <h3 class="product-name"><a href="<?= $linksp ?>">
                                                     <?= $tensp ?>
-                                                </a></h3>
+                                                </a>
+                                            </h3>
                                             <div class="price-box">
                                                 <span class="new-price">Giá:
-                                                        <?= number_format((int)$giasp, 0, ",", ".") ?> (VND)
+                                                    <?= number_format((int)$giasp, 0, ",", ".") ?> VND
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
-                            <form class="list-product_item" action="index.php?act=wlandac" method="POST">
-                                <input type="hidden" name="idsp" value="<?= $idsp ?>">
-                                <input type="hidden" name="imgsp" value="<?= $imgsp ?>">
-                                <input type="hidden" name="tensp" value="<?= $tensp ?>">
-                                <input type="hidden" name="giasp" value="<?= $giasp ?>">
-                                <input type="hidden" name="soluongsp" value="1">
+                            </div>
+                            <div class="list-product_item">
                                 <div class="single-product">
                                     <div class="product-img">
                                         <a href="<?= $linksp ?>">
@@ -202,34 +193,10 @@
                                         </a>
                                     </div>
                                     <div class="product-content">
-                                        <div class="bshomeprd">
-                                            <div class="product-size_box">
-                                                <select class="myniceselect nice-select" name="sizesp">
-                                                    <?php
-                                                    foreach($listsizesp as $l2) {
-                                                        extract($l2);
-                                                        if($id_sp == $id) {
-                                                            echo '<option value="'.$sizesp.'">'.$sizesp.'</option>';
-                                                        }
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <label>Size</label>
-                                            </div>
-                                            <div class="quantity">
-                                                <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" value="1" type="text"
-                                                        name="soluongsp">
-                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                </div>
-                                                <label>Số lượng</label>
-                                            </div>
-                                        </div>
                                         <div class="product-desc_info">
                                             <div class="price-box">
                                                 <span class="new-price">Giá:
-                                                        <?= number_format((int)$giasp, 0, ",", ".") ?> (VND)
+                                                    <?= number_format((int)$giasp, 0, ",", ".") ?> (VND)
                                                 </span>
                                             </div>
                                             <h6 class="product-name"><a href="<?= $linksp ?>">
@@ -250,8 +217,8 @@
                                                 </li>
                                                 <li>
                                                     <button data-bs-toggle="tooltip" data-placement="right"
-                                                        title="Thêm vào giỏ hàng" type="submit" name="addgio"
-                                                        value="themgio">
+                                                        title="Thêm vào giỏ hàng" data-id="<?= $idsp ?>"
+                                                        onclick="addToCart(<?= $idsp ?>, '<?= $tensp ?>', <?= $sizesp = 0; ?>, <?= $giasp ?>)">
                                                         <i class="ion-bag"></i>
                                                     </button>
                                                 </li>
@@ -259,7 +226,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     <?php } ?>
                 </div>
@@ -269,3 +236,28 @@
     </div>
 </div>
 <!-- Kenne's Content Wrapper Area End Here -->
+<script>
+    let totalProduct = document.getElementById('totalProduct');
+    function addToCart(spcartID, spcartTen, spcartSize, spcartGia) {
+        // console.log(spcartID, spcartTen, spcartSize, spcartGia);
+        // Sử dụng jQuery
+        $.ajax({
+            type: 'POST',
+            // Đường dẫ tới tệp PHP xử lý dữ liệu
+            url: './view/cart/xulycart.php',
+            data: {
+                idsp: spcartID,
+                tensp: spcartTen,
+                sizesp: spcartSize,
+                giasp: spcartGia
+            },
+            success: function (response) {
+                totalProduct.innerText = response;
+                alert('Bạn đã thêm sản phẩm vào giỏ hàng thành công!')
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

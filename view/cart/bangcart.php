@@ -89,9 +89,6 @@ if(!empty($_SESSION['giohang'])) {
                     <i class="fa fa-trash" title="Remove"></i>
                 </button>
             </td>
-            <td>
-                <a class="fas fa-edit" href="<?= $linksp ?>"></a>
-            </td>
         </tr>
         <?php
         // Tính tổng giá đơn hàng
