@@ -145,7 +145,7 @@
             <div class="col-12">
                 <div class="coupon-all">
                     <?php
-                    if($trangthaihd != 4) {
+                    if($trangthaihd != 4 && $trangthaihd != 5) {
                         echo '
                         <div class="coupon">
                             <a href="index.php?act=xacnhandh&trangthai=4&idhd='.$idfhd.'" class="button">Đã nhận được
@@ -153,10 +153,15 @@
                         </div>
                         ';
                     } else {
-                        if($trangthai_tt == 0) {
+                        if($trangthai_tt == 0 && $trangthaihd != 5) {
                             echo
                                 '<div class="coupon">
                                     <a href="" class="button">Chờ xác nhận thanh toán</a>
+                                </div>';
+                        } else if($trangthaihd == 5){
+                            echo
+                                '<div class="coupon">
+                                    <a href="index.php?act=xacnhandh&trangthai=0&idhd='.$idfhd.'" class="button">Đặt hàng lại</a>
                                 </div>';
                         } else {
                             echo

@@ -166,7 +166,6 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     $tbdh = "Đặt hàng thành công!";
                     unset($_SESSION['giohang']);
                     unset($_SESSION['tongdh']);
-                    // header('Location: ?act=myacc');
                     include('view/taikhoan/my-account.php');
                     break;
                 }
@@ -184,7 +183,6 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'xacnhandh':
             if(isset($_GET['idhd']) && $_GET['idhd'] > 0) {
                 $idhd = $_GET['idhd'];
-                $trangthai = $_GET['trangthai'];
                 $trangthai = $_GET['trangthai'];
                 xacnhandh($idhd, $trangthai);
                 header('Location: ?act=cthd&idhd='.$idhd.'');

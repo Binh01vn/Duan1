@@ -28,12 +28,8 @@ function select_billhoadon() {
     $listbhd = pdo_query($sql);
     return $listbhd;
 }
-function xacnhandh($idhd, $trangthai){
-    if($trangthai == 4){
-        $sql = "update hoadon set trangthai='4' where id_hd=".$idhd;
-    }else if($trangthai == 5){
-    $sql = "update hoadon set trangthai='5' where id_hd=".$idhd;
-    }
+function xacnhandh($idhd, $trangthai) {
+    $sql = "update hoadon set trangthai='".$trangthai."' where id_hd=".$idhd;
     pdo_execute($sql);
 }
 ?>
