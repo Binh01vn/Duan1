@@ -210,12 +210,12 @@ if((isset($_GET['act']))) {
             include('view/sanpham/listsp.php');
             break;
 
-            // QUẢN LÝ BÌNH LUẬN ===================================================================
+        // QUẢN LÝ BÌNH LUẬN ===================================================================
         case 'listbl':
             $listbl = loadall_binhluan(null);
             include('view/binhluan/listbl.php');
             break;
-// XÓA BÌNH LUẬN
+        // XÓA BÌNH LUẬN
         case 'delbl':
             if(isset($_GET['id_bl']) && $_GET['id_bl'] > 0) {
                 del_binhluan($_GET['id_bl'], null, null);
@@ -228,7 +228,7 @@ if((isset($_GET['act']))) {
             include('view/icon.php');
             break;
 
-            // QUẢN LÝ HÓA ĐƠN ===========================
+        // QUẢN LÝ HÓA ĐƠN ===========================
         case 'qlhoadon':
             $listhd = select_hoadon();
             $listusers = loadall_taikhoan();
@@ -249,11 +249,13 @@ if((isset($_GET['act']))) {
             include('view/hoadon/capnhathd.php');
             break;
 
+            // QUẢN LÝ TÀI KHOẢN ==================================================
         case 'listuser':
             $listusers = loadall_taikhoan();
             include('view/taikhoan/listuser.php');
             break;
 
+            // XÓA TÀI KHOẢN ===================================
         case 'delacc':
             if(isset($_GET['idacc']) && $_GET['idacc'] > 0) {
                 del_taikhoan($_GET['idacc']);
@@ -263,24 +265,27 @@ if((isset($_GET['act']))) {
             include('view/taikhoan/listuser.php');
             break;
 
+            // LIST PHÂN QUYỀN TÀI KHOẢN ============================================
         case 'pq':
             $listusers = loadall_taikhoan();
             include('view/taikhoan/phanquyen.php');
             break;
 
-        case 'suaquyen':
-            if(isset($_POST['updatevaitro']) && ($_POST['updatevaitro'])) {
-                $idact = $_POST['idact'];
-                $vaitroact = $_POST['vaitroact'];
-                update_vaitro($idact, $vaitroact);
-                $listusers = loadall_taikhoan();
-                include('view/taikhoan/phanquyen.php');
-                break;
-            }
-            $listusers = loadall_taikhoan();
-            include('view/taikhoan/suapq.php');
-            break;
+        // case 'suaquyen':
+        //     if(isset($_POST['updatevaitro']) && ($_POST['updatevaitro'])) {
+        //         $idact = $_POST['idact'];
+        //         $vaitroact = $_POST['vaitroact'];
+        //         update_vaitro($idact, $vaitroact);
+        //         $listusers = loadall_taikhoan();
+        //         include('view/taikhoan/phanquyen.php');
+        //         break;
+        //     }
+        //     $listusers = loadall_taikhoan();
+        //     include('view/taikhoan/suapq.php');
+        //     break;
 
+        // QUẢN LÝ THỐNG KÊ ===============================
+        // DANH SÁCH THỐNG KÊ THEO DANH MỤC
         case 'listtk':
             $dsthongke = load_thongke_sanpham_danhmuc();
             include('view/thongke/listtk.php');

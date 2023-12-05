@@ -14,7 +14,7 @@
                                 <th class="border-top-0">Mã sản phẩm</th>
                                 <th class="border-top-0">Nội dung bình luận</th>
                                 <th class="border-top-0">Ngày bình luận</th>
-                                <th class="border-top-0">Xóa</th>
+                                <th class="border-top-0">Ẩn bình luận</th>
                             </tr>
                         </thead>
                         <tbody>
