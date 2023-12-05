@@ -171,6 +171,10 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                         capnhat_diachi($diachi, $iduser);
                     }
                     $pttt = $_POST['pttt'];
+                    if($pttt == 2) {
+                        header('Location: ?act=ttqrmomo');
+                        die();
+                    }
                     $ngaydh = date('Y-m-d');
                     $tonghd = $_SESSION['tongdh'];
                     $trangthai = $_POST['trangthai'];
@@ -191,6 +195,10 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 die();
             }
             include('view/cart/billcart.php');
+            break;
+
+        case 'ttqrmomo':
+            include('view/thanhtoan/xulyttmomo.php');
             break;
 
         case 'cthd':

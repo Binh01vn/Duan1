@@ -23,7 +23,7 @@ if(isset($_SESSION['username'])) {
 ?>
 <div class="kenne-login-register_area">
     <div class="container">
-        <form class="row" action="index.php?act=thanhtoan" method="post">
+        <form class="row" action="index.php?act=thanhtoan" method="post" enctype="application/x-www-form-urlencoded">
             <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
                 <div>
                     <input type="hidden" name="iduser" value="<?= $idacc ?>">
@@ -54,7 +54,7 @@ if(isset($_SESSION['username'])) {
                                 <label>Phương thức thanh toán*</label>
                                 <select name="pttt">
                                     <option value="1">Thanh toán trực tiếp</option>
-                                    <option value="2">Thanh toán MOMO</option>
+                                    <option value="2">Thanh toán QR MOMO</option>
                                 </select>
                                 <input type="hidden" name="trangthai" value="0">
                                 <input type="hidden" name="trangthaitt" value="0">
