@@ -18,9 +18,10 @@
         <div class="row">
             <div class="col-12">
                 <?php
-                if(empty($dataDb)) {
-                    echo '<h1>Chưa có sản phẩm nào trong giỏ hàng</h1>';
-                } else {
+                if(empty($dataDb)) { ?>
+                    <h1>Chưa có sản phẩm nào trong giỏ hàng</h1>
+                    <a href="index.php?act=sanpham" class="msn">Mua sắm ngay</a>
+                <?php } else {
                     ?>
                     <div>
                         <div class="table-content table-responsive">

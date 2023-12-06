@@ -11266,3 +11266,17 @@ a.bssigorreg:hover{
   border: none;
   box-shadow: 1px 1px 2px 2px #4b6f7c3d;
 }
+.msn{
+  background-color: #242424;
+  border: 1px solid #e5e5e5;
+  color: #ffffff;
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  text-transform: capitalize;
+}
+.msn:hover{
+  background: #B03060;
+  border-color: #B03060;
+  color: #ffffff !important;
+}

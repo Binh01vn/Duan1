@@ -121,7 +121,9 @@ if(isset($_SESSION['username'])) {
                                 <?php
                                 foreach($dssp as $ds1) {
                                     extract($ds1);
-                                    if($idsp == $_GET['idsp']) { ?>
+                                    if($idsp == $_GET['idsp']) {
+                                        $slsp = $soluongsp;
+                                        ?>
                                         <li>Tên sản phẩm:
                                             <b>
                                                 <?= $tensp ?>
@@ -135,8 +137,8 @@ if(isset($_SESSION['username'])) {
                                         </li>
                                         <li>Tình trạng:
                                             <?php
-                                            if($soluongsp > 0) {
-                                                echo 'còn '.$soluongsp.' sản phẩm';
+                                            if($slsp > 0) {
+                                                echo 'còn '.$slsp.' sản phẩm';
                                             } else {
                                                 echo "Hết hàng!";
                                             }
@@ -165,11 +167,7 @@ if(isset($_SESSION['username'])) {
                         </div>
                         <div class="quantity">
                             <label>Số lượng</label>
-                            <div class="cart-plus-minus">
-                                <input class="cart-plus-minus-box" value="1" type="text" name="soluongsp">
-                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                            </div>
+                            <input class="inp-sl" value="1" type="number" name="soluongsp" min="1" max="<?= $slsp ?>">
                         </div>
                         <div class="qty-btn_area">
                             <ul>
