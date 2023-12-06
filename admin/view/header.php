@@ -20,9 +20,6 @@
         href="view/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
     <!-- Custom CSS -->
     <link href="view/css/style.min.css" rel="stylesheet">
-
-    <!-- Link biểu đồ -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 </head>
 
 <body>

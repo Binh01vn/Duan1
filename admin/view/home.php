@@ -48,15 +48,10 @@
     <!-- Recent Comments -->
     <div class="row">
         <div class="white-box">
-            <!-- <h3 class="box-title">Biểu đồ thống kê</h3> -->
+            <h3 class="box-title">Biểu đồ thống kê</h3>
             <div class="row form_content ">
-                <h4 class="box-title">Thống kê doanh thu theo ngày</h4>
-                <div id="myfirstchart" style="height: 250px; width: 100%;"></div>
-            </div>
-
-            <div class="row form_content ">
-                <div id="myChart" style="width:100%; height:300px; align-items: center"></div>
                 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <div id="myChart" style="width:100%; height:300px; align-items: center"></div>
                 <script>
                     google.charts.load('current', { 'packages': ['corechart'] });
                     google.charts.setOnLoadCallback(drawChart);
