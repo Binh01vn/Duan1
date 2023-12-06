@@ -34,7 +34,7 @@
                                         <?= $email ?>
                                     </td>
                                     <td>
-                                        <?= $phone ?>
+                                        +84 <?= $phone ?>
                                     </td>
                                     <td>
                                         <?php
