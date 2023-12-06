@@ -279,15 +279,31 @@ if((isset($_GET['act']))) {
             $listusers = loadall_taikhoan();
             include('view/taikhoan/listuser.php');
             break;
+        // DANH SÁCH TÀI KHOẢN ĐÃ KHÓA
+        case 'listuserlock':
+            $listusers = loadall_taikhoan();
+            include('view/taikhoan/listuserlock.php');
+            break;
 
-        // XÓA TÀI KHOẢN ===================================
-        case 'delacc':
+        // KHÓA TÀI KHOẢN ===================================
+        case 'khoaacc':
             if(isset($_GET['idacc']) && $_GET['idacc'] > 0) {
-                del_taikhoan($_GET['idacc']);
-                del_binhluan(null, null, $_GET['idacc']);
+                $idacc = $_GET['idacc'];
+                $ttacc = 1;
+                khoa_taikhoan($idacc, $ttacc);
             }
             $listusers = loadall_taikhoan();
             include('view/taikhoan/listuser.php');
+            break;
+        // KHÓA TÀI KHOẢN ===================================
+        case 'moacc':
+            if(isset($_GET['idacc']) && $_GET['idacc'] > 0) {
+                $idacc = $_GET['idacc'];
+                $ttacc = 0;
+                khoa_taikhoan($idacc, $ttacc);
+            }
+            $listusers = loadall_taikhoan();
+            include('view/taikhoan/listuserlock.php');
             break;
 
         // LIST PHÂN QUYỀN TÀI KHOẢN ============================================

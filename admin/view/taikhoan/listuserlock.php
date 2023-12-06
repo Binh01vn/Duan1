@@ -14,15 +14,15 @@
                                 <th class="border-top-0">Email</th>
                                 <th class="border-top-0">Số điện thoại</th>
                                 <th class="border-top-0">Địa chỉ</th>
-                                <th class="border-top-0">Khóa</th>
+                                <th class="border-top-0">Mở</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             foreach($listusers as $lus) {
                                 extract($lus);
-                                if($ttacc != 1) {
-                                    $khoaacc = "index.php?act=khoaacc&idacc=".$idacc;
+                                if($ttacc == 1) {
+                                    $moacc = "index.php?act=moacc&idacc=".$idacc;
                                     ?>
                                     <tr>
                                         <td>
@@ -41,7 +41,7 @@
                                             <?= $diachi ?>
                                         </td>
                                         <td>
-                                            <a href="<?= $khoaacc ?>" class="fas fa-lock"></a>
+                                            <a href="<?= $moacc ?>" class="fas fa-lock-open"></a>
                                         </td>
                                     </tr>
                                 <?php }
@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-group mb-4">
                     <div class="col-sm-12">
-                        <a class="btn btn-success" href="index.php?act=listuserlock">Danh sách tài khoản bị khóa</a>
+                        <a class="btn btn-success" href="index.php?act=listuser">Danh sách tài khoản</a>
                     </div>
                 </div>
             </div>

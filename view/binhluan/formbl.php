@@ -53,21 +53,24 @@ $listbl = loadall_binhluan($idsp);
                         </tr>
                         <?php
                         foreach($listbl as $lb) {
-                            extract($lb); ?>
-                            <tr>
-                                <td>
-                                    <strong>
-                                        <?= $username ?>
-                                    </strong>
-                                </td>
-                                <td style="width: 50%;">
-                                    <?= $noidungbl ?>
-                                </td>
-                                <td class="text-right">
-                                    <?= $ngaybl ?>
-                                </td>
-                            </tr>
-                        <?php } ?>
+                            extract($lb);
+                            if($ttbinhluan != 1) {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            <?= $username ?>
+                                        </strong>
+                                    </td>
+                                    <td style="width: 50%;">
+                                        <?= $noidungbl ?>
+                                    </td>
+                                    <td class="text-right">
+                                        <?= $ngaybl ?>
+                                    </td>
+                                </tr>
+                            <?php }
+                        } ?>
                     </tbody>
                 </table>
             </div>
