@@ -1,6 +1,6 @@
 <?php
-ob_start();
 session_start();
+ob_start();
 if(empty($_SESSION['username'])) {
     header('Location: ../index.php');
 } else {
@@ -258,6 +258,12 @@ if((isset($_GET['act']))) {
             $listhd = select_hoadon();
             $listusers = loadall_taikhoan();
             include('view/hoadon/quanlyhd.php');
+            break;
+        // DANH SÁCH HÓA ĐƠN ĐÃ HOÀN THÀNH
+        case 'listhdcpl':
+            $listhd = select_hoadon();
+            $listusers = loadall_taikhoan();
+            include('view/hoadon/listhdcpl.php');
             break;
 
         case 'cnhd':

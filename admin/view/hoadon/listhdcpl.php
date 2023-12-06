@@ -15,7 +15,7 @@
                         <option value="5000000">Trên 5 triệu</option>
                     </select>
                     <ul>
-                        <li><a href="index.php?act=listhdcpl">Danh sách hóa đơn đã hoàn thành</a></li>
+                        <li><a href="index.php?act=qlhoadon">Danh sách hóa đơn</a></li>
                     </ul>
                 </div>
                 <h3 class="box-title">Danh sách hóa đơn</h3>
@@ -30,17 +30,15 @@
                                 <th class="border-top-0">Tổng hóa đơn</th>
                                 <th class="border-top-0">Trạng thái đơn</th>
                                 <th class="border-top-0">Trạng thái thanh toán</th>
-                                <th class="border-top-0">Cập nhật</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             foreach($listhd as $lhd) {
                                 extract($lhd);
-                                $linkcn = "index.php?act=cnhd&idhd=".$id_hd;
                                 foreach($listusers as $lus) {
                                     extract($lus);
-                                    if($idacc == $iduser && $trangthai != 4 && $trangthaitt != 1) { ?>
+                                    if($idacc == $iduser && $trangthai == 4 && $trangthaitt == 1) { ?>
                                         <tr>
                                             <td>#-<?= $id_hd ?>
                                             </td>
@@ -79,9 +77,6 @@
                                                     echo '<b style="color: green;">Đã thanh toán.</b>';
                                                 }
                                                 ?>
-                                            </td>
-                                            <td>
-                                                <a href="<?= $linkcn ?>" class="fas fa-edit"></a>
                                             </td>
                                         </tr>
                                     <?php }

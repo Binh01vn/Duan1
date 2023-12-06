@@ -15887,12 +15887,67 @@ html body .waves-notransition {
     }
 }
 
-.bosungtable{
+.bosungtable {
     font-size: 13px;
 }
-.bstbody > tr > td.bstmota{
+
+.bstbody>tr>td.bstmota {
     max-width: 600px;
 }
-.bstbody > tr > td.bsttensp{
+
+.bstbody>tr>td.bsttensp {
     max-width: 260px;
+}
+
+.tkandlink {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tkandlink form {
+    width: 370px;
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    justify-content: center;
+}
+
+.tkandlink form input {
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid #adb5bd;
+}
+
+.tkandlink form button {
+    border: none;
+    padding: 5px;
+    font-size: 17px;
+    border-bottom: 1px solid #adb5bd;
+    background-color: white;
+}
+
+.slts {
+    width: 370px;
+    border: 1px solid #adb5bd;
+}
+
+.tkandlink ul li {
+    list-style: none;
+}
+
+.tkandlink ul li a {
+    position: relative;
+    font-size: 18px;
+    color: white;
+    bottom: -5px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 9px;
+    background-color: green;
+}
+
+.tkandlink ul li a:hover {
+    color: white;
+    background-color: green;
+    box-shadow: 1px 1px 2px 2px green;
 }
