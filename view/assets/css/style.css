@@ -11256,6 +11256,7 @@ a.bssigorreg:hover{
 }
 div.quantity input.inp-sl,
 .table .tbodytb tr td input.inp-sl{
+  margin-left: 10px;
   width: 55px;
   padding: 10px;
   border: none;
