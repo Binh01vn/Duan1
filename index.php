@@ -37,8 +37,15 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
                 $checkuser = check_user($username, $pass);
                 if(is_array($checkuser)) {
-                    $_SESSION['username'] = $checkuser;
-                    header('Location: index.php');
+                    if($checkuser['ttacc'] != 1) {
+                        $_SESSION['username'] = $checkuser;
+                        header('Location: index.php');
+                        die();
+                    } else {
+                        $tbsacc = "Tài khoản bị khóa!";
+                        include('view/taikhoan/sigorreg.php');
+                        break;
+                    }
                 } else {
                     $tbsacc = "Sai thông tin đăng nhập!";
                 }
@@ -196,7 +203,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             }
             include('view/cart/billcart.php');
             break;
-
+        // THANH TOÁN BẰNG MOMO QR CODE
         case 'ttqrmomo':
             include('view/thanhtoan/xulyttmomo.php');
             break;

@@ -13,7 +13,7 @@ function insert_taikhoan($tensohuu, $username, $pass, $email, $phone, $diachi)
 }
 function check_user($username, $pass)
 {
-    $sql = "select * from taikhoan where username='" . $username . "'AND pass='" . $pass . "'";
+    $sql = "SELECT * FROM taikhoan WHERE username='" . $username . "' AND pass='" . $pass . "'";
     $sp = pdo_query_one($sql);
     return $sp;
 }
