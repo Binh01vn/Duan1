@@ -25,11 +25,11 @@ if(isset($_SESSION['username'])) {
                 <!-- Login Form -->
                 <form action="index.php?act=sigorreg" method="POST">
                     <div class="login-form">
-                        
+
                         <?php
-                        if(isset($tbsacc) && $tbsacc != ''){
+                        if(isset($tbsacc) && $tbsacc != '') {
                             echo '<h5 class="login-title">'.$tbsacc.'</h5>';
-                        }else{
+                        } else {
                             echo '<h4 class="login-title">Đăng nhập tài khoản</h4>';
                         }
                         ?>
@@ -66,14 +66,28 @@ if(isset($_SESSION['username'])) {
                 <form action="index.php?act=sigorreg" method="POST">
                     <input type="hidden" name="vaitro" value="">
                     <div class="login-form">
-                        <h4 class="login-title">Đăng ký tài khoản</h4>
+                        <?php
+                        if(!empty($tbdn)) { ?>
+                            <h4 class="login-title">
+                                <?= $tbdn ?>
+                            </h4>
+                        <?php } else { ?>
+                            <h4 class="login-title">Đăng ký tài khoản</h4>
+                        <?php } ?>
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Họ và tên*</label>
                                 <input type="text" placeholder="Họ và tên của bạn" name="tensohuu" required>
                             </div>
                             <div class="col-md-6">
-                                <label>Tên đăng nhập*</label>
+                                <?php
+                                if(!empty($tbusn)) { ?>
+                                    <label>
+                                        <?= $tbusn ?>
+                                    </label>
+                                <?php } else { ?>
+                                    <label>Tên đăng nhập*</label>
+                                <?php } ?>
                                 <input type="text" placeholder="Username" name="username" required>
                             </div>
                             <div class="col-md-6">
@@ -81,7 +95,14 @@ if(isset($_SESSION['username'])) {
                                 <input type="email" placeholder="Địa chỉ Email" name="email" required>
                             </div>
                             <div class="col-md-6">
-                                <label>Số điện thoại*</label>
+                            <?php
+                                if(!empty($tbphone)) { ?>
+                                    <label>
+                                        <?= $tbphone ?>
+                                    </label>
+                                <?php } else { ?>
+                                    <label>Số điện thoại*</label>
+                                <?php } ?>
                                 <input type="tel" placeholder="Phone number" name="phone" required>
                             </div>
                             <div class="col-md-12">
@@ -90,20 +111,27 @@ if(isset($_SESSION['username'])) {
                                     required>
                             </div>
                             <div class="col-md-6">
-                                <label>Mật khẩu</label>
+                                <?php
+                                if(!empty($tbpass)) { ?>
+                                    <label>
+                                        <?= $tbpass ?>
+                                    </label>
+                                <?php } else { ?>
+                                    <label>Mật khẩu</label>
+                                <?php } ?>
                                 <input type="password" placeholder="Mật khẩu của bạn" name="pass" required>
                             </div>
                             <div class="col-md-6">
-                                <label>Xác nhận</label>
+                                <?php
+                                if(!empty($tb)) { ?>
+                                    <label>
+                                        <?= $tb ?>
+                                    </label>
+                                <?php } else { ?>
+                                    <label>Xác nhận</label>
+                                <?php } ?>
                                 <input type="password" placeholder="Xác nhận lại mật khẩu của bạn" name="xnpass"
                                     required>
-                                <label>
-                                    <?php
-                                    if(isset($tb) && !empty($tb)) {
-                                        echo $tb;
-                                    }
-                                    ?>
-                                </label>
                             </div>
                             <div class="col-12">
                                 <button class="kenne-register_btn" type="submit" name="register" value="dangky">Đăng

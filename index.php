@@ -26,8 +26,25 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $diachi = $_POST['diachi'];
                 $vaitro = $_POST['vaitro'];
 
+                if(!preg_match("/^[0-9]*$/", $phone)) {
+                    $tbphone = "Vui lòng nhập số.";
+                }
+                if(strlen($username) < 5) {
+                    $tbusn = "Độ dài tên đăng nhập phải lớn hơn 5 kí tự!";
+                }
                 if($pass == $xnpass) {
-                    insert_taikhoan($tensohuu, $username, $pass, $email, $phone, $diachi);
+                    if(strlen($pass) < 16) {
+                        $tbpass = "Độ dài tên đăng nhập phải lớn hơn 15 kí tự!";
+                    } else {
+                        if(!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9]/', $pass)) {
+                            $tbpass = "Tên đăng nhập gồm chữ hoa, chữ thường và số!";
+                        } else {
+                            insert_taikhoan($tensohuu, $username, $pass, $email, $phone, $diachi);
+                            $tbdn = "Đăng ký thành công. Đăng nhập để sử dụng.";
+                            include('view/taikhoan/sigorreg.php');
+                            break;
+                        }
+                    }
                 } else {
                     $tb = "Mật khẩu không trùng khớp!";
                 }
@@ -77,7 +94,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
                 if($passnew == $xnpassnew && $tennew != "" && $usernew != "" && $emailnew != "" && $telnew != "" && $diachinew != "" && $passnew != "") {
                     update_taikhoan($tennew, $usernew, $passnew, $emailnew, $telnew, $diachinew, $idtk);
-                    session_unset();
+                    unset($_SESSION['username']);
                     header('Location: ?act=sigorreg');
                     break;
                 } else {
