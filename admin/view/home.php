@@ -48,48 +48,30 @@
     <!-- Recent Comments -->
     <div class="row">
         <div class="white-box">
-            <h3 class="box-title">Biểu đồ thống kê</h3>
-            <div class="row form_content ">
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                <div id="myChart" style="width:100%; height:300px; align-items: center"></div>
-                <script>
-                    google.charts.load('current', { 'packages': ['corechart'] });
-                    google.charts.setOnLoadCallback(drawChart);
-
-                    function drawChart() {
-
-                        // Set Data
-                        const data = google.visualization.arrayToDataTable([
-                            ['Danh mục', 'Số lượng'],
-                            <?php
-                            $tongdm = count($dsthongke);
-                            $i = 1;
-                            foreach($dsthongke as $thongke) {
-                                extract($thongke);
-                                if($i == $tongdm) {
-                                    $dauphay = "";
-                                } else {
-                                    $dauphay = ",";
-                                }
-                                echo "['".$thongke['tendm']."', ".$thongke['soluongsp']."]".$dauphay;
-                                $i += 1;
-                            }
-                            ?>
-                        ]);
-
-                        // Set Options
-                        const options = {
-                            title: 'Thống kê sản phẩm theo danh mục',
-                            is3D: true
-                        };
-
-                        // Draw
-                        const chart = new google.visualization.PieChart(document.getElementById('myChart'));
-                        chart.draw(data, options);
-
-                    }
-                </script>
-            </div>
+            <h3 class="box-title">Thống kê doanh thu</h3>
+            <div id="myfirstchart" style="height: 250px; width: 100%;"></div>
+            <script>
+                new Morris.Bar({
+                    // ID of the element in which to draw the chart.
+                    element: 'myfirstchart',
+                    // Chart data records -- each entry in this array corresponds to a point on
+                    // the chart.
+                    data: [
+                        { year: '2008', value: 20 },
+                        { year: '2009', value: 10 },
+                        { year: '2010', value: 5 },
+                        { year: '2011', value: 5 },
+                        { year: '2012', value: 20 }
+                    ],
+                    // The name of the data record attribute that contains x-values.
+                    xkey: 'year',
+                    // A list of names of data record attributes that contain y-values.
+                    ykeys: ['value'],
+                    // Labels for the ykeys -- will be displayed when you hover over the
+                    // chart.
+                    labels: ['Value']
+                });
+            </script>
         </div>
     </div>
 </div>
