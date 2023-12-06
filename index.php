@@ -234,6 +234,10 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             if(isset($_GET['idhd']) && $_GET['idhd'] > 0) {
                 $idhd = $_GET['idhd'];
                 $trangthai = $_GET['trangthai'];
+                $trangthaitt = $_GET['trangthaitt'];
+                if($trangthaitt == 1){
+                    xacnhanttdh($idhd, $trangthaitt);
+                }
                 xacnhandh($idhd, $trangthai);
                 header('Location: ?act=cthd&idhd='.$idhd.'');
             }

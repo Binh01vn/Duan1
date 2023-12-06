@@ -145,34 +145,29 @@
             <div class="col-12">
                 <div class="coupon-all">
                     <?php
-                    if($trangthaihd != 4 && $trangthaihd != 5) {
+                    if($trangthaihd == 3) {
                         echo '
                         <div class="coupon">
-                            <a href="index.php?act=xacnhandh&trangthai=4&idhd='.$idfhd.'" class="button">Đã nhận được
+                            <a href="index.php?act=xacnhandh&trangthai=4&trangthaitt=1&idhd='.$idfhd.'" class="button">Đã nhận được
                                 hàng</a>
                         </div>
                         ';
                     } else {
-                        if($trangthai_tt == 0 && $trangthaihd != 5) {
+                        if($trangthai_tt == 1 && $trangthaihd != 5) {
                             echo
                                 '<div class="coupon">
-                                    <a href="" class="button">Chờ xác nhận thanh toán</a>
+                                    <a href="index.php?act=sanpham" class="button">Mua sắm thêm</a>
                                 </div>';
                         } else if($trangthaihd == 5){
                             echo
                                 '<div class="coupon">
                                     <a href="index.php?act=xacnhandh&trangthai=0&idhd='.$idfhd.'" class="button">Đặt hàng lại</a>
                                 </div>';
-                        } else {
-                            echo
-                                '<div class="coupon">
-                                    <a href="index.php?act=sanpham" class="button">Mua sắm thêm</a>
-                                </div>';
-                        }
+                        } 
                     }
                     ?>
                     <?php
-                    if($trangthaihd == 0 || $trangthaihd == 1) {
+                    if($trangthaihd == 0 || $trangthaihd == 1 || $trangthaihd == 2) {
                         echo
                             '<div class="coupon2">
                             <a href="index.php?act=xacnhandh&trangthai=5&idhd='.$idfhd.'" class="button">Hủy đơn hàng</a>

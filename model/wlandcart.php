@@ -32,6 +32,10 @@ function xacnhandh($idhd, $trangthai) {
     $sql = "update hoadon set trangthai='".$trangthai."' where id_hd=".$idhd;
     pdo_execute($sql);
 }
+function xacnhanttdh($idhd, $trangthaitt) {
+    $sql = "update hoadon set trangthaitt='".$trangthaitt."' where id_hd=".$idhd;
+    pdo_execute($sql);
+}
 
 function loadone_sanphamCart($idList) {
     $sql = 'SELECT sp.id, sp.masp, sp.tensp, sp.giasp, sp.soluongsp, sp.motasp, sp.trangthaisp, sp.iddm, i.idimage, i.imgsp, i.idsp
