@@ -4,6 +4,13 @@
     <div class="row">
         <div class="white-box">
             <h3 class="box-title">Thống kê doanh thu</h3>
+            <select name="sltk">
+                <option value="7">7 ngày</option>
+                <option value="28">28 ngày</option>
+                <option value="90">90 ngày</option>
+                <option value="120">120 ngày</option>
+                <option value="365">360 ngày</option>
+            </select>
             <div id="myfirstchart" style="height: 250px; width: 100%;"></div>
             <script>
                 new Morris.Area({
@@ -16,7 +23,7 @@
                         {year: '2009', doanhthu: 210000},
                         {year: '2015', doanhthu: 110000},
                         {year: '2019', doanhthu: 310000},
-                        {year: '2023', doanhthu: 437000},
+                        {year: '2023', doanhthu: 437000}
                     ],
                     // The name of the data record attribute that contains x-values.
                     xkey: 'year',

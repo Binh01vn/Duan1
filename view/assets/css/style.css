@@ -11254,6 +11254,7 @@ a.bssigorreg:hover{
   border-color: #B03060;
   color: #ffffff !important;
 }
+div.quantity input.inp-sl,
 .table .tbodytb tr td input.inp-sl{
   width: 55px;
   padding: 10px;
@@ -11267,8 +11268,7 @@ a.bssigorreg:hover{
   box-shadow: 1px 1px 2px 2px #4b6f7c3d;
 }
 .msn{
-  background-color: #242424;
-  border: 1px solid #e5e5e5;
+  border: 2px solid #e5e5e5;
   color: #ffffff;
   display: inline-block;
   margin-top: 30px;
