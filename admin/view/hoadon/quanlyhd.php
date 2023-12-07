@@ -9,7 +9,7 @@
                         <input type="text" name="kyc" placeholder="Tìm kiếm theo mã hóa đơn">
                         <button><i class="fas fa-search"></i></button>
                     </form>
-                    <select name="sgia" id="" class="slts">
+                    <select name="sgia" id="sgiahd" class="slts" onchange="loctheogia()">
                         <option value="1000000">Trên 1.000.000</option>
                         <option value="2000000">Trên 2.000.000</option>
                         <option value="5000000">Trên 5.000.000</option>
@@ -35,14 +35,15 @@
                         </thead>
                         <tbody>
                             <?php
-                            foreach($listhd as $lhd) {
+                            foreach ($listhd as $lhd) {
                                 extract($lhd);
-                                $linkcn = "index.php?act=cnhd&idhd=".$id_hd;
-                                foreach($listusers as $lus) {
+                                $linkcn = "index.php?act=cnhd&idhd=" . $id_hd;
+                                foreach ($listusers as $lus) {
                                     extract($lus);
-                                    if($idacc == $iduser && $trangthai != 4 && $trangthaitt != 1) { ?>
+                                    if ($idacc == $iduser && $trangthai != 4 && $trangthaitt != 1) { ?>
                                         <tr>
-                                            <td>#-<?= $id_hd ?>
+                                            <td>#-
+                                                <?= $id_hd ?>
                                             </td>
                                             <td>
                                                 <?= $tensohuu ?>
@@ -52,30 +53,30 @@
                                             </td>
 
                                             <td>
-                                                <?= number_format((int)$tonghd, 0, ",", ".") ?>
+                                                <?= number_format((int) $tonghd, 0, ",", ".") ?>
                                             </td>
                                             <td>
                                                 <?php
-                                                if($trangthai == 0) {
+                                                if ($trangthai == 0) {
                                                     echo "Chờ xác nhận.";
-                                                } else if($trangthai == 1) {
+                                                } else if ($trangthai == 1) {
                                                     echo "Đã xác nhận.";
-                                                } else if($trangthai == 2) {
+                                                } else if ($trangthai == 2) {
                                                     echo "Đang chuẩn bị hàng.";
-                                                } else if($trangthai == 3) {
+                                                } else if ($trangthai == 3) {
                                                     echo "Đang giao hàng.";
-                                                } else if($trangthai == 4) {
+                                                } else if ($trangthai == 4) {
                                                     echo '<b style="color: green;">Đã nhận hàng.</b>';
-                                                } else if($trangthai == 5) {
+                                                } else if ($trangthai == 5) {
                                                     echo '<div style="color: red;">Đơn hàng bị hủy.</div>';
                                                 }
                                                 ?>
                                             </td>
                                             <td>
                                                 <?php
-                                                if($trangthaitt == 0) {
+                                                if ($trangthaitt == 0) {
                                                     echo '<div style="color: red;">Chưa thanh toán.</div>';
-                                                } else if($trangthaitt == 1) {
+                                                } else if ($trangthaitt == 1) {
                                                     echo '<b style="color: green;">Đã thanh toán.</b>';
                                                 }
                                                 ?>
@@ -96,3 +97,29 @@
     </div>
 </div>
 <!-- End Container fluid  -->
+<script>
+    let totalProduct = document.getElementById('totalProduct');
+    // hàm cập nhật size ===============================================================================
+    function loctheogia() {
+        let sgia = $('#sgiahd').val();
+        console.log(sgia);
+        // Gửi yêu cầu bằng ajax để cập nhật giỏ hàng
+        // $.ajax({
+        //     type: 'POST',
+        //     url: './view/cart/cnsizesp.php',
+        //     data: {
+        //         id: id,
+        //         nsize: newSize
+        //     },
+        //     success: function (response) {
+        //         // Sau khi cập nhật thành công
+        //         $.post('./view/cart/bangcart.php', function (data) {
+        //             $('#order').html(data);
+        //         })
+        //     },
+        //     error: function (error) {
+        //         console.log(error);
+        //     },
+        // })
+    }
+</script>
