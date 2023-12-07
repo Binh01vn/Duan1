@@ -254,13 +254,33 @@ if ((isset($_GET['act']))) {
 
         // QUẢN LÝ HÓA ĐƠN ===========================
         case 'qlhoadon':
-            $listhd = select_hoadon(null, null);
+            if(isset($_POST['sgia']) && $_POST['sgia'] >0){
+                $sgia = $_POST['sgia'];
+            }else{
+                $sgia = '';
+            }
+            if(isset($_POST['kyc']) && $_POST['kyc'] != ""){
+                $kyc = $_POST['kyc'];
+            }else{
+                $kyc = "";
+            }
+            $listhd = select_hoadon($kyc, $sgia);
             $listusers = loadall_taikhoan();
             include('view/hoadon/quanlyhd.php');
             break;
         // DANH SÁCH HÓA ĐƠN ĐÃ HOÀN THÀNH
         case 'listhdcpl':
-            $listhd = select_hoadon(null, null);
+            if(isset($_POST['sgia']) && $_POST['sgia'] >0){
+                $sgia = $_POST['sgia'];
+            }else{
+                $sgia = '';
+            }
+            if(isset($_POST['kyc']) && $_POST['kyc'] != ""){
+                $kyc = $_POST['kyc'];
+            }else{
+                $kyc = "";
+            }
+            $listhd = select_hoadon($kyc, $sgia);
             $listusers = loadall_taikhoan();
             include('view/hoadon/listhdcpl.php');
             break;

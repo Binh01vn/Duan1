@@ -68,9 +68,6 @@ foreach ($listhd as $lhd) {
                                     <option value="1">Đã xác nhận</option>
                                     <option value="2">Đang chuẩn bị hàng</option>
                                     <option value="3">Đang giao hàng</option>
-                                    <option value="4" <?php if (isset($s) && $s != "")
-                                        echo $s; ?>>Đã nhận hàng</option>
-                                    <option value="5">Đơn hàng bị hủy</option>
                                 </select>
                             </div>
                         </div>

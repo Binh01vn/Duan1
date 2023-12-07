@@ -5,15 +5,17 @@
         <div class="col-sm-12">
             <div class="white-box">
                 <div class="tkandlink">
-                    <form action="" method="post">
+                    <form action="index.php?act=listhdcpl" method="post">
+                        <select name="sgia" class="slts">
+                            <option value="0">Tất cả</option>
+                            <option value="1000000">Trên 1.000.000</option>
+                            <option value="2000000">Trên 2.000.000</option>
+                            <option value="5000000">Trên 5.000.000</option>
+                            <option value="10000000">Trên 10.000.000</option>
+                        </select>
                         <input type="text" name="kyc" placeholder="Tìm kiếm theo mã hóa đơn">
                         <button><i class="fas fa-search"></i></button>
                     </form>
-                    <select name="sgia" id="" class="slts">
-                        <option value="1000000">Trên 1 triệu</option>
-                        <option value="2000000">Trên 2 triệu</option>
-                        <option value="5000000">Trên 5 triệu</option>
-                    </select>
                     <ul>
                         <li><a href="index.php?act=qlhoadon">Danh sách hóa đơn</a></li>
                     </ul>
@@ -30,7 +32,7 @@
                                 <th class="border-top-0">Tổng hóa đơn</th>
                                 <th class="border-top-0">Trạng thái đơn</th>
                                 <th class="border-top-0">Trạng thái thanh toán</th>
-                                <th></th>
+                                <th class="border-top-0">Xem chi tiết</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,7 +84,7 @@
                                                 ?>
                                             </td>
                                             <td>
-                                                <a href="<?= $linkct ?>" class="fas fa-edit"></a>
+                                                <a href="<?= $linkct ?>" class="fas fa-eye"></a>
                                             </td>
                                         </tr>
                                     <?php }

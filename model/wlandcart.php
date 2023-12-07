@@ -57,9 +57,9 @@ function loadone_sanphamCart($idList)
 function select_hoadon($kyc, $sgia)
 {
     if ($kyc != "") {
-        $sql = "select * from hoadon where 1 id_hd =" . $kyc;
-    } else if ($sgia) {
-        $sql = "select * from hoadon where 1 tonghd >=" . $sgia;
+        $sql = "select * from hoadon where 1 and id_hd =" . $kyc;
+    } else if ($sgia > 0) {
+        $sql = "select * from hoadon where 1 and tonghd >=" . $sgia;
     }else{
         $sql = "select * from hoadon order by id_hd desc";
     }

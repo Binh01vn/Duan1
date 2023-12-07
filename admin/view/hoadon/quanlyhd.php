@@ -5,15 +5,17 @@
         <div class="col-sm-12">
             <div class="white-box">
                 <div class="tkandlink">
-                    <form action="" method="post">
+                    <form action="index.php?act=qlhoadon" method="post">
+                        <select name="sgia" class="slts">
+                            <option value="0">Tất cả</option>
+                            <option value="1000000">Trên 1.000.000</option>
+                            <option value="2000000">Trên 2.000.000</option>
+                            <option value="5000000">Trên 5.000.000</option>
+                            <option value="10000000">Trên 10.000.000</option>
+                        </select>
                         <input type="text" name="kyc" placeholder="Tìm kiếm theo mã hóa đơn">
                         <button><i class="fas fa-search"></i></button>
                     </form>
-                    <select name="sgia" id="sgiahd" class="slts" onchange="loctheogia()">
-                        <option value="1000000">Trên 1.000.000</option>
-                        <option value="2000000">Trên 2.000.000</option>
-                        <option value="5000000">Trên 5.000.000</option>
-                    </select>
                     <ul>
                         <li><a href="index.php?act=listhdcpl">Danh sách hóa đơn đã hoàn thành</a></li>
                     </ul>
@@ -97,29 +99,3 @@
     </div>
 </div>
 <!-- End Container fluid  -->
-<script>
-    let totalProduct = document.getElementById('totalProduct');
-    // hàm cập nhật size ===============================================================================
-    function loctheogia() {
-        let sgia = $('#sgiahd').val();
-        console.log(sgia);
-        // Gửi yêu cầu bằng ajax để cập nhật giỏ hàng
-        // $.ajax({
-        //     type: 'POST',
-        //     url: './view/cart/cnsizesp.php',
-        //     data: {
-        //         id: id,
-        //         nsize: newSize
-        //     },
-        //     success: function (response) {
-        //         // Sau khi cập nhật thành công
-        //         $.post('./view/cart/bangcart.php', function (data) {
-        //             $('#order').html(data);
-        //         })
-        //     },
-        //     error: function (error) {
-        //         console.log(error);
-        //     },
-        // })
-    }
-</script>

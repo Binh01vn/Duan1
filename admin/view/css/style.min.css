@@ -15901,16 +15901,17 @@ html body .waves-notransition {
 
 .tkandlink {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
 }
 
 .tkandlink form {
-    width: 370px;
+    width: 700px;
     display: grid;
-    grid-template-columns: 6fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
+    gap: 30px;
 }
 
 .tkandlink form input {
