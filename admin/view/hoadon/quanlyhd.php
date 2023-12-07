@@ -10,9 +10,9 @@
                         <button><i class="fas fa-search"></i></button>
                     </form>
                     <select name="sgia" id="" class="slts">
-                        <option value="1000000">Trên 1 triệu</option>
-                        <option value="2000000">Trên 2 triệu</option>
-                        <option value="5000000">Trên 5 triệu</option>
+                        <option value="1000000">Trên 1.000.000</option>
+                        <option value="2000000">Trên 2.000.000</option>
+                        <option value="5000000">Trên 5.000.000</option>
                     </select>
                     <ul>
                         <li><a href="index.php?act=listhdcpl">Danh sách hóa đơn đã hoàn thành</a></li>
