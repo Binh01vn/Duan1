@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th class="border-top-0">Mã hóa đơn</th>
-                                <th class="border-top-0">Email</th>
+                                <th class="border-top-0">Khách hàng</th>
                                 <th class="border-top-0">Ngày</th>
                                 <th class="border-top-0">Tổng hóa đơn</th>
                                 <th class="border-top-0">Trạng thái đơn</th>
@@ -45,7 +45,7 @@
                                             <td>#-<?= $id_hd ?>
                                             </td>
                                             <td>
-                                                <?= $email ?>
+                                                <?= $tensohuu ?>
                                             </td>
                                             <td>
                                                 <?= $ngaydat ?>

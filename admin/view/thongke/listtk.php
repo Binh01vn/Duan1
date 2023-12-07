@@ -17,7 +17,7 @@
             </thead>
             <tbody>
               <?php
-              foreach($dsthongke as $thongke) {
+              foreach ($dsthongke as $thongke) {
                 extract($thongke);
                 ?>
                 <tr>
@@ -31,13 +31,13 @@
                     <?php echo $soluongsp ?>
                   </td>
                   <td> $
-                    <?php echo number_format((int)$gia_min, 0, ",", ".") ?>
+                    <?php echo number_format((int) $gia_min, 0, ",", ".") ?>
                   </td>
                   <td>$
-                    <?php echo number_format((int)$gia_max, 0, ",", ".") ?>
+                    <?php echo number_format((int) $gia_max, 0, ",", ".") ?>
                   </td>
                   <td>$
-                    <?php echo number_format((int)$gia_avg, 0, ",", ".") ?>
+                    <?php echo number_format((int) $gia_avg, 0, ",", ".") ?>
                   </td>
                 </tr>
                 <?php
@@ -45,6 +45,11 @@
               ?>
             </tbody>
           </table>
+        </div>
+        <div class="form-group mb-4">
+          <div class="col-sm-12">
+            <a class="btn btn-success" href="index.php?act=listuserlock">Danh sách thống kê doanh thu</a>
+          </div>
         </div>
       </div>
     </div>
