@@ -63,15 +63,6 @@ foreach($listhd as $lhd) {
                             </div>
                         </div>
                         <div class="form-group mb-4">
-                            <label class="col-md-12 p-0">Trang thái thanh toán</label>
-                            <div class="col-sm-12 border-bottom">
-                                <select class="form-select shadow-none p-0 border-0" name="trangthaitt">
-                                    <option value="0" selected>Chưa thanh toán</option>
-                                    <option value="1">Đã thanh toán</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group mb-4">
                             <div class="col-sm-12">
                                 <button class="btn btn-success" type="submit" name="updatevaitro" value="vaitro">Cập
                                     nhật hóa đơn</button>

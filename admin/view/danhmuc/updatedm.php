@@ -18,7 +18,7 @@ if (is_array($dm)) {
                             </div>
                         </div>
                         <?php
-                        if (isset($thongbao) && $thongbao != "") {
+                        if (!empty($thongbao)) {
                             echo '<label class="col-md-12 p-0"><b>' . $thongbao . '</b></label>';
                         }
                         ?>

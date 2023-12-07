@@ -4,7 +4,7 @@
     <div class="row">
         <div class="white-box">
             <h3 class="box-title">Thống kê doanh thu</h3>
-            <select name="sltk">
+            <select name="sltk" class="slts">
                 <option value="7">7 ngày</option>
                 <option value="28">28 ngày</option>
                 <option value="90">90 ngày</option>

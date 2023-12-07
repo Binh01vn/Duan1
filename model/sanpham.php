@@ -65,7 +65,7 @@ function loadone_imgsp($id){
     $sp = pdo_query_one($sql);
     return $sp;
 }
-function capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp, $sizesp){
+function capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $iddm, $imgsp){
     $sql = "update sanpham
             set tensp='".$tensp."', giasp='".$giasp."', motasp='".$motasp."', soluongsp='".$soluongsp."', iddm='".$iddm."'
             where id=".$id;

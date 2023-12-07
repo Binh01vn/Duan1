@@ -41,19 +41,6 @@ if (is_array($listsp)) {
                             </div>
                         </div>
                         <div class="form-group mb-4">
-                            <label class="col-md-12 p-0">Size sản phẩm</label>
-                            <div class="col-md-12 border-bottom p-0">
-                                <?php
-                                foreach ($listsize as $lsz) {
-                                    extract($lsz);
-                                    if ($idsp == $id_sp) {
-                                        echo '<input type="number" name="sizesp" value="' . $sizesp . '">';
-                                    }
-                                }
-                                ?>
-                            </div>
-                        </div>
-                        <div class="form-group mb-4">
                             <label for="example-email" class="col-md-12 p-0">Giá</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <input type="number" class="form-control p-0 border-0" name="giasp"

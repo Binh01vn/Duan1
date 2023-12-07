@@ -60,7 +60,7 @@ if((isset($_GET['act']))) {
                 $id_dm = $_POST['id_dm'];
                 if(empty($tendm)) {
                     $thongbao = "Tên danh mục trống!";
-                } else if(preg_match("/^[a-zA-z]*$/", $tendm)) {
+                } else if(!preg_match("/^[a-zA-z]*$/", $tendm)) {
                     $thongbao = "Tên danh mục không chứa số!";
                 } else {
                     update_danhmuc($id_dm, $tendm);
@@ -173,7 +173,6 @@ if((isset($_GET['act']))) {
                 $giasp = $_POST['giasp'];
                 $soluongsp = $_POST['soluongsp'];
                 $motasp = $_POST['motasp'];
-                $sizesp = $_POST['sizesp'];
 
                 $id_dm = $_POST['id_dm'];
 
@@ -187,7 +186,7 @@ if((isset($_GET['act']))) {
 
                 }
 
-                capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $id_dm, $imgsp, $sizesp);
+                capnhat_sp($id, $tensp, $giasp, $motasp, $soluongsp, $id_dm, $imgsp);
                 $listdm = list_danhmuc();
                 $listsize = listall_size();
                 $listsp = listall_sp("", 0);
@@ -270,8 +269,7 @@ if((isset($_GET['act']))) {
             if(isset($_POST['updatevaitro']) && ($_POST['updatevaitro'])) {
                 $idHD = $_POST['idHD'];
                 $trangthain = $_POST['trangthain'];
-                $trangthaitt = $_POST['trangthaitt'];
-                capnhat_tthd($trangthain, $trangthaitt, $idHD);
+                capnhat_tthd($trangthain, $idHD);
                 $listhd = select_hoadon();
                 header('Location: ?act=qlhoadon');
                 die();
