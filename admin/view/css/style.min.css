@@ -15952,3 +15952,19 @@ html body .waves-notransition {
     background-color: green;
     box-shadow: 1px 1px 2px 2px green;
 }
+
+.tbcthd{
+    margin-top: 20px;
+  }
+  .tbcthd thead{
+    background-color: #000000;
+    color: white;
+  }
+  .tbcthd thead tr th{
+    padding: 10px;
+    border-right: 1px solid white;
+  }
+  .tbcthd tbody tr td{
+    padding: 10px;
+    box-shadow: 1px 1px 2px 2px #4b6f7c3d;
+  }

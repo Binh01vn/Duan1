@@ -298,6 +298,10 @@ if ((isset($_GET['act']))) {
             include('view/hoadon/capnhathd.php');
             break;
 
+        case 'cthd':
+            include('view/hoadon/chitiethd.php');
+            break;
+
         // QUẢN LÝ TÀI KHOẢN ==================================================
         case 'listuser':
             $listusers = loadall_taikhoan();
