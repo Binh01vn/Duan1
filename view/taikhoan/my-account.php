@@ -88,7 +88,7 @@
                                                 <th></th>
                                             </tr>
                                             <?php
-                                            $listhd = select_hoadon();
+                                            $listhd = select_hoadon(null, null);
                                             foreach($listhd as $lhd) {
                                                 extract($lhd);
                                                 if($iduser == $_SESSION['username']['idacc']) {

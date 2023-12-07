@@ -254,13 +254,13 @@ if ((isset($_GET['act']))) {
 
         // QUẢN LÝ HÓA ĐƠN ===========================
         case 'qlhoadon':
-            $listhd = select_hoadon();
+            $listhd = select_hoadon(null, null);
             $listusers = loadall_taikhoan();
             include('view/hoadon/quanlyhd.php');
             break;
         // DANH SÁCH HÓA ĐƠN ĐÃ HOÀN THÀNH
         case 'listhdcpl':
-            $listhd = select_hoadon();
+            $listhd = select_hoadon(null, null);
             $listusers = loadall_taikhoan();
             include('view/hoadon/listhdcpl.php');
             break;
@@ -270,11 +270,11 @@ if ((isset($_GET['act']))) {
                 $idHD = $_POST['idHD'];
                 $trangthain = $_POST['trangthain'];
                 capnhat_tthd($trangthain, $idHD);
-                $listhd = select_hoadon();
+                $listhd = select_hoadon(null, null);
                 header('Location: ?act=qlhoadon');
                 die();
             }
-            $listhd = select_hoadon();
+            $listhd = select_hoadon(null, null);
             include('view/hoadon/capnhathd.php');
             break;
 

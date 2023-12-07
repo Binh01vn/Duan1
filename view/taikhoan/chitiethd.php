@@ -49,7 +49,7 @@ if(!empty($_SESSION['username'])){
                 </thead>
                 <tbody>
                     <?php
-                    $listhd = select_hoadon();
+                    $listhd = select_hoadon(null, null);
                     foreach ($listhd as $lhd) {
                         extract($lhd);
                         $idfhd = $id_hd;
