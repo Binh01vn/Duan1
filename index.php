@@ -199,6 +199,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                         header('Location: ?act=ttqrmomo');
                         die();
                     }
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
                     $ngaydh = date('Y-m-d');
                     $tonghd = $_SESSION['tongdh'];
                     $trangthai = $_POST['trangthai'];
@@ -208,7 +209,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                     foreach($_SESSION['giohang'] as $carttt) {
                         insert_billhoadon($idBill, $carttt['idsp'], $carttt['tensp'], $carttt['sizesp'], $carttt['giasp'], $carttt['tongspCart'], ($tongtien = $carttt['giasp'] * $carttt['tongspCart']));
                     }
-                    $tbdh = "Đặt hàng thành công!";
+                    $tbdh = "Đặt hàng thành công! Cảm ơn quý khách đã ủng hộ shop của chúng tôi!";
                     unset($_SESSION['giohang']);
                     unset($_SESSION['tongdh']);
                     include('view/taikhoan/my-account.php');

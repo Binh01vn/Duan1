@@ -10,6 +10,7 @@
 
 <!-- All Jquery -->
 <!-- ============================================================== -->
+<script src="view/plugins/bower_components/jquery/dist/jquery-3.7.1.min.js"></script>
 <script src="view/plugins/bower_components/jquery/dist/jquery.min.js"></script>
 
 <!-- Bootstrap tether Core JavaScript -->

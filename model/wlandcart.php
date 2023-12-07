@@ -38,7 +38,7 @@ function xacnhanttdh($idhd, $trangthaitt) {
 }
 
 function loadone_sanphamCart($idList) {
-    $sql = 'SELECT sp.id, sp.masp, sp.tensp, sp.giasp, sp.soluongsp, sp.motasp, sp.trangthaisp, sp.iddm, i.idimage, i.imgsp, i.idsp
+    $sql = 'SELECT sp.id, sp.masp, sp.tensp, sp.giasp, sp.soluongsp, sp.motasp, sp.iddm, i.idimage, i.imgsp, i.idsp
     FROM sanpham sp
     INNER JOIN image i ON i.idsp = sp.id 
     WHERE id IN ('.$idList.')';
