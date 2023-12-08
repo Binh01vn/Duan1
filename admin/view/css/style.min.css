@@ -15909,7 +15909,7 @@ html body .waves-notransition {
 .tkandlink form {
     width: 700px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 3fr 1fr;
     justify-content: center;
     gap: 30px;
 }
@@ -15918,18 +15918,24 @@ html body .waves-notransition {
     border: none;
     padding: 5px;
     border-bottom: 1px solid #adb5bd;
+    border-top: 1px solid #adb5bd;
 }
 
 .tkandlink form button {
-    border: none;
+    border: 1px solid #adb5bd;
     padding: 5px;
     font-size: 17px;
-    border-bottom: 1px solid #adb5bd;
     background-color: white;
+    border-radius: 7px;
+}
+.tkandlink form button:hover {
+    font-size: 21px;
+    border: none;
+    box-shadow: 1px 1px 2px 2px #171515;
 }
 
 .slts {
-    width: 370px;
+    width: auto;
     border: 1px solid #adb5bd;
 }
 
