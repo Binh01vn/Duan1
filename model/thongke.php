@@ -9,17 +9,11 @@ function load_thongke_sanpham_danhmuc()
     return pdo_query($sql);
 }
 
-function thongke_donhthu($subDays, $now){
-    $sql = "SELECT hd.ngaydat, hd.tonghd, hd.trangthaitt, bhd.soluongspcart
+function thongke_donhthu($subDays, $now)
+{
+    $sql = "SELECT hd.ngaydat, hd.tonghd, hd.trangthaitt
             FROM hoadon hd
-            INNER JOIN billhoadon bhd ON hd.id_hd = bhd.idhd
             WHERE ngaydat BETWEEN '$subDays' AND '$now' ORDER BY ngaydat ASC";
     return pdo_query($sql);
 }
-// function thongke_donhthu($subDays, $now){
-//     $sql = "SELECT date(MAX(hd.ngaydat)) as tungay, date(MIN(hd.ngaydat)) as denngay, SUM(tonghd) as doanhthu
-//             FROM hoadon hd
-//             WHERE date(hd.ngaydat) >= '$subDays' and date(hd.ngaydat) <= '$now'";
-//     return pdo_query($sql);
-// }
 ?>

@@ -15951,12 +15951,14 @@ html body .waves-notransition {
     font-family: Arial, Helvetica, sans-serif;
     padding: 9px;
     background-color: green;
+    border-radius: 5px;
 }
 
 .tkandlink ul li a:hover {
-    color: white;
-    background-color: green;
-    box-shadow: 1px 1px 2px 2px green;
+    border: 1px solid green;
+    color: green;
+    background-color: white;
+    /* box-shadow: 1px 1px 2px 2px green; */
 }
 
 .tbcthd{

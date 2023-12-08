@@ -19,13 +19,12 @@ $now = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
 $thongkedt = thongke_donhthu($subDays, $now);
 // var_dump($thongkedt);
 foreach ($thongkedt as $tkdt) {
-    // if ($tkdt['trangthaitt'] == 1) {
+    if ($tkdt['trangthaitt'] == 1) {
         $chart_data[] = array(
             'date' => $tkdt['ngaydat'],
-            'slb' => $tkdt['soluongspcart'],
             'doanhthu' => $tkdt['tonghd']
         );
-    // }
+    }
 }
 echo $data = json_encode($chart_data);
 ?>
