@@ -24,7 +24,7 @@
             </div>
             <div class="col-lg-6 col-md-7 d-flex align-items-center">
                 <div class="overview-content">
-                    <h2>Welcome To <span>Kenne's</span> Store!</h2>
+                    <h2>Chào mừng đến với <span>BAK </span>Nike shop!</h2>
                     <p class="short_desc">We Provide Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                         Repudiandae nisi fuga facilis, consequuntur, maiores eveniet voluptatum, omnis possimus
                         temporibus aspernatur nobis animi in exercitationem vitae nulla! Adipisci ullam illum quisquam.

@@ -47,21 +47,6 @@ if(isset($_SESSION['username'])) {
                                     <div class="single-slide red zoom">
                                         <?= $img ?>
                                     </div>
-                                    <div class="single-slide orange zoom">
-                                        <img src="view/assets/images/product/1-2.jpg" alt="Kenne's Product Image">
-                                    </div>
-                                    <div class="single-slide brown zoom">
-                                        <img src="view/assets/images/product/2-1.jpg" alt="Kenne's Product Image">
-                                    </div>
-                                    <div class="single-slide umber zoom">
-                                        <img src="view/assets/images/product/2-2.jpg" alt="Kenne's Product Image">
-                                    </div>
-                                    <div class="single-slide black zoom">
-                                        <img src="view/assets/images/product/3-1.jpg" alt="Kenne's Product Image">
-                                    </div>
-                                    <div class="single-slide green zoom">
-                                        <img src="view/assets/images/product/3-2.jpg" alt="Kenne's Product Image">
-                                    </div>
                                 <?php }
                             } ?>
                         </div>
@@ -89,21 +74,6 @@ if(isset($_SESSION['username'])) {
                                     ?>
                                     <div class="single-slide red">
                                         <?= $img ?>
-                                    </div>
-                                    <div class="single-slide orange">
-                                        <img src="view/assets/images/product/1-2.jpg" alt="Kenne's Product Thumnail">
-                                    </div>
-                                    <div class="single-slide brown">
-                                        <img src="view/assets/images/product/2-1.jpg" alt="Kenne's Product Thumnail">
-                                    </div>
-                                    <div class="single-slide umber">
-                                        <img src="view/assets/images/product/2-2.jpg" alt="Kenne's Product Thumnail">
-                                    </div>
-                                    <div class="single-slide red">
-                                        <img src="view/assets/images/product/3-1.jpg" alt="Kenne's Product Thumnail">
-                                    </div>
-                                    <div class="single-slide orange">
-                                        <img src="view/assets/images/product/3-2.jpg" alt="Kenne's Product Thumnail">
                                     </div>
                                 <?php }
                             } ?>

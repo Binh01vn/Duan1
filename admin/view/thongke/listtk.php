@@ -46,9 +46,34 @@
             </tbody>
           </table>
         </div>
-        <div class="form-group mb-4">
+        <div class="row">
           <div class="col-sm-12">
-            <a class="btn btn-success" href="index.php?act=listuserlock">Danh sách thống kê doanh thu</a>
+            <div class="white-box">
+              <div id="donutchart" style="width: 100%; height: 370px;"></div>
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+              <script type="text/javascript">
+                google.charts.load("current", { packages: ["corechart"] });
+                google.charts.setOnLoadCallback(drawChart);
+                function drawChart() {
+                  const data = google.visualization.arrayToDataTable([
+                    ['Danh mục', 'Số lượng'],
+                    <?php
+                    foreach ($dsthongke as $thongke) {
+                      extract($thongke);
+                      echo "['$tendm', $soluongsp],";
+                    }
+                    ?>
+                  ])
+                  var options = {
+                    title: 'Thống kê sản phẩm tồn kho theo danh mục',
+                    pieHole: 0.4,
+                  };
+
+                  var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                  chart.draw(data, options);
+                }
+              </script>
+            </div>
           </div>
         </div>
       </div>
