@@ -11,12 +11,12 @@ include("view/header.php");
 
 $spnew = list_spnew_home();
 $dsdm = list_danhmuc();
-if((isset($_GET['act'])) && ($_GET['act'] != "")) {
+if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
     $act = $_GET['act'];
-    switch($act) {
+    switch ($act) {
         // CONTROLLER ĐĂNG NHẬP VÀ ĐĂNG KÝ ==================================================
         case 'sigorreg':
-            if(isset($_POST['register']) && ($_POST['register'])) {
+            if (isset($_POST['register']) && ($_POST['register'])) {
                 $tensohuu = $_POST['tensohuu'];
                 $username = $_POST['username'];
                 $pass = $_POST['pass'];
@@ -26,17 +26,17 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $diachi = $_POST['diachi'];
                 $vaitro = $_POST['vaitro'];
 
-                if(!preg_match("/^[0-9]*$/", $phone)) {
+                if (!preg_match("/^[0-9]*$/", $phone)) {
                     $tbphone = "Vui lòng nhập số.";
                 }
-                if(strlen($username) < 5) {
+                if (strlen($username) < 5) {
                     $tbusn = "Độ dài tên đăng nhập phải lớn hơn 5 kí tự!";
                 }
-                if($pass == $xnpass) {
-                    if(strlen($pass) < 16) {
+                if ($pass == $xnpass) {
+                    if (strlen($pass) < 16) {
                         $tbpass = "Độ dài tên đăng nhập phải lớn hơn 15 kí tự!";
                     } else {
-                        if(!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9]/', $pass)) {
+                        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9]/', $pass)) {
                             $tbpass = "Tên đăng nhập gồm chữ hoa, chữ thường và số!";
                         } else {
                             insert_taikhoan($tensohuu, $username, $pass, $email, $phone, $diachi);
@@ -48,13 +48,13 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 } else {
                     $tb = "Mật khẩu không trùng khớp!";
                 }
-            } else if(isset($_POST['signin']) && ($_POST['signin'])) {
+            } else if (isset($_POST['signin']) && ($_POST['signin'])) {
                 $username = $_POST['username'];
                 $pass = $_POST['pass'];
 
                 $checkuser = check_user($username, $pass);
-                if(is_array($checkuser)) {
-                    if($checkuser['ttacc'] != 1) {
+                if (is_array($checkuser)) {
+                    if ($checkuser['ttacc'] != 1) {
                         $_SESSION['username'] = $checkuser;
                         header('Location: index.php');
                         die();
@@ -82,7 +82,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         // CẬP NHẬT THÔNG TIN TÀI KHOẢN
         case 'capnhattt':
-            if(isset($_POST['updateacc']) && ($_POST['updateacc'])) {
+            if (isset($_POST['updateacc']) && ($_POST['updateacc'])) {
                 $tennew = $_POST['tennew'];
                 $usernew = $_POST['usernew'];
                 $emailnew = $_POST['emailnew'];
@@ -92,7 +92,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $xnpassnew = $_POST['xnpassnew'];
                 $idtk = $_POST['idtk'];
 
-                if($passnew == $xnpassnew && $tennew != "" && $usernew != "" && $emailnew != "" && $telnew != "" && $diachinew != "" && $passnew != "") {
+                if ($passnew == $xnpassnew && $tennew != "" && $usernew != "" && $emailnew != "" && $telnew != "" && $diachinew != "" && $passnew != "") {
                     update_taikhoan($tennew, $usernew, $passnew, $emailnew, $telnew, $diachinew, $idtk);
                     unset($_SESSION['username']);
                     header('Location: ?act=sigorreg');
@@ -107,7 +107,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
         // CONTROLLER GIỎ HÀNG ==================================================
         case 'wlandac':
             // Kiểm tra xem giỏ hàng có dữ liệu hay không
-            if(!empty($_SESSION['giohang'])) {
+            if (!empty($_SESSION['giohang'])) {
                 $cart = $_SESSION['giohang'];
 
                 // Tạo mảng chứa ID các sản phẩm trong giỏ hàng
@@ -125,10 +125,10 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
             break;
         // THÊM GIỎ HÀNG CHI TIẾT
         case 'addCart':
-            if(empty($_SESSION['giohang'])) {
+            if (empty($_SESSION['giohang'])) {
                 $_SESSION['giohang'] = [];
             }
-            if(isset($_POST['addgio']) && $_POST['addgio']) {
+            if (isset($_POST['addgio']) && $_POST['addgio']) {
                 $idsp = $_POST['idsp'];
                 $tensp = $_POST['tensp'];
                 $sizesp = $_POST['sizesp'];
@@ -136,12 +136,12 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
                 $giasp = $_POST['giasp'];
 
                 $index = false;
-                if(!empty($_SESSION['giohang'])) {
+                if (!empty($_SESSION['giohang'])) {
                     $index = array_search($idsp, array_column($_SESSION['giohang'], 'idsp'));
                 }
 
                 // array_column() trích xuất một cột từ mảng giỏ hàng và trả về một mảng chứ giá trị của cột id
-                if($index !== false) {
+                if ($index !== false) {
                     $_SESSION['giohang'][$index]['tongspCart'] += 1;
                 } else {
                     // Nếu sản phẩm chưa tồn tại thì thêm mới vào giỏ hàng
@@ -164,7 +164,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         // XÓA SẢN PHẨM TRONG GIỎ HÀNG THEO ID
         case 'linkdelspid':
-            if(isset($_GET['delsp']) && $_GET['delsp'] >= 0) {
+            if (isset($_GET['delsp']) && $_GET['delsp'] >= 0) {
                 array_splice($_SESSION['giohang'], $_GET['delsp'], 1);
                 header('Location: ?act=wlandac');
             }
@@ -173,7 +173,7 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         // XÓA TOÀN BỘ GIỎ HÀNG
         case 'delcart':
-            if(isset($_GET['del']) && $_GET['del'] == 1) {
+            if (isset($_GET['del']) && $_GET['del'] == 1) {
                 unset($_SESSION['giohang']);
                 unset($_SESSION['tongdh']);
                 header('Location: ?act=wlandac');
@@ -187,26 +187,38 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         // THANH TOÁN, ĐẶT HÀNG
         case 'thanhtoan':
-            if(isset($_SESSION['giohang'])) {
-                if(isset($_POST['xndh']) && ($_POST['xndh'])) {
+            if (isset($_SESSION['giohang'])) {
+                if (isset($_POST['xndh']) && ($_POST['xndh'])) {
                     $iduser = $_POST['iduser'];
                     $diachi = $_POST['diachi'];
-                    if($diachi != null) {
-                        capnhat_diachi($diachi, $iduser);
-                    }
-                    $pttt = $_POST['pttt'];
-                    if($pttt == 2) {
-                        header('Location: ?act=ttqrmomo');
-                        die();
-                    }
+
                     date_default_timezone_set('Asia/Ho_Chi_Minh');
                     $ngaydh = date('Y-m-d');
                     $tonghd = $_SESSION['tongdh'];
                     $trangthai = $_POST['trangthai'];
                     $trangthaitt = $_POST['trangthaitt'];
 
+                    if ($diachi != null) {
+                        capnhat_diachi($diachi, $iduser);
+                    }
+                    $pttt = $_POST['pttt'];
+                    if ($pttt == 2) {
+                        header('Location: ?act=ttqrmomo');
+                        die();
+                    }
+                    if ($pttt == 3) {
+                        $trangthai = 4;
+                        $trangthaitt = 1;
+                        $idBill = insert_hoadon($ngaydh, $pttt, $tonghd, $trangthai, $trangthaitt, $iduser);
+                        foreach ($_SESSION['giohang'] as $carttt) {
+                            insert_billhoadon($idBill, $carttt['idsp'], $carttt['tensp'], $carttt['sizesp'], $carttt['giasp'], $carttt['tongspCart'], ($tongtien = $carttt['giasp'] * $carttt['tongspCart']));
+                        }
+                        include('view/thanhtoan/ttATMmomo.php');
+                        break;
+                    }
+
                     $idBill = insert_hoadon($ngaydh, $pttt, $tonghd, $trangthai, $trangthaitt, $iduser);
-                    foreach($_SESSION['giohang'] as $carttt) {
+                    foreach ($_SESSION['giohang'] as $carttt) {
                         insert_billhoadon($idBill, $carttt['idsp'], $carttt['tensp'], $carttt['sizesp'], $carttt['giasp'], $carttt['tongspCart'], ($tongtien = $carttt['giasp'] * $carttt['tongspCart']));
                     }
                     $tbdh = "Đặt hàng thành công! Cảm ơn quý khách đã ủng hộ shop của chúng tôi!";
@@ -225,6 +237,10 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'ttqrmomo':
             include('view/thanhtoan/xulyttmomo.php');
             break;
+        // THANH TOÁN BẰNG MOMO ATM CODE
+        case 'ttatmmomo':
+            include('view/thanhtoan/ttATMmomo.php');
+            break;
 
         case 'cthd':
             include('view/taikhoan/chitiethd.php');
@@ -232,15 +248,15 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         // XÁC NHẬN ĐÃ NHẬN ĐƯỢC ĐƠN HÀNG HOẶC HỦY ĐƠN HÀNG
         case 'xacnhandh':
-            if(isset($_GET['idhd']) && $_GET['idhd'] > 0) {
+            if (isset($_GET['idhd']) && $_GET['idhd'] > 0) {
                 $idhd = $_GET['idhd'];
                 $trangthai = $_GET['trangthai'];
                 $trangthaitt = $_GET['trangthaitt'];
-                if($trangthaitt == 1){
+                if ($trangthaitt == 1) {
                     xacnhanttdh($idhd, $trangthaitt);
                 }
                 xacnhandh($idhd, $trangthai);
-                header('Location: ?act=cthd&idhd='.$idhd.'');
+                header('Location: ?act=cthd&idhd=' . $idhd . '');
             }
             include('view/taikhoan/chitiethd.php');
             break;
@@ -251,12 +267,12 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         // CONTROLLER DANH MỤC ===============================================
         case 'danhmuc':
-            if((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
+            if ((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
                 $kyw = $_POST['kyw'];
             } else {
                 $kyw = "";
             }
-            if((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
+            if ((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
                 $iddm = $_GET['iddm'];
 
             } else {
@@ -269,12 +285,12 @@ if((isset($_GET['act'])) && ($_GET['act'] != "")) {
 
         // CONTROLLER SẢN PHẨM ===================================================
         case 'sanpham':
-            if((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
+            if ((isset($_POST['kyw'])) && ($_POST['kyw'] != "")) {
                 $kyw = $_POST['kyw'];
             } else {
                 $kyw = "";
             }
-            if((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
+            if ((isset($_GET['iddm'])) && ($_GET['iddm'] > 0)) {
                 $iddm = $_GET['iddm'];
             } else {
                 $iddm = 0;
