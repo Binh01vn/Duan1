@@ -70,7 +70,9 @@ if(!empty($_SESSION['username'])){
                                     if ($pttt == 1) {
                                         echo "Thanh toán trực tiếp";
                                     } else if ($pttt == 2) {
-                                        echo "Thanh toán MOMO";
+                                        echo "Thanh toán QR MOMO";
+                                    } else if ($pttt == 3) {
+                                        echo "Thanh toán ATM MOMO";
                                     }
                                     ?>
                                 </td>

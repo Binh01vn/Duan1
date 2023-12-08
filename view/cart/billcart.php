@@ -55,6 +55,7 @@ if(isset($_SESSION['username'])) {
                                 <select name="pttt">
                                     <option value="1">Thanh toán trực tiếp</option>
                                     <option value="2">Thanh toán QR MOMO</option>
+                                    <option value="3">Thanh toán ATM MOMO</option>
                                 </select>
                                 <input type="hidden" name="trangthai" value="0">
                                 <input type="hidden" name="trangthaitt" value="0">

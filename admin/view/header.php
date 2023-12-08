@@ -83,7 +83,7 @@
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php"
                                 aria-expanded="false">
                                 <i class="fa fa-font" aria-hidden="true"></i>
-                                <span class="hide-menu">Bảng biểu đồ</span>
+                                <span class="hide-menu">Biểu đồ doanh thu</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
