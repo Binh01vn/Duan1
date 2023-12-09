@@ -15904,6 +15904,7 @@ html body .waves-notransition {
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     gap: 50px;
+    margin-bottom: 20px;
 }
 
 .tkandlink form {

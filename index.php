@@ -207,7 +207,7 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
                         die();
                     }
                     if ($pttt == 3) {
-                        $trangthai = 4;
+                        $trangthai = 2;
                         $trangthaitt = 1;
                         $idBill = insert_hoadon($ngaydh, $pttt, $tonghd, $trangthai, $trangthaitt, $iduser);
                         foreach ($_SESSION['giohang'] as $carttt) {

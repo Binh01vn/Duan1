@@ -65,6 +65,7 @@ if(!empty($_SESSION['giohang'])) {
                                 }
                             }
                         } else {
+                            echo '<option value="0" selected>Chọn</option>';
                             foreach($listsizesp as $lssp) {
                                 if($lssp['id_sp'] == $product['id']) {
                                     echo '<option value="'.$lssp['sizesp'].'">'.$lssp['sizesp'].'</option>';
