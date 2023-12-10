@@ -173,7 +173,7 @@ if(!empty($_SESSION['username'])){
                         </div>
                         ';
                     } else {
-                        if ($trangthai_tt == 1 && $trangthaihd != 5) {
+                        if ($trangthai_tt == 1 && $trangthaihd == 5) {
                             echo
                                 '<div class="coupon">
                                     <a href="index.php?act=sanpham" class="button">Mua sắm thêm</a>
@@ -187,7 +187,7 @@ if(!empty($_SESSION['username'])){
                     }
                     ?>
                     <?php
-                    if ($trangthaihd == 0 || $trangthaihd == 1 || $trangthaihd == 2) {
+                    if ($trangthaihd == 0 || $trangthaihd == 1 || $trangthaihd == 2 && $trangthai_tt != 1) {
                         echo
                             '<div class="coupon2">
                             <a href="index.php?act=xacnhandh&trangthai=5&idhd=' . $idfhd . '" class="button">Hủy đơn hàng</a>

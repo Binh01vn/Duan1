@@ -42,7 +42,7 @@
                                 $linkcn = "index.php?act=cnhd&idhd=" . $id_hd;
                                 foreach ($listusers as $lus) {
                                     extract($lus);
-                                    if ($idacc == $iduser && $trangthai != 4 && $trangthaitt != 1) { ?>
+                                    if ($idacc == $iduser && $trangthai != 4) { ?>
                                         <tr>
                                             <td>#-
                                                 <?= $id_hd ?>
