@@ -157,7 +157,7 @@
                                             </a>
                                             <ul class="kenne-megamenu">
                                                 <li>
-                                                    <span class="megamenu-title">Mới</span>
+                                                    <span class="megamenu-title">Sản phẩm mới nhập</span>
                                                     <ul>
                                                         <?php
                                                         $spnew = list_spnew_home();
