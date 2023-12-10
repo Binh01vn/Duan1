@@ -6,6 +6,7 @@ foreach ($listhd as $lhd) {
         $idact = $iduser;
         $nd = $ngaydat;
         $thd = $tonghd;
+        $pt = $pttt;
         if ($trangthai == 4) {
             $s = "selected";
         } else {
@@ -55,13 +56,27 @@ foreach ($listhd as $lhd) {
                             </div>
                         </div>
                         <div class="form-group mb-4">
+                            <label class="col-md-12 p-0">Phương thức thanh toán</label>
+                            <div class="col-md-12 border-bottom p-0">
+                                <?php
+                                if ($pt == 1) {
+                                    echo '<input type="text" value="Thanh toán trực tiếp" class="form-control p-0 border-0" disabled>';
+                                } else if ($pt == 2) {
+                                    echo '<input type="text" value="Thanh toán QR MOMO" class="form-control p-0 border-0" disabled>';
+                                } else if ($pt == 3) {
+                                    echo '<input type="text" value="Thanh toán ATM MOMO" class="form-control p-0 border-0" disabled>';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
                             <label class="col-md-12 p-0">Nơi nhận hàng</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <input type="text" value="<?= $dcdh ?>" class="form-control p-0 border-0" disabled>
                             </div>
                         </div>
                         <div class="form-group mb-4">
-                            <label class="col-md-12 p-0">Trang thái</label>
+                            <label class="col-md-12 p-0">Trạng thái</label>
                             <div class="col-sm-12 border-bottom">
                                 <select class="form-select shadow-none p-0 border-0" name="trangthain">
                                     <option value="0">Chờ xác nhận</option>
@@ -133,14 +148,24 @@ foreach ($listhd as $lhd) {
                             foreach ($listbhd as $lbhd) {
                                 extract($lbhd);
                                 if ($_GET['idhd'] == $idhd) { ?>
-                            <tr>
-                                <td><?= $tspcart ?></td>
-                                <td><?= $soluongspcart ?></td>
-                                <td><?= $sizespcart ?></td>
-                                <td><?= number_format((int) $gspcart, 0, ",", ".") ?></td>
-                                <td><?= number_format((int) $tongtien, 0, ",", ".") ?></td>
-                            </tr>
-                            <?php }
+                                    <tr>
+                                        <td>
+                                            <?= $tspcart ?>
+                                        </td>
+                                        <td>
+                                            <?= $soluongspcart ?>
+                                        </td>
+                                        <td>
+                                            <?= $sizespcart ?>
+                                        </td>
+                                        <td>
+                                            <?= number_format((int) $gspcart, 0, ",", ".") ?>
+                                        </td>
+                                        <td>
+                                            <?= number_format((int) $tongtien, 0, ",", ".") ?>
+                                        </td>
+                                    </tr>
+                                <?php }
                             }
                             ?>
                         </tbody>
