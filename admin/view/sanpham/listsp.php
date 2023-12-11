@@ -52,7 +52,7 @@
                                 $delsp = "index.php?act=delsp&id=".$idsp;
                                 $imgpath = "../view/assets/images/product/".$imgsp;
                                 // if (is_file($imgpath)) {
-                                $img = "<img src='".$imgpath."' width='170px'>";
+                                $img = "<img src='".$imgpath."' width='150px'>";
                                 // } else {
                                 //     $img = "Không có hình upload";
                                 // }
